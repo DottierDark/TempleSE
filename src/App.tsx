@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import TopBar from "./Components/TopBar";
-import Login from "./Pages/Login";
-import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import TopBar from './Components/TopBar';
+import Login from './Pages/Login';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 	return (
