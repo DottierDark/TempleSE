@@ -1,188 +1,133 @@
 export type User = {
-	id: number;
+	userName: string;
 	name: string;
 	email: string;
 	role: string;
 };
 
 export type TLoginForm = {
-	id: number;
+	userName: string;
 	password: string;
 };
 
 export type TRegisterForm = {
-	name: string;
+	firstName: string;
+	lastName: string;
+	gender: string;
 	email: string;
 	password: string;
 	confirmPassword: string;
-	type: "student" | "advisor" | "admin";
-} & (StudentRegisterForm | AdvisorRegisterForm | {});
+	phoneNumber: number;
+	address: string;
+	area: string;
+	gov: string;
+	type: "Organization" | "Doctor" | "Teacher";
+} & (DoctorRegisterForm | OrganizationRegisterForm | TeacherRegisterForm | {});
 
-export type StudentRegisterForm = {
-	type: "student";
-	faculty: string;
-	major: string;
-	semester: number;
+export type DoctorRegisterForm = {
+	type: "Doctor";
+	medicalLicense: string;
+	specialty: string;
+	cases: number;
+};
+export type TeacherRegisterForm = {
+	type: "Teacher";
+	education: string;
+	subject: string;
+	cases: number;
 };
 
-export type AdvisorRegisterForm = {
-	type: "advisor";
-	office: string;
+export type OrganizationRegisterForm = {
+	type: "Organization";
+	Name: string;
+	Type: string;
 };
 
-export type TCourse = {
-	course_id: number;
-	name: string;
-	major: string;
-	is_offered: boolean;
-	credit_hours: string;
-	semester: number;
-};
+export type TCategories =
+	| "Clothes"
+	| "Toys"
+	| "Food"
+	| "Medical Supplies"
+	| "School Supplies"
+	| "Blood Donation";
 
-export type TCoursePrerequisite = TCourse & {
-	prerequisite_course_id: number;
-	prerequisite_course_name: string;
-};
-
-export type TMakeUpExam = {
-	course_id: number;
-	course_name: string;
-	course_semester: number;
-	exam_id: number;
-	date: string;
-	type: string;
-};
-
-export type TSlot = {
-	slot_id: number;
-	slot_day: string;
-	slot_time: string;
-	slot_location: string;
-	course_name: string;
-	course_id?: number;
-	instructor_name: string;
-};
-
-export type TSlotCoursesInstructors = {
-	slot_id: number;
-	slot_day: string;
-	slot_time: string;
-	slot_location: string;
-	course_id: number;
-	course_name: string;
-	instructor_name: string;
-};
-
-export type TStudentGradPlan = {
-	student_id: number;
-	student_name: string;
-	graduation_plan_id: number;
-	course_id: number;
-	course_name: string;
-	semester_code: number;
-	expected_graduation_date: string;
-	semester_credit_hours: number;
-	advisor_id: number;
-};
-
-export type TAdminGradPlan = {
-	plan_id: number;
-	semester_code: number;
-	semester_credit_hours: number;
-	expected_grad_date: string;
-	student_id: number;
-	advisor_id: number;
-	advisor_name: string;
-};
-
-export type TRequest = {
-	request_id: number;
-	type: string;
-	comment: string;
-	status: string;
-	credit_hours?: number;
-	student_id: number;
-	advisor_id: number;
-	course_id?: number;
-};
-
-export type TAdminRequest = TRequest & {
-	student_name: string;
-	advisor_name: string;
-};
-
-export type TRequestType = {
-	type: string;
-};
-
-export type TAdvisorStudent = {
-	student_id: number;
-	student_name: string;
-	student_major: string;
-	course_name: string;
-};
-
-export type TAdminStudent = {
-	student_id: number;
-	student_name: string;
-	major: string;
-	gpa: number;
-	faculty: string;
-	email: string;
-	password: string;
-	financial_status: boolean;
-	semester: number;
-	acquired_hours: number;
-	assigned_hours: number;
-};
-
-export type TAdminAdvisor = {
-	advisor_id: number;
-	name: string;
-	office: string;
-	email: string;
-	password: string;
-};
-
-export type TAdminAdvisorStudent = TAdminStudent & {
-	advisor_id: number;
-	advisor_name: string;
-};
-
-export type TAdminStudentCoursesTranscript = TAdminStudent & {
-	course_id: number;
-	course_name: string;
-	exam_type: string;
-	course_grade: string;
-	semester_code: string;
-	instructor_name: string;
-};
-
-export type TAdminPayment = {
-	student_id: number;
-	student_name: string;
-	payment_id: number;
+export type TDonationForm = {
 	amount: number;
-	deadline: string;
-	n_installments: number;
-	status: string;
-	fund_percentage: number;
-	start_date: string;
-	semester_code: string;
+	cause: string;
 };
 
-export type TAdminSemester = {
-	course_id: number;
-	course_name: string;
-	semester_code: string;
+export type TDonationItem =
+	| TStationaryItem
+	| TbookItem
+	| TtoyItem
+	| TfoodItem
+	| TmedicineSupplies
+	| TbloodDonation
+	| TteachingPost
+	| TmedicalCase;
+
+export type TStationaryItem = {
+	itemId: number;
+	quantity: number;
+	type: string;
 };
 
-export type TAdminInstructor = {
-	instructor_id: number;
-	instructor_name: string;
-	email: string;
-	faculty: string;
-	office: string;
-	course_id: number;
-	course_name: string;
+export type TbookItem = {
+	itemId: number;
+	quantity: number;
+	bookName: string;
+	author: string;
+	language: string;
+	edition: string;
+	summary: string;
+};
+
+export type TtoyItem = {
+	itemId: number;
+	quantity: number;
+	type: string;
+	ageGroup: string;
+	gender: string;
+	category: string;
+};
+
+export type TfoodItem = {
+	itemId: number;
+	name: string;
+	quantity: number;
+	type: string;
+};
+
+export type TmedicineSupplies = {
+	itemId: number;
+	type: string;
+	quantity: number;
+	use: string;
+};
+
+export type TbloodDonation = {
+	name: string;
+	bloodType: string;
+	hospital: string;
+	area: string;
+	gov: string;
+	address: string;
+};
+
+export type TteachingPost = {
+	students: number;
+	subject: string;
+	address: string;
+};
+
+export type TmedicalCase = {
+	patientName: string;
+	age: number;
+	gender: string;
+	weight: number;
+	location: string;
+	address: string;
+	specialty: string;
+	description: string;
+	orgName: string;
 };
