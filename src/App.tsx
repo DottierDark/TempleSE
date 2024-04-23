@@ -1,8 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import TopBar from './Components/TopBar';
-import Login from './Pages/Login';
-import { Toaster } from 'react-hot-toast';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import TopBar from "./Components/TopBar";
+import Login from "./Pages/Login";
+import AdminHome from "./Pages/Admin/Home";
+import { Toaster } from "react-hot-toast";
+import DonorHome from "./Pages/Donor/Home";
+import OrgHome from "./Pages/Org/Home";
 
 function App() {
 	return (
@@ -15,6 +18,9 @@ function App() {
 			/>
 			<Routes>
 				<Route path="/" element={<Login />} />
+				<Route path="/Admin" element={<AdminHome />} />
+				<Route path="/Donor" element={<DonorHome />} />
+				<Route path="/Org" element={<OrgHome />} />
 			</Routes>
 		</BrowserRouter>
 	);
