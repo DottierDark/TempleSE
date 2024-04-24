@@ -1,80 +1,101 @@
 import { useEffect, useState } from "react";
-import { loginButtonClass, loginContainerClass } from "../assets/Styles";
 import { useNavigate } from "react-router-dom";
+import {
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "../Components/shadcn/components/ui/form";
+import { Input } from "../Components/shadcn/components/ui/input";
+import { z } from "zod";
+import { Button } from "../Components/shadcn/components/ui/button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginContainerClass } from "../assets/Styles";
 
-export default function Login() {	;
-	const [formType, setFormType] = useState<"login">("login");
-	
+export default function Login() {
 	const navigate = useNavigate();
+	const formSchema = z.object({
+		username: z.string().min(2, {
+			message: "Username must be at least 2 characters.",
+		}),
+		password: z.string().min(6, {
+			message: "Password must be at least 6 characters.",
+		}),
+	});
+	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
+		defaultValues: {
+			username: "",
+			password: "",
+		},
+	});
 
-	useEffect(() => {
-		const id = localStorage.getItem("user");
-		const type = localStorage.getItem("type");
-
-		if (id && type) {
-			navigate(`/${type}`);
+	function onSubmit(values: z.infer<typeof formSchema>) {
+		if (values.username === "Admin" && values.password === "Admin") {
+			localStorage.setItem("auth", "true");
+			navigate("/admin");
 		}
-	}, [navigate]);
-
-
+	}
 
 	return (
-			
 		<div className="flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			<div
-				className={`${loginContainerClass}, ${
-					formType === "login"
-						? "h-[85vh] duration-280 ease-in-out"
-						: "h-[85vh] duration-280 ease-in-out"
-				}`}
-			>
-				<div className="flex flex-col items-center gap-5">
+			<div className={`${loginContainerClass}`}>
+				<div className="flex w-full flex-col items-center gap-5">
 					<h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
-						{formType === "login" ? "Login" : "Signup"}
+						Login
 					</h1>
 					<p
-						className=" cursor-pointer font-medium text-primary-500 hover:underline"
-						onClick={() =>
-							setFormType(
-								formType === "login" ? "signup" : "login",
-							)
-						}
+						className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
+						onClick={() => navigate("/register")}
 					>
-						{formType === "login"
-							? "Don't have an account?"
-							: "Already have an account?"}{" "}
-						<span
-							className="cursor-pointer text-blue-500"
-							onClick={() =>
-								setFormType(
-									formType === "login" ? "signup" : "login",
-								)
-							}
-						>
-							{"Login"}
-						</span>
+						Don't have an account? Register here.
 					</p>
-					<button>	
-						{(
-							<div className="flex flex-col gap-4 w-full">
-								<input
-									type="text"
-									placeholder="Email"
-									className="block w-full rounded-lg border  border-gray-600  bg-gray-700 p-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-								/>
-								<input
-									type="password"
-									placeholder="Password"
-									className="block w-full rounded-lg border  border-gray-600  bg-gray-700 p-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-								/>
-							</div>
-						)}
-						<br></br>
-						<button className={loginButtonClass} >
-                            {"Login"}
-                        </button>
-					</button>
-					
+				</div>
+				<div>
+					<Form {...form}>
+						<form
+							onSubmit={form.handleSubmit(onSubmit)}
+							className="flex h-96 w-full flex-col items-center justify-center gap-4 text-white md:w-96"
+						>
+							<FormField
+								control={form.control}
+								name="username"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Username</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="shadcn"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="password"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Password</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="password123"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<Button type="submit">Submit</Button>
+						</form>
+					</Form>
 				</div>
 			</div>
 		</div>

@@ -6,6 +6,7 @@ import AdminHome from "./Pages/Admin/Home";
 import { Toaster } from "react-hot-toast";
 import DonorHome from "./Pages/Donor/Home";
 import OrgHome from "./Pages/Org/Home";
+import Register from "./Pages/Register";
 
 function App() {
 	return (
@@ -17,8 +18,8 @@ function App() {
 				className="custom-scrollbar absolute flex h-screen w-full items-center justify-center empty:hidden"
 			/>
 			<Routes>
-        		<Route path="/" element={<Login />} /> {/* Login page at root path */}
-        		<Route path="/signup" element={<Signup />} /> {/* Signup page at /signup path */}
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
 				<Route path="/Admin" element={<AdminHome />} />
 				<Route path="/Donor" element={<DonorHome />} />
 				<Route path="/Org" element={<OrgHome />} />
@@ -28,6 +29,3 @@ function App() {
 }
 
 export default App;
-
-
-
