@@ -17,7 +17,8 @@ function App() {
 				className="custom-scrollbar absolute flex h-screen w-full items-center justify-center empty:hidden"
 			/>
 			<Routes>
-				<Route path="/" element={<Login />} />
+        		<Route path="/" element={<Login />} /> {/* Login page at root path */}
+        		<Route path="/signup" element={<Signup />} /> {/* Signup page at /signup path */}
 				<Route path="/Admin" element={<AdminHome />} />
 				<Route path="/Donor" element={<DonorHome />} />
 				<Route path="/Org" element={<OrgHome />} />
@@ -27,3 +28,6 @@ function App() {
 }
 
 export default App;
+
+
+
