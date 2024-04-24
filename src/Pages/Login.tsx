@@ -15,6 +15,9 @@ import { Button } from "../Components/shadcn/components/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
+import { Card } from "../Components/shadcn/components/ui/card";
+import { adminUser } from "../assets/DummyData";
+import { User } from "../types";
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -35,15 +38,19 @@ export default function Login() {
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		if (values.username === "Admin" && values.password === "Admin") {
-			localStorage.setItem("auth", "true");
+		if (
+			adminUser.username === values.username &&
+			adminUser.password === values.password
+		) {
 			navigate("/admin");
+		} else {
+			alert("Invalid username or password");
 		}
 	}
 
 	return (
 		<div className="flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			<div className={`${loginContainerClass}`}>
+			<Card className={`${loginContainerClass}`}>
 				<div className="flex w-full flex-col items-center gap-5">
 					<h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
 						Login
@@ -97,7 +104,7 @@ export default function Login() {
 						</form>
 					</Form>
 				</div>
-			</div>
+			</Card>
 		</div>
 	);
 }
