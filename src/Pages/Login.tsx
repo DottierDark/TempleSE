@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -23,21 +21,24 @@ export default function Login() {
 	const navigate = useNavigate();
 	const formSchema = z.object({
 		username: z.string().min(2, {
-			message: "Username must be at least 2 characters.",
+			message: 'Username must be at least 2 characters.',
 		}),
 		password: z.string().min(6, {
-			message: "Password must be at least 6 characters.",
+			message: 'Password must be at least 6 characters.',
 		}),
 	});
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			username: "",
-			password: "",
+			username: '',
+			password: '',
 		},
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
+		if (values.username === 'Admin' && values.password === 'Admin') {
+			localStorage.setItem('auth', 'true');
+			navigate('/admin');
 		if (
 			adminUser.username === values.username &&
 			adminUser.password === values.password
@@ -57,7 +58,7 @@ export default function Login() {
 					</h1>
 					<p
 						className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
-						onClick={() => navigate("/register")}
+						onClick={() => navigate('/register')}
 					>
 						Don't have an account? Register here.
 					</p>
@@ -75,10 +76,7 @@ export default function Login() {
 									<FormItem>
 										<FormLabel>Username</FormLabel>
 										<FormControl>
-											<Input
-												placeholder="shadcn"
-												{...field}
-											/>
+											<Input placeholder="shadcn" {...field} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -91,10 +89,7 @@ export default function Login() {
 									<FormItem>
 										<FormLabel>Password</FormLabel>
 										<FormControl>
-											<Input
-												placeholder="password123"
-												{...field}
-											/>
+											<Input placeholder="password123" {...field} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>

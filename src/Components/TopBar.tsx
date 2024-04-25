@@ -8,73 +8,88 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
+	navigationMenuTriggerStyle,
 } from './shadcn/ui/navigation-menu';
 import { TNavigationMenuTab } from '../types';
+import React from 'react';
+import { cn } from './shadcn/lib/utils';
 
 export default function TopBar() {
 	const navigate = useNavigate();
 
-	const [id, setId] = useState<string | null>(null);
 	const [type, setType] = useState<string | null>(null);
 
 	const onLogout = () => {
 		localStorage.clear();
-		setId(null);
 		setType(null);
 		navigate('/');
 	};
 
+	useEffect(() => {
+		setType(localStorage.getItem('type'));
+	}, []);
+
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
 			name: 'Menu',
+			key: 'menu',
 			links: [
 				{
 					name: 'Home',
-					path: '/',
+					key: 'home',
+					href: '/',
 				},
 				{
 					name: 'Register',
-					path: '/register',
+					key: 'register',
+					href: '/register',
 				},
 			],
 		},
 		{
 			name: 'Admin',
+			key: 'admin',
 			links: [
 				{
 					name: 'Home',
-					path: '/admin',
+					key: 'home',
+					href: '/admin',
 				},
 			],
 		},
 		{
 			name: 'Donor',
+			key: 'donor',
 			links: [
 				{
 					name: 'Home',
-					path: '/donor',
+					key: 'home',
+					href: '/donor',
 				},
 			],
 		},
 		{
 			name: 'Organisation',
+			key: 'organisation',
 			links: [
 				{
 					name: 'Home',
-					path: '/organisation',
+					key: 'home',
+					href: '/organisation',
 				},
 			],
 		},
 		{
+			name: 'Register',
+			key: 'donor',
+			href: '/register',
+		},
+		{
 			name: 'Logout',
-			path: '/',
+			key: 'logout',
+			href: '/',
 		},
 	];
-
-	useEffect(() => {
-		setId(localStorage.getItem('user'));
-		setType(localStorage.getItem('type'));
-	}, []);
 
 	return (
 		<div
@@ -85,51 +100,46 @@ export default function TopBar() {
 			}}
 		>
 			<div className="flex items-center gap-4">
-				{id && (
-					<button
-						onClick={() => {
-							navigate(`/${type}`);
-						}}
-					>
-						<HomeIcon size={30} className="cursor-pointer text-white" />
-					</button>
-				)}
-				<h1 className="text-3xl font-bold text-white">
-					{id && <span>{`${type} ${id}`}</span>} Portal
-				</h1>
+				<button
+					onClick={() => {
+						navigate(`/${type}`);
+					}}
+				>
+					<HomeIcon size={30} className="cursor-pointer text-white" />
+				</button>
+				<h1 className="text-3xl font-bold text-white">{type} Portal</h1>
 			</div>
-			<NavigationMenu>
+			<NavigationMenu className="mr-60">
 				<NavigationMenuList>
 					{navigationMenu.map((tab) => (
-						<NavigationMenuItem key={tab.name}>
-							<NavigationMenuTrigger
-								onClick={() => {
-									if (tab.path) {
-										navigate(tab.path);
-									}
-								}}
-							>
-								{tab.name}
-							</NavigationMenuTrigger>
-							{tab.links && (
-								<NavigationMenuContent>
-									{tab.links?.map((link) => (
-										<NavigationMenuLink
-											key={link.name}
-											onClick={() => {
-												navigate(link.path);
-											}}
-										>
-											{link.name}
-										</NavigationMenuLink>
-									))}
-								</NavigationMenuContent>
+						<NavigationMenuItem key={tab.key}>
+							{tab.links ? (
+								<>
+									<NavigationMenuTrigger>{tab.name}</NavigationMenuTrigger>
+									<NavigationMenuContent>
+										<ul className="grid p-2 w-96 md:grid-cols-2 lg:w-[600px]">
+											{tab.links.map((link) => (
+												<ListItem
+													key={link.key}
+													href={link.href}
+													title={link.name}
+												>
+													{link.name}
+												</ListItem>
+											))}
+										</ul>
+									</NavigationMenuContent>
+								</>
+							) : (
+								<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+									{tab.name}
+								</NavigationMenuLink>
 							)}
 						</NavigationMenuItem>
 					))}
 				</NavigationMenuList>
 			</NavigationMenu>
-			{id && (
+			{type && (
 				<button className="" onClick={() => onLogout()}>
 					<LogOut className="cursor-pointer text-white" size={30} />
 				</button>
@@ -137,3 +147,29 @@ export default function TopBar() {
 		</div>
 	);
 }
+
+const ListItem = React.forwardRef<
+	React.ElementRef<'a'>,
+	React.ComponentPropsWithoutRef<'a'>
+>(({ className, title, children, ...props }, ref) => {
+	return (
+		<li>
+			<NavigationMenuLink asChild>
+				<a
+					ref={ref}
+					className={cn(
+						'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+						className
+					)}
+					{...props}
+				>
+					<div className="text-sm font-medium leading-none">{title}</div>
+					<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+						{children}
+					</p>
+				</a>
+			</NavigationMenuLink>
+		</li>
+	);
+});
+ListItem.displayName = 'ListItem';

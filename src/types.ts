@@ -132,9 +132,11 @@ export type TMedicalCase = {
 
 export type TNavigationMenuTab = {
 	name: string;
-	path?: string;
+	href?: string;
+	key: string;
 	links?: {
 		name: string;
-		path: string;
+		key: string;
+		href: string;
 	}[];
 };
