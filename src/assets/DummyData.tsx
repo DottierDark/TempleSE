@@ -1,3 +1,16 @@
+import {
+	TBloodDonation,
+	TBookItem,
+	TClothesItem,
+	TDonationItem,
+	TFoodItem,
+	TMedicalCase,
+	TMedicineSupplies,
+	TStationaryItem,
+	TTeachingPost,
+	TToyItem,
+} from "../types";
+
 export const adminUser = {
 	id: 1,
 	username: "admin",
@@ -60,138 +73,272 @@ export const organizations = [
 	},
 ];
 
-export const donations = [
+export const books: TBookItem[] = [];
+export const foods: TFoodItem[] = [
 	{
 		id: 1,
-		organizationId: 1,
-		category: "Clothes",
-		title: "Winter Coats",
-		description: "Gently used winter coats for all sizes",
-		quantity: 10,
-		images: ["image1.jpg", "image2.jpg"],
-		status: "Pending",
-	},
-	{
-		id: 2,
-		organizationId: 2,
-		category: "Furniture",
-		title: "Couch",
-		description: "Gently used couch",
-		quantity: 1,
-		images: ["image3.jpg", "image4.jpg"],
-		status: "Approved",
-	},
-	{
-		id: 3,
-		organizationId: 3,
-		category: "Electronics",
-		title: "Laptop",
-		description: "Gently used laptop",
-		quantity: 1,
-		images: ["image5.jpg", "image6.jpg"],
-		status: "Pending",
-	},
-];
-export const books = [
-	{
-		id: 1,
-		name: "The Alchemist",
-		author: "Paulo Coelho",
-		language: "English",
-		edition: "1st",
-		summary: "A story about following your dreams",
-		image: "image1.jpg",
-		quantity: 5,
-	},
-	{
-		id: 2,
-		name: "The Great Gatsby",
-		author: "F. Scott Fitzgerald",
-		language: "English",
-		edition: "1st",
-		summary: "A story about the American Dream",
-		image: "image2.jpg",
-		quantity: 10,
-	},
-	{
-		id: 3,
-		name: "Pride and Prejudice",
-		author: "Jane Austen",
-		language: "English",
-		edition: "1st",
-		summary: "A story about love and class",
-		image: "image3.jpg",
-		quantity: 7,
-	},
-];
-
-export const toys = [
-	{
-		id: 1,
-		name: "LEGO Classic Creative Bricks",
-		brand: "LEGO",
-		age: "4+",
-		type: "Building",
-		quantity: 10,
-	},
-	{
-		id: 2,
-		name: "Barbie Dreamhouse",
-		brand: "Barbie",
-		age: "3+",
-		type: "Doll",
-		quantity: 5,
-	},
-	{
-		id: 3,
-		name: "Hot Wheels Track Builder",
-		brand: "Hot Wheels",
-		age: "5+",
-		type: "Car",
-		quantity: 8,
-	},
-];
-export const foods = [
-	{
-		id: 1,
-		name: "Canned Soup",
-		quantity: 10,
-		type: "Non-perishable",
-	},
-	{
-		id: 2,
-		name: "Fresh Fruit",
-		quantity: 20,
-		type: "Perishable",
-	},
-	{
-		id: 3,
-		name: "Pasta",
-		quantity: 15,
-		type: "Non-perishable",
-	},
-];
-
-export const medicalSupplies = [
-	{
-		id: 1,
-		type: "Masks",
-		quantity: 100,
-		use: "General",
-		imgsrc: "image1.jpg",
-	},
-	{
-		id: 2,
-		type: "Gloves",
-		quantity: 200,
-		use: "General",
-		imgsrc: "image1.jpg",
-	},
-	{
-		id: 3,
-		type: "Bandages",
+		name: "Canned Food",
+		type: "General",
 		quantity: 50,
+		img: "image1.jpg",
+	},
+	{
+		id: 2,
+		name: "Fresh Produce",
+		type: "General",
+		quantity: 30,
+		img: "image2.jpg",
+	},
+	{
+		id: 3,
+		name: "Frozen Food",
+		type: "General",
+		quantity: 20,
+		img: "image3.jpg",
+	},
+];
+
+export const medicalSupplies: TMedicineSupplies[] = [
+	{
+		id: 1,
+		name: "Masks",
+		type: "General",
+		quantity: 100,
+		img: "image1.jpg",
 		use: "General",
-		imgsrc: "image1.jpg",
+	},
+	{
+		id: 2,
+		name: "Gloves",
+		type: "General",
+		quantity: 50,
+		img: "image2.jpg",
+		use: "General",
+	},
+	{
+		id: 3,
+		name: "Sanitizer",
+		type: "General",
+		quantity: 30,
+		img: "image3.jpg",
+		use: "General",
+	},
+];
+export const schoolSupplies: TStationaryItem[] = [
+	{
+		id: 1,
+		name: "Pencils",
+		type: "General",
+		quantity: 100,
+		img: "image1.jpg",
+	},
+	{
+		id: 2,
+		name: "Notebooks",
+		type: "General",
+		quantity: 50,
+		img: "image2.jpg",
+	},
+	{
+		id: 3,
+		name: "Backpacks",
+		type: "General",
+		quantity: 30,
+		img: "image3.jpg",
+	},
+];
+
+export const bloodCases: TBloodDonation[] = [
+	{
+		id: 1,
+		name: "item 1",
+		quantity: 100,
+		img: "image1.jpg",
+		bloodType: "O+",
+		hospital: "Hospital 1",
+		area: "Area 1",
+		gov: "Gov 1",
+		address: "Address 1",
+	},
+	{
+		id: 2,
+		name: "item 2",
+		bloodType: "A+",
+		quantity: 50,
+		img: "image2.jpg",
+		hospital: "Hospital 2",
+		area: "Area 2",
+		gov: "Gov 2",
+		address: "Address 2",
+	},
+	{
+		id: 3,
+		name: "item 3",
+		bloodType: "B+",
+		quantity: 30,
+		img: "image3.jpg",
+		hospital: "Hospital 3",
+		area: "Area 3",
+		gov: "Gov 3",
+		address: "Address 3",
+	},
+];
+
+export const teachingPosts: TTeachingPost[] = [
+	{
+		id: 1,
+		name: "Math Teacher",
+		quantity: 1,
+		img: "image1.jpg",
+		subject: "Math",
+		students: 30,
+		address: "Address 1",
+	},
+	{
+		id: 2,
+		name: "Science Teacher",
+		quantity: 1,
+		img: "image2.jpg",
+		subject: "Science",
+		students: 40,
+		address: "Address 2",
+	},
+	{
+		id: 3,
+		name: "English Teacher",
+		quantity: 1,
+		img: "image3.jpg",
+		subject: "English",
+		students: 50,
+		address: "Address 3",
+	},
+];
+
+export const medicalCases: TMedicalCase[] = [
+	{
+		id: 1,
+		name: "Covid-19",
+		quantity: 100,
+		img: "image1.jpg",
+		patientName: "John Doe",
+		age: 30,
+		gender: "male",
+		weight: 150,
+		location: "Hospital 1",
+		address: "Address 1",
+		specialty: "General",
+		description: "Description 1",
+		orgName: "Org 1",
+	},
+	{
+		id: 2,
+		name: "Covid-19",
+		quantity: 200,
+		img: "",
+		patientName: "John Doe",
+		age: 50,
+		gender: "male",
+		weight: 90,
+		location: "Hospital 2",
+		address: "Address 2",
+		specialty: "throat",
+		description: "Description 2",
+		orgName: "Org 2",
+	},
+	{
+		id: 3,
+		name: "Covid-19",
+		quantity: 100,
+		img: "image1.jpg",
+		patientName: "John Doe",
+		age: 50,
+		gender: "female",
+		weight: 300,
+		location: "Hospital 3",
+		address: "Address 3",
+		specialty: "back",
+		description: "Description 3",
+		orgName: "Org 3",
+	},
+];
+
+export const toys: TToyItem[] = [
+	{
+		id: 1,
+		name: "Lego",
+		type: "General",
+		ageGroup: "All",
+		quantity: 100,
+		img: "image1.jpg",
+		gender: "male",
+		category: "board games",
+	},
+	{
+		id: 2,
+		name: "Barbie",
+		type: "General",
+		ageGroup: "+3",
+		quantity: 50,
+		img: "image2.jpg",
+		gender: "female",
+		category: "dolls",
+	},
+	{
+		id: 3,
+		name: "Hot Wheels",
+		type: "General",
+		ageGroup: "All",
+		quantity: 30,
+		img: "image3.jpg",
+		gender: "all",
+		category: "cars",
+	},
+];
+export const clothes: TClothesItem[] = [
+	{
+		id: 1,
+		name: "Shirt",
+		type: "General",
+		quantity: 100,
+		img: "image1.jpg",
+		size: "M",
+	},
+	{
+		id: 2,
+		name: "Pants",
+		type: "General",
+		quantity: 50,
+		img: "image2.jpg",
+		size: "L",
+	},
+	{
+		id: 3,
+		name: "Jacket",
+		type: "General",
+		quantity: 30,
+		img: "image3.jpg",
+		size: "S",
+	},
+];
+
+export const toysFilterOptions = [
+	{
+		name: "Age Group",
+		options: ["All", "+3", "+5", "+7", "+9", "+12"],
+	},
+	{
+		name: "Category",
+		options: [
+			"board games",
+			"stuffed toys",
+			"dolls",
+			"sports",
+			"cars",
+			"Outdoor",
+		],
+	},
+	{
+		name: "Gender",
+		options: ["all", "female", "male"],
 	},
 ];

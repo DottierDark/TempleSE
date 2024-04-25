@@ -19,104 +19,104 @@ export type TRegisterForm = {
 	address: string;
 	area: string;
 	gov: string;
-	type: 'Organization' | 'Doctor' | 'Teacher';
+	type: "Organization" | "Doctor" | "Teacher";
 } & (DoctorRegisterForm | OrganizationRegisterForm | TeacherRegisterForm | {});
 
 export type DoctorRegisterForm = {
-	type: 'Doctor';
+	type: "Doctor";
 	medicalLicense: string;
 	specialty: string;
 	cases: number;
 };
 export type TeacherRegisterForm = {
-	type: 'Teacher';
+	type: "Teacher";
 	education: string;
 	subject: string;
 	cases: number;
 };
 
 export type OrganizationRegisterForm = {
-	type: 'Organization';
+	type: "Organization";
 	Name: string;
 	Type: string;
 };
 
 export type TCategories =
-	| 'Clothes'
-	| 'Toys'
-	| 'Food'
-	| 'Medical Supplies'
-	| 'School Supplies'
-	| 'Blood Donation';
+	| "Clothes"
+	| "Toys"
+	| "Food"
+	| "Medical Supplies"
+	| "School Supplies"
+	| "Blood Donation"
+	| "Teaching Post"
+	| "Medical Case"
+	| "Book"
+	| "Stationary"
+	| "Donation"
+	| string;
 
 export type TDonationForm = {
 	amount: number;
 	cause: string;
 };
 
-export type TDonationItem =
-	| TStationaryItem
-	| TBookItem
-	| TToyItem
-	| TFoodItem
-	| TMedicineSupplies
-	| TBloodDonation
-	| TTeachingPost
-	| TMedicalCase;
-
-export type TStationaryItem = {
-	itemId: number;
+export type TDonationItem = {
+	id: number;
+	name: string;
+	img: string;
 	quantity: number;
-	type: string;
 };
+export type TStationaryItem = {
+	type: string;
+} & TDonationItem;
+export type TClothesItem = {
+	size: string;
+	type: string;
+} & TDonationItem;
 
 export type TBookItem = {
-	itemId: number;
-	quantity: number;
 	bookName: string;
 	author: string;
 	language: string;
 	edition: string;
 	summary: string;
-};
+} & TDonationItem;
 
 export type TToyItem = {
-	itemId: number;
-	quantity: number;
 	type: string;
 	ageGroup: string;
-	gender: string;
-	category: string;
-};
+	gender: "male" | "female" | "all";
+	category:
+		| "board games"
+		| "stuffed toys"
+		| "dolls"
+		| "sports"
+		| "cars"
+		| "Outdoor";
+} & TDonationItem;
 
 export type TFoodItem = {
-	itemId: number;
-	name: string;
-	quantity: number;
 	type: string;
-};
+} & TDonationItem;
 
 export type TMedicineSupplies = {
-	itemId: number;
 	type: string;
-	quantity: number;
 	use: string;
-};
+} & TDonationItem;
 
 export type TBloodDonation = {
-	name: string;
 	bloodType: string;
 	hospital: string;
 	area: string;
 	gov: string;
 	address: string;
-};
+} & TDonationItem;
 
 export type TTeachingPost = {
 	students: number;
 	subject: string;
 	address: string;
-};
+} & TDonationItem;
 
 export type TMedicalCase = {
 	patientName: string;
@@ -128,7 +128,7 @@ export type TMedicalCase = {
 	specialty: string;
 	description: string;
 	orgName: string;
-};
+} & TDonationItem;
 
 export type TNavigationMenuTab = {
 	name: string;
