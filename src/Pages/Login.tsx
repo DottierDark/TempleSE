@@ -8,14 +8,14 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../Components/shadcn/components/ui/form";
-import { Input } from "../Components/shadcn/components/ui/input";
+} from "../Components/shadcn/ui/form";
+import { Input } from "../Components/shadcn/ui/input";
 import { z } from "zod";
-import { Button } from "../Components/shadcn/components/ui/button";
+import { Button } from "../Components/shadcn/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
-import { Card } from "../Components/shadcn/components/ui/card";
+import { Card } from "../Components/shadcn/ui/card";
 import { adminUser } from "../assets/DummyData";
 import { User } from "../types";
 

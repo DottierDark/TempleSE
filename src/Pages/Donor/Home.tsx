@@ -1,4 +1,4 @@
-import { Card } from "../../Components/shadcn/components/ui/card";
+import { Card } from "../../Components/shadcn/ui/card";
 import { useNavigate } from "react-router-dom";
 import clothes from "../../assets/Images/clothes-donation.jpeg";
 import toys from "../../assets/Images/toys-donations.jpeg";
