@@ -39,7 +39,6 @@ export default function ViewList(category: any) {
 
 	let items: any[] = [];
 	let filterOptions: any[] = [];
-	console.log(data);
 
 	switch (category.category) {
 		case 'Clothes':
