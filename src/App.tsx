@@ -8,6 +8,11 @@ import DonorHome from "./Pages/Donor/Home";
 import OrgHome from "./Pages/Organisation/Home";
 import Register from "./Pages/Register";
 import Toys from "./Pages/Donor/Views/Toys";
+import Clothes from "./Pages/Donor/Views/Clothes";
+import Food from "./Pages/Donor/Views/Food";
+import MedicalSupplies from "./Pages/Donor/Views/MedicalSupplies";
+import SchoolSupplies from "./Pages/Donor/Views/SchoolSupplies";
+import Blood from "./Pages/Donor/Views/Blood";
 
 function App() {
 	return (
@@ -24,6 +29,17 @@ function App() {
 				<Route path="/admin" element={<AdminHome />} />
 				<Route path="/donor" element={<DonorHome />} />
 				<Route path="/donor/toys" element={<Toys />} />
+				<Route path="/donor/clothes" element={<Clothes />} />
+				<Route path="/donor/food" element={<Food />} />
+				<Route
+					path="/donor/medical-supplies"
+					element={<MedicalSupplies />}
+				/>
+				<Route
+					path="/donor/school-supplies"
+					element={<SchoolSupplies />}
+				/>
+				<Route path="/donor/blood-donation" element={<Blood />} />
 				<Route path="/organisation" element={<OrgHome />} />
 			</Routes>
 		</BrowserRouter>
