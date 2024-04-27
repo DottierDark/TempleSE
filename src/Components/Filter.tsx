@@ -114,7 +114,7 @@ export default function Filter({
 	}, [dummyData, filters]);
 
 	return (
-		<div className="flex flex-col h-full w-90 gap-5">
+		<div className="sticky w-[20%] bg-gray-800 flex flex-col gap-5">
 			<DropdownMenu.Root modal={false}>
 				<DropdownMenu.Trigger className="flex w-fit items-center gap-2 rounded-2xl bg-blue-400 p-2 text-sm sm:text-base">
 					<PlusCircle size={20} />
@@ -150,24 +150,26 @@ export default function Filter({
 					</DropdownMenu.Content>
 				</DropdownMenu.Portal>
 			</DropdownMenu.Root>
-			{filters.map((filter, i) => (
-				<div
-					key={i}
-					className="mr-2 flex items-center rounded-md bg-blue-400 px-2 py-1"
-				>
-					{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
-					{filter[Object.keys(filter)[0]].value}
-					<button
-						type="button"
-						className="ml-2"
-						onClick={() => {
-							setFilters(filters.filter((_, j) => i !== j));
-						}}
+			<div className="flex flex-col gap-4">
+				{filters.map((filter, i) => (
+					<div
+						key={i}
+						className="mr-2 flex items-center rounded-md bg-blue-400 px-2 py-1"
 					>
-						<MinusCircle size={20} />
-					</button>
-				</div>
-			))}
+						{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
+						{filter[Object.keys(filter)[0]].value}
+						<button
+							type="button"
+							className="ml-2"
+							onClick={() => {
+								setFilters(filters.filter((_, j) => i !== j));
+							}}
+						>
+							<MinusCircle size={20} />
+						</button>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
