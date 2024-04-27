@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { medicalSupplies } from "../../../assets/DummyData";
+import { medicalSupplies } from "../../../assets/dummyData";
 
 export default function Medical(id: number) {
 	const supply = medicalSupplies.find((item) => item.id === id);

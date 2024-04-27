@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { toys } from "../../../assets/DummyData";
+import { toys } from "../../../assets/dummyData";
 
 export default function Toy(id: number) {
 	const toy = toys.find((item) => item.id === id);

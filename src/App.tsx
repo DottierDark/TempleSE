@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 import DonorHome from "./Pages/Donor/Home";
 import OrgHome from "./Pages/Organisation/Home";
 import Register from "./Pages/Register";
-import Toys from "./Pages/Donor/views/Toys";
+import Toys from "./Pages/Donor/Views/Toys";
 
 function App() {
 	return (

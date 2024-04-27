@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
 import { Card } from "../Components/shadcn/ui/card";
-import { adminUser } from "../assets/DummyData";
+import { adminUser } from "../assets/dummyData";
 import { User } from "../types";
 
 export default function Login() {
