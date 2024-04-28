@@ -57,7 +57,7 @@ export default function Register() {
 		city: z.string().min(2, {
 			message: "City must be at least 2 characters.",
 		}),
-		gender: z.string().optional(),
+		donor_type: z.string().optional(),
 		subjects: z.string().optional(),
 		classes: z.string().optional(),
 		credentials: z.string().optional(),
@@ -164,7 +164,7 @@ export default function Register() {
 											<FormLabel>First Name</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="John"
+													placeholder="ahmed"
 													{...field}
 												/>
 											</FormControl>
@@ -185,7 +185,7 @@ export default function Register() {
 											<FormLabel>Last Name</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="Doe"
+													placeholder="mohamed"
 													{...field}
 												/>
 											</FormControl>
@@ -206,7 +206,7 @@ export default function Register() {
 											<FormLabel>Email</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="johndoe@gmail.com"
+													placeholder="ahmed123@gmail.com"
 													{...field}
 												/>
 											</FormControl>
@@ -250,7 +250,7 @@ export default function Register() {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="1234567890"
+													placeholder="01000100022"
 													{...field}
 												/>
 											</FormControl>
@@ -265,10 +265,35 @@ export default function Register() {
 								/>
 								<FormField
 									control={formDonor.control}
-									name="gender"
+									name="donor_type"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>Gender</FormLabel>
+											<FormLabel>Donor Type</FormLabel>
+											<FormControl>
+												<select
+													{...field}
+													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+												>
+													<option value="Regular">
+														male
+													</option>
+													<option value="Doctor">
+														female
+													</option>
+													<option value="Teacher">
+														other
+													</option>
+												</select>
+											</FormControl>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="donor_type"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>donor_type</FormLabel>
 											<FormControl>
 												<select
 													{...field}
