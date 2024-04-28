@@ -10,7 +10,7 @@ import { Table ,
 
 import { useNavigate } from "react-router-dom";
 
-export default function DonorRequets() {
+export default function DonorRequests() {
 
 const navigate = useNavigate();
 

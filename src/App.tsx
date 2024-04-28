@@ -13,6 +13,10 @@ import Food from "./Pages/Donor/Views/Food";
 import MedicalSupplies from "./Pages/Donor/Views/MedicalSupplies";
 import SchoolSupplies from "./Pages/Donor/Views/SchoolSupplies";
 import Blood from "./Pages/Donor/Views/Blood";
+import DonorRequests from "./Pages/Admin/Views/DonorRequests";
+import RegisteredOrganizations from "./Pages/Admin/Views/RegisteredOrganizations";
+import OrganizationRequests from "./Pages/Admin/Views/OrganizationRequests";
+
 
 function App() {
 	return (
@@ -27,6 +31,9 @@ function App() {
 				<Route path="/" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/admin" element={<AdminHome />} />
+				<Route path="/admin/DonorRequests" element={<DonorRequests />} />
+				<Route path="/admin/RegisteredOrganizations" element={<RegisteredOrganizations />} />	
+				<Route path="/admin/OrganizationsRequests" element={<OrganizationRequests />} />	
 				<Route path="/donor" element={<DonorHome />} />
 				<Route path="/donor/toys" element={<Toys />} />
 				<Route path="/donor/clothes" element={<Clothes />} />

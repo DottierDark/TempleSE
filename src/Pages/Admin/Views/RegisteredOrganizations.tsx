@@ -20,13 +20,13 @@ const handleClick = (category: string) => {
 
 const lists = [
    {
-     View: "Request 1", 
+     View: "Organization 1", 
    },
    {
-     View: "Request 2",
+     View: "Organization 2",
    },
    {
-     View: "Request 3",
+     View: "Organization 3",
    },		
  ]
 
