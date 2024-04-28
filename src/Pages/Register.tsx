@@ -22,7 +22,9 @@ export default function Register() {
 	);
 
 	const navigate = useNavigate();
-	const [selectedDonorType, setSelectedDonorType] = useState(""); // Initialize selectedDonorType state
+	const [selectedDonorType, setSelectedDonorType] = useState<
+		"Regular" | "Teacher" | "Doctor"
+	>("Regular"); // Initialize selectedDonorType state
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -151,7 +153,7 @@ export default function Register() {
 					<Form {...formDonor}>
 						<form
 							onSubmit={formDonor.handleSubmit(onSubmitDonor)}
-							className="gap-30 grid w-full grid-cols-2"
+							className=" flex flex-row items-center justify-center gap-4"
 						>
 							<div
 								className={`${loginContainerClass} flex h-[60vh] w-[50vh] flex-col items-center justify-center gap-4 text-white md:w-96`}
@@ -355,7 +357,145 @@ export default function Register() {
 										</FormItem>
 									)}
 								/>
+								<FormField
+									control={formDonor.control}
+									name="type"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Type</FormLabel>
+											<FormControl>
+												<select
+													{...field}
+													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+													onChange={(e) => {
+														setSelectedDonorType(
+															e.target.value as
+																| "Regular"
+																| "Teacher"
+																| "Doctor",
+														);
+													}}
+												>
+													<option value="Regular">
+														Regular
+													</option>
+													<option value="Teacher">
+														Teacher
+													</option>
+													<option value="Doctor">
+														Doctor
+													</option>
+												</select>
+											</FormControl>
+										</FormItem>
+									)}
+								/>
 							</div>
+							{selectedDonorType !== "Regular" ? (
+								<div
+									className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
+								>
+									{selectedDonorType === "Teacher" ? (
+										<FormField
+											control={formDonor.control}
+											name="subjects"
+											render={({ field }) => (
+												<FormItem>
+													<FormLabel>
+														Subjects
+													</FormLabel>
+													<FormControl>
+														<Input
+															placeholder="Subjects"
+															{...field}
+														/>
+													</FormControl>
+													<FormMessage>
+														{
+															formDonor.formState
+																.errors.subjects
+																?.message
+														}
+													</FormMessage>
+												</FormItem>
+											)}
+										/>
+									) : (
+										<FormField
+											control={formDonor.control}
+											name="classes"
+											render={({ field }) => (
+												<FormItem>
+													<FormLabel>
+														Classes
+													</FormLabel>
+													<FormControl>
+														<Input
+															placeholder="Classes"
+															{...field}
+														/>
+													</FormControl>
+													<FormMessage>
+														{
+															formDonor.formState
+																.errors.classes
+																?.message
+														}
+													</FormMessage>
+												</FormItem>
+											)}
+										/>
+									)}
+									<FormField
+										control={formDonor.control}
+										name="credentials"
+										render={({ field }) => (
+											<FormItem>
+												<FormLabel>
+													Credentials
+												</FormLabel>
+												<FormControl>
+													<Input
+														placeholder="Credentials"
+														{...field}
+													/>
+												</FormControl>
+												<FormMessage>
+													{
+														formDonor.formState
+															.errors.credentials
+															?.message
+													}
+												</FormMessage>
+											</FormItem>
+										)}
+									/>
+									<FormField
+										control={formDonor.control}
+										name="proof"
+										render={({ field }) => (
+											<FormItem>
+												<FormLabel>Proof</FormLabel>
+												<FormControl>
+													<Input
+														placeholder="Proof"
+														{...field}
+													/>
+												</FormControl>
+												<FormMessage>
+													{
+														formDonor.formState
+															.errors.proof
+															?.message
+													}
+												</FormMessage>
+											</FormItem>
+										)}
+									/>
+								</div>
+							) : (
+								""
+							)}
 						</form>
 					</Form>
 				) : (
