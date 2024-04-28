@@ -20,13 +20,13 @@ const handleClick = (category: string) => {
 
 const lists = [
    {
-     View: "Organization 1", 
+     View: "Red Cross", 
    },
    {
-     View: "Organization 2",
+     View: "UNICEF",
    },
    {
-     View: "Organization 3",
+     View: "Doctors Without Borders",
    },		
  ]
 
@@ -34,13 +34,13 @@ const lists = [
 return (
    <Table>
 
-       <TableCaption>Click on Request to View More Details.</TableCaption>
+       <TableCaption>Click on Organization to View More Details.</TableCaption>
 
        <TableHeader>
 
            <TableRow>
 
-               <TableHead className="w-[200px]">View</TableHead>
+               <TableHead className="w-[200px]">Organizations</TableHead>
 
            </TableRow>
 

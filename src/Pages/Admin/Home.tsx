@@ -18,7 +18,7 @@ export default function AdminHome() {
 	};
 	return (
 		<div className="flex h-full w-full items-center justify-center">
-			<Card className="grid h-[50%] w-[50%] grid-cols-3 grid-rows-2 items-center justify-center gap-5">
+		   <Card className="grid h-[50%] w-[50%] grid-cols-3 grid-rows-2 items-center justify-center gap-5">
 				<Card
 					className="flex h-full w-full flex-col items-center justify-center transition-all hover:scale-[125%]"
 					onClick={() => {

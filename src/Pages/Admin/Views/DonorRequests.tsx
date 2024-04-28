@@ -20,13 +20,13 @@ const handleClick = (category: string) => {
 
 const lists = [
    {
-     View: "Request 1", 
+     View: "Hassan's Request", 
    },
    {
-     View: "Request 2",
+     View: "Ahmed's Request",
    },
    {
-     View: "Request 3",
+     View: "Ali's Request",
    },		
  ]
 
@@ -40,7 +40,7 @@ return (
 
            <TableRow>
 
-               <TableHead className="w-[200px]">View</TableHead>
+               <TableHead className="w-[200px]">Requests</TableHead>
 
            </TableRow>
 
