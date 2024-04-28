@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { loginButtonClass, loginContainerClass } from "../assets/Styles";
 import { useNavigate } from "react-router-dom";
+import { Label } from "../Components/shadcn/ui/label";
+import { Input } from "../Components/shadcn/ui/input";
 
 export default function Register() {
 	const [formType, setFormType] = useState<"Donor" | "Organization">("Donor");
@@ -158,6 +160,10 @@ export default function Register() {
 								placeholder="City"
 								className="rounded-lg p-3"
 							/>
+							<div className="grid w-full max-w-sm items-center gap-1.5">
+      <Label htmlFor="picture">Picture</Label>
+      <Input id="picture" type="file" />
+    </div>
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
 								Register
 							</button>
