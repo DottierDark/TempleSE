@@ -151,11 +151,13 @@ export default function Register() {
 						</form>
 					</div>
 				) : (
-					<div className="items-center justify-center">
-						<h1 className="flex-col text-center text-2xl font-bold text-white">
+					<div className="grid-cols-2 items-center justify-center">
+						<h1 className="text-center text-2xl font-bold text-white">
 							Organization Representative Register
 						</h1>
+						
 						<form className="flex flex-col space-y-4">
+							<div>
 							<input
 								type="text"
 								placeholder="First Name"
@@ -189,6 +191,8 @@ export default function Register() {
 								placeholder="Contact Number"
 								className="rounded-lg p-3"
 							/>
+							</div>
+							<div>
 							<input
 								type="text"
 								placeholder="Organization Name"
@@ -214,7 +218,7 @@ export default function Register() {
 								placeholder="City"
 								className="rounded-lg p-3"
 							/>
-							
+							</div>
 							<div className="grid w-full max-w-sm items-center gap-1.5">
 								<label htmlFor="file" className="text-white">
 									Upload Proof for being Part of Organization
@@ -227,6 +231,7 @@ export default function Register() {
 								</label>
 								<input id="file" type="file" />
 							</div>
+							
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
 								Register
 							</button>
