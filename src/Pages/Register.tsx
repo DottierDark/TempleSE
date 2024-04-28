@@ -290,10 +290,10 @@ export default function Register() {
 								/>
 								<FormField
 									control={formDonor.control}
-									name="donor_type"
+									name="gender"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>donor_type</FormLabel>
+											<FormLabel>Gender</FormLabel>
 											<FormControl>
 												<select
 													{...field}
