@@ -214,9 +214,16 @@ export default function Register() {
 								placeholder="City"
 								className="rounded-lg p-3"
 							/>
+							
 							<div className="grid w-full max-w-sm items-center gap-1.5">
 								<label htmlFor="file" className="text-white">
-									Upload Credentials
+									Upload Proof for being Part of Organization
+								</label>
+								<input id="file" type="file" />
+							</div>
+							<div className="grid w-full max-w-sm items-center gap-1.5">
+								<label htmlFor="file" className="text-white">
+									Upload Organizational Credentials
 								</label>
 								<input id="file" type="file" />
 							</div>
