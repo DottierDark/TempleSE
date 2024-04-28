@@ -8,11 +8,13 @@ export default function Register() {
 	const [formType, setFormType] = useState<"Donor" | "Organization">("Donor");
 
 	const navigate = useNavigate();
-	const [selectedDonorType, setSelectedDonorType] = useState(''); // Initialize selectedDonorType state
+	const [selectedDonorType, setSelectedDonorType] = useState(""); // Initialize selectedDonorType state
 
-	const handleDonorTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDonorType(event.target.value); // Update state based on selected value
-};
+	const handleDonorTypeChange = (
+		event: React.ChangeEvent<HTMLSelectElement>,
+	) => {
+		setSelectedDonorType(event.target.value); // Update state based on selected value
+	};
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -37,7 +39,9 @@ export default function Register() {
 					<button
 						onClick={() => setFormType("Organization")}
 						className={`${loginButtonClass} ${
-							formType === "Organization" ? "bg-blue-500" : "bg-gray-700"
+							formType === "Organization"
+								? "bg-blue-500"
+								: "bg-gray-700"
 						}`}
 					>
 						Organization
@@ -45,7 +49,9 @@ export default function Register() {
 				</div>
 				{formType === "Donor" ? (
 					<div className="flex-col items-center justify-center">
-						<h1 className="text-white text-2xl font-bold text-center">Donor Register</h1>
+						<h1 className="text-center text-2xl font-bold text-white">
+							Donor Register
+						</h1>
 						<form className="flex flex-col space-y-4">
 							<input
 								type="text"
@@ -68,17 +74,21 @@ export default function Register() {
 								className="rounded-lg p-3"
 							/>
 							<select className="rounded-lg p-3">
-								  <option value="" disabled selected>Select Gender</option> 
+								<option value="" disabled selected>
+									Select Gender
+								</option>
 								<option value="male">Male</option>
 								<option value="female">Female</option>
 								<option value="other">Other</option>
 							</select>
-						    <select
+							<select
 								className="rounded-lg p-3"
 								id="donorType"
 								onChange={handleDonorTypeChange}
-								>
-								  <option value="" disabled selected>Donor Type</option>
+							>
+								<option value="" disabled selected>
+									Donor Type
+								</option>
 								<option value="regular">Regular</option>
 								<option value="teacher">Teacher</option>
 								<option value="doctor">Doctor</option>
@@ -103,14 +113,38 @@ export default function Register() {
 								placeholder="City"
 								className="rounded-lg p-3"
 							/>
-							<div  className={`grid w-full max-w-sm items-center gap-1.5 ${
-								selectedDonorType === "teacher" || selectedDonorType === "doctor"
-								? ""
-								: "hidden" // Hide the container if not teacher or doctor
-							}`}>
-							<label htmlFor="file" className="text-white">Upload Credentials</label>
-							<input id="file" type="file" />
+							<input
+								type="text"
+								placeholder="Subjects you can teach"
+								className={`rounded-lg p-3 ${
+									selectedDonorType === "teacher"
+										? ""
+										: "hidden" // Hide the container if not teacher or doctor
+								}`}
+							/>
+							<input
+								type="text"
+								placeholder="How many Classes can you"
+								className={`rounded-lg p-3 ${
+									selectedDonorType === "teacher"
+										? ""
+										: "hidden" // Hide the container if not teacher or doctor
+								}`}
+							/>
+							<div
+								className={`grid w-full max-w-sm items-center gap-1.5 ${
+									selectedDonorType === "teacher" ||
+									selectedDonorType === "doctor"
+										? ""
+										: "hidden" // Hide the container if not teacher or doctor
+								}`}
+							>
+								<label htmlFor="file" className="text-white">
+									Upload Credentials
+								</label>
+								<input id="file" type="file" />
 							</div>
+
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
 								Register
 							</button>
@@ -118,7 +152,7 @@ export default function Register() {
 					</div>
 				) : (
 					<div className="items-center justify-center">
-						<h1 className="flex-col text-white text-2xl font-bold text-center">
+						<h1 className="flex-col text-center text-2xl font-bold text-white">
 							Organization Representative Register
 						</h1>
 						<form className="flex flex-col space-y-4">
@@ -142,8 +176,10 @@ export default function Register() {
 								placeholder="Password"
 								className="rounded-lg p-3"
 							/>
-							 <select className="rounded-lg p-3">
-								  <option value="" disabled selected>Select Gender</option> 
+							<select className="rounded-lg p-3">
+								<option value="" disabled selected>
+									Select Gender
+								</option>
 								<option value="male">Male</option>
 								<option value="female">Female</option>
 								<option value="other">Other</option>
@@ -156,11 +192,13 @@ export default function Register() {
 							<input
 								type="text"
 								placeholder="Organization Name"
-								className="rounded-lg p-3"/>
-							<input 
+								className="rounded-lg p-3"
+							/>
+							<input
 								type="text"
 								placeholder="Organization Type"
-								className="rounded-lg p-3"/>
+								className="rounded-lg p-3"
+							/>
 							<input
 								type="text"
 								placeholder="Organization Address"
@@ -177,7 +215,9 @@ export default function Register() {
 								className="rounded-lg p-3"
 							/>
 							<div className="grid w-full max-w-sm items-center gap-1.5">
-								<label htmlFor="file" className="text-white">Upload Credentials</label>
+								<label htmlFor="file" className="text-white">
+									Upload Credentials
+								</label>
 								<input id="file" type="file" />
 							</div>
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
@@ -185,12 +225,12 @@ export default function Register() {
 							</button>
 						</form>
 						<p
-                            className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
-                            onClick={() => navigate("/login")}
-                        ></p>
-					</div>)
-				}
-				</div>
+							className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
+							onClick={() => navigate("/login")}
+						></p>
+					</div>
+				)}
 			</div>
+		</div>
 	);
 }
