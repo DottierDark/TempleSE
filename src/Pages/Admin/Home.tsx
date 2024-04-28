@@ -1,65 +1,53 @@
-import { Table ,   
-	     TableBody,
-	     TableCaption,
-	     TableCell,
-	     TableFooter,
-	     TableHead,
-	     TableHeader,
-	     TableRow } 
-		 from "../../Components/shadcn/ui/table";
+import { Card } from "../../Components/shadcn/ui/card";
 import { useNavigate } from "react-router-dom";
+import DonorRequestsList from "../../assets/Images/DonorsRequestsLists.jpeg";
+import OrganizationRequestsList from "../../assets/Images/OrganizationsRequestsLists.jpeg";
+import RegistredOrganizations from "../../assets/Images/RegistredOrganizations.jpeg";
+
 
 export default function AdminHome() {
 	const navigate = useNavigate();
 	const handleClick = (category: string) => {
-		navigate(`/donor/${category}`);
+		navigate(`/admin/${category}`);
 	};
 
-	const lists = [
-		{
-		  View: "Organizations Submissions and Requests List",
-		 
-		},
-		{
-	      View: "Donors Submissions and Requests List",
-		
-		},
-		{
-	      View: "Registered Organizations List",
-		
-		},	
-		
-	  ]
-
-
+	const imgsrc = {
+		DonorRequestsList: DonorRequestsList,
+		OrganizationRequestsList: OrganizationRequestsList,
+		RegistredOrganizations: RegistredOrganizations,
+	};
 	return (
-		<Table>
-			<TableCaption>Click on the list you wish to see.</TableCaption>
-			<TableHeader>
-				<TableRow>
-					<TableHead className="w-[200px]">View</TableHead>
-				</TableRow>
-			</TableHeader>
-			<TableBody>
-				{lists.map((list: { View: string }) => (
-					<TableRow key={list.View}>
-						<TableCell className="font-medium" onClick={() => { 
-							if (list.View === "Organizations Submissions and Requests List") {
-								handleClick("OrganizationRequests");
-							} else if (list.View === "Donors Submissions and Requests List") {
-								handleClick("DonorRequests");
-							} else if (list.View === "Registered Organizations List") {
-								handleClick("RegisteredOrganizations");
-							}
-						}}>
-							{list.View}
-						</TableCell>
-					</TableRow>
-				))}
-			</TableBody>
-			<TableFooter>
-			</TableFooter>
-		</Table>
-	)
-
+		<div className="flex h-full w-full items-center justify-center">
+			<Card className="grid h-[50%] w-[50%] grid-cols-3 grid-rows-2 items-center justify-center gap-5">
+				<Card
+					className="flex h-full w-full flex-col items-center justify-center transition-all hover:scale-[125%]"
+					onClick={() => {
+						handleClick("RegisteredOrganizations");
+					}}
+				>
+					<h1>Registered Organizations</h1>
+					<img src={imgsrc.RegistredOrganizations} alt="RegistredOrganizations" />
+				</Card>
+				<Card
+					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
+					onClick={() => {
+						handleClick("OrganizationsRequests");
+					}}
+				>
+					<h1>Organizations Requests</h1>
+					<img src={imgsrc.OrganizationRequestsList} alt="OrganizationRequestsList" />
+				</Card>
+				<Card
+					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
+					onClick={() => {
+						handleClick("DonorRequests");
+					}}
+				>
+					<h1>Donors Requests</h1>
+					<img src={imgsrc.DonorRequestsList} alt="DonorRequestsLists" />
+				</Card>
+				
+			</Card>
+		</div>
+	);
 }
