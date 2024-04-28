@@ -8,7 +8,11 @@ export default function Register() {
 	const [formType, setFormType] = useState<"Donor" | "Organization">("Donor");
 
 	const navigate = useNavigate();
+	const [selectedDonorType, setSelectedDonorType] = useState(''); // Initialize selectedDonorType state
 
+	const handleDonorTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDonorType(event.target.value); // Update state based on selected value
+};
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -40,7 +44,7 @@ export default function Register() {
 					</button>
 				</div>
 				{formType === "Donor" ? (
-					<div>
+					<div className="flex-col items-center justify-center">
 						<h1 className="text-white text-2xl font-bold text-center">Donor Register</h1>
 						<form className="flex flex-col space-y-4">
 							<input
@@ -69,7 +73,11 @@ export default function Register() {
 								<option value="female">Female</option>
 								<option value="other">Other</option>
 							</select>
-						    <select className="rounded-lg p-3">
+						    <select
+								className="rounded-lg p-3"
+								id="donorType"
+								onChange={handleDonorTypeChange}
+								>
 								  <option value="" disabled selected>Donor Type</option>
 								<option value="regular">Regular</option>
 								<option value="teacher">Teacher</option>
@@ -95,14 +103,22 @@ export default function Register() {
 								placeholder="City"
 								className="rounded-lg p-3"
 							/>
+							<div  className={`grid w-full max-w-sm items-center gap-1.5 ${
+								selectedDonorType === "teacher" || selectedDonorType === "doctor"
+								? ""
+								: "hidden" // Hide the container if not teacher or doctor
+							}`}>
+							<label htmlFor="file" className="text-white">Upload Credentials</label>
+							<input id="file" type="file" />
+							</div>
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
 								Register
 							</button>
 						</form>
 					</div>
 				) : (
-					<div>
-						<h1 className="text-white text-2xl font-bold text-center">
+					<div className="items-center justify-center">
+						<h1 className="flex-col text-white text-2xl font-bold text-center">
 							Organization Representative Register
 						</h1>
 						<form className="flex flex-col space-y-4">
@@ -161,9 +177,9 @@ export default function Register() {
 								className="rounded-lg p-3"
 							/>
 							<div className="grid w-full max-w-sm items-center gap-1.5">
-      <Label htmlFor="picture">Picture</Label>
-      <Input id="picture" type="file" />
-    </div>
+								<label htmlFor="file" className="text-white">Upload Credentials</label>
+								<input id="file" type="file" />
+							</div>
 							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
 								Register
 							</button>
