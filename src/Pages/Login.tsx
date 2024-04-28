@@ -15,16 +15,24 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
 import { Card } from "../Components/shadcn/ui/card";
 import { adminUser } from "../assets/dummyData";
-import { User } from "../types";
+// import { User } from "../types";
 
 export default function Login() {
 	const navigate = useNavigate();
+	// const formSchema = z.object({
+	// 	username: z.string().min(2, {
+	// 		message: "Username must be at least 2 characters.",
+	// 	}),
+	// 	password: z.string().min(6, {
+	// 		message: "Password must be at least 6 characters.",
+	// 	}),
+	// });
 	const formSchema = z.object({
 		username: z.string().min(2, {
-			message: "Username must be at least 2 characters.",
+			message: "Wrong UserName, Please try again.",
 		}),
 		password: z.string().min(6, {
-			message: "Password must be at least 6 characters.",
+			message: "Wrong Password, Please try again.",
 		}),
 	});
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -39,24 +47,24 @@ export default function Login() {
 		if (values.username === "Admin" && values.password === "Admin") {
 			localStorage.setItem("auth", "true");
 			navigate("/admin");
-			if (
-				adminUser.username === values.username &&
-				adminUser.password === values.password
-			) {
-				navigate("/admin");
-			} else {
-				alert("Invalid username or password");
-			}
 		}
+		else {
+			alert("Invalid username or password");
+		}
+		
 	}
 
 	return (
-		<div className="flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
+		
+		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
+			
 			<Card className={`${loginContainerClass}`}>
-				<div className="flex w-full flex-col items-center gap-5">
-					<h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
-						Login
-					</h1>
+				
+				<div className="w-full flex flex-col items-center justify-center gap-3 margin-bottom: 0">
+						<br></br>
+						<h1 className="text-xl font-bold tracking-tight justify-center text-white md:text-2xl">
+							Login
+						</h1>
 					<p
 						className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
 						onClick={() => navigate("/register")}
@@ -64,7 +72,7 @@ export default function Login() {
 						Don't have an account? Register here.
 					</p>
 				</div>
-				<div>
+				<div className="margin-top: 0 justify-center">
 					<Form {...form}>
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}
@@ -102,7 +110,7 @@ export default function Login() {
 									</FormItem>
 								)}
 							/>
-							<Button type="submit">Submit</Button>
+							<Button type="submit">Login</Button>
 						</form>
 					</Form>
 				</div>

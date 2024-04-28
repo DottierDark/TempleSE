@@ -3,8 +3,13 @@ export const formInputClass =
 	"block w-full rounded-lg border  border-gray-600  bg-gray-700 p-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm";
 export const formTextClass = "mb-2 block text-sm font-medium text-white";
 export const loginContainerClass = "border border-gray-700 bg-gray-800";
+
+export const registerContainerClass = "border border-gray-700 bg-gray-800";
+
+
 export const loginButtonClass =
 	"flex h-10 w-28 cursor-pointer items-center justify-center rounded-full bg-blue-500 p-3 font-bold text-white";
+
 export const backgroundClass = "bg-gray-900";
 export const homePageButtonClass =
 	"flex h-16 w-[75%] text-white cursor-pointer items-center justify-center border border-solid border-blue-500 text-lg first-of-type:rounded-t-2xl last-of-type:rounded-b-2xl hover:scale-[105%] bg-gray-600";
