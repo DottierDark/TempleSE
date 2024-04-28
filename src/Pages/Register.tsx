@@ -60,7 +60,7 @@ export default function Register() {
 			message: "City must be at least 2 characters.",
 		}),
 		donor_type: z.string().optional(),
-		gender : z.string().optional(),
+		gender: z.string().optional(),
 		subjects: z.string().optional(),
 		classes: z.string().optional(),
 		credentials: z.string().optional(),
