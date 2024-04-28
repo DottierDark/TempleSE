@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
 import { loginButtonClass, loginContainerClass } from "../assets/Styles";
 import { useNavigate } from "react-router-dom";
-import { Label } from "../Components/shadcn/ui/label";
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "../Components/shadcn/ui/form";
+
 import { Input } from "../Components/shadcn/ui/input";
+import { z } from "zod";
+import { Button } from "../Components/shadcn/ui/button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Register() {
-	const [formType, setFormType] = useState<"Donor" | "Organization">("Donor");
+	const [formType, setFormType] = useState<"Donor" | "Organization Rep">(
+		"Donor",
+	);
 
 	const navigate = useNavigate();
 	const [selectedDonorType, setSelectedDonorType] = useState(""); // Initialize selectedDonorType state
-
-	const handleDonorTypeChange = (
-		event: React.ChangeEvent<HTMLSelectElement>,
-	) => {
-		setSelectedDonorType(event.target.value); // Update state based on selected value
-	};
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -24,10 +32,91 @@ export default function Register() {
 		}
 	}, [navigate]);
 
+	const formSchemaDonor = z.object({
+		firstName: z.string().min(2, {
+			message: "First Name must be at least 2 characters.",
+		}),
+		lastName: z.string().min(2, {
+			message: "Last Name must be at least 2 characters.",
+		}),
+		userName: z.string().email({
+			message: "Please enter a valid email address.",
+		}),
+		password: z.string().min(5, {
+			message: "Password must be at least 6 characters",
+		}),
+		contactNumber: z.string().min(10, {
+			message: "Contact Number must be at least 10 characters.",
+		}),
+		address: z.string().min(5, {
+			message: "Address must be at least 5 characters.",
+		}),
+		area: z.string().min(2, {
+			message: "Area must be at least 2 characters.",
+		}),
+		city: z.string().min(2, {
+			message: "City must be at least 2 characters.",
+		}),
+		gender: z.string().optional(),
+		subjects: z.string().optional(),
+		classes: z.string().optional(),
+		credentials: z.string().optional(),
+		proof: z.string().optional(),
+		type: z.string().optional(),
+	});
+	const formSchemaOrganization = z.object({
+		firstName: z.string().min(2, {
+			message: "First Name must be at least 2 characters.",
+		}),
+		lastName: z.string().min(2, {
+			message: "Last Name must be at least 2 characters.",
+		}),
+		userName: z.string().email({
+			message: "Please enter a valid email address.",
+		}),
+		password: z.string().min(5, {
+			message: "Password must be at least 6 characters",
+		}),
+		contactNumber: z.string().min(10, {
+			message: "Contact Number must be at least 10 characters.",
+		}),
+		address: z.string().min(5, {
+			message: "Address must be at least 5 characters.",
+		}),
+		area: z.string().min(2, {
+			message: "Area must be at least 2 characters.",
+		}),
+		city: z.string().min(2, {
+			message: "City must be at least 2 characters",
+		}),
+		organizationName: z.string().min(2, {
+			message: "Organization Name must be at least 2 characters.",
+		}),
+		organizationType: z.string().min(2, {
+			message: "Organization Type must be at least 2 characters.",
+		}),
+		credentials: z.string().optional(),
+		proof: z.string().optional(),
+	});
+
+	const formDonor = useForm<z.infer<typeof formSchemaDonor>>({
+		resolver: zodResolver(formSchemaDonor),
+		defaultValues: {},
+	});
+	const formOrganization = useForm<z.infer<typeof formSchemaOrganization>>({
+		resolver: zodResolver(formSchemaOrganization),
+		defaultValues: {},
+	});
+
+	function onSubmitDonor(values: z.infer<typeof formSchemaDonor>) {}
+	function onSubmitOrganization(
+		values: z.infer<typeof formSchemaOrganization>,
+	) {}
+
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			<div className={loginContainerClass}>
-				<div className="flex flex-row items-center justify-center">
+			<div className="flex flex-col items-center justify-center p-9">
+				<div className="grid grid-cols-2 items-center justify-center gap-5">
 					<button
 						onClick={() => setFormType("Donor")}
 						className={`${loginButtonClass} ${
@@ -37,9 +126,9 @@ export default function Register() {
 						Donor
 					</button>
 					<button
-						onClick={() => setFormType("Organization")}
+						onClick={() => setFormType("Organization Rep")}
 						className={`${loginButtonClass} ${
-							formType === "Organization"
+							formType === "Organization Rep"
 								? "bg-blue-500"
 								: "bg-gray-700"
 						}`}
@@ -47,201 +136,310 @@ export default function Register() {
 						Organization
 					</button>
 				</div>
+				<p
+					className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
+					onClick={() => navigate("/")}
+				>
+					Already Have an Account? Login
+				</p>
+				<h1 className="text-center text-2xl font-bold text-white">
+					{formType} Register
+				</h1>
+			</div>
+			<div className="flex flex-col items-center justify-center gap-5">
 				{formType === "Donor" ? (
-					<div className="flex-col items-center justify-center">
-						<h1 className="text-center text-2xl font-bold text-white">
-							Donor Register
-						</h1>
-						<form className="flex flex-col space-y-4">
-							<input
-								type="text"
-								placeholder="First Name"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Last Name"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Email"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="password"
-								placeholder="Password"
-								className="rounded-lg p-3"
-							/>
-							<select className="rounded-lg p-3">
-								<option value="" disabled selected>
-									Select Gender
-								</option>
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-								<option value="other">Other</option>
-							</select>
-							<select
-								className="rounded-lg p-3"
-								id="donorType"
-								onChange={handleDonorTypeChange}
-							>
-								<option value="" disabled selected>
-									Donor Type
-								</option>
-								<option value="regular">Regular</option>
-								<option value="teacher">Teacher</option>
-								<option value="doctor">Doctor</option>
-							</select>
-							<input
-								type="text"
-								placeholder="Contact Number"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Address"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Area"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="City"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Subjects you can teach"
-								className={`rounded-lg p-3 ${
-									selectedDonorType === "teacher"
-										? ""
-										: "hidden" // Hide the container if not teacher or doctor
-								}`}
-							/>
-							<input
-								type="text"
-								placeholder="How many Classes can you"
-								className={`rounded-lg p-3 ${
-									selectedDonorType === "teacher"
-										? ""
-										: "hidden" // Hide the container if not teacher or doctor
-								}`}
-							/>
+					<Form {...formDonor}>
+						<form
+							onSubmit={formDonor.handleSubmit(onSubmitDonor)}
+							className="gap-30 grid w-full grid-cols-2"
+						>
 							<div
-								className={`grid w-full max-w-sm items-center gap-1.5 ${
-									selectedDonorType === "teacher" ||
-									selectedDonorType === "doctor"
-										? ""
-										: "hidden" // Hide the container if not teacher or doctor
-								}`}
+								className={`${loginContainerClass} flex h-[60vh] w-[50vh] flex-col items-center justify-center gap-4 text-white md:w-96`}
 							>
-								<label htmlFor="file" className="text-white">
-									Upload Credentials
-								</label>
-								<input id="file" type="file" />
+								<FormField
+									control={formDonor.control}
+									name="firstName"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>First Name</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="John"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.firstName?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="lastName"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Last Name</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="Doe"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.lastName?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="userName"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Email</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="johndoe@gmail.com"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.userName?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="password"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Password</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="password123"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.password?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="contactNumber"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>
+												Contact Number
+											</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="1234567890"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.contactNumber?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="gender"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Gender</FormLabel>
+											<FormControl>
+												<select
+													{...field}
+													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+												>
+													<option value="male">
+														male
+													</option>
+													<option value="female">
+														female
+													</option>
+													<option value="other">
+														other
+													</option>
+												</select>
+											</FormControl>
+										</FormItem>
+									)}
+								/>
 							</div>
-
-							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
-								Register
-							</button>
+							<div
+								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
+							>
+								<FormField
+									control={formDonor.control}
+									name="address"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Address</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="123 Main St."
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.address?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="area"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Area</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="Area"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.area?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={formDonor.control}
+									name="city"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>City</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="City"
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage>
+												{
+													formDonor.formState.errors
+														.city?.message
+												}
+											</FormMessage>
+										</FormItem>
+									)}
+								/>
+							</div>
 						</form>
-					</div>
+					</Form>
 				) : (
-					<div className="grid-cols-2 items-center justify-center">
-						<h1 className="text-center text-2xl font-bold text-white">
-							Organization Representative Register
-						</h1>
-						
-						<form className="flex flex-col space-y-4">
-							<div>
-							<input
-								type="text"
-								placeholder="First Name"
-								className="rounded-lg p-3"
+					<Form {...formOrganization}>
+						<form
+							onSubmit={formOrganization.handleSubmit(
+								onSubmitOrganization,
+							)}
+							className=""
+						>
+							<FormField
+								control={formOrganization.control}
+								name="firstName"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>First Name</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="John"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage>
+											{
+												formOrganization.formState
+													.errors.firstName?.message
+											}
+										</FormMessage>
+									</FormItem>
+								)}
 							/>
-							<input
-								type="text"
-								placeholder="Last Name"
-								className="rounded-lg p-3"
+							<FormField
+								control={formOrganization.control}
+								name="lastName"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Last Name</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="Doe"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage>
+											{
+												formOrganization.formState
+													.errors.lastName?.message
+											}
+										</FormMessage>
+									</FormItem>
+								)}
 							/>
-							<input
-								type="text"
-								placeholder="Email"
-								className="rounded-lg p-3"
+							<FormField
+								control={formOrganization.control}
+								name="userName"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Email</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="org@gmail.com"
+												{...field}
+											/>
+										</FormControl>
+										<FormMessage>
+											{
+												formOrganization.formState
+													.errors.userName?.message
+											}
+										</FormMessage>
+									</FormItem>
+								)}
 							/>
-							<input
-								type="password"
-								placeholder="Password"
-								className="rounded-lg p-3"
-							/>
-							<select className="rounded-lg p-3">
-								<option value="" disabled selected>
-									Select Gender
-								</option>
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-								<option value="other">Other</option>
-							</select>
-							<input
-								type="text"
-								placeholder="Contact Number"
-								className="rounded-lg p-3"
-							/>
-							</div>
-							<div>
-							<input
-								type="text"
-								placeholder="Organization Name"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Organization Type"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Organization Address"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="Area"
-								className="rounded-lg p-3"
-							/>
-							<input
-								type="text"
-								placeholder="City"
-								className="rounded-lg p-3"
-							/>
-							</div>
-							<div className="grid w-full max-w-sm items-center gap-1.5">
-								<label htmlFor="file" className="text-white">
-									Upload Proof for being Part of Organization
-								</label>
-								<input id="file" type="file" />
-							</div>
-							<div className="grid w-full max-w-sm items-center gap-1.5">
-								<label htmlFor="file" className="text-white">
-									Upload Organizational Credentials
-								</label>
-								<input id="file" type="file" />
-							</div>
-							
-							<button className="rounded-lg bg-blue-500 p-3 font-bold text-white">
-								Register
-							</button>
 						</form>
-						<p
-							className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
-							onClick={() => navigate("/login")}
-						></p>
-					</div>
+					</Form>
 				)}
+
+				<Button
+					type="submit"
+					onClick={() => {}}
+					className="bg-primary-500 w-40"
+				>
+					Register
+				</Button>
 			</div>
 		</div>
 	);

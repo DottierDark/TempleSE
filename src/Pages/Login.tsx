@@ -15,26 +15,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
 import { Card } from "../Components/shadcn/ui/card";
 import { adminUser } from "../assets/dummyData";
-// import { User } from "../types";
 
 export default function Login() {
 	const navigate = useNavigate();
-	// const formSchema = z.object({
-	// 	username: z.string().min(2, {
-	// 		message: "Username must be at least 2 characters.",
-	// 	}),
-	// 	password: z.string().min(6, {
-	// 		message: "Password must be at least 6 characters.",
-	// 	}),
-	// });
 	const formSchema = z.object({
 		username: z.string().min(2, {
-			message: "Wrong UserName, Please try again.",
+			message: "Username must be at least 2 characters.",
 		}),
-		password: z.string().min(6, {
-			message: "Wrong Password, Please try again.",
+		password: z.string().min(5, {
+			message: "Password must be at least 6 characters.",
 		}),
 	});
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -44,27 +36,25 @@ export default function Login() {
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		if (values.username === "Admin" && values.password === "Admin") {
+		if (
+			values.username === adminUser.username &&
+			values.password === adminUser.password
+		) {
 			localStorage.setItem("auth", "true");
 			navigate("/admin");
-		}
-		else {
+		} else {
 			alert("Invalid username or password");
 		}
-		
 	}
 
 	return (
-		
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			
 			<Card className={`${loginContainerClass}`}>
-				
-				<div className="w-full flex flex-col items-center justify-center gap-3 margin-bottom: 0">
-						<br></br>
-						<h1 className="text-xl font-bold tracking-tight justify-center text-white md:text-2xl">
-							Login
-						</h1>
+				<div className="margin-bottom: 0 flex w-full flex-col items-center justify-center gap-3">
+					<br></br>
+					<h1 className="justify-center text-xl font-bold tracking-tight text-white md:text-2xl">
+						Login
+					</h1>
 					<p
 						className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
 						onClick={() => navigate("/register")}
