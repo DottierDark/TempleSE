@@ -274,14 +274,14 @@ export default function Register() {
 													{...field}
 													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
 												>
-													<option value="Regular">
-														male
+													<option value="regular">
+														Regular
 													</option>
-													<option value="Doctor">
-														female
+													<option value="doctor">
+														Doctor
 													</option>
-													<option value="Teacher">
-														other
+													<option value="teacher">
+														Teahcer
 													</option>
 												</select>
 											</FormControl>
