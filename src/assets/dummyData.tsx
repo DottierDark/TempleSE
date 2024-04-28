@@ -15,7 +15,7 @@ import {
 export const adminUser = {
 	id: 1,
 	username: 'admin',
-	password: 'password123',
+	password: 'admin',
 	email: 'admin@example.com',
 };
 

@@ -59,7 +59,8 @@ export default function Register() {
 		city: z.string().min(2, {
 			message: "City must be at least 2 characters.",
 		}),
-		gender: z.string().optional(),
+		donor_type: z.string().optional(),
+		gender : z.string().optional(),
 		subjects: z.string().optional(),
 		classes: z.string().optional(),
 		credentials: z.string().optional(),
@@ -156,7 +157,7 @@ export default function Register() {
 							className=" flex flex-row items-center justify-center gap-4"
 						>
 							<div
-								className={`${loginContainerClass} flex h-[60vh] w-[50vh] flex-col items-center justify-center gap-4 text-white md:w-96`}
+								className={`${loginContainerClass} flex h-full w-full flex-col items-center justify-center gap-4 text-white md:w-96`}
 							>
 								<FormField
 									control={formDonor.control}
@@ -166,7 +167,7 @@ export default function Register() {
 											<FormLabel>First Name</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="John"
+													placeholder="ahmed"
 													{...field}
 												/>
 											</FormControl>
@@ -187,7 +188,7 @@ export default function Register() {
 											<FormLabel>Last Name</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="Doe"
+													placeholder="mohamed"
 													{...field}
 												/>
 											</FormControl>
@@ -208,7 +209,7 @@ export default function Register() {
 											<FormLabel>Email</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="johndoe@gmail.com"
+													placeholder="ahmed123@gmail.com"
 													{...field}
 												/>
 											</FormControl>
@@ -252,7 +253,7 @@ export default function Register() {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder="1234567890"
+													placeholder="01000100022"
 													{...field}
 												/>
 											</FormControl>
@@ -294,6 +295,31 @@ export default function Register() {
 							<div
 								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
 							>
+								<FormField
+									control={formDonor.control}
+									name="donor_type"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Donor Type</FormLabel>
+											<FormControl>
+												<select
+													{...field}
+													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+												>
+													<option value="regular">
+														Regular
+													</option>
+													<option value="doctor">
+														Doctor
+													</option>
+													<option value="teacher">
+														Teahcer
+													</option>
+												</select>
+											</FormControl>
+										</FormItem>
+									)}
+								/>
 								<FormField
 									control={formDonor.control}
 									name="address"
