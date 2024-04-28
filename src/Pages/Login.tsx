@@ -76,7 +76,7 @@ export default function Login() {
 										<FormLabel>Username</FormLabel>
 										<FormControl>
 											<Input
-												placeholder="shadcn"
+												placeholder="ahmed123"
 												{...field}
 											/>
 										</FormControl>
