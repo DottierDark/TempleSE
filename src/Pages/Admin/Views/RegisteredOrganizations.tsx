@@ -8,6 +8,9 @@ import { Table ,
     TableRow } 
     from "../../../Components/shadcn/ui/table"; 
 
+import { Button } from "../../../Components/shadcn/ui/button"
+
+
 import { useNavigate } from "react-router-dom";
 
 export default function RegisteredOrganizations() {
@@ -41,23 +44,24 @@ return (
                 <TableHead>Type</TableHead>
                 <TableHead>Adress</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead>Actions</TableHead>
             </TableRow>
         </TableHeader>
         <TableBody>
-                {lists.map((list) => (
-                        <TableRow key={list.name}>
-                                <TableCell className="font-medium">{list.name}</TableCell>
-                                <TableCell>{list.type}</TableCell>
-                                <TableCell>{list.adress}</TableCell>
-                                <TableCell>{list.email}</TableCell>
-                                
-                        </TableRow>
-                ))}
+            {lists.map((list) => (
+                <TableRow key={list.name}>
+                    <TableCell className="font-medium">{list.name}</TableCell>
+                    <TableCell>{list.type}</TableCell>
+                    <TableCell>{list.adress}</TableCell>
+                    <TableCell>{list.email}</TableCell>
+                    <TableCell>
+                        <Button>Delete Organization Account</Button>
+                    </TableCell>
+                </TableRow>
+            ))}
         </TableBody>
         <TableFooter>
-            <TableRow>
-                
-            </TableRow>
+            <TableRow></TableRow>
         </TableFooter>
     </Table>
 )
