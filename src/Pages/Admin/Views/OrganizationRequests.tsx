@@ -20,14 +20,12 @@ const handleClick = (category: string) => {
 
 const lists = [
    {
-     View: "Save the Children's Request", 
+     View: "Goodwill's Request", 
    },
    {
-     View: "The Salavation Army's Request",
+     View: "Red Cross's Request",
    },
-   {
-     View: "Feeding Children Everywhere's Request",
-   },		
+ 		
  ]
 
 

@@ -19,55 +19,46 @@ const handleClick = (category: string) => {
 };
 
 const lists = [
-   {
-     View: "Red Cross", 
-   },
-   {
-     View: "UNICEF",
-   },
-   {
-     View: "Doctors Without Borders",
-   },		
- ]
-
-
+    {
+      name: "Hope Shelter",
+      type: "Non-profit",
+      adress: "123 Main St, Anytown, CA 12345",
+      email: "hope@shelter.com",
+    },
+    {
+      name: "Salavation Army",
+      type: "Non-profit",
+      adress: "789 Oak St, Anytown, CA 12345",
+      email: "sal@gmail.com",
+    },
+   
+  ]
 return (
-   <Table>
-
-       <TableCaption>Click on Organization to View More Details.</TableCaption>
-
-       <TableHeader>
-
-           <TableRow>
-
-               <TableHead className="w-[200px]">Organizations</TableHead>
-
-           </TableRow>
-
-       </TableHeader>
-
-       <TableBody>
-
-           {lists.map((list: { View: string }) => (
-
-               <TableRow key={list.View}>
-
-                   <TableCell className="font-large" onClick={() => { 
-                           handleClick("RegisteredOrganizationsDetails");
-                   }}>
-                       {list.View}
-
-                   </TableCell>
-
-               </TableRow>
-           ))}
-       </TableBody>
-
-       <TableFooter>
-
-       </TableFooter>
-       
-   </Table>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead className="w-[100px]">Name</TableHead>
+                <TableHead>Type</TableHead>
+                <TableHead>Adress</TableHead>
+                <TableHead>Email</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+                {lists.map((list) => (
+                        <TableRow key={list.name}>
+                                <TableCell className="font-medium">{list.name}</TableCell>
+                                <TableCell>{list.type}</TableCell>
+                                <TableCell>{list.adress}</TableCell>
+                                <TableCell>{list.email}</TableCell>
+                                
+                        </TableRow>
+                ))}
+        </TableBody>
+        <TableFooter>
+            <TableRow>
+                
+            </TableRow>
+        </TableFooter>
+    </Table>
 )
-
 }

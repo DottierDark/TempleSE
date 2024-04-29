@@ -16,6 +16,10 @@ import Blood from "./Pages/Donor/Views/Blood";
 import DonorRequests from "./Pages/Admin/Views/DonorRequests";
 import RegisteredOrganizations from "./Pages/Admin/Views/RegisteredOrganizations";
 import OrganizationRequests from "./Pages/Admin/Views/OrganizationRequests";
+import DonorRequestsDetails from "./Pages/Admin/Details/DonorRequestsDetails";
+import OrganizationRequestsDetails from "./Pages/Admin/Details/OrganizationRequestsDetails";
+
+
 
 
 function App() {
@@ -34,6 +38,9 @@ function App() {
 				<Route path="/admin/DonorRequests" element={<DonorRequests />} />
 				<Route path="/admin/RegisteredOrganizations" element={<RegisteredOrganizations />} />	
 				<Route path="/admin/OrganizationsRequests" element={<OrganizationRequests />} />	
+				<Route path="/admin/DonorRequestsDetails" element={<DonorRequestsDetails />} />
+				<Route path="/admin/OrganizationRequestsDetails" element={<OrganizationRequestsDetails />} />
+			    
 				<Route path="/donor" element={<DonorHome />} />
 				<Route path="/donor/toys" element={<Toys />} />
 				<Route path="/donor/clothes" element={<Clothes />} />
