@@ -297,31 +297,6 @@ export default function Register() {
 							>
 								<FormField
 									control={formDonor.control}
-									name="donor_type"
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>Donor Type</FormLabel>
-											<FormControl>
-												<select
-													{...field}
-													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-												>
-													<option value="regular">
-														Regular
-													</option>
-													<option value="doctor">
-														Doctor
-													</option>
-													<option value="teacher">
-														Teahcer
-													</option>
-												</select>
-											</FormControl>
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={formDonor.control}
 									name="address"
 									render={({ field }) => (
 										<FormItem>
