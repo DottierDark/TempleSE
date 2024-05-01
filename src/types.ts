@@ -1,6 +1,7 @@
 export type User = {
 	userName: string;
-	name: string;
+	password: string;
+	type: "organization" | "donor" | "admin";
 };
 
 export type TLoginForm = {

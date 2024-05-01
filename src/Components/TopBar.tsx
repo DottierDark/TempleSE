@@ -16,13 +16,12 @@ import { cn } from "./shadcn/lib/utils";
 
 export default function TopBar() {
 	const navigate = useNavigate();
+	const history = window.history;
 	const location = window.location.pathname;
 
 	const [type, setType] = useState<string | null>(null);
 
 	const onLogout = () => {
-		localStorage.removeItem("type");
-		localStorage.removeItem("token");
 		setType("");
 		navigate("/");
 	};
@@ -34,7 +33,7 @@ export default function TopBar() {
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
 			name: "Home",
-			key: "admin",
+			key: "home",
 			href: `/${type}`,
 		},
 		{
@@ -42,24 +41,19 @@ export default function TopBar() {
 			key: "admin",
 			links: [
 				{
-					name: "Donors",
+					name: "Registered Organizations",
 					key: "admin",
-					href: "/admin/donors",
+					href: "/admin/RegisteredOrganizations",
 				},
 				{
-					name: "Organisations",
-					key: "organisations",
-					href: "/admin/organisations",
+					name: "Donor Requests",
+					key: "admin",
+					href: "/admin/DonorRequests",
 				},
 				{
-					name: "Requests",
-					key: "requests",
-					href: "/admin/requests",
-				},
-				{
-					name: "Donations",
-					key: "donations",
-					href: "/admin/donations",
+					name: "Organization Requests",
+					key: "admin",
+					href: "/admin/OrganizationsRequests",
 				},
 			],
 		},
@@ -74,11 +68,6 @@ export default function TopBar() {
 					href: "/donor/toys",
 				},
 				{
-					name: "Books",
-					key: "",
-					href: "/donor/books",
-				},
-				{
 					name: "Clothes",
 					key: "",
 					href: "/donor/clothes",
@@ -88,21 +77,20 @@ export default function TopBar() {
 					key: "",
 					href: "/donor/food",
 				},
-			],
-		},
-		{
-			name: "Medical",
-			key: "donor",
-			links: [
 				{
-					name: "Medicines",
+					name: "Medicines Supplies",
 					key: "",
-					href: "/donor/medicines",
+					href: "/donor/medical-supplies",
 				},
 				{
-					name: "Equipments",
+					name: "School Supplies",
 					key: "",
-					href: "/donor/equipments",
+					href: "/donor/school-supplies",
+				},
+				{
+					name: "Blood",
+					key: "",
+					href: "/donor/blood-donation",
 				},
 			],
 		},
@@ -110,11 +98,6 @@ export default function TopBar() {
 			name: "Organisation",
 			key: "organisation",
 			links: [
-				{
-					name: "Home",
-					key: "home",
-					href: "/organisation",
-				},
 				{
 					name: "Requests",
 					key: "requests",
@@ -148,7 +131,9 @@ export default function TopBar() {
 			<NavigationMenu className="justify-self-center">
 				<NavigationMenuList>
 					{navigationMenu.map((tab) =>
-						type === tab.key || tab.key === "logout" ? (
+						type === tab.key ||
+						tab.key === "logout" ||
+						tab.key === "home" ? (
 							<NavigationMenuItem key={tab.key}>
 								{tab.links ? (
 									<>

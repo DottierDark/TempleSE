@@ -14,7 +14,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginContainerClass } from "../assets/Styles";
 import { Card } from "../Components/shadcn/ui/card";
-import { adminUser } from "../assets/dummyData";
+import { Users } from "../assets/dummyData";
+import { User } from "../types";
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -36,14 +37,18 @@ export default function Login() {
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		if (
-			values.username === adminUser.username &&
-			values.password === adminUser.password
-		) {
-			localStorage.setItem("auth", "true");
-			navigate("/admin");
+		const user: User | undefined = Users.find((user) => {
+			if (
+				user.userName === values.username &&
+				user.password === values.password
+			) {
+				return user;
+			}
+		});
+		if (user) {
+			navigate(`/${user.type}`);
 		} else {
-			alert("Invalid username or password");
+			alert("Invalid username or password.");
 		}
 	}
 

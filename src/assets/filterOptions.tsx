@@ -80,3 +80,30 @@ export const medicalSuppliesFilterOptions = [{}];
 export const schoolSuppliesFilterOptions = [{}];
 export const foodsFilterOptions = [{}];
 export const bloodFilterOptions = [{}];
+
+export const donationsCategories = [
+	{
+		name: "Toys",
+		key: "toys",
+	},
+	{
+		name: "Clothes",
+		key: "clothes",
+	},
+	{
+		name: "Food",
+		key: "food",
+	},
+	{
+		name: "Medical Supplies",
+		key: "medical",
+	},
+	{
+		name: "School Supplies",
+		key: "school",
+	},
+	{
+		name: "Blood",
+		key: "blood",
+	},
+];
