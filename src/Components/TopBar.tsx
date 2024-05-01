@@ -23,13 +23,13 @@ export default function TopBar() {
 	const onLogout = () => {
 		localStorage.removeItem("type");
 		localStorage.removeItem("token");
-		setType(null);
+		setType("");
 		navigate("/");
 	};
 
 	useEffect(() => {
 		setType(location.split("/")[1]);
-	}, []);
+	}, [location]);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
@@ -93,87 +93,68 @@ export default function TopBar() {
 		},
 	];
 
-	return (
-		type != "register" &&
-		type != "login" && (
-			<div
-				className="sticky left-0 top-0 z-20 flex h-16 w-full items-center justify-between gap-5 p-3 transition-shadow"
-				style={{
-					background:
-						"linear-gradient(270deg,rgba(17, 39, 103, 1) 0%,rgba(52, 99, 234, 1) 100%)",
-				}}
-			>
-				<div className="flex items-center gap-4">
-					<button
-						onClick={() => {
-							navigate(`/${type}`);
-						}}
-					>
-						<HomeIcon
-							size={30}
-							className="cursor-pointer text-white"
-						/>
-					</button>
-					<h1 className="text-3xl font-bold text-white">
-						{type} Portal
-					</h1>
-				</div>
-				<NavigationMenu className="mr-60">
-					<NavigationMenuList>
-						{navigationMenu.map(
-							(tab) =>
-								type && (
-									<NavigationMenuItem key={tab.key}>
-										{tab.links ? (
-											<>
-												<NavigationMenuTrigger>
-													{tab.name}
-												</NavigationMenuTrigger>
-												<NavigationMenuContent>
-													<ul className="grid w-96 p-2 md:grid-cols-2 lg:w-[600px]">
-														{tab.links.map(
-															(link) => (
-																<ListItem
-																	key={
-																		link.key
-																	}
-																	href={
-																		link.href
-																	}
-																	title={
-																		link.name
-																	}
-																>
-																	{link.name}
-																</ListItem>
-															),
-														)}
-													</ul>
-												</NavigationMenuContent>
-											</>
-										) : (
-											<NavigationMenuLink
-												className={navigationMenuTriggerStyle()}
-											>
-												{tab.name}
-											</NavigationMenuLink>
-										)}
-									</NavigationMenuItem>
-								),
-						)}
-					</NavigationMenuList>
-				</NavigationMenu>
-				{type && (
-					<button className="" onClick={() => onLogout()}>
-						<LogOut
-							className="cursor-pointer text-white"
-							size={30}
-						/>
-					</button>
-				)}
+	return type != "register" && type != "" ? (
+		<div
+			className="sticky left-0 top-0 z-20 flex h-16 w-full items-center justify-between gap-5 p-3 transition-shadow"
+			style={{
+				background:
+					"linear-gradient(270deg,rgba(17, 39, 103, 1) 0%,rgba(52, 99, 234, 1) 100%)",
+			}}
+		>
+			<div className="flex items-center gap-4">
+				<button
+					onClick={() => {
+						navigate(`/${type}`);
+					}}
+				>
+					<HomeIcon size={30} className="cursor-pointer text-white" />
+				</button>
+				<h1 className="text-3xl font-bold text-white">{type} Portal</h1>
 			</div>
-		)
-	);
+			<NavigationMenu className="mr-60">
+				<NavigationMenuList>
+					{navigationMenu.map(
+						(tab) =>
+							type && (
+								<NavigationMenuItem key={tab.key}>
+									{tab.links ? (
+										<>
+											<NavigationMenuTrigger>
+												{tab.name}
+											</NavigationMenuTrigger>
+											<NavigationMenuContent>
+												<ul className="grid w-96 p-2 md:grid-cols-2 lg:w-[600px]">
+													{tab.links.map((link) => (
+														<ListItem
+															key={link.key}
+															href={link.href}
+															title={link.name}
+														>
+															{link.name}
+														</ListItem>
+													))}
+												</ul>
+											</NavigationMenuContent>
+										</>
+									) : (
+										<NavigationMenuLink
+											className={navigationMenuTriggerStyle()}
+										>
+											{tab.name}
+										</NavigationMenuLink>
+									)}
+								</NavigationMenuItem>
+							),
+					)}
+				</NavigationMenuList>
+			</NavigationMenu>
+			{type && (
+				<button className="" onClick={() => onLogout()}>
+					<LogOut className="cursor-pointer text-white" size={30} />
+				</button>
+			)}
+		</div>
+	) : null;
 }
 
 const ListItem = React.forwardRef<
