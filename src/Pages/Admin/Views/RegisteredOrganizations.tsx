@@ -21,6 +21,8 @@ import {
 
 import { Button } from "../../../Components/shadcn/ui/button"
 
+
+
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -41,6 +43,9 @@ import {
   TableHeader,
   TableRow,
 } from "../../../Components/shadcn/ui/table"
+
+
+
 
 const data: Organization[] = [
   {
@@ -105,11 +110,14 @@ export const columns: ColumnDef<Organization>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              //onClick={() => navigator.clipboard.writeText(organization.id)}
+              //onClick={() => 
             >
-              Delete Organization Account
+              View Organization Location
             </DropdownMenuItem>
-            <DropdownMenuItem>View Organization Location</DropdownMenuItem>
+            <DropdownMenuItem 
+                //onClick={() =>
+            >
+              Delete Organization Account</DropdownMenuItem>
             <DropdownMenuSeparator />
           </DropdownMenuContent>
         </DropdownMenu>
@@ -140,6 +148,10 @@ export default function RegisteredOrganizations() {
       columnVisibility,
     },
   });
+  function setData(dummyData: any[]): void {
+    throw new Error("Function not implemented.")
+  }
+
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
@@ -151,33 +163,8 @@ export default function RegisteredOrganizations() {
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
+     
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -251,6 +238,8 @@ export default function RegisteredOrganizations() {
           </Button>
         </div>
       </div>
+    
     </div>
   );
 }
+
