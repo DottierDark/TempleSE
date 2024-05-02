@@ -68,7 +68,7 @@ export default function Login() {
 					</p>
 				</div>
 				<div className="margin-top: 0 justify-center">
-					<Form {...form}>
+					<Form {...form} >
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}
 							className="flex h-96 w-full flex-col items-center justify-center gap-4 text-white md:w-96"
