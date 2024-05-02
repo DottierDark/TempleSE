@@ -680,7 +680,7 @@ export default function Register() {
 									name="address"
 									render={({ field }) => (
 										<FormItem>
-											<FormLabel>Address</FormLabel>
+											<FormLabel>Organization Address</FormLabel>
 											<FormControl>
 												<Input
 													placeholder="123 Main St."
@@ -741,11 +741,14 @@ export default function Register() {
 								<FormField
 									control={formDonor.control}
 									name="type"
-									render={({ }) => (
+									render={({ field }) => (
 										<FormItem>
 											<FormLabel>Organization Type</FormLabel>
-											<FormControl>
-												<select>
+											<FormControl >
+												<select
+													{...field}
+													className="rounded-lg bg-gray-700 p-3 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+>
 													<option value="school">
 														School
 													</option>
@@ -759,7 +762,7 @@ export default function Register() {
 														Mosque
 													</option>
 													<option value="nonprofit">
-														Non - Profit
+														Non-Profit
 													</option>
 												</select>
 											</FormControl>
@@ -767,22 +770,21 @@ export default function Register() {
 									)}
 								/>
 							</div>
-							{selectedDonorType !== "Regular" ? (
 								<div
 									className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
 								>
-									{selectedDonorType === "Teacher" ? (
+									
 										<FormField
 											control={formDonor.control}
 											name="subjects"
 											render={({ field }) => (
 												<FormItem>
 													<FormLabel>
-														Subjects
+														Organization Name
 													</FormLabel>
 													<FormControl>
 														<Input
-															placeholder="Subjects"
+															placeholder="resala"
 															{...field}
 														/>
 													</FormControl>
@@ -796,60 +798,12 @@ export default function Register() {
 												</FormItem>
 											)}
 										/>
-									) : (
-										<FormField
-											control={formDonor.control}
-											name="classes"
-											render={({ field }) => (
-												<FormItem>
-													<FormLabel>
-														Classes
-													</FormLabel>
-													<FormControl>
-														<Input
-															placeholder="Classes"
-															{...field}
-														/>
-													</FormControl>
-													<FormMessage>
-														{
-															formDonor.formState
-																.errors.classes
-																?.message
-														}
-													</FormMessage>
-												</FormItem>
-											)}
-										/>
-									)}
-									<FormField
-										control={formDonor.control}
-										name="credentials"
-										render={({ }) => (
-											<FormItem>
-												<FormLabel>
-													Donor Credentials
-												</FormLabel>
-												<FormControl className="text-center items-center">
-													<input className="text-center items-center rounded-full border space-x-2" id="file" type="file" />	
-												</FormControl>
-												<FormMessage>
-													{
-														formDonor.formState
-															.errors.credentials
-															?.message
-													}
-												</FormMessage>
-											</FormItem>
-
-										)}
-									/>
 									<FormField
 										control={formDonor.control}
 										name="proof"
 										render={({ }) => (
 											<FormItem>
-												<FormLabel>Proof of Work</FormLabel>
+												<FormLabel>Proof Being Part of Organization</FormLabel>
 												<FormControl className="text-center items-center">
 													<input className="text-center items-center rounded-full border space-x-2" id="file" type="file" />	
 												</FormControl>
@@ -864,9 +818,7 @@ export default function Register() {
 										)}
 									/>
 								</div>
-							) : (
-								""
-							)}
+							
 						</form>
 						
 					</Form>
