@@ -1,9 +1,11 @@
 import * as React from "react"
+
 import {
   CaretSortIcon,
   ChevronDownIcon,
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons"
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -16,7 +18,9 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+
 import { Button } from "../../../Components/shadcn/ui/button"
+
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -26,7 +30,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../../Components/shadcn/ui/dropdown-menu"
+
 import { Input } from "../../../Components/shadcn/ui/input"
+
 import {
   Table,
   TableBody,
@@ -36,8 +42,12 @@ import {
   TableRow,
 } from "../../../Components/shadcn/ui/table"
 
-
-
+export type Organization = {
+  name: string;
+  type: string;
+  address:string;
+  email: string;
+};
 
 const data: Organization[] = [
   {
@@ -54,12 +64,6 @@ const data: Organization[] = [
   },
 
 ];
-export type Organization = {
-  name: string;
-  type: string;
-  address:string;
-  email: string;
-};
 
 export const columns: ColumnDef<Organization>[] = [
   {
@@ -117,8 +121,6 @@ export const columns: ColumnDef<Organization>[] = [
     },
   },
 ];
-
-
 
 export default function RegisteredOrganizations() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
