@@ -10,6 +10,9 @@ import { Table ,
 
 import { useNavigate } from "react-router-dom";
 
+
+
+
 export default function OrganizationRequests() {
 
 const navigate = useNavigate();
@@ -25,14 +28,14 @@ const lists = [
    {
      View: "Red Cross's Request",
    },
- 		
+        
  ]
 
 
 return (
    <Table>
 
-       <TableCaption>Click on Request to View More Details.</TableCaption>
+       <TableCaption>Click on Request to View More Information.</TableCaption>
 
        <TableHeader>
 
@@ -49,13 +52,14 @@ return (
            {lists.map((list: { View: string }) => (
 
                <TableRow key={list.View}>
+                <TableCell className="font-large" onClick={() => { 
+                    handleClick("OrganizationRequestsDetails");
+                }}>
+                    {list.View}
+                </TableCell>
 
-                   <TableCell className="font-large" onClick={() => { 
-                           handleClick("OrganizationRequestsDetails");
-                   }}>
-                       {list.View}
-
-                   </TableCell>
+                
+                   
 
                </TableRow>
            ))}
@@ -69,3 +73,4 @@ return (
 )
 
 }
+

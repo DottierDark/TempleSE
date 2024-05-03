@@ -45,19 +45,7 @@ export const organizations = [
 		contactEmail: "hope@shelter.com",
 		status: "Approved",
 	},
-	{
-		id: 2,
-		name: "Goodwill",
-		type: "Non-profit",
-		address: {
-			street: "456 Elm St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
-		contactEmail: "GOOd@gmail.com",
-		status: "Pending",
-	},
+
 	{
 		id: 3,
 		name: "Salvation Army",
@@ -70,6 +58,23 @@ export const organizations = [
 		},
 		contactEmail: "sal@gmail.com",
 		status: "Approved",
+	},
+	
+];
+
+const unacceptedorganizations = [
+	{
+		id: 2,
+		name: "Goodwill",
+		type: "Non-profit",
+		address: {
+			street: "456 Elm St",
+			city: "Anytown",
+			state: "CA",
+			zip: "12345",
+		},
+		contactEmail: "GOOd@gmail.com",
+		status: "Pending",
 	},
 	{
 		id: 4,
@@ -85,6 +90,8 @@ export const organizations = [
 		status: "Pending",
 	},
 ];
+
+
 
 export const books: TBookItem[] = [];
 export const foods: TFoodItem[] = [
