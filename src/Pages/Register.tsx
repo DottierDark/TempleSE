@@ -827,7 +827,7 @@ export default function Register() {
 				<Button
 					type="submit"
 					onClick={() => {}}
-					className="bg-primary-500 w-40"
+					className="bg-gray-500 w-40 "
 				>
 					Register
 				</Button>
