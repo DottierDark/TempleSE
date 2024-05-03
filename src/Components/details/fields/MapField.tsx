@@ -67,9 +67,9 @@ export default function MapField({
 	}
 
 	return (
-		<div className={'flex flex-col w-40' + detailsClassName}>
+		<div className={'flex flex-col gap-2' + detailsClassName}>
 			<span className="font-bold">{label}:</span>
-			<span className="ml-2">{value}</span>
+			<span className="">{value}</span>
 			{map}
 		</div>
 	);

@@ -55,9 +55,9 @@ export default function NumberField({
 	}
 
 	return (
-		<div className={'flex flex-col' + detailsClassName}>
+		<div className={'flex flex-col gap-2' + detailsClassName}>
 			<span className="font-bold">{label}:</span>
-			<span className="ml-2">{value}</span>
+			<span className="">{value}</span>
 		</div>
 	);
 }

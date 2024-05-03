@@ -55,7 +55,7 @@ export default function TextField({
 	}
 
 	return (
-		<div className={'flex flex-col' + detailsClassName}>
+		<div className={'flex flex-col gap-2' + detailsClassName}>
 			<span className="font-bold">{label}:</span>
 			<span className="">{value}</span>
 		</div>
