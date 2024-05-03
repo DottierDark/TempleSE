@@ -36,21 +36,19 @@ export default function Login() {
 		},
 	});
 
+	
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		const user: User | undefined = Users.find((user) => {
-			if (
-				user.userName === values.username &&
-				user.password === values.password
-			) {
-				return user;
-			}
-		});
-		if (user) {
-			navigate(`/${user.type}`);
-		} else {
-			alert("Invalid username or password.");
-		}
-	}
+        const user: User | undefined = Users.find((user) => {
+            return user.userName === values.username && user.password === values.password;
+        });
+
+        if (user) {
+            navigate(`/${user.type}`); // Navigate based on user type
+        } else {
+            alert("Invalid username or password.");
+        }
+    }
+	 
 
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">

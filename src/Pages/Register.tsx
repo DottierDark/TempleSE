@@ -17,15 +17,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Register() {
-	const [formType, setFormType] = useState<"Donor" | "Organization Rep">(
-		"Donor",
-	);
+	const [formType, setFormType] = useState<"Donor" | "Organization Rep">("Donor",);
+	
 	const fileSchema: ZodType<File, any> = z.instanceof(File);
 
 	const navigate = useNavigate();
-	const [selectedDonorType, setSelectedDonorType] = useState<
-		"Regular" | "Teacher" | "Doctor"
-	>("Regular"); // Initialize selectedDonorType state
+	const [selectedDonorType, setSelectedDonorType] = useState<"Regular" | "Teacher" | "Doctor">("Regular"); // Initialize selectedDonorType state
+
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -827,7 +825,7 @@ export default function Register() {
 				<Button
 					type="submit"
 					onClick={() => {}}
-					className="bg-gray-500 w-40 "
+					className="bg-gray-700 w-40 "
 				>
 					Register
 				</Button>
