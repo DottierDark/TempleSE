@@ -8,7 +8,7 @@ import {
 	FormMessage,
 } from '../../shadcn/ui/form';
 import { Input } from '../../shadcn/ui/input';
-import { useMagicLinkFormContext } from '../useDetailsContext';
+import { useDetailsContext } from '../useDetailsContext';
 
 export default function MapField({
 	name,
@@ -28,7 +28,7 @@ export default function MapField({
 	const form = useFormContext();
 	const { watch } = form;
 	const value = watch(name);
-	const { addEditMode } = useMagicLinkFormContext();
+	const { addEditMode } = useDetailsContext();
 
 	const map = (
 		<iframe
@@ -54,7 +54,7 @@ export default function MapField({
 								placeholder={placeholder}
 								{...field}
 								type="text"
-								className={inputClassName}
+								className={inputClassName + 'indent-[-1px]'}
 							/>
 							{map}
 						</FormControl>

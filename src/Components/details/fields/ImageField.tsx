@@ -8,9 +8,9 @@ import {
 	FormMessage,
 } from '../../shadcn/ui/form';
 import { Input } from '../../shadcn/ui/input';
-import { useMagicLinkFormContext } from '../useDetailsContext';
+import { useDetailsContext } from '../useDetailsContext';
 
-export default function MapField({
+export default function ImageField({
 	name,
 	label,
 	placeholder,
@@ -28,40 +28,35 @@ export default function MapField({
 	const form = useFormContext();
 	const { watch } = form;
 	const value = watch(name);
-	const { addEditMode } = useMagicLinkFormContext();
+	const { addEditMode } = useDetailsContext();
 
-	const image = <img src={value} alt={label} className="w-20 h-20" />;
-
-	if (addEditMode) {
-		return (
-			<FormField
-				control={form.control}
-				name={name}
-				render={({ field }) => (
-					<FormItem>
-						<FormLabel>{label}</FormLabel>
-						<FormControl>
-							<Input
-								placeholder={placeholder}
-								{...field}
-								type="image"
-								className={inputClassName}
-							/>
-							{image}
-						</FormControl>
-						<FormDescription>{description}</FormDescription>
-						<FormMessage />
-					</FormItem>
-				)}
-			/>
-		);
-	}
+	const image = <img src={value} alt={label} className="w-20 h-9" />;
 
 	return (
-		<div className={'flex flex-col gap-2' + detailsClassName}>
-			<span className="font-bold">{label}:</span>
-			<span className="">{value}</span>
-			{image}
-		</div>
+		<FormField
+			control={form.control}
+			name={name}
+			render={({ field }) => (
+				<FormItem>
+					<FormLabel>{label}</FormLabel>
+					{addEditMode ? (
+						<>
+							<FormControl>
+								<Input
+									placeholder={placeholder}
+									{...field}
+									type="image"
+									className={inputClassName + 'indent-[-1px]'}
+								/>
+							</FormControl>
+						</>
+					) : (
+						image
+					)}
+					{addEditMode && <FormMessage />}
+					<FormDescription>{description}</FormDescription>
+				</FormItem>
+			)}
+		/>
 	);
 }

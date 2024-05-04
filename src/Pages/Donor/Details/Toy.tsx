@@ -9,6 +9,8 @@ import { Form } from '../../../Components/shadcn/ui/form';
 import TextField from '../../../Components/details/fields/TextField';
 import NumberField from '../../../Components/details/fields/NumberField';
 import { useEffect } from 'react';
+import ImageField from '../../../Components/details/fields/ImageField';
+import Details from '../../../Components/details/Details';
 
 export default function Toy() {
 	const { id } = useParams<{ id: string }>();
@@ -27,14 +29,11 @@ export default function Toy() {
 		quantity: z.number().min(0, {
 			message: 'Quantity must be at least 0.',
 		}),
-		img: z.string().min(2, {
-			message: 'Image must be at least 2 characters.',
-		}),
 		gender: z.string().min(2, {
-			message: '',
+			message: 'h',
 		}),
 		category: z.string().min(2, {
-			message: '',
+			message: 'h',
 		}),
 	});
 
@@ -59,66 +58,68 @@ export default function Toy() {
 	}, [toy]);
 
 	return (
-		<DetailsContextProvider addEditMode={!true}>
+		<DetailsContextProvider title="Toy" id={id}>
 			<Form {...form}>
-				<div className="flex flex-col gap-5 items-center w-full justify-center">
-					<TextField
-						name="name"
-						label="Name"
-						description="Name of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<TextField
-						name="type"
-						label="Type"
-						description="Type of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<TextField
-						name="ageGroup"
-						label="Age Group"
-						description="Age group for the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<NumberField
-						name="quantity"
-						label="Quantity"
-						description="Quantity of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<TextField
-						name="img"
-						label="Image"
-						description="Image of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<TextField
-						name="gender"
-						label="gender"
-						description="Gender of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-					<TextField
-						name="category"
-						label="Category"
-						description="Category of the toy"
-						detailsClassName=""
-						inputClassName=""
-						placeholder=""
-					/>
-				</div>
+				<Details>
+					<div className="grid grid-cols-2 p-6 gap-5">
+						<TextField
+							name="name"
+							label="Name"
+							description="Name of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="type"
+							label="Type"
+							description="Type of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="ageGroup"
+							label="Age Group"
+							description="Age group for the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<NumberField
+							name="quantity"
+							label="Quantity"
+							description="Quantity of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<ImageField
+							name="img"
+							label="Image"
+							description="Image of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="gender"
+							label="gender"
+							description="Gender of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="category"
+							label="Category"
+							description="Category of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+					</div>
+				</Details>
 			</Form>
 		</DetailsContextProvider>
 	);

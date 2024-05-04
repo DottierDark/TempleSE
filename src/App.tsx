@@ -65,6 +65,7 @@ function App() {
 				<Route path="/donor" element={<DonorHome />} />
 				<Route path="/donor/toys" element={<Toys />} />
 				<Route path="/donor/toy/:id" element={<Toy />} />
+				<Route path="/donor/toy/" element={<Toy />} />
 				<Route path="/donor/clothes" element={<Clothes />} />
 				<Route path="/donor/food" element={<Food />} />
 				<Route path="/donor/AccountSettings" element={<DonorAccountSettings/>} />
