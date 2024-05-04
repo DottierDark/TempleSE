@@ -17,7 +17,7 @@ import {
 } from '../assets/filterOptions';
 import { useNavigate } from 'react-router-dom';
 import Filter from './Filter';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
 	Pagination,
 	PaginationContent,
@@ -25,7 +25,6 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from './shadcn/ui/pagination';
-import { set } from 'react-hook-form';
 
 export default function ViewList(category: any) {
 	const pageSize = 12; // Number of items per page
@@ -34,7 +33,7 @@ export default function ViewList(category: any) {
 
 	const nav = useNavigate();
 	const handleCardClick = (item: any) => {
-		nav(`/donor/toys/item`);
+		nav(`/donor/toy/${item.id}`);
 	};
 
 	let items: any[] = [];
