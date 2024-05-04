@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import DonorRequestsList from "../../assets/Images/DonorsRequestsLists.jpeg";
 import OrganizationRequestsList from "../../assets/Images/OrganizationsRequestsLists.jpeg";
 import RegistredOrganizations from "../../assets/Images/RegistredOrganizations.jpeg";
+import AccountSettings from "../../assets/Images/accountsettings.jpeg";
 export default function AdminHome() {
 	const navigate = useNavigate();
 	const handleClick = (category: string) => {
@@ -11,6 +12,7 @@ export default function AdminHome() {
 		DonorRequestsList: DonorRequestsList,
 		OrganizationRequestsList: OrganizationRequestsList,
 		RegistredOrganizations: RegistredOrganizations,
+		AccountSettings: AccountSettings,
 	};
 	return (
 		<div className="flex h-full w-full items-center justify-center">
@@ -41,6 +43,15 @@ export default function AdminHome() {
 				>
 					<img src={imgsrc.DonorRequestsList} alt="DonorRequestsLists" style={{ width: "100%", height: "auto" }} />
 					<h1>Requests from Donor</h1>
+				</div>
+				<div
+					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
+					onClick={() => {
+						handleClick("AccountSettings");
+					}}
+				>
+					<img src={imgsrc.AccountSettings} alt="accountsettings" style={{ width: "100%", height: "auto" }} />
+					<h1>Account Settings</h1>
 				</div>
 			</div>
 		</div>

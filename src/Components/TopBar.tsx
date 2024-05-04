@@ -18,7 +18,7 @@ export default function TopBar() {
 	const navigate = useNavigate();
 	const history = window.history;
 	const location = window.location.pathname;
-
+	
 	const [type, setType] = useState<string | null>(null);
 
 	const onLogout = () => {
@@ -54,6 +54,11 @@ export default function TopBar() {
 					name: "Organization Requests",
 					key: "admin",
 					href: "/admin/OrganizationsRequests",
+				},
+				{
+					name: "Account Settings",
+					key: "admin",
+					href: "/admin/AccountSettings",
 				},
 			],
 		},

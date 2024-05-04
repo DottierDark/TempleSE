@@ -9,6 +9,7 @@ import blood from "../../assets/Images/blood-donation.jpeg";
 import { useEffect, useState } from "react";
 import { TCategories } from "../../types";
 import { donationsCategories } from "../../assets/filterOptions";
+import settings from "../../assets/Images/accountsettings.jpeg";
 
 export default function DonorHome() {
 	const navigate = useNavigate();
@@ -30,6 +31,8 @@ export default function DonorHome() {
 				return school;
 			case "blood":
 				return blood;
+			case "accountsettings":
+				return settings;
 			default:
 				return "";
 		}

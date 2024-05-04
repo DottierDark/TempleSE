@@ -106,4 +106,8 @@ export const donationsCategories = [
 		name: "Blood",
 		key: "blood",
 	},
+	{
+		name: "Account Settings",
+		key: "accountsettings",
+	},
 ];
