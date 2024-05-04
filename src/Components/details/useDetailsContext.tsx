@@ -1,19 +1,38 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { TDetailsContext } from './types';
 
 export const DetailsContext = createContext<TDetailsContext>({
+	isAddMode: false,
+	isEditMode: false,
+	setIsAddMode: () => {},
+	setIsEditMode: () => {},
 	addEditMode: false,
+	title: '',
+	id: '',
 });
 
-export const useMagicLinkFormContext = () => useContext(DetailsContext);
+export const useDetailsContext = () => useContext(DetailsContext);
 
 export const DetailsContextProvider = ({
 	children,
-	addEditMode,
+	title,
+	id,
 }: React.PropsWithChildren<{
-	addEditMode: boolean;
+	title: string;
+	id?: string;
 }>) => {
-	const value = { addEditMode };
+	const [isEditMode, setIsEditMode] = useState(false);
+	const [isAddMode, setIsAddMode] = useState(id ? true : false);
+
+	const value = {
+		isAddMode,
+		isEditMode,
+		setIsAddMode,
+		setIsEditMode,
+		addEditMode: isAddMode || isEditMode,
+		title,
+		id,
+	};
 
 	return (
 		<DetailsContext.Provider value={value}>{children}</DetailsContext.Provider>

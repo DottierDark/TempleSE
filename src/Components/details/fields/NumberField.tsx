@@ -8,7 +8,7 @@ import {
 	FormMessage,
 } from '../../shadcn/ui/form';
 import { Input } from '../../shadcn/ui/input';
-import { useMagicLinkFormContext } from '../useDetailsContext';
+import { useDetailsContext } from '../useDetailsContext';
 
 export default function NumberField({
 	name,
@@ -28,36 +28,35 @@ export default function NumberField({
 	const form = useFormContext();
 	const { watch } = form;
 	const value = watch(name);
-	const { addEditMode } = useMagicLinkFormContext();
-
-	if (addEditMode) {
-		return (
-			<FormField
-				control={form.control}
-				name={name}
-				render={({ field }) => (
-					<FormItem>
-						<FormLabel>{label}</FormLabel>
-						<FormControl>
-							<Input
-								placeholder={placeholder}
-								{...field}
-								type="number"
-								className={inputClassName}
-							/>
-						</FormControl>
-						<FormDescription>{description}</FormDescription>
-						<FormMessage />
-					</FormItem>
-				)}
-			/>
-		);
-	}
+	const { addEditMode } = useDetailsContext();
 
 	return (
-		<div className={'flex flex-col gap-2' + detailsClassName}>
-			<span className="font-bold">{label}:</span>
-			<span className="">{value}</span>
-		</div>
+		<FormField
+			control={form.control}
+			name={name}
+			render={({ field }) => (
+				<FormItem className="flex flex-col">
+					<FormLabel>{label}</FormLabel>
+					{addEditMode ? (
+						<>
+							<FormControl>
+								<Input
+									placeholder={placeholder}
+									{...field}
+									type="number"
+									className={inputClassName + 'indent-[-1px]'}
+								/>
+							</FormControl>
+						</>
+					) : (
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm">
+							{value}
+						</span>
+					)}
+					{addEditMode && <FormMessage />}
+					<FormDescription>{description}</FormDescription>
+				</FormItem>
+			)}
+		/>
 	);
 }
