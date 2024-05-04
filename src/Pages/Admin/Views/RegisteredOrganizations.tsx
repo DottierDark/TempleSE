@@ -21,8 +21,6 @@ import {
 
 import { Button } from "../../../Components/shadcn/ui/button"
 
-
-
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -44,8 +42,12 @@ import {
   TableRow,
 } from "../../../Components/shadcn/ui/table"
 
-
-
+export type Organization = {
+  name: string;
+  type: string;
+  address:string;
+  email: string;
+};
 
 const data: Organization[] = [
   {
@@ -62,12 +64,6 @@ const data: Organization[] = [
   },
 
 ];
-export type Organization = {
-  name: string;
-  type: string;
-  address:string;
-  email: string;
-};
 
 export const columns: ColumnDef<Organization>[] = [
   {
@@ -125,6 +121,7 @@ export const columns: ColumnDef<Organization>[] = [
     },
   },
 ];
+
 export default function RegisteredOrganizations() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -148,9 +145,7 @@ export default function RegisteredOrganizations() {
       columnVisibility,
     },
   });
-  function setData(dummyData: any[]): void {
-    throw new Error("Function not implemented.")
-  }
+ 
 
   return (
     <div className="w-full">
@@ -242,4 +237,7 @@ export default function RegisteredOrganizations() {
     </div>
   );
 }
+
+
+
 
