@@ -62,7 +62,55 @@ const data: Organization[] = [
     address: "101 Pine St, Anytown, CA 12345",
     email: "red@gmail.com",
   },
-
+  {
+    name: "Oxfam",
+    type: "Non-profit",
+    address: "110 Sec St, Wheretown, CA 12345",
+    email: "r@gmail.com",
+  },
+  {
+    name: "Habitat for Humanity",
+    type: "Non-profit",
+    address: "111 Cosec St, Howtown, CA 12345",
+    email: "h@gmail.com",
+  },
+  {
+    name: "Save the Children",
+    type: "Non-profit",
+    address: "106 Pint St, Whytown, CA 12345",
+    email: "sac@gmail.com",
+  },
+  {
+    name: "Doctors Without Borders",
+    type: "Non-profit",
+    address: "107 Live St, Whentown, CA 12345",
+    email: "d@gmail.com",
+  },
+  {
+    name: "Action Against Hunger",
+    type: "Non-profit",
+    address: "112 Hello St, Thentown, CA 12345",
+    email: "t@gmail.com",
+  },
+  {
+    name: "ShelterBox",
+    type: "Non-profit",
+    address: "199 Bye St, Theirtown, CA 12345",
+    email: "s@gmail.com",
+  },
+  {
+    name: "CARE",
+    type: "Non-profit",
+    address: "177 Why St, Nevertown, CA 12345",
+    email: "c@gmail.com",
+  },
+  {
+    name: "The Trevor Project",
+    type: "Non-profit",
+    address: "101 Okay St, Yestown, CA 12345",
+    email: "tr@gmail.com",
+  },
+  
 ];
 
 export const columns: ColumnDef<Organization>[] = [
@@ -90,11 +138,7 @@ export const columns: ColumnDef<Organization>[] = [
     header: "Address",
     cell: ({ row }) => <div>{row.getValue("address")}</div>,
   },
-  {
-    accessorKey: "actions",
-    header: "",
-    cell: ({ row }) => <div>{<Button>Download Submited Information</Button>}</div>
-  },
+
   {
     accessorKey: "actions",
     header: "",
@@ -104,6 +148,33 @@ export const columns: ColumnDef<Organization>[] = [
     accessorKey: "actions",
     header: "",
     cell: ({ row }) => <div>{<Button>Reject Request</Button>}</div>
+  },
+  {
+    id: "actions",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const organization = row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <DotsHorizontalIcon className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>More Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              //onClick={() => 
+            >
+              Download Submited Information
+            </DropdownMenuItem>
+           
+            <DropdownMenuSeparator />
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    },
   },
   
 ];
@@ -136,7 +207,7 @@ export default function OrganizationRequests() {
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-          <h1 className="text-2xl font-bold">Requests From Organizations</h1>
+          <h1 className="text-2xl font-bold ml-4">Requests From Organizations</h1>
       </div>
      
       <div className="rounded-md border">
@@ -185,6 +256,8 @@ export default function OrganizationRequests() {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
+
+      
        
       </div>
     
