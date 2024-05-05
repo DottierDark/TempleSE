@@ -111,3 +111,9 @@ export const donationsCategories = [
 		key: "accountsettings",
 	},
 ];
+export const organisationsCategories = [
+	{
+		name: "Account Settings",
+		key: "accountsettings",
+	},
+];
