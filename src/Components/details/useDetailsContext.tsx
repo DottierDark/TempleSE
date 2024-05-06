@@ -22,7 +22,7 @@ export const DetailsContextProvider = ({
 	id?: string;
 }>) => {
 	const [isEditMode, setIsEditMode] = useState(false);
-	const [isAddMode, setIsAddMode] = useState(id ? true : false);
+	const [isAddMode, setIsAddMode] = useState(id ? false : true);
 
 	const value = {
 		isAddMode,

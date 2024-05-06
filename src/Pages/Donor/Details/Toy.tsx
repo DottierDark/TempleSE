@@ -58,8 +58,8 @@ export default function Toy() {
 	}, [toy]);
 
 	return (
-		<DetailsContextProvider title="Toy" id={id}>
-			<Form {...form}>
+		<Form {...form}>
+			<DetailsContextProvider title="Toy" id={id}>
 				<Details>
 					<div className="grid grid-cols-2 p-6 gap-5">
 						<TextField
@@ -120,7 +120,7 @@ export default function Toy() {
 						/>
 					</div>
 				</Details>
-			</Form>
-		</DetailsContextProvider>
+			</DetailsContextProvider>
+		</Form>
 	);
 }
