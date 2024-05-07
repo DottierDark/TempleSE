@@ -5,12 +5,12 @@ import Filter from "../../../Components/Filter";
 import { RegisteredOrganizationsOptions } from "../../../assets/filterOptions";
 import { organizations } from "../../../assets/dummyData";
 import { Organization } from "../../../types";
-import { columns } from "./ColumnDef/OrgColDef";
+import { columns } from "./ColumnDef/RegOrgColDef";
 import { DataTable } from "../../../Components/shadcn/ui/data-table";
 
 export default function RegisteredOrganizations() {
 	const items: any[] = organizations.filter(
-		(org) => org.status === "Approved" || org.status === "Pending",
+		(org) => org.status === "Approved",
 	);
 	const filterOptions: any[] = RegisteredOrganizationsOptions;
 	const [data, setData] = useState<Organization[]>(items);

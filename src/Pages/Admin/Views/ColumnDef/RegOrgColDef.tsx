@@ -12,11 +12,7 @@ import {
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 
 export const columns: ColumnDef<Organization>[] = [
-	{
-		accessorKey: "id",
-		header: "ID",
-		cell: ({ row }) => <div>{row.getValue("id")}</div>,
-	},
+	
 	{
 		accessorKey: "name",
 		header: "Name",

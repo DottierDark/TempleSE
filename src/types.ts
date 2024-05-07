@@ -15,6 +15,13 @@ export type Organization = {
 	status: "Approved" | "Pending" | "Rejected";
 };
 
+export type Donor = {
+	firstname: string;
+	secondname: string;
+	address:string;
+	email: string;
+  };
+
 export type TLoginForm = {
 	userName: string;
 	password: string;
