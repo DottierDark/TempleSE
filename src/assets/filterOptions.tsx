@@ -107,3 +107,63 @@ export const donationsCategories = [
 		key: "blood",
 	},
 ];
+
+export const RegisteredOrganizationsOptions = [
+	{
+		id: "type",
+		label: "Type",
+		type: "options",
+		options: [
+			{
+				value: "All",
+				label: "All",
+			},
+			{
+				value: "Non-profit",
+				label: "Non-profit",
+			},
+			{
+				value: "Profit",
+				label: "Profit",
+			},
+		],
+	},
+	{
+		id: "city",
+		label: "City",
+		type: "options",
+		options: [
+			{
+				value: "Anytown",
+				label: "Anytown",
+			},
+			{
+				value: "Othertown",
+				label: "Othertown",
+			},
+			{
+				value: "Another town",
+				label: "Another town",
+			},
+		],
+	},
+	{
+		id: "state",
+		label: "State",
+		type: "options",
+		options: [
+			{
+				value: "CA",
+				label: "CA",
+			},
+			{
+				value: "NY",
+				label: "NY",
+			},
+			{
+				value: "TX",
+				label: "TX",
+			},
+		],
+	},
+];

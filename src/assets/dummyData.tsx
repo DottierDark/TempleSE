@@ -11,6 +11,7 @@ import {
 	TTeachingPost,
 	TToyItem,
 	User,
+	Organization,
 } from "../types";
 
 export const Users: User[] = [
@@ -31,44 +32,44 @@ export const Users: User[] = [
 	},
 ];
 
-export const organizations = [
+export const organizations: Organization[] = [
 	{
 		id: 1,
 		name: "Hope Shelter",
 		type: "Non-profit",
-		address: {
-			street: "123 Main St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
+
+		street: "123 Main St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
 		contactEmail: "hope@shelter.com",
 		status: "Approved",
 	},
 
 	{
-		id: 3,
+		id: 2,
 		name: "Salvation Army",
 		type: "Non-profit",
-		address: {
-			street: "789 Oak St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
+
+		street: "789 Oak St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
 		contactEmail: "sal@gmail.com",
 		status: "Approved",
 	},
 	{
-		id: 2,
+		id: 3,
 		name: "Goodwill",
 		type: "Non-profit",
-		address: {
-			street: "456 Elm St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
+
+		street: "456 Elm St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
 		contactEmail: "GOOd@gmail.com",
 		status: "Pending",
 	},
@@ -76,47 +77,68 @@ export const organizations = [
 		id: 4,
 		name: "Red Cross",
 		type: "Non-profit",
-		address: {
-			street: "101 Pine St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
+
+		street: "101 Pine St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
 		contactEmail: "red@gmail.com",
 		status: "Pending",
 	},
-];
-
-const unacceptedorganizations = [
 	{
-		id: 2,
-		name: "Goodwill",
+		id: 5,
+		name: "Hope Shelter",
 		type: "Non-profit",
-		address: {
-			street: "456 Elm St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
-		contactEmail: "GOOd@gmail.com",
-		status: "Pending",
+
+		street: "123 Main St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
+		contactEmail: "hope@shelter.com",
+		status: "Approved",
 	},
 	{
-		id: 4,
-		name: "Red Cross",
+		id: 6,
+		name: "Salvation Army",
+		type: "Profit",
+
+		street: "789 Oak St",
+		city: "Anytown",
+		state: "CA",
+		zip: "12345",
+
+		contactEmail: "sal@gmail.com",
+		status: "Approved",
+	},
+	{
+		id: 7,
+		name: "Future Shelter",
+		type: "Profit",
+
+		street: "789 Rad St",
+		city: "Othertown",
+		state: "CA",
+		zip: "12345",
+
+		contactEmail: "fut@gmail.com",
+		status: "Approved",
+	},
+	{
+		id: 8,
+		name: "World Shelter",
 		type: "Non-profit",
-		address: {
-			street: "101 Pine St",
-			city: "Anytown",
-			state: "CA",
-			zip: "12345",
-		},
-		contactEmail: "red@gmail.com",
-		status: "Pending",
+
+		street: "144 Sun St",
+		city: "Another Town",
+		state: "CA",
+		zip: "12345",
+
+		contactEmail: "wa@gmail.com",
+		status: "Approved",
 	},
 ];
-
-
 
 export const books: TBookItem[] = [];
 export const foods: TFoodItem[] = [

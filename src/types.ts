@@ -3,6 +3,17 @@ export type User = {
 	password: string;
 	type: "organization" | "donor" | "admin";
 };
+export type Organization = {
+	id: number;
+	name: string;
+	type: string;
+	street: string;
+	city: string;
+	state: string;
+	zip: string;
+	contactEmail: string;
+	status: "Approved" | "Pending" | "Rejected";
+};
 
 export type TLoginForm = {
 	userName: string;
