@@ -28,7 +28,7 @@ export default function TopBar() {
 
 	useEffect(() => {
 		setType(location.split("/")[1]);
-	}, [location]);
+	}, []);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
@@ -62,10 +62,30 @@ export default function TopBar() {
 				},
 			],
 		},
-
+		{
+			name: "Organisation",
+			key: "donor-org",
+			links: [
+				{
+					name: "Medical Cases",
+					key: "",
+					href: "/donor/medical-cases",
+				},
+				{
+					name: "Teaching Posts",
+					key: "",
+					href: "/donor/teaching",
+				},
+				{
+					name: "Organizations",
+					key: "",
+					href: "/donor/organizations",
+				},
+			],
+		},
 		{
 			name: "Donations",
-			key: "donor",
+			key: "donor-donation",
 			links: [
 				{
 					name: "Toys",
@@ -141,7 +161,7 @@ export default function TopBar() {
 			<NavigationMenu className="justify-self-center">
 				<NavigationMenuList>
 					{navigationMenu.map((tab) =>
-						type === tab.key ||
+						tab.key.split("-")[0] === type ||
 						tab.key === "logout" ||
 						tab.key === "home" ||
 						tab.key === "settings" ? (
@@ -188,6 +208,7 @@ export default function TopBar() {
 													}
 												}
 											}}
+											className=""
 										>
 											{tab.name}
 										</button>

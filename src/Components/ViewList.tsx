@@ -1,12 +1,13 @@
-import { Card } from './shadcn/ui/card';
+import { Card } from "./shadcn/ui/card";
 import {
 	bloodCases,
 	clothes,
 	foods,
 	medicalSupplies,
 	schoolSupplies,
+	teachingPosts,
 	toys,
-} from '../assets/dummyData';
+} from "../assets/dummyData";
 import {
 	bloodFilterOptions,
 	clothesFilterOptions,
@@ -14,17 +15,18 @@ import {
 	medicalSuppliesFilterOptions,
 	schoolSuppliesFilterOptions,
 	toysFilterOptions,
-} from '../assets/filterOptions';
-import { useNavigate } from 'react-router-dom';
-import Filter from './Filter';
-import { useState } from 'react';
+	TeachingPostsOptions,
+} from "../assets/filterOptions";
+import { useNavigate } from "react-router-dom";
+import Filter from "./Filter";
+import { useState } from "react";
 import {
 	Pagination,
 	PaginationContent,
 	PaginationItem,
 	PaginationNext,
 	PaginationPrevious,
-} from './shadcn/ui/pagination';
+} from "./shadcn/ui/pagination";
 
 export default function ViewList(category: any) {
 	const pageSize = 12; // Number of items per page
@@ -40,31 +42,55 @@ export default function ViewList(category: any) {
 	let filterOptions: any[] = [];
 
 	switch (category.category) {
-		case 'Clothes':
+		case "Clothes":
 			items = clothes;
 			filterOptions = clothesFilterOptions;
 			break;
-		case 'Toys':
+		case "Toys":
 			items = toys;
 			filterOptions = toysFilterOptions;
 			break;
-		case 'Food':
+		case "Food":
 			items = foods;
 			filterOptions = foodsFilterOptions;
 			break;
-		case 'Medical Supplies':
+		case "Medical Supplies":
 			items = medicalSupplies;
 			filterOptions = medicalSuppliesFilterOptions;
 			break;
-		case 'School Supplies':
+		case "School Supplies":
 			items = schoolSupplies;
 			filterOptions = schoolSuppliesFilterOptions;
 			break;
-		case 'Blood Donation':
+		case "Blood Donation":
 			items = bloodCases;
 			filterOptions = bloodFilterOptions;
 			break;
+		case "Medical Cases":
+			items = medicalSupplies;
+			filterOptions = medicalSuppliesFilterOptions;
+			break;
+		case "Teaching":
+			items = teachingPosts;
+			filterOptions = TeachingPostsOptions;
+			break;
 		default:
+			items = [
+				...bloodCases,
+				...clothes,
+				...foods,
+				...medicalSupplies,
+				...schoolSupplies,
+				...toys,
+			];
+			filterOptions = [
+				...bloodFilterOptions,
+				...clothesFilterOptions,
+				...foodsFilterOptions,
+				...medicalSuppliesFilterOptions,
+				...schoolSuppliesFilterOptions,
+				...toysFilterOptions,
+			];
 			break;
 	}
 
@@ -80,7 +106,7 @@ export default function ViewList(category: any) {
 				columnFilters={filterOptions}
 			/>
 			<div className="flex flex-col">
-				<div className="grid h-[90vh] grid-cols-4 p-6 gap-5">
+				<div className="grid h-[90vh] grid-cols-4 gap-5 p-6">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (
@@ -107,17 +133,20 @@ export default function ViewList(category: any) {
 									}
 								}}
 								aria-disabled={page === 0}
-								className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
+								className={`select-none ${page === 0 ? "pointer-events- opacity-50" : ""}`}
 							/>
 						</PaginationItem>
 						<PaginationItem className="flex self-end">
 							<PaginationNext
 								onClick={() => {
-									if (data.slice((page + 1) * pageSize).length !== 0) {
+									if (
+										data.slice((page + 1) * pageSize)
+											.length !== 0
+									) {
 										onPageChange(page + 1);
 									}
 								}}
-								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
+								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? "pointer-events- opacity-50" : ""}`}
 							/>
 						</PaginationItem>
 					</PaginationContent>

@@ -106,6 +106,25 @@ export const donationsCategories = [
 		name: "Blood",
 		key: "blood",
 	},
+	{
+		name: "Teaching Posts",
+		key: "teaching",
+	},
+	{
+		name: "Medical Cases",
+		key: "medicalCase",
+	},
+	{
+		name: "Organizations",
+		key: "organizations",
+	},
+];
+export const OrgOptions = [
+	{
+		name: " Fulfilled",
+		key: "fulfilled",
+	},
+	{},
 ];
 
 export const RegisteredOrganizationsOptions = [
@@ -167,3 +186,5 @@ export const RegisteredOrganizationsOptions = [
 		],
 	},
 ];
+
+export const TeachingPostsOptions = [];

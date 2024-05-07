@@ -47,6 +47,7 @@ export default function Login() {
 
 		if (user) {
 			navigate(`/${user.type}`); // Navigate based on user type
+			localStorage.setItem("user", JSON.stringify(user));
 		} else {
 			alert("Invalid username or password.");
 		}

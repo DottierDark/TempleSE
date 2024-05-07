@@ -28,13 +28,19 @@ export default function DonorHome() {
 				return school;
 			case "blood":
 				return blood;
+			case "teaching":
+				return "";
+			case "medicalCase":
+				return "";
+			case "organisations":
+				return "";
 			default:
 				return "";
 		}
 	};
 	return (
-		<div className="flex h-full w-full items-center justify-center">
-			<div className="grid h-[60%] w-[60%] grid-cols-3 grid-rows-2 items-center justify-center gap-5">
+		<div className="flex h-full w-full items-center justify-center p-10">
+			<div className="grid h-full w-full grid-cols-4 items-center justify-center gap-10">
 				{donationsCategories.map(
 					(category: { name: string; key: string }) => (
 						<Card

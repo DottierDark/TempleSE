@@ -21,6 +21,9 @@ import OrganizationRequestsDetails from "./Pages/Admin/Details/OrganizationReque
 import Toy from "./Pages/Donor/Details/Toy";
 import AccountSettings from "./Pages/Admin/Views/AccountSettings";
 import DonorAccountSettings from "./Pages/Donor/Views/AccountSettings";
+import Fulfilled from "./Pages/Organisation/Views/Fulfilled";
+import Org from "./Pages/Donor/Views/Org";
+import Teaching from "./Pages/Donor/Views/TeacherPosts";
 
 function App() {
 	return (
@@ -80,8 +83,16 @@ function App() {
 					element={<SchoolSupplies />}
 				/>
 				<Route path="/donor/blood-donation" element={<Blood />} />
+				<Route path="/donor/organizations" element={<Org />} />
+				<Route path="/donor/teaching" element={<Teaching />} />
+
 				{/* Organisation Pages*/}
 				<Route path="/organisation" element={<OrgHome />} />
+				<Route
+					path="/organisation/AccountSettings"
+					element={<DonorAccountSettings />}
+				/>
+				<Route path="/organisation/fulfilled" element={<Fulfilled />} />
 			</Routes>
 		</BrowserRouter>
 	);

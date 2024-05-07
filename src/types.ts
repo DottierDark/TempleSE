@@ -62,9 +62,6 @@ export type TCategories =
 	| "Blood Donation"
 	| "Teaching Post"
 	| "Medical Case"
-	| "Book"
-	| "Stationary"
-	| "Donation"
 	| string;
 
 export type TDonationForm = {
