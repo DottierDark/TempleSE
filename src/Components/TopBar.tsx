@@ -28,7 +28,7 @@ export default function TopBar() {
 
 	useEffect(() => {
 		setType(location.split("/")[1]);
-	}, []);
+	}, [location]);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
