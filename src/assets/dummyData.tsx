@@ -59,7 +59,32 @@ export const organizations = [
 		contactEmail: "sal@gmail.com",
 		status: "Approved",
 	},
-	
+	{
+		id: 2,
+		name: "Goodwill",
+		type: "Non-profit",
+		address: {
+			street: "456 Elm St",
+			city: "Anytown",
+			state: "CA",
+			zip: "12345",
+		},
+		contactEmail: "GOOd@gmail.com",
+		status: "Pending",
+	},
+	{
+		id: 4,
+		name: "Red Cross",
+		type: "Non-profit",
+		address: {
+			street: "101 Pine St",
+			city: "Anytown",
+			state: "CA",
+			zip: "12345",
+		},
+		contactEmail: "red@gmail.com",
+		status: "Pending",
+	},
 ];
 
 const unacceptedorganizations = [

@@ -1,4 +1,5 @@
-export const buttonClass = "rounded-lg bg-blue-500 p-3 font-bold text-white";
+export const buttonClass =
+	"rounded-lg bg-blue-500 p-3 font-bold text-white text-xl cursor-pointer";
 export const formInputClass =
 	"block w-full rounded-lg border  border-gray-600  bg-gray-700 p-2.5 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500 sm:text-sm";
 export const formTextClass = "mb-2 block text-sm font-medium text-white";

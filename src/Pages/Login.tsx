@@ -16,6 +16,7 @@ import { loginContainerClass } from "../assets/Styles";
 import { Card } from "../Components/shadcn/ui/card";
 import { Users } from "../assets/dummyData";
 import { User } from "../types";
+import { buttonClass } from "../assets/Styles";
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -54,9 +55,8 @@ export default function Login() {
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
 			<Card className={`${loginContainerClass}`}>
-				<div className="my-0 flex w-full flex-col items-center justify-center gap-3">
-					<br></br>
-					<h1 className="justify-center text-2xl font-bold tracking-tight text-white md:text-2xl">
+				<div className="flex w-full flex-col items-center justify-center gap-3">
+					<h1 className="pt-10 text-3xl font-bold text-white">
 						Login
 					</h1>
 					<p
@@ -66,11 +66,11 @@ export default function Login() {
 						Don't have an account? Register here.
 					</p>
 				</div>
-				<div className="my-0 justify-center">
+				<div className="">
 					<Form {...form}>
 						<form
 							onSubmit={form.handleSubmit(onSubmit)}
-							className="flex h-96 w-full flex-col items-center justify-center gap-4 text-white md:w-96"
+							className="flex h-full w-full flex-col items-center justify-center gap-4 py-12 text-white md:w-96"
 						>
 							<FormField
 								control={form.control}
@@ -104,7 +104,9 @@ export default function Login() {
 									</FormItem>
 								)}
 							/>
-							<Button type="submit">Login</Button>
+							<Button className={`${buttonClass}`} type="submit">
+								Login
+							</Button>
 						</form>
 					</Form>
 				</div>
