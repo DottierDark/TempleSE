@@ -12,6 +12,7 @@ import {
 	TToyItem,
 	User,
 	Organization,
+	Donor,
 } from "../types";
 
 export const Users: User[] = [
@@ -53,8 +54,8 @@ export const organizations: Organization[] = [
 		type: "Non-profit",
 
 		street: "789 Oak St",
-		city: "Anytown",
-		state: "CA",
+		city: "Othertown",
+		state: "NY",
 		zip: "12345",
 
 		contactEmail: "sal@gmail.com",
@@ -66,8 +67,8 @@ export const organizations: Organization[] = [
 		type: "Non-profit",
 
 		street: "456 Elm St",
-		city: "Anytown",
-		state: "CA",
+		city: "Another Town",
+		state: "TX",
 		zip: "12345",
 
 		contactEmail: "GOOd@gmail.com",
@@ -88,28 +89,28 @@ export const organizations: Organization[] = [
 	},
 	{
 		id: 5,
-		name: "Hope Shelter",
+		name: "Dope Shelter",
 		type: "Non-profit",
 
-		street: "123 Main St",
+		street: "123 unrad St",
 		city: "Anytown",
-		state: "CA",
+		state: "TX",
 		zip: "12345",
 
-		contactEmail: "hope@shelter.com",
+		contactEmail: "dope@shelter.com",
 		status: "Approved",
 	},
 	{
 		id: 6,
-		name: "Salvation Army",
+		name: "X shelter",
 		type: "Profit",
 
-		street: "789 Oak St",
+		street: "789 rad St",
 		city: "Anytown",
-		state: "CA",
+		state: "NY",
 		zip: "12345",
 
-		contactEmail: "sal@gmail.com",
+		contactEmail: "x@gmail.com",
 		status: "Approved",
 	},
 	{
@@ -132,11 +133,74 @@ export const organizations: Organization[] = [
 
 		street: "144 Sun St",
 		city: "Another Town",
-		state: "CA",
+		state: "TX",
 		zip: "12345",
 
 		contactEmail: "wa@gmail.com",
 		status: "Approved",
+	},
+];
+
+export const donor: Donor[] = [
+	{
+		firstname: "Amr",
+		secondname: "Hossam",
+		address: "123 Elm St, Anytown, CA 12345",
+		email: "amr@gmail.com",
+	},
+	{
+		firstname: "Nada",
+		secondname: "Saleh",
+		address: "143 Pine St, Anytown, CA 12345",
+		email: "nada@gmail.com",
+	},
+	{
+		firstname: "Salma",
+		secondname: "Ahmed",
+		address: "154 Sec St, Wheretown, CA 12345",
+		email: "salama@gmail.com",
+	},
+	{
+		firstname: "Dalia",
+		secondname: "Habib",
+		address: "167 Cosec St, Howtown, CA 12345",
+		email: "dalia@gmail.com",
+	},
+	{
+		firstname: "Tia",
+		secondname: "Abdelrahman",
+		address: "148 Pint St, Whytown, CA 12345",
+		email: "tia@gmail.com",
+	},
+	{
+		firstname: "Hala",
+		secondname: "Ashraf",
+		address: "196 Live St, Whentown, CA 12345",
+		email: "hala@gmail.com",
+	},
+	{
+		firstname: "Noor",
+		secondname: "Ismail",
+		address: "134 Hello St, Thentown, CA 12345",
+		email: "noor@gmail.com",
+	},
+	{
+		firstname: "Jannah",
+		secondname: "Omar",
+		address: "189 Bye St, Theirtown, CA 12345",
+		email: "jannah@gmail.com",
+	},
+	{
+		firstname: "Ahmed",
+		secondname: "Mostafa",
+		address: "33 Why St, Nevertown, CA 12345",
+		email: "ahmed@gmail.com",
+	},
+	{
+		firstname: "Ali",
+		secondname: "Basha",
+		address: "69 Okay St, Yestown, CA 12345",
+		email: "ali@gmail.com",
 	},
 ];
 export const foods: TFoodItem[] = [
