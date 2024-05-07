@@ -24,6 +24,23 @@ export default function Register() {
 	const navigate = useNavigate();
 	const [selectedDonorType, setSelectedDonorType] = useState<"Regular" | "Teacher" | "Doctor">("Regular"); // Initialize selectedDonorType state
 
+
+	const [uploadedFiles, setUploadedFiles] = useState<{ name: any; content: string | ArrayBuffer | null; }[]>([]);
+	const handleFileChange = (event:React.ChangeEvent<HTMLInputElement>  ) => {
+		const files = event.target.files;
+		if (files) { // Check if files is not null
+    		const reader = new FileReader();
+		for (const file of files) {
+			reader.readAsText(file); // Adjust for different file types
+			reader.onload = (e) => {
+				if (e.target !==null) {
+					setUploadedFiles((prevFiles) => [...prevFiles, { name: file.name, content: e.target!.result }]);
+				}
+			};
+		}
+	}
+	}
+
 	useEffect(() => {
 		const id = localStorage.getItem("user");
 		const type = localStorage.getItem("type");
@@ -63,7 +80,9 @@ export default function Register() {
 		subjects: z.string().optional(),
 		classes: z.string().optional(),
 		credentials: fileSchema.optional(),
-		proof: fileSchema.optional(),
+		proof: fileSchema.refine(_value => null,{
+			message: "Proof is required",
+		}),
 		teach: z.number().refine(value => value > 0, {
   			message: "Must be greater than 0",
 		}),
@@ -103,8 +122,16 @@ export default function Register() {
 		organizationType: z.string().min(2, {
 			message: "Organization Type must be at least 2 characters.",
 		}),
-		credentials: fileSchema.optional(),
-		proof: fileSchema.optional(),
+		cases: z.string().optional(),
+		gender: z.string().optional(),
+		type: z.string().optional(),
+		subjects: z.string().optional(),
+		proof: fileSchema.refine(_value => null,{
+			message: "Proof is required",
+		}),
+		partproof: fileSchema.refine(_value => null,{
+			message: "Proof is required",
+		}),
 	});
 
 	const formDonor = useForm<z.infer<typeof formSchemaDonor>>({
@@ -503,14 +530,32 @@ export default function Register() {
 										/>
 										</div>
 									)}
+									<div className="justify-center">
 									<FormField
 										control={formDonor.control}
 										name="proof"
-										render={({ }) => (
-											<FormItem>
-												<FormLabel>Proof of Work</FormLabel>
-												<FormControl className="text-center items-center">
-													<input className="text-center items-center rounded-full border space-x-2" id="file" type="file" />	
+										render={({ field }) => (
+											<FormItem >
+												<FormLabel >Proof of Work</FormLabel>
+												<FormControl>
+													<div>
+													<Input 
+													 className="flex rounded-full border space-x-2"
+													 id="file"
+													 type="file" 
+													 onChange={handleFileChange}
+													 ref={null}
+  													 multiple={true}/>
+													 <ul className="flex gap-2 text-center">
+														{uploadedFiles.map((file) => {
+														console.log('file:', file);
+														if (!file.name) {
+															return null;
+														}
+														return <li key={file.name}>{file.name}</li>;
+														})}
+													</ul>
+													</div>
 												</FormControl>
 												<FormMessage>
 													{
@@ -522,6 +567,7 @@ export default function Register() {
 											</FormItem>
 										)}
 									/>
+									</div>
 								</div>
 							) : (
 								""
@@ -538,7 +584,7 @@ export default function Register() {
 								className={`${loginContainerClass} flex h-full w-full flex-col items-center justify-center gap-4 text-white md:w-96`}
 							>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="firstName"
 									render={({ field }) => (
 										<FormItem>
@@ -551,7 +597,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.firstName?.message
 												}
 											</FormMessage>
@@ -559,7 +605,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="lastName"
 									render={({ field }) => (
 										<FormItem>
@@ -572,7 +618,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.lastName?.message
 												}
 											</FormMessage>
@@ -580,7 +626,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="userName"
 									render={({ field }) => (
 										<FormItem>
@@ -593,7 +639,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.userName?.message
 												}
 											</FormMessage>
@@ -601,7 +647,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="password"
 									render={({ field }) => (
 										<FormItem>
@@ -614,7 +660,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.password?.message
 												}
 											</FormMessage>
@@ -622,7 +668,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="contactNumber"
 									render={({ field }) => (
 										<FormItem>
@@ -637,7 +683,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.contactNumber?.message
 												}
 											</FormMessage>
@@ -645,7 +691,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="gender"
 									render={({ field }) => (
 										<FormItem>
@@ -674,7 +720,7 @@ export default function Register() {
 								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
 							>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="address"
 									render={({ field }) => (
 										<FormItem>
@@ -687,7 +733,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.address?.message
 												}
 											</FormMessage>
@@ -695,7 +741,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="area"
 									render={({ field }) => (
 										<FormItem>
@@ -708,7 +754,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.area?.message
 												}
 											</FormMessage>
@@ -716,7 +762,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="city"
 									render={({ field }) => (
 										<FormItem>
@@ -729,7 +775,7 @@ export default function Register() {
 											</FormControl>
 											<FormMessage>
 												{
-													formDonor.formState.errors
+													formOrganization.formState.errors
 														.city?.message
 												}
 											</FormMessage>
@@ -737,7 +783,7 @@ export default function Register() {
 									)}
 								/>
 								<FormField
-									control={formDonor.control}
+									control={formOrganization.control}
 									name="type"
 									render={({ field }) => (
 										<FormItem>
@@ -773,7 +819,7 @@ export default function Register() {
 								>
 									
 										<FormField
-											control={formDonor.control}
+											control={formOrganization.control}
 											name="subjects"
 											render={({ field }) => (
 												<FormItem>
@@ -788,7 +834,7 @@ export default function Register() {
 													</FormControl>
 													<FormMessage>
 														{
-															formDonor.formState
+															formOrganization.formState
 																.errors.subjects
 																?.message
 														}
@@ -797,17 +843,34 @@ export default function Register() {
 											)}
 										/>
 									<FormField
-										control={formDonor.control}
-										name="proof"
-										render={({ }) => (
+										control={formOrganization.control}
+										name="partproof"
+										render={({ field }) => (
 											<FormItem>
 												<FormLabel>Proof Being Part of Organization</FormLabel>
-												<FormControl className="text-center items-center">
-													<input className="text-center items-center rounded-full border space-x-2" id="file" type="file" />	
+												<FormControl>
+													<div>
+													<Input 
+													 className="flex rounded-full border space-x-2"
+													 id="file"
+													 type="file" 
+													 onChange={handleFileChange}
+													 ref={null}
+  													 multiple={true}/>
+													 <ul className="flex gap-2 text-center">
+														{uploadedFiles.map((file) => {
+														console.log('file:', file);
+														if (!file.name) {
+															return null;
+														}
+														return <li key={file.name}>{file.name}</li>;
+														})}
+													</ul>
+													</div>	
 												</FormControl>
 												<FormMessage>
 													{
-														formDonor.formState
+														formOrganization.formState
 															.errors.proof
 															?.message
 													}
@@ -833,3 +896,4 @@ export default function Register() {
 		</div>
 	);
 }
+
