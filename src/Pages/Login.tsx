@@ -62,7 +62,7 @@ export default function Login() {
 					</h1>
 					<p
 						className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
-						onClick={() => navigate("/register")}
+						onClick={() => navigate("/mainregister")}
 					>
 						Don't have an account? Register here.
 					</p>

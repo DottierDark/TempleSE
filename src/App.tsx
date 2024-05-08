@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import DonorHome from "./Pages/Donor/Home";
 import OrgHome from "./Pages/Organisation/Home";
 import Register from "./Pages/Register";
+import MainRegister from "./Pages/MainRegister";
 import Toys from "./Pages/Donor/Views/Toys";
 import Clothes from "./Pages/Donor/Views/Clothes";
 import Food from "./Pages/Donor/Views/Food";
@@ -36,7 +37,8 @@ function App() {
 			/>
 			<Routes>
 				<Route path="/" element={<Login />} />
-				<Route path="/register" element={<Register />} />
+				<Route path="/register" element={<Register/>} />
+				<Route path="/mainregister" element={<MainRegister />} />
 				{/* Admin Pages*/}
 				<Route path="/admin" element={<AdminHome />} />
 				<Route
