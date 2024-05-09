@@ -1,4 +1,3 @@
-import { ColumnDef } from '@tanstack/react-table';
 import { PlusCircle, MinusCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';

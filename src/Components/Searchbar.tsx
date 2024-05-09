@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Search } from 'lucide-react';
 import { Input } from './shadcn/ui/input';
 
 interface SearchbarProps {
@@ -25,7 +24,7 @@ export default function Searchbar({
 	return (
 		<Input
 			type="text"
-			className="outline:none text-font-arial rounded-md bg-white min-w-40"
+			className="bg-white min-w-40"
 			placeholder="Search for a"
 			value={searchTerm}
 			onChange={(e) => {
