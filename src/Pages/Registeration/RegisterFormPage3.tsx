@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loginButtonClass, loginContainerClass } from '../assets/Styles';
+import { loginButtonClass, loginContainerClass } from '../../assets/Styles';
 import {
 	Form,
 	FormControl,
@@ -7,8 +7,8 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '../Components/shadcn/ui/form';
-import { Input } from '../Components/shadcn/ui/input';
+} from '../../Components/shadcn/ui/form';
+import { Input } from '../../Components/shadcn/ui/input';
 import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
