@@ -1,9 +1,6 @@
-import { Value } from "@radix-ui/react-select";
 import {
 	TBloodDonation,
-	TBookItem,
 	TClothesItem,
-	TDonationItem,
 	TFoodItem,
 	TMedicalCase,
 	TMedicineSupplies,
@@ -16,22 +13,23 @@ import {
 } from "../types";
 
 import lego from "../assets/Images/board-games.jpg";
+} from '../types';
 
-export const Users: User[] = [
+export const credentials: User[] = [
 	{
-		userName: "admin",
-		password: "admin",
 		type: "admin",
+		username: "admin",
+		password: "admin123",
 	},
 	{
-		userName: "donor",
-		password: "donor",
 		type: "donor",
+		username: "donor",
+		password: "donor123",
 	},
 	{
-		userName: "org",
-		password: "org",
-		type: "organization",
+		type: "organisation",
+		username: "organisation",
+		password: "organisation123",
 	},
 ];
 
@@ -47,7 +45,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "hope@shelter.com",
-		status: "Approved",
+		status: "approved",
 	},
 
 	{
@@ -61,7 +59,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "sal@gmail.com",
-		status: "Approved",
+		status: "approved",
 	},
 	{
 		id: 3,
@@ -74,7 +72,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "GOOd@gmail.com",
-		status: "Pending",
+		status: "pending",
 	},
 	{
 		id: 4,
@@ -87,7 +85,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "red@gmail.com",
-		status: "Pending",
+		status: "pending",
 	},
 	{
 		id: 5,
@@ -100,7 +98,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "dope@shelter.com",
-		status: "Approved",
+		status: "approved",
 	},
 	{
 		id: 6,
@@ -113,7 +111,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "x@gmail.com",
-		status: "Approved",
+		status: "approved",
 	},
 	{
 		id: 7,
@@ -126,7 +124,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "fut@gmail.com",
-		status: "Approved",
+		status: "approved",
 	},
 	{
 		id: 8,
@@ -139,7 +137,7 @@ export const organizations: Organization[] = [
 		zip: "12345",
 
 		contactEmail: "wa@gmail.com",
-		status: "Approved",
+		status: "approved",
 	},
 ];
 

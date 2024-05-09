@@ -47,7 +47,7 @@ export default function MapField({
 				control={form.control}
 				name={name}
 				render={({ field }) => (
-					<FormItem>
+					<FormItem className="flex flex-col h-[400px]">
 						<FormLabel>{label}</FormLabel>
 						<FormControl>
 							<Input
@@ -59,7 +59,7 @@ export default function MapField({
 							{map}
 						</FormControl>
 						<FormDescription>{description}</FormDescription>
-						<FormMessage />
+						{addEditMode && <FormMessage />}
 					</FormItem>
 				)}
 			/>

@@ -28,7 +28,7 @@ import Orgs from "./Pages/Donor/Views/Orgs";
 import TeachingPosts from "./Pages/Donor/Views/TeacherPosts";
 import MedicalCases from "./Pages/Donor/Views/MedicalCases";
 
-import DonorAccountSettings from "./Pages/Donor/Views/AccountSettings";
+import DonorSettings from "./Pages/Donor/Views/DonorSettings";
 
 {
 	/* Donor Details Pages*/
@@ -109,10 +109,7 @@ function App() {
 				<Route path="/donor/clothes/:id" element={<Cloth />} />
 				<Route path="/donor/food" element={<Foods />} />
 				<Route path="/donor/food/:id" element={<Food />} />
-				<Route
-					path="/donor/AccountSettings"
-					element={<DonorAccountSettings />}
-				/>
+				<Route path="/donor/settings" element={<DonorSettings />} />
 				<Route
 					path="/donor/medical-supplies"
 					element={<MedicalSupplies />}
@@ -145,7 +142,7 @@ function App() {
 				<Route path="/organisation" element={<OrgHome />} />
 				<Route
 					path="/organisation/AccountSettings"
-					element={<DonorAccountSettings />}
+					element={<DonorSettings />}
 				/>
 				<Route path="/organisation/fulfilled" element={<Fulfilled />} />
 			</Routes>

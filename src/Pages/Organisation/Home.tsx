@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 export default function OrganisationHome() {
 	const navigate = useNavigate();
 	const handleClick = (key: string) => {
