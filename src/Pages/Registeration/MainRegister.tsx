@@ -85,7 +85,7 @@ export default function MainRegister() {
 				</Button>
 				<Button
 					type="submit"
-					onClick={() => {}}
+					onClick={() => {formType === 'Donor' ? navigate('/donor') : navigate('/organizarion')}}
 					disabled={stage !== 3}
 					className="bg-gray-700 h-10 w-40 "
 				>
