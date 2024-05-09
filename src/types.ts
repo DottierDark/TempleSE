@@ -156,3 +156,29 @@ export type TNavigationMenuTab = {
 		href: string;
 	}[];
 };
+
+export type TDonorSettings = {
+	firstName: string;
+	lastName: string;
+	gender: string;
+	phoneNumber: string;
+	email: string;
+	address: string;
+	city: string;
+	area: string;
+	governorate: string;
+};
+
+export type TOrganizationSettings = {
+	firstName: string;
+	lastName: string;
+	gender: string;
+	contactNumber: string;
+	email: string;
+	organisationName: string;
+	organisationAddress: string;
+	organisationType: string;
+	city: string;
+	area: string;
+	governorate: string;
+};

@@ -29,13 +29,11 @@ export default function Details({
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className="h-12 w-full flex justify-between px-12 items-center">
 				<h1 className="text-3xl font-bold text-black">
-					{replacementTitle
-						? replacementTitle
-						: isAddMode
-							? `Add ${title}`
-							: isEditMode
-								? `Editing ${title} - ${id}`
-								: ` ${title} - ${id} Details`}
+					{isAddMode && !replacementTitle
+						? `Add ${title}`
+						: isEditMode
+							? `Editing ` + replacementTitle ?? `${title} - ${id}`
+							: replacementTitle ?? `${title} - ${id}` + ` Details`}
 				</h1>
 				<div className="flex items-center gap-4">
 					<Button className="text-white w-32 h-10 text-lg" type="submit">
