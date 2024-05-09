@@ -27,15 +27,20 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from "./shadcn/ui/pagination";
+import { Search } from "lucide-react";
+import Searchbar from "./Searchbar";
 
-export default function ViewList(category: any) {
+export default function ViewList(
+	category: any,
+	Cardbody: (props: any) => JSX.Element,
+) {
 	const pageSize = 12; // Number of items per page
 	const [data, setData] = useState<any[]>([]);
 	const [page, setPage] = useState(0);
 
 	const nav = useNavigate();
 	const handleCardClick = (item: any) => {
-		nav(`/donor/toy/${item.id}`);
+		nav(`/donor/${window.location.pathname.split("/")[2]}/${item.id}`);
 	};
 
 	let items: any[] = [];
@@ -99,27 +104,29 @@ export default function ViewList(category: any) {
 	};
 
 	return (
-		<div className="flex h-full w-full gap-20">
+		<div className="flex h-full w-full">
 			<Filter
 				setData={setData}
 				dummyData={items}
 				columnFilters={filterOptions}
+				searchColumn="name"
 			/>
+
 			<div className="flex flex-col">
-				<div className="grid h-[90vh] grid-cols-4 gap-5 p-6">
+				<div className="grid h-[90vh] grid-cols-4 gap-5 pl-4 pt-4">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex h-[25vh] w-[25vh] flex-col items-center justify-center"
+								className="flex h-full w-full flex-col items-center justify-center text-2xl"
 								onClick={() => {
 									handleCardClick(item);
 								}}
 							>
 								<h1>{item.name}</h1>
-								<p>{item.quantity}</p>
-								<p>{item.category}</p>
+								<img src={item.img}></img>
+								{Cardbody(item)}
 							</Card>
 						))}
 				</div>

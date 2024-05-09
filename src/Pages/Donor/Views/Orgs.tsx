@@ -13,7 +13,7 @@ import { organizations } from "../../../assets/dummyData";
 import { Organization } from "../../../types";
 import { useNavigate } from "react-router-dom";
 
-export default function Org() {
+export default function Orgs() {
 	const pageSize = 12; // Number of items per page
 	const [data, setData] = useState<any[]>([]);
 	const [page, setPage] = useState(0);
