@@ -13,7 +13,6 @@ import {
 } from "../types";
 
 import lego from "../assets/Images/board-games.jpg";
-} from '../types';
 
 export const credentials: User[] = [
 	{
