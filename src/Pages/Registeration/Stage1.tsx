@@ -42,14 +42,14 @@ export default function Stage1() {
 	function onSubmit(values: z.infer<typeof formSchema>) {}
 
 	return (
-		<div className="flex flex-col items-center justify-center  gap-5">
+		<div className="flex flex-col items-center justify-center p-2 gap-5">
 			<Form {...form}>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					className="flex flex-row items-center justify-center  gap-4"
 				>
 					<div
-						className={`${loginContainerClass} flex h-full w-full flex-col items-center justify-center gap-4  text-white md:w-96`}
+						className={`${loginContainerClass} rounded flex h-full w-full flex-col items-center justify-center gap-4 p-5 text-white md:w-96`}
 					>
 						<FormField
 							control={control}
