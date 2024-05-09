@@ -12,7 +12,6 @@ import {
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 
 export const columns: ColumnDef<Organization>[] = [
-	
 	{
 		accessorKey: "name",
 		header: "Name",
@@ -48,6 +47,13 @@ export const columns: ColumnDef<Organization>[] = [
 		id: "actions",
 		enableHiding: false,
 		cell: ({ row }) => {
+			const handleDelete = () => {
+				// Change the status of the organization to rejected
+				const organization = row.original;
+				organization.status = "rejected";
+				// Perform any other necessary actions
+			};
+
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -58,16 +64,10 @@ export const columns: ColumnDef<Organization>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>Actions</DropdownMenuLabel>
-						<DropdownMenuItem
-						//onClick={() =>
-						>
-							View Organization Location
-						</DropdownMenuItem>
-						<DropdownMenuItem
-						//onClick={() =>
-						>
+						<DropdownMenuItem onClick={handleDelete}>
 							Delete Organization Account
 						</DropdownMenuItem>
+						<DropdownMenuItem>View Organization Location</DropdownMenuItem>
 						<DropdownMenuSeparator />
 					</DropdownMenuContent>
 				</DropdownMenu>
@@ -75,3 +75,5 @@ export const columns: ColumnDef<Organization>[] = [
 		},
 	},
 ];
+
+
