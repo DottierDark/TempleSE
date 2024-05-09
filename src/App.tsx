@@ -65,7 +65,9 @@ import AdminSettings from './Pages/Admin/Views/AdminSettings';
 
 function App() {
 	const shouldShowTopBar = !(
-		window.location.pathname === '/' || window.location.pathname === '/register'
+		window.location.pathname === '/' ||
+		window.location.pathname === '/register' ||
+		window.location.pathname === '/mainregister'
 	);
 	return (
 		<BrowserRouter>
