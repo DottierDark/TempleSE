@@ -19,7 +19,7 @@ import {
 export default function OrganizationRequests() {
   
   const data: any[] = organizations.filter(
-		(org) => org.status === "Pending",
+		(org) => org.status === "pending",
 	);
 
   const table = useReactTable({

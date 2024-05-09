@@ -10,7 +10,7 @@ import { DataTable } from "../../../Components/shadcn/ui/data-table";
 
 export default function RegisteredOrganizations() {
 	const items: any[] = organizations.filter(
-		(org) => org.status === "Approved",
+		(org) => org.status === "approved",
 	);
 	const filterOptions: any[] = RegisteredOrganizationsOptions;
 	const [data, setData] = useState<Organization[]>(items);
@@ -20,8 +20,7 @@ export default function RegisteredOrganizations() {
 			<Filter
 				setData={setData}
 				dummyData={items}
-				columnFilters={filterOptions}
-			/>
+				columnFilters={filterOptions} searchColumn={""}			/>
 
 			<DataTable columns={columns} data={data} />
 		</div>
