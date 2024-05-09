@@ -20,7 +20,7 @@ export default function Filter({
 	dummyData?: any[];
 	setData: (dummyData: any[]) => void;
 	searchColumn: string;
-	hidesearchbar: boolean;
+	hidesearchbar?: boolean;
 }) {
 	const [filters, setFilters] = useState<
 		{
