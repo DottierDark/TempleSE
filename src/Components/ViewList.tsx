@@ -1,4 +1,4 @@
-import { Card } from "./shadcn/ui/card";
+import { Card } from './shadcn/ui/card';
 import {
 	bloodCases,
 	clothes,
@@ -7,7 +7,7 @@ import {
 	schoolSupplies,
 	teachingPosts,
 	toys,
-} from "../assets/dummyData";
+} from '../assets/dummyData';
 import {
 	bloodFilterOptions,
 	clothesFilterOptions,
@@ -16,66 +16,67 @@ import {
 	schoolSuppliesFilterOptions,
 	toysFilterOptions,
 	TeachingPostsOptions,
-} from "../assets/filterOptions";
-import { useNavigate } from "react-router-dom";
-import Filter from "./Filter";
-import { useState } from "react";
+} from '../assets/filterOptions';
+import { useNavigate } from 'react-router-dom';
+import Filter from './Filter';
+import { useState } from 'react';
 import {
 	Pagination,
 	PaginationContent,
 	PaginationItem,
 	PaginationNext,
 	PaginationPrevious,
-} from "./shadcn/ui/pagination";
-import { Search } from "lucide-react";
-import Searchbar from "./Searchbar";
+} from './shadcn/ui/pagination';
 
-export default function ViewList(
-	category: any,
-	Cardbody: (props: any) => JSX.Element,
-) {
+export default function ViewList({
+	category,
+	Cardbody,
+}: {
+	category: any;
+	Cardbody: (props: any) => JSX.Element;
+}) {
 	const pageSize = 12; // Number of items per page
 	const [data, setData] = useState<any[]>([]);
 	const [page, setPage] = useState(0);
 
 	const nav = useNavigate();
 	const handleCardClick = (item: any) => {
-		nav(`/donor/${window.location.pathname.split("/")[2]}/${item.id}`);
+		nav(`/donor/${window.location.pathname.split('/')[2]}/${item.id}`);
 	};
 
 	let items: any[] = [];
 	let filterOptions: any[] = [];
 
 	switch (category.category) {
-		case "Clothes":
+		case 'Clothes':
 			items = clothes;
 			filterOptions = clothesFilterOptions;
 			break;
-		case "Toys":
+		case 'Toys':
 			items = toys;
 			filterOptions = toysFilterOptions;
 			break;
-		case "Food":
+		case 'Food':
 			items = foods;
 			filterOptions = foodsFilterOptions;
 			break;
-		case "Medical Supplies":
+		case 'Medical Supplies':
 			items = medicalSupplies;
 			filterOptions = medicalSuppliesFilterOptions;
 			break;
-		case "School Supplies":
+		case 'School Supplies':
 			items = schoolSupplies;
 			filterOptions = schoolSuppliesFilterOptions;
 			break;
-		case "Blood Donation":
+		case 'Blood Donation':
 			items = bloodCases;
 			filterOptions = bloodFilterOptions;
 			break;
-		case "Medical Cases":
+		case 'Medical Cases':
 			items = medicalSupplies;
 			filterOptions = medicalSuppliesFilterOptions;
 			break;
-		case "Teaching":
+		case 'Teaching':
 			items = teachingPosts;
 			filterOptions = TeachingPostsOptions;
 			break;
@@ -111,7 +112,6 @@ export default function ViewList(
 				columnFilters={filterOptions}
 				searchColumn="name"
 			/>
-
 			<div className="flex flex-col">
 				<div className="grid h-[90vh] grid-cols-4 gap-5 pl-4 pt-4">
 					{data
@@ -119,14 +119,12 @@ export default function ViewList(
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex h-full w-full flex-col items-center justify-center text-2xl"
+								className="flex h-full w-[27vh] p-2 flex-col justify-center text-nowrap"
 								onClick={() => {
 									handleCardClick(item);
 								}}
 							>
-								<h1>{item.name}</h1>
-								<img src={item.img}></img>
-								{Cardbody(item)}
+								<Cardbody {...item} />
 							</Card>
 						))}
 				</div>
@@ -140,20 +138,17 @@ export default function ViewList(
 									}
 								}}
 								aria-disabled={page === 0}
-								className={`select-none ${page === 0 ? "pointer-events- opacity-50" : ""}`}
+								className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
 							/>
 						</PaginationItem>
 						<PaginationItem className="flex self-end">
 							<PaginationNext
 								onClick={() => {
-									if (
-										data.slice((page + 1) * pageSize)
-											.length !== 0
-									) {
+									if (data.slice((page + 1) * pageSize).length !== 0) {
 										onPageChange(page + 1);
 									}
 								}}
-								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? "pointer-events- opacity-50" : ""}`}
+								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
 							/>
 						</PaginationItem>
 					</PaginationContent>

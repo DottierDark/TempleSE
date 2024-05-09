@@ -1,9 +1,9 @@
-import { ColumnDef } from "@tanstack/react-table";
-import { PlusCircle, MinusCircle } from "lucide-react";
-import { useEffect, useState } from "react";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import DropDownMenuFilter from "./DropDownMenuFilter";
-import Searchbar from "./Searchbar";
+import { ColumnDef } from '@tanstack/react-table';
+import { PlusCircle, MinusCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import DropDownMenuFilter from './DropDownMenuFilter';
+import Searchbar from './Searchbar';
 
 export default function Filter({
 	columnFilters,
@@ -14,7 +14,7 @@ export default function Filter({
 	columnFilters: {
 		id: string;
 		label: string;
-		type: "string" | "number" | "boolean" | "options";
+		type: 'string' | 'number' | 'boolean' | 'options';
 		options?: { value: string; label: string }[];
 	}[];
 	dummyData?: any[];
@@ -25,15 +25,15 @@ export default function Filter({
 		{
 			[key: string]: {
 				value: string | number | boolean | string[];
-				type: "string" | "number" | "boolean" | "options";
+				type: 'string' | 'number' | 'boolean' | 'options';
 				operand:
-					| "equals"
-					| "contains"
-					| "starts with"
-					| "ends with"
-					| "less than"
-					| "greater than"
-					| "not equals";
+					| 'equals'
+					| 'contains'
+					| 'starts with'
+					| 'ends with'
+					| 'less than'
+					| 'greater than'
+					| 'not equals';
 				options?: { value: string; label: string }[];
 			};
 		}[]
@@ -49,62 +49,62 @@ export default function Filter({
 					const type = filter[column].type;
 					const rowValue = row[column];
 
-					if (type === "string") {
-						if (operand === "equals") {
+					if (type === 'string') {
+						if (operand === 'equals') {
 							if (rowValue !== value) {
 								return false;
 							}
-						} else if (operand === "contains") {
+						} else if (operand === 'contains') {
 							if (!rowValue.includes(value)) {
 								return false;
 							}
-						} else if (operand === "starts with") {
+						} else if (operand === 'starts with') {
 							if (!rowValue.startsWith(value)) {
 								return false;
 							}
-						} else if (operand === "ends with") {
+						} else if (operand === 'ends with') {
 							if (!rowValue.endsWith(value)) {
 								return false;
 							}
-						} else if (operand === "not equals") {
+						} else if (operand === 'not equals') {
 							if (rowValue === value) {
 								return false;
 							}
 						}
-					} else if (type === "number") {
-						if (operand === "equals") {
+					} else if (type === 'number') {
+						if (operand === 'equals') {
 							if (rowValue !== value) {
 								return false;
 							}
-						} else if (operand === "less than") {
+						} else if (operand === 'less than') {
 							if (rowValue >= value) {
 								return false;
 							}
-						} else if (operand === "greater than") {
+						} else if (operand === 'greater than') {
 							if (rowValue <= value) {
 								return false;
 							}
-						} else if (operand === "not equals") {
+						} else if (operand === 'not equals') {
 							if (rowValue === value) {
 								return false;
 							}
 						}
-					} else if (type === "boolean") {
-						if (operand === "equals") {
+					} else if (type === 'boolean') {
+						if (operand === 'equals') {
 							if (rowValue !== (value === true)) {
 								return false;
 							}
-						} else if (operand === "not equals") {
+						} else if (operand === 'not equals') {
 							if (rowValue === (value === true)) {
 								return false;
 							}
 						}
-					} else if (type === "options") {
-						if (operand === "equals") {
+					} else if (type === 'options') {
+						if (operand === 'equals') {
 							if (!(value as string[]).includes(rowValue)) {
 								return false;
 							}
-						} else if (operand === "not equals") {
+						} else if (operand === 'not equals') {
 							if ((value as string[]).includes(rowValue)) {
 								return false;
 							}
@@ -112,7 +112,7 @@ export default function Filter({
 					}
 				}
 				return true;
-			}) || [],
+			}) || []
 		);
 	}, [dummyData, filters]);
 
@@ -164,8 +164,7 @@ export default function Filter({
 						key={i}
 						className="mr-2 flex items-center justify-between rounded-md bg-blue-400 px-2 py-1"
 					>
-						{Object.keys(filter)[0]}{" "}
-						{filter[Object.keys(filter)[0]].operand}{" "}
+						{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
 						{filter[Object.keys(filter)[0]].value}
 						<button
 							type="button"
@@ -174,10 +173,7 @@ export default function Filter({
 								setFilters(filters.filter((_, j) => i !== j));
 							}}
 						>
-							<MinusCircle
-								size={20}
-								className="hover:text-red-500"
-							/>
+							<MinusCircle size={20} className="hover:text-red-500" />
 						</button>
 					</div>
 				))}
