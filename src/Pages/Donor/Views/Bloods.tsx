@@ -1,5 +1,5 @@
 import ViewList from "../../../Components/ViewList";
 
-export default function Blood() {
+export default function Bloods() {
 	return <ViewList category="Blood Donation" />;
 }

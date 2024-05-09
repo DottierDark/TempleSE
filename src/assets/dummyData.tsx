@@ -15,6 +15,8 @@ import {
 	Donor,
 } from "../types";
 
+import lego from "../assets/Images/board-games.jpg";
+
 export const Users: User[] = [
 	{
 		userName: "admin",
@@ -413,7 +415,7 @@ export const toys: TToyItem[] = [
 		type: "General",
 		ageGroup: "All",
 		quantity: 100,
-		img: "image1.jpg",
+		img: lego,
 		gender: "male",
 		category: "board games",
 	},
