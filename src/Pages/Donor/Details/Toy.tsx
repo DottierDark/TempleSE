@@ -61,7 +61,7 @@ export default function Toy() {
 		<Form {...form}>
 			<DetailsContextProvider title="Toy" id={id}>
 				<Details>
-					<div className="grid grid-cols-2 p-6 gap-5">
+					<div className="grid grid-cols-2 p-6 gap-x-12">
 						<TextField
 							name="name"
 							label="Name"
@@ -94,14 +94,6 @@ export default function Toy() {
 							inputClassName=""
 							placeholder=""
 						/>
-						<ImageField
-							name="img"
-							label="Image"
-							description="Image of the toy"
-							detailsClassName=""
-							inputClassName=""
-							placeholder=""
-						/>
 						<TextField
 							name="gender"
 							label="gender"
@@ -114,6 +106,14 @@ export default function Toy() {
 							name="category"
 							label="Category"
 							description="Category of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<ImageField
+							name="img"
+							label="Image"
+							description="Image of the toy"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""

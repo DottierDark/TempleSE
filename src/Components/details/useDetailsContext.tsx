@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import { TDetailsContext } from './types';
 
 export const DetailsContext = createContext<TDetailsContext>({
+	canEdit: false,
 	isAddMode: false,
 	isEditMode: false,
 	setIsAddMode: () => {},
@@ -15,9 +16,11 @@ export const useDetailsContext = () => useContext(DetailsContext);
 
 export const DetailsContextProvider = ({
 	children,
+	canEdit,
 	title,
 	id,
 }: React.PropsWithChildren<{
+	canEdit: boolean;
 	title: string;
 	id?: string;
 }>) => {
@@ -25,6 +28,7 @@ export const DetailsContextProvider = ({
 	const [isAddMode, setIsAddMode] = useState(id ? false : true);
 
 	const value = {
+		canEdit,
 		isAddMode,
 		isEditMode,
 		setIsAddMode,

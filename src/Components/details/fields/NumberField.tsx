@@ -44,12 +44,12 @@ export default function NumberField({
 									placeholder={placeholder}
 									{...field}
 									type="number"
-									className={inputClassName + 'indent-[-1px]'}
+									className={inputClassName}
 								/>
 							</FormControl>
 						</>
 					) : (
-						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm">
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
 							{value}
 						</span>
 					)}

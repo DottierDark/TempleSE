@@ -1,4 +1,5 @@
 export type TDetailsContext = {
+	canEdit: boolean;
 	isAddMode: boolean;
 	isEditMode: boolean;
 	addEditMode: boolean;
