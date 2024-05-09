@@ -52,7 +52,7 @@ import Fulfilled from "./Pages/Organisation/Views/Fulfilled";
 {
 	/* Admin Views Pages*/
 }
-import AccountSettings from "./Pages/Admin/Views/AccountSettings";
+import AccountSettings from "./Pages/Admin/Views/AdminSettings";
 import RegisteredOrganizations from "./Pages/Admin/Views/RegisteredOrganizations";
 import OrganizationRequests from "./Pages/Admin/Views/OrganizationRequests";
 

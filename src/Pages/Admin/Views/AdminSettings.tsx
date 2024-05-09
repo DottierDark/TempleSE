@@ -25,7 +25,7 @@ const formSchema = z.object({
 	}),
 });
 
-export default function AccountSettings() {
+export default function AdminSettings() {
 	const navigate = useNavigate();
 
 	const form = useForm({

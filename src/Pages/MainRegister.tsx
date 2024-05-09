@@ -20,6 +20,13 @@ export default function MainRegister() {
 			navigate(`/${type}`);
 		}
 	}, [navigate]);
+
+	const formBody = {
+		1: <RegisterFormPage1 />,
+		2: <RegisterFormPage2 />,
+		3: <RegisterFormPage3 />,
+	};
+
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900">
 			<div className="flex flex-col items-center justify-center p-9">
@@ -51,74 +58,27 @@ export default function MainRegister() {
 					{formType} Register
 				</h1>
 			</div>
-			{/* Button logic depends on stage */}
-			{stage === 1 ? (
-				<div>
-					<RegisterFormPage1 />
-					<div className="flex justify-center gap-3 ">
-						<Button variant="outline" size="icon" disabled>
-							<ChevronLeftIcon className="h-4 w-4 " />
-						</Button>
-
-						<Button
-							disabled
-							type="submit"
-							onClick={() => {}}
-							className="bg-gray-700 h-10 w-40 "
-						>
-							Register
-						</Button>
-
-						<Button variant="outline" size="icon" onClick={() => setStage(2)}>
-							<ChevronRightIcon className="h-4 w-4" />
-						</Button>
-					</div>
-				</div>
-			) : stage === 2 ? (
-				<div>
-					<RegisterFormPage2 />
-
-					<div className="flex justify-center gap-3 ">
-						<Button variant="outline" size="icon" onClick={() => setStage(1)}>
-							<ChevronLeftIcon className="h-4 w-4 " />
-						</Button>
-
-						<Button
-							disabled
-							type="submit"
-							onClick={() => {}}
-							className="bg-gray-700 h-10 w-40 "
-						>
-							Register
-						</Button>
-
-						<Button variant="outline" size="icon" onClick={() => setStage(3)}>
-							<ChevronRightIcon className="h-4 w-4" />
-						</Button>
-					</div>
-				</div>
-			) : (
-				<div>
-					<RegisterFormPage3 />
-					<div className="flex justify-center gap-3 ">
-						<Button variant="outline" size="icon" onClick={() => setStage(2)}>
-							<ChevronLeftIcon className="h-4 w-4 " />
-						</Button>
-
-						<Button
-							type="submit"
-							onClick={() => {}}
-							className="bg-gray-700 h-10 w-40 "
-						>
-							Register
-						</Button>
-
-						<Button disabled variant="outline" size="icon">
-							<ChevronRightIcon className="h-4 w-4" />
-						</Button>
-					</div>
-				</div>
-			)}
+			{formBody[stage]}
+			<div className="flex justify-center gap-3">
+				<Button
+					variant="outline"
+					size="icon"
+					onClick={() => setStage((prev) => (prev - 1) as 1 | 2 | 3)}
+				>
+					<ChevronLeftIcon className="h-4 w-4 " />
+				</Button>
+				<Button
+					type="submit"
+					onClick={() => {}}
+					disabled={stage !== 3}
+					className="bg-gray-700 h-10 w-40 "
+				>
+					Register
+				</Button>
+				<Button disabled variant="outline" size="icon">
+					<ChevronRightIcon className="h-4 w-4" />
+				</Button>
+			</div>
 		</div>
 	);
 }

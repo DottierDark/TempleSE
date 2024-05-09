@@ -20,7 +20,7 @@ export const DetailsContextProvider = ({
 	title,
 	id,
 }: React.PropsWithChildren<{
-	canEdit: boolean;
+	canEdit?: boolean;
 	title: string;
 	id?: string;
 }>) => {
