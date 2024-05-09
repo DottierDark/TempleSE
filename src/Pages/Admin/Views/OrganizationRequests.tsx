@@ -1,12 +1,10 @@
 import { columns } from "./ColumnDef/UnRegOrgColDef";
 import { organizations } from "../../../assets/dummyData";
-
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-
 import {
   Table,
   TableBody,
@@ -15,27 +13,30 @@ import {
   TableHeader,
   TableRow,
 } from "../../../Components/shadcn/ui/table"
+import { useState, useEffect } from "react";
+import { Organization } from "../../../types";
 
 export default function OrganizationRequests() {
-  
-  const data: any[] = organizations.filter(
-		(org) => org.status === "pending",
-	);
+  const [data, setData] = useState<Organization[]>([]);
+
+  useEffect(() => {
+    const filteredData = organizations.filter(
+      (org) => org.status === "pending"
+    );
+    setData(filteredData);
+  }, [organizations]);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
- 
 
   return (
     <div className="w-full">
-      
       <div className="flex items-center py-4">
-          <h1 className="text-2xl font-bold ml-4">Requests From Organizations</h1>
+        <h1 className="text-2xl font-bold ml-4">Requests From Organizations</h1>
       </div>
-     
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -74,19 +75,11 @@ export default function OrganizationRequests() {
                 </TableRow>
               ))
             ) : (
-              <TableRow>
-                
-              </TableRow>
+              <TableRow></TableRow>
             )}
           </TableBody>
         </Table>
       </div>
-     
-    
     </div>
   );
 }
-
-
-
-
