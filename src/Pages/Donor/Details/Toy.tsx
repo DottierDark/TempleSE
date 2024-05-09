@@ -94,6 +94,14 @@ export default function Toy() {
 							inputClassName=""
 							placeholder=""
 						/>
+						<ImageField
+							name="img"
+							label="Image"
+							description="Image of the toy"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
 						<TextField
 							name="gender"
 							label="gender"
@@ -106,14 +114,6 @@ export default function Toy() {
 							name="category"
 							label="Category"
 							description="Category of the toy"
-							detailsClassName=""
-							inputClassName=""
-							placeholder=""
-						/>
-						<ImageField
-							name="img"
-							label="Image"
-							description="Image of the toy"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""

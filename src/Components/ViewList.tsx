@@ -119,7 +119,7 @@ export default function ViewList({
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex h-full w-[27vh] p-2 flex-col justify-center text-nowrap"
+								className="flex h-full w-[27vh] p-2 flex-col justify-center text-nowrap cursor-pointer"
 								onClick={() => {
 									handleCardClick(item);
 								}}

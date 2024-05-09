@@ -1,52 +1,48 @@
-import { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button } from '../../../Components/shadcn/ui/button';
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '../../../Components/shadcn/ui/form';
-import { Input } from '../../../Components/shadcn/ui/input';
+import { Form } from '../../../Components/shadcn/ui/form';
 import { DetailsContextProvider } from '../../../Components/details/useDetailsContext';
 import Details from '../../../Components/details/Details';
 import TextField from '../../../Components/details/fields/TextField';
 
-const formSchema = z.object({
-	first_name: z.string().min(2, {
-		message: 'First name must be at least 3 characters.',
-	}),
-	last_name: z.string().min(2, {
-		message: 'Last name must be at least 3 characters.',
-	}),
-	phone_number: z.string().min(11, {
-		message: 'Phone number must be at least 11 characters.',
-	}),
-	email: z.string().email({
-		message: 'Invalid email format.',
-	}),
-	address: z.string().min(2, {
-		message: 'Address must be at least 10 characters.',
-	}),
-	city: z.string().min(2, {
-		message: 'City name must be at least 2 characters.',
-	}),
-	area: z.string().min(2, {
-		message: 'Area name must be at least 5 characters.',
-	}),
-	current_password: z.string().min(6, {
-		message: 'Password must be at least 6 characters.',
-	}),
-	new_password: z.string().min(6, {
-		message: 'New password must be at least 6 characters.',
-	}),
-});
+const formSchema = z
+	.object({
+		first_name: z.string().min(2, {
+			message: 'First name must be at least 3 characters.',
+		}),
+		last_name: z.string().min(2, {
+			message: 'Last name must be at least 3 characters.',
+		}),
+		phone_number: z.string().min(11, {
+			message: 'Phone number must be at least 11 characters.',
+		}),
+		email: z.string().email({
+			message: 'Invalid email format.',
+		}),
+		address: z.string().min(2, {
+			message: 'Address must be at least 10 characters.',
+		}),
+		city: z.string().min(2, {
+			message: 'City name must be at least 2 characters.',
+		}),
+		area: z.string().min(2, {
+			message: 'Area name must be at least 5 characters.',
+		}),
+		current_password: z.string().min(6, {
+			message: 'Password must be at least 6 characters.',
+		}),
+		new_password: z.string().min(6, {
+			message: 'New password must be at least 6 characters.',
+		}),
+		confirm_new_password: z.string().min(6, {
+			message: 'New password must be at least 6 characters.',
+		}),
+	})
+	.refine((data) => data.new_password === data.confirm_new_password, {
+		message: 'Passwords do not match.',
+	});
 
 export default function DonorSettings() {
 	const form = useForm({
@@ -59,14 +55,15 @@ export default function DonorSettings() {
 			address: 'nasr city building 6',
 			city: 'cairo',
 			area: 'nasr city',
-			currentPassword: '',
-			newPassword: '',
+			current_password: '',
+			new_password: '',
+			confirm_new_password: '',
 		},
 	});
 
 	return (
 		<Form {...form}>
-			<DetailsContextProvider >
+			<DetailsContextProvider id="1">
 				<Details replacementTitle="Settings">
 					<div className="grid grid-cols-2 p-6 gap-x-12">
 						<TextField
@@ -92,6 +89,46 @@ export default function DonorSettings() {
 							detailsClassName=""
 							inputClassName=""
 							placeholder="Enter phone number..."
+						/>
+						<TextField
+							name="email"
+							label="Email"
+							description="Your email"
+							detailsClassName=""
+							inputClassName=""
+							placeholder="Enter email..."
+						/>
+						<TextField
+							name="address"
+							label="Address"
+							description="Your address"
+							detailsClassName=""
+							inputClassName=""
+							placeholder="Enter address..."
+						/>
+						<TextField
+							name="city"
+							label="City"
+							description="Your city"
+							detailsClassName=""
+							inputClassName=""
+							placeholder="Enter city..."
+						/>
+						<TextField
+							name="area"
+							label="Area"
+							description="Your area"
+							detailsClassName=""
+							inputClassName=""
+							placeholder="Enter area..."
+						/>
+						<TextField
+							name="area"
+							label="Area"
+							description="Your area"
+							detailsClassName=""
+							inputClassName=""
+							placeholder="Enter area..."
 						/>
 					</div>
 				</Details>
