@@ -1,4 +1,4 @@
-import { columns } from "./ColumnDef/UnRegColDef";
+import { columns } from "./ColumnDef/UnRegOrgColDef";
 import { organizations } from "../../../assets/dummyData";
 
 import {

@@ -36,6 +36,16 @@ export const columns: ColumnDef<Donor>[] = [
       header: "Address",
       cell: ({ row }) => <div>{row.getValue("address")}</div>,
     },
+    {
+      accessorKey: "actions",
+      header: "",
+      cell: ({ row }) => <div>{<Button>Accept Request</Button>}</div>
+    },
+    {
+      accessorKey: "actions",
+      header: "",
+      cell: ({ row }) => <div>{<Button>Reject Request</Button>}</div>
+    },
     
     {
       id: "actions",
@@ -55,7 +65,7 @@ export const columns: ColumnDef<Donor>[] = [
               <DropdownMenuItem
                 //onClick={() => 
               >
-                View More Details
+                Download Submited Documents
               </DropdownMenuItem>
               
              

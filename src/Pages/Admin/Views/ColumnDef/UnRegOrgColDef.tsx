@@ -44,6 +44,16 @@ export const columns: ColumnDef<Organization>[] = [
 		header: "State",
 		cell: ({ row }) => <div>{row.getValue("state")}</div>,
 	},
+	{
+		accessorKey: "actions",
+		header: "",
+		cell: ({ row }) => <div>{<Button>Accept Request</Button>}</div>
+	},
+	{
+		accessorKey: "actions",
+		header: "",
+		cell: ({ row }) => <div>{<Button>Reject Request</Button>}</div>
+	},
     {
         id: "actions",
         enableHiding: false,
@@ -62,7 +72,7 @@ export const columns: ColumnDef<Organization>[] = [
                 <DropdownMenuItem
                   //onClick={() => 
                 >
-                  View More Details
+                  Download Submited Documents
                 </DropdownMenuItem>
 				
                 <DropdownMenuSeparator />
