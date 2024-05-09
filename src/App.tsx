@@ -64,9 +64,12 @@ import { Toaster } from './Components/shadcn/ui/toaster';
 import AdminSettings from './Pages/Admin/Views/AdminSettings';
 
 function App() {
+	const shouldShowTopBar = !(
+		window.location.pathname === '/' || window.location.pathname === '/register'
+	);
 	return (
 		<BrowserRouter>
-			<TopBar />
+			{shouldShowTopBar && <TopBar />}
 			<Toaster />
 			<div
 				id="dialog"
