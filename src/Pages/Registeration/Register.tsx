@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { loginButtonClass, loginContainerClass } from '../assets/Styles';
+import { loginButtonClass, loginContainerClass } from '../../assets/Styles';
 import { useNavigate } from 'react-router-dom';
 import {
 	Form,
@@ -8,11 +8,11 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '../Components/shadcn/ui/form';
+} from '../../Components/shadcn/ui/form';
 
-import { Input } from '../Components/shadcn/ui/input';
+import { Input } from '../../Components/shadcn/ui/input';
 import { z, ZodType } from 'zod';
-import { Button } from '../Components/shadcn/ui/button';
+import { Button } from '../../Components/shadcn/ui/button';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 // old register page
