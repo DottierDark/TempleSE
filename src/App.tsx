@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import './App.css';
 
 import TopBar from './Components/TopBar';
@@ -61,12 +60,13 @@ import OrganizationRequests from './Pages/Admin/Views/OrganizationRequests';
 }
 import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
 import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
+import { Toaster } from './Components/shadcn/ui/toaster';
 
 function App() {
 	return (
 		<BrowserRouter>
 			<TopBar />
-			<Toaster position="top-center" reverseOrder={false} />
+			<Toaster />
 			<div
 				id="dialog"
 				className="custom-scrollbar absolute flex h-screen w-full items-center justify-center empty:hidden"

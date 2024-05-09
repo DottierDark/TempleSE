@@ -5,6 +5,6 @@ export type TDetailsContext = {
 	addEditMode: boolean;
 	setIsAddMode: (value: boolean) => void;
 	setIsEditMode: (value: boolean) => void;
-	title: string;
+	title?: string;
 	id?: string;
 };

@@ -21,7 +21,7 @@ export const DetailsContextProvider = ({
 	id,
 }: React.PropsWithChildren<{
 	canEdit?: boolean;
-	title: string;
+	title?: string;
 	id?: string;
 }>) => {
 	const [isEditMode, setIsEditMode] = useState(false);
