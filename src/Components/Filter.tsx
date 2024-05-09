@@ -10,6 +10,7 @@ export default function Filter({
 	dummyData,
 	setData,
 	searchColumn,
+	hidesearchbar,
 }: {
 	columnFilters: {
 		id: string;
@@ -20,6 +21,7 @@ export default function Filter({
 	dummyData?: any[];
 	setData: (dummyData: any[]) => void;
 	searchColumn: string;
+	hidesearchbar: boolean;
 }) {
 	const [filters, setFilters] = useState<
 		{
@@ -48,7 +50,6 @@ export default function Filter({
 					const value = filter[column].value;
 					const type = filter[column].type;
 					const rowValue = row[column];
-
 					if (type === 'string') {
 						if (operand === 'equals') {
 							if (rowValue !== value) {
@@ -118,11 +119,13 @@ export default function Filter({
 
 	return (
 		<div className="sticky flex h-[92vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
-			<Searchbar
-				data={dummyData ?? []}
-				setData={setData}
-				searchColumn={searchColumn}
-			/>
+			{!hidesearchbar && (
+				<Searchbar
+					data={dummyData ?? []}
+					setData={setData}
+					searchColumn={searchColumn}
+				/>
+			)}
 			<DropdownMenu.Root modal={false}>
 				<DropdownMenu.Trigger className="flex w-fit items-center gap-2 rounded-2xl bg-blue-400 p-2 text-sm sm:text-base">
 					<PlusCircle size={20} />
