@@ -21,7 +21,7 @@ const donor = {
 	governorate: 'cairo',
 };
 
-export default function DonorSettings() {
+export default function OrganisationSettings() {
 	const formSchema = z.object({
 		firstName: z.string().min(2, {
 			message: 'First name must be at least 3 characters.',
