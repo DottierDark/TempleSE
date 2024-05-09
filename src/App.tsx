@@ -21,10 +21,11 @@ import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
 import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
 import Toy from './Pages/Donor/Details/Toy';
 import AccountSettings from './Pages/Admin/Views/AccountSettings';
-import DonorAccountSettings from './Pages/Donor/Views/AccountSettings';
+import DonorAccountSettings from './Pages/Donor/Views/DonorSettings';
 import Fulfilled from './Pages/Organisation/Views/Fulfilled';
 import Org from './Pages/Donor/Views/Org';
 import Teaching from './Pages/Donor/Views/TeacherPosts';
+import DonorSettings from './Pages/Donor/Views/DonorSettings';
 
 function App() {
 	return (
@@ -66,10 +67,7 @@ function App() {
 				<Route path="/donor/toy/" element={<Toy />} />
 				<Route path="/donor/clothes" element={<Clothes />} />
 				<Route path="/donor/food" element={<Food />} />
-				<Route
-					path="/donor/AccountSettings"
-					element={<DonorAccountSettings />}
-				/>
+				<Route path="/donor/settings" element={<DonorSettings />} />
 				<Route path="/donor/medical-supplies" element={<MedicalSupplies />} />
 				<Route path="/donor/school-supplies" element={<SchoolSupplies />} />
 				<Route path="/donor/blood-donation" element={<Blood />} />

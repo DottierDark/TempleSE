@@ -35,7 +35,7 @@ export default function NumberField({
 			control={form.control}
 			name={name}
 			render={({ field }) => (
-				<FormItem className="flex flex-col">
+				<FormItem className="flex flex-col h-[120px]">
 					<FormLabel>{label}</FormLabel>
 					{addEditMode ? (
 						<>
@@ -53,8 +53,8 @@ export default function NumberField({
 							{value}
 						</span>
 					)}
-					{addEditMode && <FormMessage />}
 					<FormDescription>{description}</FormDescription>
+					{addEditMode && <FormMessage />}
 				</FormItem>
 			)}
 		/>

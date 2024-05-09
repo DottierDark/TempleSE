@@ -53,8 +53,8 @@ export default function ImageField({
 					) : (
 						image
 					)}
-					{addEditMode && <FormMessage />}
 					<FormDescription>{description}</FormDescription>
+					{addEditMode && <FormMessage />}
 				</FormItem>
 			)}
 		/>

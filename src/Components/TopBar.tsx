@@ -138,7 +138,7 @@ export default function TopBar() {
 		{
 			name: "Settings",
 			key: "settings",
-			href: `/${type}/AccountSettings`,
+			href: `/${type}/settings`,
 		},
 		{
 			name: "Logout",

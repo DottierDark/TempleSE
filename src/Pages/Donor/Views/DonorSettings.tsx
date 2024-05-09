@@ -17,39 +17,39 @@ import {
 import { Input } from '../../../Components/shadcn/ui/input';
 
 const formSchema = z.object({
-	currentPassword: z.string().min(6, {
+	current_password: z.string().min(6, {
 		message: 'Password must be at least 6 characters.',
 	}),
-	newPassword: z.string().min(6, {
+	new_password: z.string().min(6, {
 		message: 'New password must be at least 6 characters.',
 	}),
 });
 
 const formInfoSchema = z.object({
-	firstName: z.string().min(2, {
-		message: 'First name must be at least 2 characters.',
+	first_name: z.string().min(2, {
+		message: 'First name must be at least 3 characters.',
 	}),
 	lastName: z.string().min(2, {
-		message: 'Last name must be at least 2 characters.',
+		message: 'Last name must be at least 3 characters.',
 	}),
 	phoneNumber: z.string().min(8, {
-		message: 'Phone number must be at least 8 characters.',
+		message: 'Phone number must be at least 11 characters.',
 	}),
 	email: z.string().email({
 		message: 'Invalid email format.',
 	}),
 	address: z.string().min(2, {
-		message: 'Address must be at least 2 characters.',
+		message: 'Address must be at least 10 characters.',
 	}),
 	city: z.string().min(2, {
 		message: 'City name must be at least 2 characters.',
 	}),
 	area: z.string().min(2, {
-		message: 'Area name must be at least 2 characters.',
+		message: 'Area name must be at least 5 characters.',
 	}),
 });
 
-export default function AccountSettings() {
+export default function DonorSettings() {
 	const navigate = useNavigate();
 	const [passwordChanged, setPasswordChanged] = useState(false);
 	const [infoSaved, setInfoSaved] = useState(false);
