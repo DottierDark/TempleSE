@@ -1,12 +1,12 @@
-import { Card } from "../../Components/shadcn/ui/card";
-import { useNavigate } from "react-router-dom";
-import clothes from "../../assets/Images/clothes-donation.jpeg";
-import toys from "../../assets/Images/toys-donations.jpeg";
-import food from "../../assets/Images/food-donation.jpeg";
-import medical from "../../assets/Images/medical-donation.jpeg";
-import school from "../../assets/Images/school-donation.jpeg";
-import blood from "../../assets/Images/blood-donation.jpeg";
-import { donationsCategories } from "../../assets/filterOptions";
+import { Card } from '../../Components/shadcn/ui/card';
+import { useNavigate } from 'react-router-dom';
+import clothes from '../../assets/Images/clothes-donation.jpeg';
+import toys from '../../assets/Images/toys-donations.jpeg';
+import food from '../../assets/Images/food-donation.jpeg';
+import medical from '../../assets/Images/medical-donation.jpeg';
+import school from '../../assets/Images/school-donation.jpeg';
+import blood from '../../assets/Images/blood-donation.jpeg';
+import { donationsCategories } from '../../assets/filterOptions';
 
 export default function DonorHome() {
 	const navigate = useNavigate();
@@ -16,49 +16,45 @@ export default function DonorHome() {
 
 	const imgsrc = (key: string) => {
 		switch (key) {
-			case "toys":
+			case 'toys':
 				return toys;
-			case "clothes":
+			case 'clothes':
 				return clothes;
-			case "food":
+			case 'food':
 				return food;
-			case "medical":
+			case 'medical':
 				return medical;
-			case "school":
+			case 'school':
 				return school;
-			case "blood":
+			case 'blood':
 				return blood;
-			case "teaching":
-				return "";
-			case "medicalCase":
-				return "";
-			case "organisations":
-				return "";
+			case 'teaching':
+				return '';
+			case 'medicalCase':
+				return '';
+			case 'organisations':
+				return '';
 			default:
-				return "";
+				return '';
 		}
 	};
 	return (
 		<div className="flex h-full w-full items-center justify-center p-10">
 			<div className="grid h-full w-full grid-cols-4 items-center justify-center gap-10">
-				{donationsCategories.map(
-					(category: { name: string; key: string }) => (
-						<Card
-							key={category.key}
-							onClick={() => handleClick(category.key)}
-							className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
-						>
-							<img
-								className="h-[70%] w-[70%] object-contain"
-								src={imgsrc(category.key)}
-								alt={category.name}
-							/>
-							<h1 className="text-2xl font-bold">
-								{category.name}
-							</h1>
-						</Card>
-					),
-				)}
+				{donationsCategories.map((category: { name: string; key: string }) => (
+					<Card
+						key={category.key}
+						onClick={() => handleClick(category.key)}
+						className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+					>
+						<img
+							className="h-[70%] w-[70%] object-contain"
+							src={imgsrc(category.key)}
+							alt={category.name}
+						/>
+						<h1 className="text-2xl font-bold">{category.name}</h1>
+					</Card>
+				))}
 			</div>
 		</div>
 	);

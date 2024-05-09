@@ -1,7 +1,7 @@
 export type User = {
-	userName: string;
+	username: string;
 	password: string;
-	type: "organization" | "donor" | "admin";
+	type: 'organisation' | 'donor' | 'admin';
 };
 export type Organization = {
 	id: number;
@@ -12,18 +12,18 @@ export type Organization = {
 	state: string;
 	zip: string;
 	contactEmail: string;
-	status: "Approved" | "Pending" | "Rejected";
+	status: 'approved' | 'pending' | 'rejected';
 };
 
 export type Donor = {
 	firstname: string;
 	secondname: string;
-	address:string;
+	address: string;
 	email: string;
-  };
+};
 
 export type TLoginForm = {
-	userName: string;
+	username: string;
 	password: string;
 };
 
@@ -38,37 +38,37 @@ export type TRegisterForm = {
 	address: string;
 	area: string;
 	gov: string;
-	type: "Organization" | "Doctor" | "Teacher";
+	type: 'organisation' | 'doctor' | 'teacher';
 } & (DoctorRegisterForm | OrganizationRegisterForm | TeacherRegisterForm | {});
 
 export type DoctorRegisterForm = {
-	type: "Doctor";
+	type: 'doctor';
 	medicalLicense: string;
 	specialty: string;
 	cases: number;
 };
 export type TeacherRegisterForm = {
-	type: "Teacher";
+	type: 'teacher';
 	education: string;
 	subject: string;
 	cases: number;
 };
 
 export type OrganizationRegisterForm = {
-	type: "Organization";
+	type: 'organization';
 	Name: string;
 	Type: string;
 };
 
 export type TCategories =
-	| "Clothes"
-	| "Toys"
-	| "Food"
-	| "Medical Supplies"
-	| "School Supplies"
-	| "Blood Donation"
-	| "Teaching Post"
-	| "Medical Case"
+	| 'Clothes'
+	| 'Toys'
+	| 'Food'
+	| 'Medical Supplies'
+	| 'School Supplies'
+	| 'Blood Donation'
+	| 'Teaching Post'
+	| 'Medical Case'
 	| string;
 
 export type TDonationForm = {
@@ -101,14 +101,14 @@ export type TBookItem = {
 export type TToyItem = {
 	type: string;
 	ageGroup: string;
-	gender: "male" | "female" | "all";
+	gender: 'male' | 'female' | 'all';
 	category:
-		| "board games"
-		| "stuffed toys"
-		| "dolls"
-		| "sports"
-		| "cars"
-		| "Outdoor";
+		| 'board games'
+		| 'stuffed toys'
+		| 'dolls'
+		| 'sports'
+		| 'cars'
+		| 'Outdoor';
 } & TDonationItem;
 
 export type TFoodItem = {
