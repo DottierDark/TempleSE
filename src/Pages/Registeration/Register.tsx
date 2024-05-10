@@ -71,6 +71,7 @@ export default function Register() {
 			})
 			.refine((data) => data.password === data.confirmPassword, {
 				message: 'Password and confirmation password must match',
+				path: ['confirmPassword'],
 			}),
 		2:
 			formType === 'donor'
