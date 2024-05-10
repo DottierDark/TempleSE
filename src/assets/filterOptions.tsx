@@ -77,6 +77,7 @@ export const clothesFilterOptions = [
 	},
 ];
 export const medicalSuppliesFilterOptions = [{}];
+export const medicalCasesFilterOptions = [{}];
 export const schoolSuppliesFilterOptions = [{}];
 export const foodsFilterOptions = [{}];
 export const bloodFilterOptions = [{}];
@@ -96,15 +97,15 @@ export const donationsCategories = [
 	},
 	{
 		name: 'Medical Supplies',
-		key: 'medical',
+		key: 'medical-supplies',
 	},
 	{
 		name: 'School Supplies',
-		key: 'school',
+		key: 'school-supplies',
 	},
 	{
-		name: 'Blood',
-		key: 'blood',
+		name: 'Blood Donation',
+		key: 'blood-donation',
 	},
 	{
 		name: 'Teaching Posts',
@@ -112,7 +113,7 @@ export const donationsCategories = [
 	},
 	{
 		name: 'Medical Cases',
-		key: 'medicalCase',
+		key: 'medical-Cases',
 	},
 	{
 		name: 'Organizations',

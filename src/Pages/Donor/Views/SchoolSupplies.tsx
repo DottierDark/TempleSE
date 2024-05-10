@@ -1,7 +1,8 @@
 import ViewList from '../../../Components/ViewList';
+import { TSchoolSuppliesItem } from '../../../types';
 
-export default function schoolSupplies() {
-	function Cardbody(item: any) {
+export default function SchoolSupplies() {
+	function Cardbody(item: TSchoolSuppliesItem) {
 		return (
 			<>
 				<div className="flex w-full justify-between">
@@ -12,12 +13,12 @@ export default function schoolSupplies() {
 					<img src={item.img}></img>
 				</div>
 				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Type: </div>
-					<div className="text-lg">{item.type}</div>
+					<div className="text-xl text-medium">Quantity: </div>
+					<div className="text-lg">{item.quantity}</div>
 				</div>
 				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Use: </div>
-					<div className="text-lg">{item.use}</div>
+					<div className="text-xl text-medium">Type: </div>
+					<div className="text-lg">{item.itemType}</div>
 				</div>
 			</>
 		);

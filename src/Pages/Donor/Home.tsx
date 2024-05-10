@@ -22,15 +22,15 @@ export default function DonorHome() {
 				return Clothes;
 			case 'food':
 				return Food;
-			case 'medical':
+			case 'medical-supplies':
 				return MedicalSupplies;
-			case 'school':
+			case 'school-supplies':
 				return SchoolSupplies;
-			case 'blood':
+			case 'blood-donation':
 				return Blood;
 			case 'teaching':
 				return '';
-			case 'medicalCase':
+			case 'medical-Cases':
 				return '';
 			case 'organisations':
 				return '';
