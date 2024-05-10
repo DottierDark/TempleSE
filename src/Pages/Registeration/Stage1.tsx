@@ -32,15 +32,6 @@ export default function Stage1({
 	const navigate = useNavigate();
 	return (
 		<>
-			<div className="flex w-full text-white items-center justify-center gap-1 text-lg">
-				<div className="">Already Have an Account?</div>
-				<a
-					className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
-					onClick={() => navigate('/')}
-				>
-					Sign in
-				</a>
-			</div>
 			<div className="flex gap-5">
 				<FormField
 					control={control}
