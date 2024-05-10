@@ -117,7 +117,7 @@ export default function Filter({
 	}, [dummyData, filters]);
 
 	return (
-		<div className="sticky flex h-[92vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
+		<div className="flex sticky h-[96vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
 			{!hidesearchbar && (
 				<Searchbar
 					data={dummyData ?? []}
@@ -160,26 +160,24 @@ export default function Filter({
 					</DropdownMenu.Content>
 				</DropdownMenu.Portal>
 			</DropdownMenu.Root>
-			<div className="flex flex-col gap-4">
-				{filters.map((filter, i) => (
-					<div
-						key={i}
-						className="mr-2 flex items-center justify-between rounded-md bg-blue-400 px-2 py-1"
+			{filters.map((filter, i) => (
+				<div
+					key={i}
+					className="mr-2 flex items-center justify-between rounded-md bg-blue-400 px-2 py-1"
+				>
+					{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
+					{filter[Object.keys(filter)[0]].value}
+					<button
+						type="button"
+						className="ml-2"
+						onClick={() => {
+							setFilters(filters.filter((_, j) => i !== j));
+						}}
 					>
-						{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
-						{filter[Object.keys(filter)[0]].value}
-						<button
-							type="button"
-							className="ml-2"
-							onClick={() => {
-								setFilters(filters.filter((_, j) => i !== j));
-							}}
-						>
-							<MinusCircle size={20} className="hover:text-red-500" />
-						</button>
-					</div>
-				))}
-			</div>
+						<MinusCircle size={20} className="hover:text-red-500" />
+					</button>
+				</div>
+			))}
 		</div>
 	);
 }
