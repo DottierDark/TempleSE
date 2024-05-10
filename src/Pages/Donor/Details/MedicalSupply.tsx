@@ -1,6 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { medicalSupplies } from "../../../assets/dummyData";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { medicalSupplies } from '../../../assets/dummyData';
 
 export default function MedicalSupply() {
 	const { id } = useParams<{ id: string }>();

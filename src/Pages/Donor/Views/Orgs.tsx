@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
 	Pagination,
 	PaginationContent,
 	PaginationItem,
 	PaginationNext,
 	PaginationPrevious,
-} from "../../../Components/shadcn/ui/pagination";
-import { Card } from "../../../Components/shadcn/ui/card";
-import Filter from "../../../Components/Filter";
-import { RegisteredOrganizationsOptions } from "../../../assets/filterOptions";
-import { organizations } from "../../../assets/dummyData";
-import { Organization } from "../../../types";
-import { useNavigate } from "react-router-dom";
+} from '../../../Components/shadcn/ui/pagination';
+import { Card } from '../../../Components/shadcn/ui/card';
+import Filter from '../../../Components/Filter';
+import { RegisteredOrganizationsOptions } from '../../../assets/filterOptions';
+import { organizations } from '../../../assets/dummyData';
+import { Organization } from '../../../types';
+import { useNavigate } from 'react-router-dom';
 
 export default function Orgs() {
 	const pageSize = 12; // Number of items per page
@@ -19,7 +19,7 @@ export default function Orgs() {
 	const [page, setPage] = useState(0);
 	const nav = useNavigate();
 	const items: Organization[] = organizations.filter(
-		(org) => org.status === "Approved",
+		(org) => org.status === 'Approved'
 	);
 	const filterOptions: any[] = RegisteredOrganizationsOptions;
 	const onPageChange = (newPage: number) => {
@@ -58,20 +58,17 @@ export default function Orgs() {
 									}
 								}}
 								aria-disabled={page === 0}
-								className={`select-none ${page === 0 ? "pointer-events- opacity-50" : ""}`}
+								className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
 							/>
 						</PaginationItem>
 						<PaginationItem className="flex self-end">
 							<PaginationNext
 								onClick={() => {
-									if (
-										data.slice((page + 1) * pageSize)
-											.length !== 0
-									) {
+									if (data.slice((page + 1) * pageSize).length !== 0) {
 										onPageChange(page + 1);
 									}
 								}}
-								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? "pointer-events- opacity-50" : ""}`}
+								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
 							/>
 						</PaginationItem>
 					</PaginationContent>
