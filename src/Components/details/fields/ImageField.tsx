@@ -9,7 +9,7 @@ import {
 } from '../../shadcn/ui/form';
 import { Input } from '../../shadcn/ui/input';
 import { useDetailsContext } from '../useDetailsContext';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 export default function ImageField({
 	name,
@@ -27,8 +27,10 @@ export default function ImageField({
 	detailsClassName: string;
 }) {
 	const form = useFormContext();
+	const { watch } = form;
 	const { addEditMode } = useDetailsContext();
-	const [preview, setPreview] = useState('');
+
+	const preview = watch(name);
 
 	const image = <img src={preview} alt={label} className="w-full h-[30vh]" />;
 
@@ -49,7 +51,6 @@ export default function ImageField({
 									className={inputClassName}
 									onChange={(event) => {
 										const { displayUrl } = getImageData(event);
-										setPreview(displayUrl);
 										onChange(displayUrl);
 									}}
 								/>

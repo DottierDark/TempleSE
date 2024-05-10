@@ -113,13 +113,13 @@ export default function ViewList({
 				searchColumn="name"
 			/>
 			<div className="flex flex-col">
-				<div className="grid h-[90vh] grid-cols-4 gap-5 pl-4 pt-4">
+				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex h-full w-[27vh] p-2 flex-col justify-center text-nowrap cursor-pointer"
+								className="flex flex-row h-40 w-[20.5rem] text-nowrap cursor-pointer bg-[#92BCEA]"
 								onClick={() => {
 									handleCardClick(item);
 								}}
