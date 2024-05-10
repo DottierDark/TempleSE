@@ -70,7 +70,8 @@ export default function Register() {
 				}),
 			})
 			.refine((data) => data.password === data.confirmPassword, {
-				message: 'Password and confirmaion password must match',
+				message: 'Password and confirmation password must match',
+				path: ['confirmPassword'],
 			}),
 		2:
 			formType === 'donor'
@@ -172,7 +173,7 @@ export default function Register() {
 								message: 'Please enter a valid organization type',
 							})
 							.min(2, {
-								message: 'Organization Type must be at least 2 characters.',
+								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
 	};
@@ -186,7 +187,7 @@ export default function Register() {
 			lastName: '',
 			userName: '',
 			contactNumber: '',
-			donor_type: 'regular',
+			donor_type: '',
 		},
 	});
 
@@ -195,19 +196,34 @@ export default function Register() {
 	const onSubmit = async () => {
 		const isStepValid = await trigger();
 		if (isStepValid) {
-			setStage((prev) => (prev + 1) as 1 | 2);
+			if (stage == 1) {
+				setStage((prev) => (prev + 1) as 1 | 2);
+			} else {
+				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
+			}
 		}
 	};
 
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900">
-			<Card className="border border-gray-700 bg-gray-800 p-12 flex flex-col rounded-2xl h-[85vh] w-[75vh] text-white">
+			<Card className="border border-gray-700 bg-gray-800 px-12 py-6 flex flex-col rounded-2xl h-[85vh] w-[75vh] text-white">
 				<Form {...form}>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						className="flex flex-col items-center justify-between h-full gap-2"
 					>
-						<div className="text-3xl font-bold">Register</div>
+						<div className="flex flex-col items-center gap-3">
+							<div className="text-3xl font-bold">Register</div>
+							<div className="flex w-full text-white items-center justify-center gap-1 text-lg">
+								<div className="">Already Have an Account?</div>
+								<a
+									className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
+									onClick={() => navigate('/')}
+								>
+									Sign in
+								</a>
+							</div>
+						</div>
 						<div className="flex flex-col items-center justify-center">
 							{formBody[stage]}
 						</div>
@@ -223,11 +239,6 @@ export default function Register() {
 							</Button>
 							<Button
 								type="submit"
-								onClick={() => {
-									formType === 'donor'
-										? navigate('/donor')
-										: navigate('/organizarion');
-								}}
 								disabled={stage !== 2}
 								className="bg-gray-700 h-10 w-40 "
 							>

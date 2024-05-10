@@ -38,7 +38,7 @@ export default function OrganisationForm() {
 					control={control}
 					name="area"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Area</FormLabel>
 							<FormControl>
 								<Input placeholder="Area" {...field} />
@@ -51,7 +51,7 @@ export default function OrganisationForm() {
 					control={control}
 					name="city"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>City</FormLabel>
 							<FormControl>
 								<Input placeholder="City" {...field} />

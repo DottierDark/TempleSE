@@ -18,6 +18,7 @@ import { toast } from './shadcn/ui/use-toast';
 
 export default function TopBar() {
 	const navigate = useNavigate();
+	const location = window.location.pathname;
 
 	const [type, setType] = useState<string | null>(null);
 
@@ -27,6 +28,7 @@ export default function TopBar() {
 	};
 
 	useEffect(() => {
+		setType(location.split('/')[1]);
 		const timer = setTimeout(() => {
 			const now = new Date();
 			const dateStr = now.toLocaleString('en-US', {
@@ -47,7 +49,7 @@ export default function TopBar() {
 			});
 		}, 3000); // 30 seconds timeout
 		return () => clearTimeout(timer);
-	}, []);
+	}, [location]);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
