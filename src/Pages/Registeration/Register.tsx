@@ -16,15 +16,6 @@ export default function Register() {
 	const navigate = useNavigate();
 	const [stage, setStage] = useState<1 | 2>(1);
 
-	useEffect(() => {
-		const id = localStorage.getItem('user');
-		const type = localStorage.getItem('type');
-
-		if (id && type) {
-			navigate(`/${type}`);
-		}
-	}, [navigate]);
-
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
 		2: formType === 'donor' ? <DonorForm /> : <OrganisationForm />,
