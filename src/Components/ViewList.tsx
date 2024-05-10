@@ -32,7 +32,7 @@ export default function ViewList({
 	category,
 	Cardbody,
 }: {
-	category: any;
+	category: string;
 	Cardbody: (props: any) => JSX.Element;
 }) {
 	const pageSize = 12; // Number of items per page
@@ -47,7 +47,7 @@ export default function ViewList({
 	let items: any[] = [];
 	let filterOptions: any[] = [];
 
-	switch (category.category) {
+	switch (category) {
 		case 'Clothes':
 			items = clothes;
 			filterOptions = clothesFilterOptions;
@@ -76,7 +76,7 @@ export default function ViewList({
 			items = medicalSupplies;
 			filterOptions = medicalSuppliesFilterOptions;
 			break;
-		case 'Teaching':
+		case 'TeachingPosts':
 			items = teachingPosts;
 			filterOptions = TeachingPostsOptions;
 			break;

@@ -2,8 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { books } from '../../../assets/dummyData';
 
-export default function Book(id: number) {
-	const book = books.find((item) => item.id === id);
+export default function Book() {
+	const { id } = useParams<{ id: string }>();
+	const book = books.find((item) => item.id.toString() === id);
 
 	if (!book) {
 		return <div>Book not found</div>;

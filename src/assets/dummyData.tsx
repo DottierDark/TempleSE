@@ -12,7 +12,46 @@ import {
 	Donor,
 } from '../types';
 
-import lego from '../assets/Images/board-games.jpg';
+{
+	/* Toys list Images*/
+}
+import BoardGames from '../assets/Images/Donor/Lists/Toys/board-games.jpg';
+import Dolls from '../assets/Images/Donor/Lists/Toys/dolls.jpeg';
+import Cars from '../assets/Images/Donor/Lists/Toys/cars.jpeg';
+import Outdoor from '../assets/Images/Donor/Lists/Toys/outdoor.jpeg';
+import Sports from '../assets/Images/Donor/Lists/Toys/sports.jpeg';
+
+{
+	/* Clothes list Images*/
+}
+import Jackets from '../assets/Images/Donor/Lists/Clothes/jackets.jpeg';
+import Pants from '../assets/Images/Donor/Lists/Clothes/pants.jpeg';
+import Shirts from '../assets/Images/Donor/Lists/Clothes/tshirts.jpeg';
+
+{
+	/* Food list Images*/
+}
+import Canned from '../assets/Images/Donor/Lists/Food/canned.jpeg';
+import Fresh from '../assets/Images/Donor/Lists/Food/fresh.jpeg';
+import Frozen from '../assets/Images/Donor/Lists/Food/frozen.jpeg';
+
+{
+	/* Medical Supplies list Images*/
+}
+import Masks from '../assets/Images/Donor/Lists/MedicalSupplies/masks.jpeg';
+import Gloves from '../assets/Images/Donor/Lists/MedicalSupplies/gloves.jpeg';
+import Sanitizer from '../assets/Images/Donor/Lists/MedicalSupplies/sanitizer.jpeg';
+
+{
+	/* School Supplies list Images*/
+}
+import Pencils from '../assets/Images/Donor/Lists/School/pencils.jpeg';
+import Notebooks from '../assets/Images/Donor/Lists/School/Notebooks.jpeg';
+import Backpacks from '../assets/Images/Donor/Lists/School/backpacks.jpeg';
+
+{
+	/* Blood list Images*/
+}
 
 export const credentials: User[] = [
 	{
@@ -218,21 +257,84 @@ export const foods: TFoodItem[] = [
 		name: 'Canned Food',
 		type: 'General',
 		quantity: 50,
-		img: 'image1.jpg',
+		img: Canned,
 	},
 	{
 		id: 2,
 		name: 'Fresh Produce',
 		type: 'General',
 		quantity: 30,
-		img: 'image2.jpg',
+		img: Fresh,
 	},
 	{
 		id: 3,
 		name: 'Frozen Food',
 		type: 'General',
 		quantity: 20,
-		img: 'image3.jpg',
+		img: Frozen,
+	},
+	{
+		id: 4,
+		name: 'Canned Food',
+		type: 'General',
+		quantity: 50,
+		img: Canned,
+	},
+	{
+		id: 5,
+		name: 'Fresh Produce',
+		type: 'General',
+		quantity: 30,
+		img: Fresh,
+	},
+	{
+		id: 6,
+		name: 'Frozen Food',
+		type: 'General',
+		quantity: 20,
+		img: Frozen,
+	},
+	{
+		id: 7,
+		name: 'Canned Food',
+		type: 'General',
+		quantity: 50,
+		img: Canned,
+	},
+	{
+		id: 8,
+		name: 'Fresh Produce',
+		type: 'General',
+		quantity: 30,
+		img: Fresh,
+	},
+	{
+		id: 9,
+		name: 'Frozen Food',
+		type: 'General',
+		quantity: 20,
+		img: Frozen,
+	},
+	{
+		id: 10,
+		name: 'Canned Food',
+		type: 'General',
+		quantity: 50,
+		img: Canned,
+	},
+	{
+		id: 11,
+		name: 'Fresh Produce',
+		type: 'General',
+		quantity: 30,
+		img: Fresh,
+	},
+	{
+		id: 12,
+		name: 'Frozen Food',
+		type: 'General',
+		quantity: 20,
+		img: Frozen,
 	},
 ];
 
@@ -242,7 +344,7 @@ export const medicalSupplies: TMedicineSupplies[] = [
 		name: 'Masks',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Masks,
 		use: 'General',
 	},
 	{
@@ -250,7 +352,7 @@ export const medicalSupplies: TMedicineSupplies[] = [
 		name: 'Gloves',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Gloves,
 		use: 'General',
 	},
 	{
@@ -258,7 +360,79 @@ export const medicalSupplies: TMedicineSupplies[] = [
 		name: 'Sanitizer',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Sanitizer,
+		use: 'General',
+	},
+	{
+		id: 4,
+		name: 'Masks',
+		type: 'General',
+		quantity: 100,
+		img: Masks,
+		use: 'General',
+	},
+	{
+		id: 5,
+		name: 'Gloves',
+		type: 'General',
+		quantity: 50,
+		img: Gloves,
+		use: 'General',
+	},
+	{
+		id: 6,
+		name: 'Sanitizer',
+		type: 'General',
+		quantity: 30,
+		img: Sanitizer,
+		use: 'General',
+	},
+	{
+		id: 7,
+		name: 'Masks',
+		type: 'General',
+		quantity: 100,
+		img: Masks,
+		use: 'General',
+	},
+	{
+		id: 8,
+		name: 'Gloves',
+		type: 'General',
+		quantity: 50,
+		img: Gloves,
+		use: 'General',
+	},
+	{
+		id: 9,
+		name: 'Sanitizer',
+		type: 'General',
+		quantity: 30,
+		img: Sanitizer,
+		use: 'General',
+	},
+	{
+		id: 10,
+		name: 'Masks',
+		type: 'General',
+		quantity: 100,
+		img: Masks,
+		use: 'General',
+	},
+	{
+		id: 11,
+		name: 'Gloves',
+		type: 'General',
+		quantity: 50,
+		img: Gloves,
+		use: 'General',
+	},
+	{
+		id: 12,
+		name: 'Sanitizer',
+		type: 'General',
+		quantity: 30,
+		img: Sanitizer,
 		use: 'General',
 	},
 ];
@@ -268,21 +442,84 @@ export const schoolSupplies: TStationaryItem[] = [
 		name: 'Pencils',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Pencils,
 	},
 	{
 		id: 2,
 		name: 'Notebooks',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Notebooks,
 	},
 	{
 		id: 3,
 		name: 'Backpacks',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Backpacks,
+	},
+	{
+		id: 4,
+		name: 'Pencils',
+		type: 'General',
+		quantity: 100,
+		img: Pencils,
+	},
+	{
+		id: 5,
+		name: 'Notebooks',
+		type: 'General',
+		quantity: 50,
+		img: Notebooks,
+	},
+	{
+		id: 6,
+		name: 'Backpacks',
+		type: 'General',
+		quantity: 30,
+		img: Backpacks,
+	},
+	{
+		id: 7,
+		name: 'Pencils',
+		type: 'General',
+		quantity: 100,
+		img: Pencils,
+	},
+	{
+		id: 8,
+		name: 'Notebooks',
+		type: 'General',
+		quantity: 50,
+		img: Notebooks,
+	},
+	{
+		id: 9,
+		name: 'Backpacks',
+		type: 'General',
+		quantity: 30,
+		img: Backpacks,
+	},
+	{
+		id: 10,
+		name: 'Pencils',
+		type: 'General',
+		quantity: 100,
+		img: Pencils,
+	},
+	{
+		id: 11,
+		name: 'Notebooks',
+		type: 'General',
+		quantity: 50,
+		img: Notebooks,
+	},
+	{
+		id: 12,
+		name: 'Backpacks',
+		type: 'General',
+		quantity: 30,
+		img: Backpacks,
 	},
 ];
 
@@ -330,7 +567,7 @@ export const teachingPosts: TTeachingPost[] = [
 		img: 'image1.jpg',
 		subject: 'Math',
 		students: 30,
-		address: 'Address 1',
+		address: 'Any town',
 	},
 	{
 		id: 2,
@@ -339,7 +576,7 @@ export const teachingPosts: TTeachingPost[] = [
 		img: 'image2.jpg',
 		subject: 'Science',
 		students: 40,
-		address: 'Address 2',
+		address: 'Other Town',
 	},
 	{
 		id: 3,
@@ -348,7 +585,43 @@ export const teachingPosts: TTeachingPost[] = [
 		img: 'image3.jpg',
 		subject: 'English',
 		students: 50,
-		address: 'Address 3',
+		address: 'Another Town',
+	},
+	{
+		id: 4,
+		name: 'Art Teacher',
+		quantity: 1,
+		img: 'image4.jpg',
+		subject: 'Art',
+		students: 60,
+		address: 'Any town',
+	},
+	{
+		id: 5,
+		name: 'Music Teacher',
+		quantity: 1,
+		img: 'image5.jpg',
+		subject: 'Music',
+		students: 70,
+		address: 'Another Town',
+	},
+	{
+		id: 6,
+		name: 'Physical Education Teacher',
+		quantity: 1,
+		img: 'image6.jpg',
+		subject: 'Physical Education',
+		students: 80,
+		address: 'Other Town',
+	},
+	{
+		id: 7,
+		name: 'Math Teacher',
+		quantity: 1,
+		img: 'image1.jpg',
+		subject: 'Math',
+		students: 30,
+		address: 'Any town',
 	},
 ];
 
@@ -422,7 +695,7 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: 'All',
 		quantity: 100,
-		img: lego,
+		img: BoardGames,
 		gender: 'male',
 		category: 'board games',
 	},
@@ -432,7 +705,7 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: '+3',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Dolls,
 		gender: 'female',
 		category: 'dolls',
 	},
@@ -442,7 +715,7 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: 'All',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Cars,
 		gender: 'all',
 		category: 'cars',
 	},
@@ -452,7 +725,7 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: '+9',
 		quantity: 10,
-		img: 'image4.jpg',
+		img: Sports,
 		category: 'sports',
 		gender: 'all',
 	},
@@ -462,7 +735,7 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: '+9',
 		quantity: 10,
-		img: 'image5.jpg',
+		img: Sports,
 		category: 'sports',
 		gender: 'all',
 	},
@@ -472,69 +745,69 @@ export const toys: TToyItem[] = [
 		type: 'General',
 		ageGroup: '+12',
 		quantity: 10,
-		img: 'image6.jpg',
+		img: Outdoor,
 		category: 'Outdoor',
 		gender: 'all',
 	},
 	{
 		id: 7,
-		name: 'Car',
-		type: '',
-		ageGroup: '+12',
-		quantity: 30,
-		img: '',
-		category: 'cars',
-		gender: 'male',
+		name: 'Lego',
+		type: 'General',
+		ageGroup: 'All',
+		quantity: 100,
+		img: BoardGames,
+		category: 'board games',
+		gender: 'all',
 	},
 	{
 		id: 8,
-		name: 'Car',
-		type: '',
-		ageGroup: '+12',
-		quantity: 30,
-		img: '',
-		category: 'cars',
-		gender: 'male',
+		name: 'Barbie',
+		type: 'General',
+		ageGroup: '+3',
+		quantity: 50,
+		img: Dolls,
+		category: 'dolls',
+		gender: 'female',
 	},
 	{
 		id: 9,
-		name: 'Car',
-		type: '',
-		ageGroup: '+12',
+		name: 'Hot Wheels',
+		type: 'General',
+		ageGroup: 'All',
 		quantity: 30,
-		img: '',
+		img: Cars,
 		category: 'cars',
-		gender: 'male',
+		gender: 'all',
 	},
 	{
 		id: 10,
-		name: 'Car',
-		type: '',
-		ageGroup: '+12',
-		quantity: 30,
-		img: '',
-		category: 'cars',
-		gender: 'male',
+		name: 'Basketball',
+		type: 'General',
+		ageGroup: '+9',
+		quantity: 10,
+		img: Sports,
+		category: 'sports',
+		gender: 'all',
 	},
 	{
 		id: 11,
-		name: 'Car',
-		type: '',
-		ageGroup: '+12',
-		quantity: 30,
-		img: '',
-		category: 'cars',
-		gender: 'male',
+		name: 'Soccer Ball',
+		type: 'General',
+		ageGroup: '+9',
+		quantity: 10,
+		img: Sports,
+		category: 'sports',
+		gender: 'all',
 	},
 	{
 		id: 12,
-		name: 'Car',
-		type: '',
+		name: 'Bicycle',
+		type: 'General',
 		ageGroup: '+12',
-		quantity: 30,
-		img: '',
-		category: 'cars',
-		gender: 'male',
+		quantity: 10,
+		img: Outdoor,
+		category: 'Outdoor',
+		gender: 'all',
 	},
 ];
 export const clothes: TClothesItem[] = [
@@ -543,7 +816,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Shirt',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Shirts,
 		size: 'M',
 	},
 	{
@@ -551,7 +824,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Pants',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Pants,
 		size: 'L',
 	},
 	{
@@ -559,7 +832,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Jacket',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Jackets,
 		size: 'S',
 	},
 	{
@@ -567,7 +840,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Shirt',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Shirts,
 		size: 'M',
 	},
 	{
@@ -575,7 +848,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Pants',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Pants,
 		size: 'L',
 	},
 	{
@@ -583,7 +856,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Jacket',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Jackets,
 		size: 'S',
 	},
 	{
@@ -591,7 +864,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Shirt',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Shirts,
 		size: 'M',
 	},
 	{
@@ -599,7 +872,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Pants',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Pants,
 		size: 'L',
 	},
 	{
@@ -607,7 +880,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Jacket',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Jackets,
 		size: 'S',
 	},
 	{
@@ -615,7 +888,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Shirt',
 		type: 'General',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: Shirts,
 		size: 'M',
 	},
 	{
@@ -623,7 +896,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Pants',
 		type: 'General',
 		quantity: 50,
-		img: 'image2.jpg',
+		img: Pants,
 		size: 'L',
 	},
 	{
@@ -631,7 +904,7 @@ export const clothes: TClothesItem[] = [
 		name: 'Jacket',
 		type: 'General',
 		quantity: 30,
-		img: 'image3.jpg',
+		img: Jackets,
 		size: 'S',
 	},
 ];
