@@ -1,69 +1,69 @@
 export const toysFilterOptions = [
 	{
-		id: "ageGroup",
-		label: "Age Group",
-		type: "options",
+		id: 'ageGroup',
+		label: 'Age Group',
+		type: 'options',
 		options: [
 			{
-				value: "All",
-				label: "All",
+				value: 'All',
+				label: 'All',
 			},
 			{
-				value: "+3",
-				label: "+3",
+				value: '+3',
+				label: '+3',
 			},
 			{
-				value: "+5",
-				label: "+5",
+				value: '+5',
+				label: '+5',
 			},
-			{ value: "+7", label: "+7" },
-			{ value: "+9", label: "+9" },
-			{ value: "+12", label: "+12" },
+			{ value: '+7', label: '+7' },
+			{ value: '+9', label: '+9' },
+			{ value: '+12', label: '+12' },
 		],
 	},
 	{
-		id: "category",
-		label: "Category",
-		type: "options",
+		id: 'category',
+		label: 'Category',
+		type: 'options',
 		options: [
 			{
-				value: "board games",
-				label: "board games",
+				value: 'board games',
+				label: 'board games',
 			},
 			{
-				value: "dolls",
-				label: "dolls",
+				value: 'dolls',
+				label: 'dolls',
 			},
 			{
-				value: "cars",
-				label: "cars",
+				value: 'cars',
+				label: 'cars',
 			},
 			{
-				value: "sports",
-				label: "sports",
+				value: 'sports',
+				label: 'sports',
 			},
 			{
-				value: "Outdoor",
-				label: "Outdoor",
+				value: 'Outdoor',
+				label: 'Outdoor',
 			},
 		],
 	},
 	{
-		id: "gender",
-		label: "Gender",
-		type: "options",
+		id: 'gender',
+		label: 'Gender',
+		type: 'options',
 		options: [
 			{
-				value: "all",
-				label: "all",
+				value: 'all',
+				label: 'all',
 			},
 			{
-				value: "male",
-				label: "Male",
+				value: 'male',
+				label: 'Male',
 			},
 			{
-				value: "female",
-				label: "Female",
+				value: 'female',
+				label: 'Female',
 			},
 		],
 	},
@@ -71,9 +71,9 @@ export const toysFilterOptions = [
 
 export const clothesFilterOptions = [
 	{
-		id: "",
-		label: "",
-		type: "",
+		id: '',
+		label: '',
+		type: '',
 	},
 ];
 export const medicalSuppliesFilterOptions = [{}];
@@ -83,105 +83,105 @@ export const bloodFilterOptions = [{}];
 
 export const donationsCategories = [
 	{
-		name: "Toys",
-		key: "toys",
+		name: 'Toys',
+		key: 'toys',
 	},
 	{
-		name: "Clothes",
-		key: "clothes",
+		name: 'Clothes',
+		key: 'clothes',
 	},
 	{
-		name: "Food",
-		key: "food",
+		name: 'Food',
+		key: 'food',
 	},
 	{
-		name: "Medical Supplies",
-		key: "medical",
+		name: 'Medical Supplies',
+		key: 'medical',
 	},
 	{
-		name: "School Supplies",
-		key: "school",
+		name: 'School Supplies',
+		key: 'school',
 	},
 	{
-		name: "Blood",
-		key: "blood",
+		name: 'Blood',
+		key: 'blood',
 	},
 	{
-		name: "Teaching Posts",
-		key: "teaching",
+		name: 'Teaching Posts',
+		key: 'teaching',
 	},
 	{
-		name: "Medical Cases",
-		key: "medicalCase",
+		name: 'Medical Cases',
+		key: 'medicalCase',
 	},
 	{
-		name: "Organizations",
-		key: "organizations",
+		name: 'Organizations',
+		key: 'organizations',
 	},
 ];
 export const OrgOptions = [
 	{
-		name: " Fulfilled",
-		key: "fulfilled",
+		name: ' Fulfilled',
+		key: 'fulfilled',
 	},
 	{},
 ];
 
 export const RegisteredOrganizationsOptions = [
 	{
-		id: "type",
-		label: "Type",
-		type: "options",
+		id: 'type',
+		label: 'Type',
+		type: 'options',
 		options: [
 			{
-				value: "All",
-				label: "All",
+				value: 'All',
+				label: 'All',
 			},
 			{
-				value: "Non-profit",
-				label: "Non-profit",
+				value: 'Non-profit',
+				label: 'Non-profit',
 			},
 			{
-				value: "Profit",
-				label: "Profit",
+				value: 'Profit',
+				label: 'Profit',
 			},
 		],
 	},
 	{
-		id: "city",
-		label: "City",
-		type: "options",
+		id: 'city',
+		label: 'City',
+		type: 'options',
 		options: [
 			{
-				value: "Anytown",
-				label: "Anytown",
+				value: 'Anytown',
+				label: 'Anytown',
 			},
 			{
-				value: "Othertown",
-				label: "Othertown",
+				value: 'Othertown',
+				label: 'Othertown',
 			},
 			{
-				value: "Another town",
-				label: "Another town",
+				value: 'Another town',
+				label: 'Another town',
 			},
 		],
 	},
 	{
-		id: "state",
-		label: "State",
-		type: "options",
+		id: 'state',
+		label: 'State',
+		type: 'options',
 		options: [
 			{
-				value: "CA",
-				label: "CA",
+				value: 'CA',
+				label: 'CA',
 			},
 			{
-				value: "NY",
-				label: "NY",
+				value: 'NY',
+				label: 'NY',
 			},
 			{
-				value: "TX",
-				label: "TX",
+				value: 'TX',
+				label: 'TX',
 			},
 		],
 	},

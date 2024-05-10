@@ -1,4 +1,4 @@
-import ViewList from "../../../Components/ViewList";
+import ViewList from '../../../Components/ViewList';
 
 export default function MedicalCases() {
 	return <ViewList category="Medical Cases" />;

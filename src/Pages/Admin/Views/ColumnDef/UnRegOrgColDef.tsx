@@ -1,6 +1,6 @@
-import { Organization } from "../../../../types";
-import { ColumnDef } from "@tanstack/react-table";
-import { Button } from "../../../../Components/shadcn/ui/button";
+import { Organization } from '../../../../types';
+import { ColumnDef } from '@tanstack/react-table';
+import { Button } from '../../../../Components/shadcn/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,55 +8,55 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "../../../../Components/shadcn/ui/dropdown-menu";
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
+} from '../../../../Components/shadcn/ui/dropdown-menu';
+import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 
 export const columns: ColumnDef<Organization>[] = [
 	{
-		accessorKey: "name",
-		header: "Name",
-		cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
+		accessorKey: 'name',
+		header: 'Name',
+		cell: ({ row }) => <div className="capitalize">{row.getValue('name')}</div>,
 	},
 	{
-		accessorKey: "type",
-		header: "Type",
-		cell: ({ row }) => <div className="capitalize">{row.getValue("type")}</div>,
+		accessorKey: 'type',
+		header: 'Type',
+		cell: ({ row }) => <div className="capitalize">{row.getValue('type')}</div>,
 	},
 	{
-		accessorKey: "contactEmail",
-		header: "contactEmail",
+		accessorKey: 'contactEmail',
+		header: 'contactEmail',
 		cell: ({ row }) => (
-			<div className="lowercase">{row.getValue("contactEmail")}</div>
+			<div className="lowercase">{row.getValue('contactEmail')}</div>
 		),
 	},
 	{
-		accessorKey: "city",
-		header: "City",
-		cell: ({ row }) => <div>{row.getValue("city")}</div>,
+		accessorKey: 'city',
+		header: 'City',
+		cell: ({ row }) => <div>{row.getValue('city')}</div>,
 	},
 	{
-		accessorKey: "state",
-		header: "State",
-		cell: ({ row }) => <div>{row.getValue("state")}</div>,
+		accessorKey: 'state',
+		header: 'State',
+		cell: ({ row }) => <div>{row.getValue('state')}</div>,
 	},
 
 	{
-		id: "actions",
+		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
 			const handleAccept = () => {
 				// Change the status of the organization to rejected
 				const organization = row.original;
-				organization.status = "approved";
+				organization.status = 'approved';
 				// Perform any other necessary actions
 			};
 			const handleReject = () => {
 				// Change the status of the organization to rejected
 				const organization = row.original;
-				organization.status = "rejected";
+				organization.status = 'rejected';
 				// Perform any other necessary actions
 			};
-			
+
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -74,11 +74,11 @@ export const columns: ColumnDef<Organization>[] = [
 							Reject Request
 						</DropdownMenuItem>
 						<DropdownMenuItem
-							//onClick={() => 
+						//onClick={() =>
 						>
-						    Download Submited Documents
+							Download Submited Documents
 						</DropdownMenuItem>
-						
+
 						<DropdownMenuSeparator />
 					</DropdownMenuContent>
 				</DropdownMenu>
@@ -86,4 +86,3 @@ export const columns: ColumnDef<Organization>[] = [
 		},
 	},
 ];
-

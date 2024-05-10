@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import {
 	Form,
 	FormControl,
@@ -6,47 +6,46 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "../Components/shadcn/ui/form";
-import { Input } from "../Components/shadcn/ui/input";
-import { z } from "zod";
-import { Button } from "../Components/shadcn/ui/button";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Card } from "../Components/shadcn/ui/card";
-import { credentials } from "../assets/dummyData";
-import { User } from "../types";
+} from '../Components/shadcn/ui/form';
+import { Input } from '../Components/shadcn/ui/input';
+import { z } from 'zod';
+import { Button } from '../Components/shadcn/ui/button';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Card } from '../Components/shadcn/ui/card';
+import { credentials } from '../assets/dummyData';
+import { User } from '../types';
 
 export default function Login() {
 	const navigate = useNavigate();
 	const formSchema = z.object({
 		username: z.string().min(2, {
-			message: "Username must be at least 3 characters.",
+			message: 'Username must be at least 3 characters.',
 		}),
 		password: z.string().min(5, {
-			message: "Password must be at least 6 characters.",
+			message: 'Password must be at least 6 characters.',
 		}),
 	});
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			username: "",
-			password: "",
+			username: '',
+			password: '',
 		},
 	});
 
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		const user = credentials.find(
 			(cred: User) =>
-				cred.username === values.username &&
-				cred.password === values.password,
+				cred.username === values.username && cred.password === values.password
 		);
 
 		if (user) {
 			navigate(`/${user.type}`); // Navigate based on user type
-			localStorage.setItem("user", JSON.stringify(user));
+			localStorage.setItem('user', JSON.stringify(user));
 		} else {
-			alert("Invalid username or password.");
+			alert('Invalid username or password.');
 		}
 	}
 
@@ -59,7 +58,7 @@ export default function Login() {
 						<div className="">Don't have an account?</div>
 						<a
 							className=" text-primary-500 hover:text-primary-400 cursor-pointer font-medium underline"
-							onClick={() => navigate("/register")}
+							onClick={() => navigate('/register')}
 						>
 							Sign up.
 						</a>
@@ -77,10 +76,7 @@ export default function Login() {
 								<FormItem className="h-[100px]">
 									<FormLabel>Username</FormLabel>
 									<FormControl>
-										<Input
-											placeholder="ahmed123"
-											{...field}
-										/>
+										<Input placeholder="ahmed123" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -93,10 +89,7 @@ export default function Login() {
 								<FormItem className="h-[100px]">
 									<FormLabel>Password</FormLabel>
 									<FormControl>
-										<Input
-											placeholder="password123"
-											{...field}
-										/>
+										<Input placeholder="password123" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
