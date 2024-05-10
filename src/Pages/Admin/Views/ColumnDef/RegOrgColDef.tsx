@@ -10,6 +10,10 @@ import {
 	DropdownMenuTrigger,
 } from '../../../../Components/shadcn/ui/dropdown-menu';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 export const columns: ColumnDef<Organization>[] = [
 	{
@@ -40,6 +44,12 @@ export const columns: ColumnDef<Organization>[] = [
 		cell: ({ row }) => <div>{row.getValue('state')}</div>,
 	},
 	{
+	    accessorKey: 'actions',
+		header: 'Actions',
+		cell: ({ row }) => <div><Link to={`/map/${row.original.id}`}>View Organization Location</Link></div>,
+
+	},
+	{
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
@@ -63,7 +73,7 @@ export const columns: ColumnDef<Organization>[] = [
 						<DropdownMenuItem onClick={handleDelete}>
 							Delete Organization Account
 						</DropdownMenuItem>
-						<DropdownMenuItem>View Organization Location</DropdownMenuItem>
+						
 						<DropdownMenuSeparator />
 					</DropdownMenuContent>
 				</DropdownMenu>
