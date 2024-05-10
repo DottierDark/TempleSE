@@ -173,7 +173,7 @@ export default function Register() {
 								message: 'Please enter a valid organization type',
 							})
 							.min(2, {
-								message: 'Organization Type must be at least 2 characters.',
+								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
 	};
@@ -187,7 +187,7 @@ export default function Register() {
 			lastName: '',
 			userName: '',
 			contactNumber: '',
-			donor_type: 'regular',
+			donor_type: '',
 		},
 	});
 
@@ -196,7 +196,11 @@ export default function Register() {
 	const onSubmit = async () => {
 		const isStepValid = await trigger();
 		if (isStepValid) {
-			setStage((prev) => (prev + 1) as 1 | 2);
+			if (stage == 1) {
+				setStage((prev) => (prev + 1) as 1 | 2);
+			} else {
+				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
+			}
 		}
 	};
 
@@ -235,11 +239,6 @@ export default function Register() {
 							</Button>
 							<Button
 								type="submit"
-								onClick={() => {
-									formType === 'donor'
-										? navigate('/donor')
-										: navigate('/organizarion');
-								}}
 								disabled={stage !== 2}
 								className="bg-gray-700 h-10 w-40 "
 							>

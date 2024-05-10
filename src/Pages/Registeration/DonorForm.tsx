@@ -20,6 +20,70 @@ export default function DonorForm() {
 
 	const selectedDonorType = watch('donor_type');
 
+	const donorFormMap = {
+		regular: <div className="h-[200px]" />,
+		teacher: (
+			<div className="flex gap-5">
+				<FormField
+					control={control}
+					name="subjects"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>Subjects</FormLabel>
+							<FormControl>
+								<Input placeholder="Subjects" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={control}
+					name="teach"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>How many classes can you teach?</FormLabel>
+							<FormControl>
+								<Input placeholder="5" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+			</div>
+		),
+		doctor: (
+			<div className="flex gap-5">
+				<FormField
+					control={control}
+					name="classes"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>Classes</FormLabel>
+							<FormControl>
+								<Input placeholder="Classe" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={control}
+					name="cases"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>How many cases can you take?</FormLabel>
+							<FormControl>
+								<Input placeholder="6" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+			</div>
+		),
+	};
+
 	return (
 		<>
 			<FormField
@@ -85,90 +149,11 @@ export default function DonorForm() {
 					</FormItem>
 				)}
 			/>
-			{selectedDonorType !== 'regular' ? (
-				<>
-					{selectedDonorType === 'teacher' ? (
-						<div className="flex gap-5">
-							<FormField
-								control={control}
-								name="subjects"
-								render={({ field }) => (
-									<FormItem className="flex flex-col h-[100px]">
-										<FormLabel>Subjects</FormLabel>
-										<FormControl>
-											<Input placeholder="Subjects" {...field} />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={control}
-								name="teach"
-								render={({ field }) => (
-									<FormItem className="flex flex-col h-[100px]">
-										<FormLabel>How many classes can you teach?</FormLabel>
-										<FormControl>
-											<Input placeholder="5" {...field} />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						</div>
-					) : (
-						<div className="flex gap-5">
-							<FormField
-								control={control}
-								name="classes"
-								render={({ field }) => (
-									<FormItem className="flex flex-col h-[100px]">
-										<FormLabel>Classes</FormLabel>
-										<FormControl>
-											<Input placeholder="Classe" {...field} />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={control}
-								name="cases"
-								render={({ field }) => (
-									<FormItem className="flex flex-col h-[100px]">
-										<FormLabel>How many cases can you take?</FormLabel>
-										<FormControl>
-											<Input placeholder="6" {...field} />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						</div>
-					)}
-					<FormField
-						control={control}
-						name="proof"
-						render={({ field }) => (
-							<FormItem className="flex flex-col h-[100px]">
-								<FormLabel>Proof of Work</FormLabel>
-								<FormControl>
-									<Input
-										className="flex rounded-full border space-x-2"
-										id="file"
-										type="file"
-										multiple={true}
-										{...field}
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-				</>
-			) : (
-				<div className="h-[200px]" />
-			)}
+			{
+				donorFormMap[
+					(selectedDonorType ?? 'regular') as keyof typeof donorFormMap
+				]
+			}
 		</>
 	);
 }
