@@ -51,16 +51,16 @@ export default function Login() {
 
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			<Card className="border border-gray-700 bg-gray-800 p-12 flex flex-col gap-5 rounded-2xl h-[500px] w-[500px] text-white">
+			<Card className="flex h-[500px] w-[500px] flex-col gap-5 rounded-2xl border border-gray-700 bg-gray-800 p-12 text-white">
 				<div className="flex w-full flex-col items-center justify-center gap-5">
 					<div className="text-3xl font-bold">Login</div>
-					<div className="flex w-full items-center justify-center gap-1 text-md">
+					<div className="flex w-full items-center justify-center gap-1 text-lg">
 						<div className="">Don't have an account?</div>
 						<a
-							className=" text-primary-500 cursor-pointer font-medium underline hover:text-primary-400"
-							onClick={() => navigate('/mainregister')}
+							className=" text-primary-500 hover:text-primary-400 cursor-pointer font-medium underline"
+							onClick={() => navigate('/register')}
 						>
-							Register here.
+							Sign up.
 						</a>
 					</div>
 				</div>
@@ -95,7 +95,12 @@ export default function Login() {
 								</FormItem>
 							)}
 						/>
-						<Button type="submit" variant="default" size="lg" className="mt-5">
+						<Button
+							type="submit"
+							variant="default"
+							size="lg"
+							className="mt-5 text-lg"
+						>
 							Login
 						</Button>
 					</form>

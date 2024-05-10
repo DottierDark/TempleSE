@@ -1,16 +1,16 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
-import { z } from "zod";
-import { bloodCases } from "../../../assets/dummyData";
-import { DetailsContextProvider } from "../../../Components/details/useDetailsContext";
-import { TToyItem } from "../../../types";
-import { Form } from "../../../Components/shadcn/ui/form";
-import TextField from "../../../Components/details/fields/TextField";
-import NumberField from "../../../Components/details/fields/NumberField";
-import { useEffect } from "react";
-import ImageField from "../../../Components/details/fields/ImageField";
-import Details from "../../../Components/details/Details";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
+import { z } from 'zod';
+import { bloodCases } from '../../../assets/dummyData';
+import { DetailsContextProvider } from '../../../Components/details/useDetailsContext';
+import { TToyItem } from '../../../types';
+import { Form } from '../../../Components/shadcn/ui/form';
+import TextField from '../../../Components/details/fields/TextField';
+import NumberField from '../../../Components/details/fields/NumberField';
+import { useEffect } from 'react';
+import ImageField from '../../../Components/details/fields/ImageField';
+import Details from '../../../Components/details/Details';
 
 export default function Blood() {
 	const { id } = useParams<{ id: string }>();
@@ -18,22 +18,22 @@ export default function Blood() {
 
 	const formSchema = z.object({
 		name: z.string().min(2, {
-			message: "Name must be at least 2 characters.",
+			message: 'Name must be at least 2 characters.',
 		}),
 		type: z.string().min(2, {
-			message: "Type must be at least 2 characters.",
+			message: 'Type must be at least 2 characters.',
 		}),
 		ageGroup: z.string().min(2, {
-			message: "Age group must be at least 2 characters.",
+			message: 'Age group must be at least 2 characters.',
 		}),
 		quantity: z.number().min(0, {
-			message: "Quantity must be at least 0.",
+			message: 'Quantity must be at least 0.',
 		}),
 		gender: z.string().min(2, {
-			message: "h",
+			message: 'h',
 		}),
 		category: z.string().min(2, {
-			message: "h",
+			message: 'h',
 		}),
 	});
 

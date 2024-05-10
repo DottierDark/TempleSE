@@ -1,90 +1,251 @@
 import { useEffect, useState } from 'react';
-import { loginButtonClass, loginContainerClass } from '../../assets/Styles';
 import { useNavigate } from 'react-router-dom';
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '../../Components/shadcn/ui/form';
-
-import { Input } from '../../Components/shadcn/ui/input';
-import { z, ZodType } from 'zod';
+import { ChevronRightIcon, ChevronLeftIcon } from '@radix-ui/react-icons';
 import { Button } from '../../Components/shadcn/ui/button';
-import { useForm } from 'react-hook-form';
+import Stage1 from './Stage1';
+import { Card } from '../../Components/shadcn/ui/card';
+import { Form } from '../../Components/shadcn/ui/form';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-// old register page
+import { useForm } from 'react-hook-form';
+import DonorForm from './DonorForm';
+import OrganisationForm from './OrganisationForm';
+
 export default function Register() {
-	const [formType, setFormType] = useState<'Donor' | 'Organization Rep'>(
-		'Donor'
-	);
-
-	const fileSchema: ZodType<File, any> = z.instanceof(File);
-
+	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
+	const [stage, setStage] = useState<1 | 2>(1);
 
-	useEffect(() => {
-		const id = localStorage.getItem('user');
-		const type = localStorage.getItem('type');
+	const formBody = {
+		1: <Stage1 setFormType={setFormType} />,
+		2: formType === 'donor' ? <DonorForm /> : <OrganisationForm />,
+	};
 
-		if (id && type) {
-			navigate(`/${type}`);
+	const schema = {
+		1: z
+			.object({
+				firstName: z
+					.string({
+						message: 'Please enter a valid first name',
+					})
+					.min(2, {
+						message: 'First Name must be at least 2 characters.',
+					}),
+				lastName: z
+					.string({
+						message: 'Please enter a valid last name',
+					})
+					.min(2, {
+						message: 'Last Name must be at least 2 characters.',
+					}),
+				userName: z
+					.string({
+						message: 'Please enter a valid email address.',
+					})
+					.email({
+						message: 'Please enter a valid email address.',
+					}),
+				contactNumber: z
+					.string({
+						message: 'Please enter a valid contact number.',
+					})
+					.min(10, {
+						message: 'Contact Number must be at least 10 characters.',
+					}),
+				gender: z.string({
+					message: 'Please select a gender',
+				}),
+				type: z.string({
+					message: 'Please select a type',
+				}),
+				password: z
+					.string({
+						message: 'Please enter a valid password',
+					})
+					.min(5, {
+						message: 'Password must be at least 8 characters',
+					}),
+				confirmPassword: z.string({
+					message: 'Please confirm your password',
+				}),
+			})
+			.refine((data) => data.password === data.confirmPassword, {
+				message: 'Password and confirmaion password must match',
+			}),
+		2:
+			formType === 'donor'
+				? z.object({
+						address: z
+							.string({
+								message: 'Please enter a valid address',
+							})
+							.min(5, {
+								message: 'Address must be at least 5 characters.',
+							}),
+						area: z
+							.string({
+								message: 'Please enter a valid area',
+							})
+							.min(2, {
+								message: 'Area must be at least 2 characters.',
+							}),
+						city: z
+							.string({
+								message: 'Please enter a valid city',
+							})
+							.min(2, {
+								message: 'City must be at least 2 characters',
+							}),
+						donor_type: z
+							.string({
+								message: 'Please select a donor type',
+							})
+							.optional(),
+						subjects: z
+							.string({
+								message: 'Please enter a valid subject',
+							})
+							.optional(),
+						classes: z
+							.string({
+								message: 'Please enter a valid class',
+							})
+							.optional(),
+						credentials: z
+							.instanceof(File, {
+								message: 'Please upload a valid credentials',
+							})
+							.optional(),
+						proof: z
+							.instanceof(File, {
+								message: 'Please upload a valid proof',
+							})
+							.refine((_value: any) => null, {
+								message: 'Proof is required',
+							}),
+						teach: z
+							.number({
+								message: 'Please enter a valid number',
+							})
+							.refine((value) => value > 0, {
+								message: 'Must be greater than 0',
+							}),
+						cases: z
+							.number({
+								message: 'Please enter a valid number',
+							})
+							.refine((value) => value > 0, {
+								message: 'Must be greater than 0',
+							}),
+					})
+				: z.object({
+						address: z
+							.string({
+								message: 'Please enter a valid address',
+							})
+							.min(5, {
+								message: 'Address must be at least 5 characters.',
+							}),
+						area: z
+							.string({
+								message: 'Please enter a valid area',
+							})
+							.min(2, {
+								message: 'Area must be at least 2 characters.',
+							}),
+						city: z
+							.string({
+								message: 'Please enter a valid city',
+							})
+							.min(2, {
+								message: 'City must be at least 2 characters',
+							}),
+						organizationName: z
+							.string({
+								message: 'Please enter a valid organization name',
+							})
+							.min(2, {
+								message: 'Organization Name must be at least 2 characters.',
+							}),
+						organizationType: z
+							.string({
+								message: 'Please enter a valid organization type',
+							})
+							.min(2, {
+								message: 'Organization Type must be at least 2 characters.',
+							}),
+					}),
+	};
+
+	const form = useForm({
+		shouldUnregister: false,
+		resolver: zodResolver(schema[stage]),
+		mode: 'onChange',
+		defaultValues: {
+			firstName: '',
+			lastName: '',
+			userName: '',
+			contactNumber: '',
+			donor_type: 'regular',
+		},
+	});
+
+	const { handleSubmit, trigger } = form;
+
+	const onSubmit = async () => {
+		const isStepValid = await trigger();
+		if (isStepValid) {
+			setStage((prev) => (prev + 1) as 1 | 2);
 		}
-	}, [navigate]);
-
-	const formSchemaDonor = z.object({});
-	const formSchemaOrganization = z.object({});
-
-	const formDonor = useForm<z.infer<typeof formSchemaDonor>>({
-		resolver: zodResolver(formSchemaDonor),
-		defaultValues: {},
-	});
-	const formOrganization = useForm<z.infer<typeof formSchemaOrganization>>({
-		resolver: zodResolver(formSchemaOrganization),
-		defaultValues: {},
-	});
-
-	function onSubmitDonor(values: z.infer<typeof formSchemaDonor>) {}
-	function onSubmitOrganization(
-		values: z.infer<typeof formSchemaOrganization>
-	) {}
+	};
 
 	return (
-		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900 ">
-			<div className="flex flex-col items-center justify-center gap-5">
-				{formType === 'Donor' ? (
-					<Form {...formDonor}>
-						<form
-							onSubmit={formDonor.handleSubmit(onSubmitDonor)}
-							className=" flex flex-row items-center justify-center gap-4"
-						>
-							<div
-								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
-							></div>
-						</form>
-					</Form>
-				) : (
-					<Form {...formOrganization}>
-						<form
-							onSubmit={formOrganization.handleSubmit(onSubmitOrganization)}
-							className=" flex flex-row items-center justify-center gap-4"
-						>
-							<div
-								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
-							></div>
-							<div
-								className={`${loginContainerClass} flex flex-col items-center justify-center gap-4 text-white md:w-96`}
-							></div>
-						</form>
-					</Form>
-				)}
-
-				<Button type="submit" onClick={() => {}} className="bg-gray-700 w-40 ">
-					Register
-				</Button>
-			</div>
+		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900">
+			<Card className="border border-gray-700 bg-gray-800 p-12 flex flex-col rounded-2xl h-[85vh] w-[75vh] text-white">
+				<Form {...form}>
+					<form
+						onSubmit={handleSubmit(onSubmit)}
+						className="flex flex-col items-center justify-between h-full gap-2"
+					>
+						<div className="text-3xl font-bold">Register</div>
+						<div className="flex flex-col items-center justify-center">
+							{formBody[stage]}
+						</div>
+						<div className="flex gap-7">
+							<Button
+								disabled={stage === 1}
+								variant="outline"
+								size="icon"
+								onClick={() => setStage((prev) => (prev - 1) as 1 | 2)}
+								className="text-black"
+							>
+								<ChevronLeftIcon className="h-4 w-4" />
+							</Button>
+							<Button
+								type="submit"
+								onClick={() => {
+									formType === 'donor'
+										? navigate('/donor')
+										: navigate('/organizarion');
+								}}
+								disabled={stage !== 2}
+								className="bg-gray-700 h-10 w-40 "
+							>
+								Register
+							</Button>
+							<Button
+								disabled={stage === 2}
+								variant="outline"
+								size="icon"
+								type="submit"
+								className="text-black"
+							>
+								<ChevronRightIcon className="h-4 w-4" />
+							</Button>
+						</div>
+					</form>
+				</Form>
+			</Card>
 		</div>
 	);
 }

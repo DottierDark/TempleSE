@@ -4,7 +4,6 @@ import './App.css';
 import TopBar from './Components/TopBar';
 import Login from './Pages/Login';
 import Register from './Pages/Registeration/Register';
-import MainRegister from './Pages/Registeration/MainRegister';
 
 {
 	/* Home Pages*/
@@ -75,7 +74,6 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/mainregister" element={<MainRegister />} />
 				{/* Admin Pages*/}
 				<Route path="/admin" element={<AdminHome />} />
 				<Route path="/admin/DonorRequests" element={<DonorRequests />} />

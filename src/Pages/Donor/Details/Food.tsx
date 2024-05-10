@@ -1,6 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { foods } from "../../../assets/dummyData";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { foods } from '../../../assets/dummyData';
 
 export default function Food() {
 	const { id } = useParams<{ id: string }>();
@@ -12,8 +12,8 @@ export default function Food() {
 		<div>
 			<h1>{food.name}</h1>
 			<p>
-				Quantity: {food.quantity}{" "}
-				{food.type === "fruits and vegtables" ? "KG" : "Amount"}
+				Quantity: {food.quantity}{' '}
+				{food.type === 'fruits and vegtables' ? 'KG' : 'Amount'}
 			</p>
 			<p>Type: {food.type}</p>
 		</div>
