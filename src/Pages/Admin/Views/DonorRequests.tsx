@@ -17,7 +17,7 @@ import {
 } from '../../../Components/shadcn/ui/table';
 
 export default function DonorRequests() {
-	const data: any[] = donor;
+	const data: any[] = donor.filter((org) => org.status === 'pending');
 
 	const table = useReactTable({
 		data,

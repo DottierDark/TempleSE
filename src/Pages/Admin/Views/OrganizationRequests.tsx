@@ -17,14 +17,8 @@ import { useState, useEffect } from 'react';
 import { Organization } from '../../../types';
 
 export default function OrganizationRequests() {
-	const [data, setData] = useState<Organization[]>([]);
-
-	useEffect(() => {
-		const filteredData = organizations.filter(
-			(org) => org.status === 'pending'
-		);
-		setData(filteredData);
-	}, [organizations]);
+	const data: any[] = organizations.filter((org) => org.status === 'pending');
+	
 
 	const table = useReactTable({
 		data,
