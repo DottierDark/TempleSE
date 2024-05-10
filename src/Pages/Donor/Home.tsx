@@ -1,11 +1,11 @@
 import { Card } from '../../Components/shadcn/ui/card';
 import { useNavigate } from 'react-router-dom';
-import clothes from '../../assets/Images/clothes-donation.jpeg';
-import toys from '../../assets/Images/toys-donations.jpeg';
-import food from '../../assets/Images/food-donation.jpeg';
-import medical from '../../assets/Images/medical-donation.jpeg';
-import school from '../../assets/Images/school-donation.jpeg';
-import blood from '../../assets/Images/blood-donation.jpeg';
+import Clothes from '../../assets/Images/Donor/Home/Home-Clothes.jpeg';
+import Toys from '../../assets/Images/Donor/Home/Home-Toys.jpeg';
+import Food from '../../assets/Images/Donor/Home/Home-Foods.jpeg';
+import MedicalSupplies from '../../assets/Images/Donor/Home/Home-Medical-Supplies.jpeg';
+import SchoolSupplies from '../../assets/Images/Donor/Home/Home-School-Supplies.jpeg';
+import Blood from '../../assets/Images/Donor/Home/Home-Blood.jpeg';
 import { donationsCategories } from '../../assets/filterOptions';
 
 export default function DonorHome() {
@@ -17,17 +17,17 @@ export default function DonorHome() {
 	const imgsrc = (key: string) => {
 		switch (key) {
 			case 'toys':
-				return toys;
+				return Toys;
 			case 'clothes':
-				return clothes;
+				return Clothes;
 			case 'food':
-				return food;
+				return Food;
 			case 'medical':
-				return medical;
+				return MedicalSupplies;
 			case 'school':
-				return school;
+				return SchoolSupplies;
 			case 'blood':
-				return blood;
+				return Blood;
 			case 'teaching':
 				return '';
 			case 'medicalCase':

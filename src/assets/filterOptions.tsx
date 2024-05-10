@@ -187,4 +187,68 @@ export const RegisteredOrganizationsOptions = [
 	},
 ];
 
-export const TeachingPostsOptions = [];
+export const TeachingPostsOptions = [
+	{
+		id: 'subject',
+		label: 'Subject',
+		type: 'options',
+		options: [
+			{
+				value: 'All',
+				label: 'All',
+			},
+			{
+				value: 'Math',
+				label: 'Math',
+			},
+			{
+				value: 'Science',
+				label: 'Science',
+			},
+			{
+				value: 'English',
+				label: 'English',
+			},
+			{
+				value: 'History',
+				label: 'History',
+			},
+			{
+				value: 'Art',
+				label: 'Art',
+			},
+			{
+				value: 'Music',
+				label: 'Music',
+			},
+			{
+				value: 'Physical Education',
+				label: 'Physical Education',
+			},
+		],
+	},
+	{
+		id: 'students',
+		label: 'Students',
+		type: 'number',
+	},
+	{
+		id: 'address',
+		label: 'Address',
+		type: 'options',
+		options: [
+			{
+				value: 'Any town',
+				label: 'Any town',
+			},
+			{
+				value: 'Other town',
+				label: 'Other town',
+			},
+			{
+				value: 'Another town',
+				label: 'Another town',
+			},
+		],
+	},
+];

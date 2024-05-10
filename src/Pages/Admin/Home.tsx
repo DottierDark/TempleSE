@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-import DonorRequestsList from '../../assets/Images/DonorsRequestsLists.jpeg';
-import OrganizationRequestsList from '../../assets/Images/OrganizationsRequestsLists.jpeg';
-import RegistredOrganizations from '../../assets/Images/RegistredOrganizations.jpeg';
+import RequestsDonor from '../../assets/Images/Admin/Home/DonorsRequestsLists.jpeg';
+import RequestsOrg from '../../assets/Images/Admin/Home/OrganizationsRequestsLists.jpeg';
+import RegisteredOrg from '../../assets/Images/Admin/Home/RegistredOrganizations.jpeg';
 export default function AdminHome() {
 	const navigate = useNavigate();
 	const handleClick = (category: string) => {
 		navigate(`/admin/${category}`);
 	};
 	const imgsrc = {
-		DonorRequestsList: DonorRequestsList,
-		OrganizationRequestsList: OrganizationRequestsList,
-		RegistredOrganizations: RegistredOrganizations,
+		DonorRequestsList: RequestsDonor,
+		OrganizationRequestsList: RequestsOrg,
+		RegistredOrganizations: RegisteredOrg,
 	};
 	return (
 		<div className="flex h-full w-full items-center justify-center">
