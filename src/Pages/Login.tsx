@@ -58,7 +58,7 @@ export default function Login() {
 						<div className="">Don't have an account?</div>
 						<a
 							className=" text-primary-500 cursor-pointer font-medium underline hover:text-primary-400"
-							onClick={() => navigate('/mainregister')}
+							onClick={() => navigate('/register')}
 						>
 							Sign up.
 						</a>
