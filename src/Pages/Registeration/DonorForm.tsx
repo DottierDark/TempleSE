@@ -28,7 +28,7 @@ export default function DonorForm() {
 					control={control}
 					name="subjects"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Subjects</FormLabel>
 							<FormControl>
 								<Input placeholder="Subjects" {...field} />
@@ -41,7 +41,7 @@ export default function DonorForm() {
 					control={control}
 					name="teach"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>How many classes can you teach?</FormLabel>
 							<FormControl>
 								<Input placeholder="5" {...field} />
@@ -58,7 +58,7 @@ export default function DonorForm() {
 					control={control}
 					name="classes"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Classes</FormLabel>
 							<FormControl>
 								<Input placeholder="Classe" {...field} />
@@ -71,7 +71,7 @@ export default function DonorForm() {
 					control={control}
 					name="cases"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>How many cases can you take?</FormLabel>
 							<FormControl>
 								<Input placeholder="6" {...field} />
@@ -104,7 +104,7 @@ export default function DonorForm() {
 					control={control}
 					name="area"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Area</FormLabel>
 							<FormControl>
 								<Input placeholder="Area" {...field} />
@@ -117,7 +117,7 @@ export default function DonorForm() {
 					control={control}
 					name="city"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>City</FormLabel>
 							<FormControl>
 								<Input placeholder="City" {...field} />
