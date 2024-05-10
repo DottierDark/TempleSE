@@ -20,6 +20,7 @@ export type Donor = {
 	secondname: string;
 	address: string;
 	email: string;
+	status: 'approved' | 'pending' | 'rejected';
 };
 
 export type TLoginForm = {

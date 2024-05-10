@@ -36,22 +36,25 @@ export const columns: ColumnDef<Donor>[] = [
 		header: 'Address',
 		cell: ({ row }) => <div>{row.getValue('address')}</div>,
 	},
-	{
-		accessorKey: 'actions',
-		header: '',
-		cell: ({ row }) => <div>{<Button>Accept Request</Button>}</div>,
-	},
-	{
-		accessorKey: 'actions',
-		header: '',
-		cell: ({ row }) => <div>{<Button>Reject Request</Button>}</div>,
-	},
+
 
 	{
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			const organization = row.original;
+			const handleAccept = () => {
+				// Change the status of the organization to rejected
+				const donor = row.original;
+				donor.status = 'approved';
+				// Perform any other necessary actions
+			};
+			const handleReject = () => {
+				// Change the status of the organization to rejected
+				const donor = row.original;
+				donor.status = 'rejected';
+				// Perform any other necessary actions
+			};
+
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -62,6 +65,12 @@ export const columns: ColumnDef<Donor>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
+						<DropdownMenuItem onClick={handleAccept}>
+							Accept Request
+						</DropdownMenuItem>
+						<DropdownMenuItem onClick={handleReject}>
+							Reject Request
+						</DropdownMenuItem>
 						<DropdownMenuItem
 						//onClick={() =>
 						>
