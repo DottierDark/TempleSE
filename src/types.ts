@@ -83,11 +83,12 @@ export type TDonationItem = {
 	img: string;
 	quantity: number;
 };
+
+export type TSchoolSuppliesItem = {
+	itemType: 'stationary' | 'book' | 'Stationary' | 'Book';
+} & (TStationaryItem | TBookItem);
+
 export type TStationaryItem = {
-	type: string;
-} & TDonationItem;
-export type TClothesItem = {
-	size: string;
 	type: string;
 } & TDonationItem;
 
@@ -97,6 +98,11 @@ export type TBookItem = {
 	language: string;
 	edition: string;
 	summary: string;
+} & TDonationItem;
+
+export type TClothesItem = {
+	size: string;
+	type: string;
 } & TDonationItem;
 
 export type TToyItem = {

@@ -3,7 +3,9 @@ import {
 	bloodCases,
 	clothes,
 	foods,
+	medicalCases,
 	medicalSupplies,
+	organizations,
 	schoolSupplies,
 	teachingPosts,
 	toys,
@@ -16,6 +18,8 @@ import {
 	schoolSuppliesFilterOptions,
 	toysFilterOptions,
 	TeachingPostsOptions,
+	medicalCasesFilterOptions,
+	RegisteredOrganizationsOptions,
 } from '../assets/filterOptions';
 import { useNavigate } from 'react-router-dom';
 import Filter from './Filter';
@@ -73,12 +77,16 @@ export default function ViewList({
 			filterOptions = bloodFilterOptions;
 			break;
 		case 'Medical Cases':
-			items = medicalSupplies;
-			filterOptions = medicalSuppliesFilterOptions;
+			items = medicalCases;
+			filterOptions = medicalCasesFilterOptions;
 			break;
 		case 'TeachingPosts':
 			items = teachingPosts;
 			filterOptions = TeachingPostsOptions;
+			break;
+		case 'Organizations':
+			items = organizations.filter((org) => org.status === 'approved');
+			filterOptions = RegisteredOrganizationsOptions;
 			break;
 		default:
 			items = [

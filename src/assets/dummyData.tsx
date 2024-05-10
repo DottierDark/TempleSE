@@ -10,6 +10,7 @@ import {
 	User,
 	Organization,
 	Donor,
+	TSchoolSuppliesItem,
 } from '../types';
 
 {
@@ -185,70 +186,70 @@ export const donor: Donor[] = [
 		secondname: 'Hossam',
 		address: '123 Elm St, Anytown, CA 12345',
 		email: 'amr@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Nada',
 		secondname: 'Saleh',
 		address: '143 Pine St, Anytown, CA 12345',
 		email: 'nada@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Salma',
 		secondname: 'Ahmed',
 		address: '154 Sec St, Wheretown, CA 12345',
 		email: 'salama@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Dalia',
 		secondname: 'Habib',
 		address: '167 Cosec St, Howtown, CA 12345',
 		email: 'dalia@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Tia',
 		secondname: 'Abdelrahman',
 		address: '148 Pint St, Whytown, CA 12345',
 		email: 'tia@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Hala',
 		secondname: 'Ashraf',
 		address: '196 Live St, Whentown, CA 12345',
 		email: 'hala@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Noor',
 		secondname: 'Ismail',
 		address: '134 Hello St, Thentown, CA 12345',
 		email: 'noor@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Jannah',
 		secondname: 'Omar',
 		address: '189 Bye St, Theirtown, CA 12345',
 		email: 'jannah@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Ahmed',
 		secondname: 'Mostafa',
 		address: '33 Why St, Nevertown, CA 12345',
 		email: 'ahmed@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 	{
 		firstname: 'Ali',
 		secondname: 'Basha',
 		address: '69 Okay St, Yestown, CA 12345',
 		email: 'ali@gmail.com',
-		status : "pending",
+		status: 'pending',
 	},
 ];
 export const foods: TFoodItem[] = [
@@ -436,13 +437,14 @@ export const medicalSupplies: TMedicineSupplies[] = [
 		use: 'General',
 	},
 ];
-export const schoolSupplies: TStationaryItem[] = [
+export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 1,
 		name: 'Pencils',
 		type: 'General',
 		quantity: 100,
 		img: Pencils,
+		itemType: 'Stationary',
 	},
 	{
 		id: 2,
@@ -450,6 +452,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 50,
 		img: Notebooks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 3,
@@ -457,6 +460,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 30,
 		img: Backpacks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 4,
@@ -464,6 +468,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 100,
 		img: Pencils,
+		itemType: 'Stationary',
 	},
 	{
 		id: 5,
@@ -471,6 +476,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 50,
 		img: Notebooks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 6,
@@ -478,6 +484,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 30,
 		img: Backpacks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 7,
@@ -485,6 +492,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 100,
 		img: Pencils,
+		itemType: 'Stationary',
 	},
 	{
 		id: 8,
@@ -492,6 +500,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 50,
 		img: Notebooks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 9,
@@ -499,6 +508,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 30,
 		img: Backpacks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 10,
@@ -506,6 +516,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 100,
 		img: Pencils,
+		itemType: 'Stationary',
 	},
 	{
 		id: 11,
@@ -513,6 +524,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 50,
 		img: Notebooks,
+		itemType: 'Stationary',
 	},
 	{
 		id: 12,
@@ -520,6 +532,7 @@ export const schoolSupplies: TStationaryItem[] = [
 		type: 'General',
 		quantity: 30,
 		img: Backpacks,
+		itemType: 'Stationary',
 	},
 ];
 
