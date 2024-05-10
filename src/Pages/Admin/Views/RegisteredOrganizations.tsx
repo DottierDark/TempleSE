@@ -5,6 +5,10 @@ import { organizations } from '../../../assets/dummyData';
 import { Organization } from '../../../types';
 import { columns } from './ColumnDef/RegOrgColDef';
 import { DataTable } from '../../../Components/shadcn/ui/data-table';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoadScript } from '@react-google-maps/api';
+
 
 export default function RegisteredOrganizations() {
 	const items: any[] = organizations.filter((org) => org.status === 'approved');

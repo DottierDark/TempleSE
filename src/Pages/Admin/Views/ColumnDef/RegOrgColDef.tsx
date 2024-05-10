@@ -12,6 +12,8 @@ import {
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { LoadScript } from '@react-google-maps/api';
+
 
 
 
@@ -44,11 +46,24 @@ export const columns: ColumnDef<Organization>[] = [
 		cell: ({ row }) => <div>{row.getValue('state')}</div>,
 	},
 	{
-	    accessorKey: 'actions',
-		header: 'Actions',
-		cell: ({ row }) => <div><Link to={`/map/${row.original.id}`}>View Organization Location</Link></div>,
+		
+			accessorKey: 'actions',
+			header: 'Actions',
+			cell: ({ row }) => {
+				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}, ${row.original.zip}`;
+				const url = `https://www.google.com/maps/place/?q=${encodeURIComponent(address)}`;
+	
+				return (
+					<a href={url} target="_blank" rel="noopener noreferrer">
+						<Button variant="ghost" className="h-8 w-8 p-0">
+							View Location
+						</Button>
+					</a>
+				);
+			},
+		},
 
-	},
+
 	{
 		id: 'actions',
 		enableHiding: false,
@@ -59,6 +74,8 @@ export const columns: ColumnDef<Organization>[] = [
 				organization.status = 'rejected';
 				// Perform any other necessary actions
 			};
+			
+			  
 
 			return (
 				<DropdownMenu>

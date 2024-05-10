@@ -15,6 +15,7 @@ import {
 	SelectValue,
 } from '../../Components/shadcn/ui/select';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Stage1({
 	setFormType,
@@ -28,7 +29,7 @@ export default function Stage1({
 	useEffect(() => {
 		setFormType(selectedType);
 	}, [selectedType]);
-
+	const navigate = useNavigate();
 	return (
 		<>
 			<div className="flex gap-5">
@@ -36,7 +37,7 @@ export default function Stage1({
 					control={control}
 					name="firstName"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>First Name</FormLabel>
 							<FormControl>
 								<Input placeholder="ahmed" {...field} />
@@ -49,7 +50,7 @@ export default function Stage1({
 					control={control}
 					name="lastName"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Last Name</FormLabel>
 							<FormControl>
 								<Input placeholder="mohamed" {...field} />
@@ -64,7 +65,7 @@ export default function Stage1({
 					control={control}
 					name="userName"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Email</FormLabel>
 							<FormControl>
 								<Input placeholder="ahmed123@gmail.com" {...field} />
@@ -77,7 +78,7 @@ export default function Stage1({
 					control={control}
 					name="contactNumber"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Contact Number</FormLabel>
 							<FormControl>
 								<Input placeholder="01000100022" {...field} />
@@ -92,7 +93,7 @@ export default function Stage1({
 					control={control}
 					name="gender"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>Gender</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
@@ -113,7 +114,7 @@ export default function Stage1({
 					control={control}
 					name="type"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px]">
+						<FormItem className="flex flex-col h-[100px] w-72">
 							<FormLabel>I am a</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
@@ -137,7 +138,7 @@ export default function Stage1({
 				control={control}
 				name="password"
 				render={({ field }) => (
-					<FormItem className="flex flex-col h-[100px]">
+					<FormItem className="flex flex-col h-[100px] w-72">
 						<FormLabel>Password</FormLabel>
 						<FormControl>
 							<Input placeholder="password123" type="password" {...field} />
@@ -150,7 +151,7 @@ export default function Stage1({
 				control={control}
 				name="confirmPassword"
 				render={({ field }) => (
-					<FormItem className="flex flex-col h-[100px]">
+					<FormItem className="flex flex-col h-[100px] w-72">
 						<FormLabel>Confirm Password</FormLabel>
 						<FormControl>
 							<Input placeholder="password123" type="password" {...field} />
