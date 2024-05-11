@@ -26,6 +26,7 @@ export default function TopBar() {
 	const onLogout = () => {
 		setType('');
 		navigate('/');
+		localStorage.removeItem('user');
 	};
 
 	useEffect(() => {
