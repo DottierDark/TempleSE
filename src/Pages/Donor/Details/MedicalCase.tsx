@@ -27,7 +27,9 @@ export default function MedicalCase() {
 			gender: '',
 			weight: 0,
 			location: '',
-			address: '',
+			street: '',
+			area: '',
+			gov: '',
 			specialty: '',
 			description: '',
 			orgName: '',
@@ -78,9 +80,25 @@ export default function MedicalCase() {
 							placeholder=""
 						/>
 						<TextField
-							name="address"
-							label="Address"
-							description="Address of the patient"
+							name="street"
+							label="Street"
+							description="Street of the patient"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="area"
+							label="Area"
+							description="Area of the patient"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
+						<TextField
+							name="gov"
+							label="Governorate"
+							description="Governorate of the patient"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""

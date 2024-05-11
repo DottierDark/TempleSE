@@ -23,7 +23,6 @@ export default function Teacher() {
 			students: 0,
 			area: '',
 			gov: '',
-			address: '',
 		},
 	});
 
@@ -74,14 +73,6 @@ export default function Teacher() {
 							name="gov"
 							label="Governorate"
 							description="Governorate of the teacher"
-							detailsClassName=""
-							inputClassName=""
-							placeholder=""
-						/>
-						<TextField
-							name="address"
-							label="Address"
-							description="Address of the teacher"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
