@@ -34,7 +34,7 @@ export default function Details({
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<div className="h-12 w-full flex justify-between px-12 items-center">
+			<div className="h-12 w-full flex justify-between pl-6 pr-12 items-center">
 				<h1 className="text-3xl font-bold text-black">
 					{isAddMode && !replacementTitle
 						? `Add ${title}`
