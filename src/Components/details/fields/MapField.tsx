@@ -35,42 +35,44 @@ export default function MapField({
 			src={`https://www.google.com/maps/embed?pb=${value}`}
 			width="600"
 			height="450"
-			style={{ border: 0 }}
 			allowFullScreen
+			className="border-[#171A21] border border-solid rounded-lg"
 			aria-hidden="false"
 		/>
 	);
 
-	if (addEditMode) {
-		return (
-			<FormField
-				control={form.control}
-				name={name}
-				render={({ field }) => (
-					<FormItem className="flex flex-col h-[400px]">
-						<FormLabel>{label}</FormLabel>
-						<FormControl>
-							<Input
-								placeholder={placeholder}
-								{...field}
-								type="text"
-								className={inputClassName + 'indent-[-1px]'}
-							/>
-							{map}
-						</FormControl>
-						<FormDescription>{description}</FormDescription>
-						{addEditMode && <FormMessage />}
-					</FormItem>
-				)}
-			/>
-		);
-	}
-
 	return (
-		<div className={'flex flex-col gap-2' + detailsClassName}>
-			<span className="font-bold">{label}:</span>
-			<span className="">{value}</span>
-			{map}
-		</div>
+		<FormField
+			control={form.control}
+			name={name}
+			render={({ field }) => (
+				<FormItem className="flex flex-col h-[400px]">
+					<FormLabel>{label}</FormLabel>
+					<FormControl>
+						<>
+							{addEditMode ? (
+								<>
+									<FormControl>
+										<Input
+											placeholder={placeholder}
+											{...field}
+											type="text"
+											className={inputClassName}
+										/>
+									</FormControl>
+								</>
+							) : (
+								<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+									{value}
+								</span>
+							)}
+							{map}
+						</>
+					</FormControl>
+					<FormDescription>{description}</FormDescription>
+					{addEditMode && <FormMessage />}
+				</FormItem>
+			)}
+		/>
 	);
 }

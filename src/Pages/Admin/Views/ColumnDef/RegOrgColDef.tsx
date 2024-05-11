@@ -46,16 +46,22 @@ export const columns: ColumnDef<Organization>[] = [
 		cell: ({ row }) => <div>{row.getValue('state')}</div>,
 	},
 	{
+		accessorKey: 'contactPhone',
+		header: 'Contact Phone',
+		cell: ({ row }) => <div>{row.getValue('contactPhone')}</div>,
+	},
+	
+	{
 		
 			accessorKey: 'actions',
 			header: 'Actions',
 			cell: ({ row }) => {
-				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}, ${row.original.zip}`;
+				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}`;
 				const url = `https://www.google.com/maps/place/?q=${encodeURIComponent(address)}`;
 	
 				return (
 					<a href={url} target="_blank" rel="noopener noreferrer">
-						<Button variant="ghost" className="h-8 w-8 p-0">
+						<Button>
 							View Location
 						</Button>
 					</a>
@@ -86,7 +92,7 @@ export const columns: ColumnDef<Organization>[] = [
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>Actions</DropdownMenuLabel>
+						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
 						<DropdownMenuItem onClick={handleDelete}>
 							Delete Organization Account
 						</DropdownMenuItem>

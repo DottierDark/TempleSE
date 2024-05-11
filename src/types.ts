@@ -14,6 +14,7 @@ export type Organization = {
 	gov: string;
 	zip: string;
 	contactEmail: string;
+	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';
 };
 
@@ -22,6 +23,7 @@ export type Donor = {
 	secondname: string;
 	address: string;
 	email: string;
+	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';
 };
 
@@ -146,6 +148,7 @@ export type TTeachingPost = {
 	subject: string;
 	area: string;
 	gov: string;
+	address: string;
 } & TDonationItem;
 
 export type TMedicalCase = {
