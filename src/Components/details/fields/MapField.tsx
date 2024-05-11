@@ -35,8 +35,8 @@ export default function MapField({
 			src={`https://www.google.com/maps/embed?pb=${value}`}
 			width="600"
 			height="450"
-			style={{ border: 0 }}
 			allowFullScreen
+			className="border-[#171A21] border border-solid rounded-lg"
 			aria-hidden="false"
 		/>
 	);
