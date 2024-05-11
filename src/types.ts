@@ -147,7 +147,6 @@ export type TTeachingPost = {
 	subject: string;
 	area: string;
 	gov: string;
-	address: string;
 } & TDonationItem;
 
 export type TMedicalCase = {

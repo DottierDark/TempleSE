@@ -26,7 +26,7 @@ import Orgs from './Pages/Donor/Views/Orgs';
 import TeachingPosts from './Pages/Donor/Views/TeacherPosts';
 import MedicalCases from './Pages/Donor/Views/MedicalCases';
 
-import DonorSettings from './Pages/Donor/Views/DonorSettings';
+import DonorSettings from './Pages/Donor/Settings/DonorSettings';
 
 {
 	/* Donor Details Pages*/
@@ -50,7 +50,7 @@ import Fulfilled from './Pages/Organisation/Views/Fulfilled';
 {
 	/* Admin Views Pages*/
 }
-import AccountSettings from './Pages/Admin/Views/AdminSettings';
+import AccountSettings from './Pages/Admin/Settings/AdminSettings';
 import RegisteredOrganizations from './Pages/Admin/Views/RegisteredOrganizations';
 import OrganizationRequests from './Pages/Admin/Views/OrganizationRequests';
 
@@ -60,7 +60,7 @@ import OrganizationRequests from './Pages/Admin/Views/OrganizationRequests';
 import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
 import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
 import { Toaster } from './Components/shadcn/ui/toaster';
-import AdminSettings from './Pages/Admin/Views/AdminSettings';
+import AdminSettings from './Pages/Admin/Settings/AdminSettings';
 import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
 
 function App() {
