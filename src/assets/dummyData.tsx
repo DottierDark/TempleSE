@@ -49,6 +49,12 @@ import Sanitizer from '../assets/Images/Donor/Lists/MedicalSupplies/sanitizer.jp
 import Pencils from '../assets/Images/Donor/Lists/School/pencils.jpeg';
 import Notebooks from '../assets/Images/Donor/Lists/School/Notebooks.jpeg';
 import Backpacks from '../assets/Images/Donor/Lists/School/backpacks.jpeg';
+import books from '../assets/Images/Donor/Lists/School/books.jpeg';
+
+{
+	/* Teaching Posts list Images*/
+}
+import teachingPost from '../assets/Images/Donor/Lists/TeachingPosts/teachingpost.jpeg';
 
 {
 	/* Blood list Images*/
@@ -514,7 +520,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 8,
 		name: 'Book 1',
-		img: 'book1.jpg',
+		img: books,
 		quantity: 10,
 		bookName: 'Book 1',
 		author: 'Author 1',
@@ -526,7 +532,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 9,
 		name: 'Book 2',
-		img: 'book2.jpg',
+		img: books,
 		quantity: 20,
 		bookName: 'Book 2',
 		author: 'Author 2',
@@ -538,7 +544,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 10,
 		name: 'Book 3',
-		img: 'book3.jpg',
+		img: books,
 		quantity: 30,
 		bookName: 'Book 3',
 		author: 'Author 3',
@@ -550,7 +556,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 11,
 		name: 'Book 4',
-		img: 'book4.jpg',
+		img: books,
 		quantity: 40,
 		bookName: 'Book 4',
 		author: 'Author 4',
@@ -562,7 +568,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 12,
 		name: 'Book 5',
-		img: 'book5.jpg',
+		img: books,
 		quantity: 50,
 		bookName: 'Book 5',
 		author: 'Author 5',
@@ -574,7 +580,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
 		id: 13,
 		name: 'Book 6',
-		img: 'book6.jpg',
+		img: books,
 		quantity: 60,
 		bookName: 'Book 6',
 		author: 'Author 6',
@@ -626,7 +632,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 1,
 		name: 'Math Teacher',
 		quantity: 1,
-		img: 'image1.jpg',
+		img: teachingPost,
 		subject: 'Math',
 		students: 30,
 		address: 'Any town',
@@ -635,7 +641,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 2,
 		name: 'Science Teacher',
 		quantity: 1,
-		img: 'image2.jpg',
+		img: teachingPost,
 		subject: 'Science',
 		students: 40,
 		address: 'Other Town',
@@ -644,7 +650,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 3,
 		name: 'English Teacher',
 		quantity: 1,
-		img: 'image3.jpg',
+		img: teachingPost,
 		subject: 'English',
 		students: 50,
 		address: 'Another Town',
@@ -653,7 +659,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 4,
 		name: 'Art Teacher',
 		quantity: 1,
-		img: 'image4.jpg',
+		img: teachingPost,
 		subject: 'Art',
 		students: 60,
 		address: 'Any town',
@@ -662,7 +668,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 5,
 		name: 'Music Teacher',
 		quantity: 1,
-		img: 'image5.jpg',
+		img: teachingPost,
 		subject: 'Music',
 		students: 70,
 		address: 'Another Town',
@@ -671,7 +677,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 6,
 		name: 'Physical Education Teacher',
 		quantity: 1,
-		img: 'image6.jpg',
+		img: teachingPost,
 		subject: 'Physical Education',
 		students: 80,
 		address: 'Other Town',
@@ -680,7 +686,7 @@ export const teachingPosts: TTeachingPost[] = [
 		id: 7,
 		name: 'Math Teacher',
 		quantity: 1,
-		img: 'image1.jpg',
+		img: teachingPost,
 		subject: 'Math',
 		students: 30,
 		address: 'Any town',
