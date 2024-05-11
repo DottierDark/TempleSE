@@ -32,7 +32,15 @@ export default function ImageField({
 
 	const preview = watch(name);
 
-	const image = <img src={preview} alt={label} className="w-full h-[30vh]" />;
+	const image = (
+		<div className="w-64 h-40">
+			<img
+				src={preview}
+				alt={label}
+				className="w-64 h-40 border-[#171A21] border border-solid rounded-lg"
+			/>
+		</div>
+	);
 
 	return (
 		<FormField
