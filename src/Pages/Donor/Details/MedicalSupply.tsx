@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { medicalSupplies } from '../../../assets/dummyData';
 import { DetailsContextProvider } from '../../../Components/details/useDetailsContext';
-import { TMedicineSupplies } from '../../../types';
+import { TMedicalSupply } from '../../../types';
 import { Form } from '../../../Components/shadcn/ui/form';
 import TextField from '../../../Components/details/fields/TextField';
 import NumberField from '../../../Components/details/fields/NumberField';
@@ -16,7 +16,7 @@ export default function MedicalSupply() {
 		(item) => item.id.toString() === id
 	);
 
-	const form = useForm<TMedicineSupplies>({
+	const form = useForm<TMedicalSupply>({
 		defaultValues: {
 			id: undefined,
 			name: '',
@@ -38,14 +38,6 @@ export default function MedicalSupply() {
 			<DetailsContextProvider title="Medical supply" id={id} canEdit={false}>
 				<Details>
 					<div className="grid grid-cols-2 gap-5 p-6">
-						<TextField
-							name="patientName"
-							label="Patient Name"
-							description="Name of the patient"
-							detailsClassName=""
-							inputClassName=""
-							placeholder=""
-						/>
 						<NumberField
 							name="quantity"
 							label="Quantity"

@@ -5,10 +5,7 @@ import { DetailsContextProvider } from '../../../Components/details/useDetailsCo
 import { Organization } from '../../../types';
 import { Form } from '../../../Components/shadcn/ui/form';
 import TextField from '../../../Components/details/fields/TextField';
-import NumberField from '../../../Components/details/fields/NumberField';
 import { useEffect } from 'react';
-import ImageField from '../../../Components/details/fields/ImageField';
-import TextareaField from '../../../Components/details/fields/TextareaField';
 import Details from '../../../Components/details/Details';
 import MapField from '../../../Components/details/fields/MapField';
 
@@ -22,10 +19,10 @@ export default function Org() {
 			name: '',
 			type: '',
 			street: '',
-			city: '',
-			state: '',
-			zip: '',
+			area: '',
+			gov: '',
 			contactEmail: '',
+			contactPhone: '',
 			status: 'approved',
 		},
 	});
@@ -66,25 +63,25 @@ export default function Org() {
 							placeholder=""
 						/>
 						<TextField
-							name="city"
-							label="City"
-							description="City of the organization"
+							name="area"
+							label="Area"
+							description="Area of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
 						/>
 						<TextField
-							name="state"
-							label="State"
-							description="State of the organization"
+							name="gov"
+							label="Governorate"
+							description="Governorate of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
 						/>
 						<TextField
-							name="zip"
-							label="Zip"
-							description="Zip of the organization"
+							name="contactPhone"
+							label="Contact Phone"
+							description="Contact Phone of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
