@@ -7,6 +7,7 @@ import MedicalSupplies from '../../assets/Images/Donor/Home/Home-Medical-Supplie
 import SchoolSupplies from '../../assets/Images/Donor/Home/Home-School-Supplies.jpeg';
 import Blood from '../../assets/Images/Donor/Home/Home-Blood.jpeg';
 import Org from '../../assets/Images/Donor/Home/Home-Organization.jpeg';
+import teaching from '../../assets/Images/Donor/Home/Home-Teaching-Posts.jpeg';
 import { donationsCategories } from '../../assets/filterOptions';
 
 export default function DonorHome() {
@@ -31,7 +32,7 @@ export default function DonorHome() {
 			case 'blood-donation':
 				return Blood;
 			case 'teaching':
-				return '';
+				return teaching;
 			case 'medical-Cases':
 				return '';
 			case 'organizations':
