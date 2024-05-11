@@ -30,14 +30,14 @@ export const columns: ColumnDef<Organization>[] = [
 		),
 	},
 	{
-		accessorKey: 'city',
-		header: 'City',
-		cell: ({ row }) => <div>{row.getValue('city')}</div>,
+		accessorKey: 'area',
+		header: 'Area',
+		cell: ({ row }) => <div>{row.getValue('area')}</div>,
 	},
 	{
-		accessorKey: 'state',
-		header: 'State',
-		cell: ({ row }) => <div>{row.getValue('state')}</div>,
+		accessorKey: 'gov',
+		header: 'Gov',
+		cell: ({ row }) => <div>{row.getValue('gov')}</div>,
 	},
 	{
 		id: 'actions',
