@@ -61,6 +61,7 @@ import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
 import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
 import { Toaster } from './Components/shadcn/ui/toaster';
 import AdminSettings from './Pages/Admin/Views/AdminSettings';
+import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
 
 function App() {
 	return (
@@ -106,7 +107,7 @@ function App() {
 				<Route path="/donor/medical-supplies" element={<MedicalSupplies />} />
 				<Route path="/donor/medical-supplies/:id" element={<MedicalSupply />} />
 				<Route path="/donor/school-supplies" element={<SchoolSupplies />} />
-				<Route path="/donor/school-supplies/:id" element={<Stationary />} />
+				<Route path="/donor/school-supplies/:id" element={<SchoolSupply />} />
 				<Route path="/donor/blood-donation" element={<Bloods />} />
 				<Route path="/donor/blood-donation/:id" element={<Blood />} />
 				<Route path="/donor/organizations" element={<Orgs />} />

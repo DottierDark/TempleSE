@@ -8,8 +8,15 @@ export default function Details({
 }: React.PropsWithChildren<{
 	replacementTitle?: string;
 }>) {
-	const { isAddMode, isEditMode, setIsAddMode, setIsEditMode, title, id } =
-		useDetailsContext();
+	const {
+		isAddMode,
+		isEditMode,
+		setIsAddMode,
+		setIsEditMode,
+		title,
+		id,
+		canEdit,
+	} = useDetailsContext();
 
 	const { handleSubmit } = useFormContext();
 	const navigate = useNavigate();
@@ -35,15 +42,17 @@ export default function Details({
 							? `Editing ` + replacementTitle ?? `${title} - ${id}`
 							: replacementTitle ?? `${title} - ${id}` + ` Details`}
 				</h1>
-				<div className="flex items-center gap-4">
-					<Button className="text-white w-32 h-10 text-lg" type="submit">
-						{isAddMode && !replacementTitle
-							? 'Add'
-							: isEditMode
-								? 'Save'
-								: 'Edit'}
-					</Button>
-				</div>
+				{canEdit && (
+					<div className="flex items-center gap-4">
+						<Button className="text-white w-32 h-10 text-lg" type="submit">
+							{isAddMode && !replacementTitle
+								? 'Add'
+								: isEditMode
+									? 'Save'
+									: 'Edit'}
+						</Button>
+					</div>
+				)}
 			</div>
 			{children}
 		</form>

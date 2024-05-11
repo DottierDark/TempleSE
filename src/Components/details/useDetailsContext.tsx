@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import { TDetailsContext } from './types';
 
 export const DetailsContext = createContext<TDetailsContext>({
-	canEdit: false,
+	canEdit: true,
 	isAddMode: false,
 	isEditMode: false,
 	setIsAddMode: () => {},

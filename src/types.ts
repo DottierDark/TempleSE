@@ -81,18 +81,18 @@ export type TDonationItem = {
 	id: number;
 	name: string;
 	img: string;
-	quantity: number;
+	quantity?: number;
 };
 
-export type TSchoolSuppliesItem = {
-	itemType: 'stationary' | 'book' | 'Stationary' | 'Book';
-} & (TStationaryItem | TBookItem);
+export type TSchoolSuppliesItem = TStationaryItem | TBookItem;
 
 export type TStationaryItem = {
+	itemType: 'stationary';
 	type: string;
 } & TDonationItem;
 
 export type TBookItem = {
+	itemType: 'book';
 	bookName: string;
 	author: string;
 	language: string;
@@ -128,6 +128,7 @@ export type TMedicineSupplies = {
 } & TDonationItem;
 
 export type TBloodDonation = {
+	volume: number;
 	bloodType: string;
 	hospital: string;
 	area: string;
