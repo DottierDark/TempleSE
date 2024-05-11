@@ -12,7 +12,7 @@ export default function OrganisationHome() {
 				<div
 					className="flex h-full w-full flex-col items-center justify-center transition-all hover:scale-[125%]"
 					onClick={() => {
-						handleClick('RegisteredOrganizations');
+						handleClick('fulfilled');
 					}}
 				>
 					<img
@@ -25,7 +25,7 @@ export default function OrganisationHome() {
 				<div
 					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
 					onClick={() => {
-						handleClick('All');
+						handleClick('unfulfilled');
 					}}
 				>
 					<img

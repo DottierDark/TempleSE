@@ -5,6 +5,7 @@ import {
 	foods,
 	medicalCases,
 	medicalSupplies,
+	orgPosts,
 	organizations,
 	schoolSupplies,
 	teachingPosts,
@@ -23,7 +24,7 @@ import {
 } from '../assets/filterOptions';
 import { useNavigate } from 'react-router-dom';
 import Filter from './Filter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
 	Pagination,
 	PaginationContent,
@@ -43,9 +44,19 @@ export default function ViewList({
 	const [data, setData] = useState<any[]>([]);
 	const [page, setPage] = useState(0);
 
+	const location = window.location.pathname.split('/');
+	const [user, setType] = useState<string | null>(null);
+
+	useEffect(() => {
+		setType(location[1]);
+	}, [location]);
+
 	const nav = useNavigate();
-	const handleCardClick = (item: any) => {
+	const CardClickDonor = (item: any) => {
 		nav(`/donor/${window.location.pathname.split('/')[2]}/${item.id}`);
+	};
+	const CardClickOrg = (item: any) => {
+		nav(`/organisation/${window.location.pathname.split('/')[2]}/${item.id}`);
 	};
 
 	let items: any[] = [];
@@ -87,6 +98,28 @@ export default function ViewList({
 		case 'Organizations':
 			items = organizations.filter((org) => org.status === 'approved');
 			filterOptions = RegisteredOrganizationsOptions;
+			break;
+		case 'Fulfilled':
+			items = orgPosts.filter((org) => org.condition === true);
+			filterOptions = [
+				...bloodFilterOptions,
+				...clothesFilterOptions,
+				...foodsFilterOptions,
+				...medicalSuppliesFilterOptions,
+				...schoolSuppliesFilterOptions,
+				...toysFilterOptions,
+			];
+			break;
+		case 'Unfulfilled':
+			items = orgPosts.filter((org) => org.condition === false);
+			filterOptions = [
+				...bloodFilterOptions,
+				...clothesFilterOptions,
+				...foodsFilterOptions,
+				...medicalSuppliesFilterOptions,
+				...schoolSuppliesFilterOptions,
+				...toysFilterOptions,
+			];
 			break;
 		default:
 			items = [
@@ -156,17 +189,29 @@ export default function ViewList({
 				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row w-[80vw] h-[80vh] grid-flow-dense">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
-						.map((item, index) => (
-							<Card
-								key={`${item.id}-${index}`}
-								className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
-								onClick={() => {
-									handleCardClick(item);
-								}}
-							>
-								<Cardbody {...item} />
-							</Card>
-						))}
+						.map((item, index) =>
+							user === 'donor' ? (
+								<Card
+									key={`${item.id}-${index}`}
+									className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
+									onClick={() => {
+										CardClickDonor(item);
+									}}
+								>
+									<Cardbody {...item} />
+								</Card>
+							) : (
+								<Card
+									key={`${item.post.id}-${index}`}
+									className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
+									onClick={() => {
+										CardClickOrg(item.post);
+									}}
+								>
+									<Cardbody {...item} />
+								</Card>
+							)
+						)}
 				</div>
 			</div>
 		</div>

@@ -11,6 +11,7 @@ import {
 	Organization,
 	Donor,
 	TSchoolSuppliesItem,
+	TOrgPost,
 } from '../types';
 
 {
@@ -1478,5 +1479,73 @@ export const clothes: TClothesItem[] = [
 		season: 'Summer',
 		material: 'Cotton',
 		gender: 'all',
+	},
+];
+
+export const orgPosts: TOrgPost[] = [
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[0],
+	},
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[1],
+	},
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[2],
+	},
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[3],
+	},
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[4],
+	},
+	{
+		category: 'Clothes',
+		condition: true,
+		post: clothes[5],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[6],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[7],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[8],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[9],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[10],
+	},
+	{
+		category: 'Clothes',
+		condition: false,
+		post: clothes[11],
+	},
+	{
+		category: 'Toys',
+		condition: true,
+		post: toys[0],
 	},
 ];

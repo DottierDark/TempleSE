@@ -199,3 +199,15 @@ export type TOrganizationSettings = {
 	area: string;
 	governorate: string;
 };
+
+export type TOrgPost = {
+	category: string;
+	condition: boolean;
+	post:
+		| TFoodItem
+		| TBloodDonation
+		| TMedicalSupply
+		| TToyItem
+		| TClothesItem
+		| TSchoolSuppliesItem;
+};

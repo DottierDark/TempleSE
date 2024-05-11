@@ -46,6 +46,11 @@ import Toy from './Pages/Donor/Details/Toy';
 	/* Organisation Views Pages*/
 }
 import Fulfilled from './Pages/Organisation/Views/Fulfilled';
+import UnFulfilled from './Pages/Organisation/Views/UnFulfilled';
+
+{
+	/* Organisation Details Pages*/
+}
 
 {
 	/* Admin Views Pages*/
@@ -130,6 +135,9 @@ function App() {
 					element={<DonorSettings />}
 				/>
 				<Route path="/organisation/fulfilled" element={<Fulfilled />} />
+				<Route path="/organisation/fulfilled/:id" element={<Fulfilled />} />
+				<Route path="/organisation/unfulfilled" element={<UnFulfilled />} />
+				<Route path="/organisation/unfulfilled/:id" element={<UnFulfilled />} />
 			</Routes>
 		</BrowserRouter>
 	);
