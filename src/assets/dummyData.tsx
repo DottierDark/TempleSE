@@ -1200,8 +1200,6 @@ export const medicalCases: TMedicalCase[] = [
 		street: '16 Alexandra Parade Glasgow G31 2ER, UK',
 		area: 'Glasgow',
 		gov: 'UK',
-		area: 'Area 3',
-		gov: 'Gov 3',
 		specialty: 'lungs',
 		description:
 			'Chief Complaint: Persistent cough, fever, difficulty breathing',
@@ -1220,8 +1218,6 @@ export const medicalCases: TMedicalCase[] = [
 		street: 'Central General Hospital, 123 Main St, Anytown, CA 12345',
 		area: 'Anytown',
 		gov: 'USA',
-		area: 'Area 3',
-		gov: 'Gov 3',
 		specialty: 'General',
 		description: 'Chief Complaint: Severe pain and swelling in the right leg',
 		orgName: 'Dope Shelter',
