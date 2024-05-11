@@ -35,7 +35,7 @@ export default function TextareaField({
 			control={form.control}
 			name={name}
 			render={({ field }) => (
-				<FormItem className="flex flex-col h-[120px] ">
+				<FormItem className="flex flex-col min-h-9">
 					<FormLabel>{label}</FormLabel>
 					{addEditMode ? (
 						<>
@@ -48,7 +48,7 @@ export default function TextareaField({
 							</FormControl>
 						</>
 					) : (
-						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+						<span className="flex min-h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
 							{value}
 						</span>
 					)}

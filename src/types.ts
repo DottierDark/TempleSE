@@ -143,6 +143,8 @@ export type TBloodDonation = {
 export type TTeachingPost = {
 	students: number;
 	subject: string;
+	area: string;
+	gov: string;
 	address: string;
 } & TDonationItem;
 
@@ -152,6 +154,8 @@ export type TMedicalCase = {
 	gender: string;
 	weight: number;
 	location: string;
+	area: string;
+	gov: string;
 	address: string;
 	specialty: string;
 	description: string;
