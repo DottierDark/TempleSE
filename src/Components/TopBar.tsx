@@ -111,32 +111,32 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Toys',
-					key: '',
+					key: 'all',
 					href: '/donor/toys',
 				},
 				{
 					name: 'Clothes',
-					key: '',
+					key: 'all',
 					href: '/donor/clothes',
 				},
 				{
 					name: 'Food',
-					key: '',
+					key: 'all',
 					href: '/donor/food',
 				},
 				{
 					name: 'Medicines Supplies',
-					key: '',
+					key: 'all',
 					href: '/donor/medical-supplies',
 				},
 				{
 					name: 'School Supplies',
-					key: '',
+					key: 'all',
 					href: '/donor/school-supplies',
 				},
 				{
 					name: 'Blood',
-					key: '',
+					key: 'all',
 					href: '/donor/blood-donation',
 				},
 			],
@@ -195,9 +195,17 @@ export default function TopBar() {
 											<ul className="grid w-96 p-2 md:grid-cols-2 lg:w-[600px]">
 												{tab.links.map((link) =>
 													['regular', 'doctor', 'teacher'].includes(
-														link.key
+														user.donorType
 													) ? (
-														user.type === link.key ? (
+														link.key === 'all' ? (
+															<ListItem
+																key={link.key}
+																title={link.name}
+																href={link.href}
+															>
+																{link.name}
+															</ListItem>
+														) : link.key === user.donorType ? (
 															<ListItem
 																key={link.key}
 																title={link.name}
