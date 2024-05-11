@@ -36,40 +36,36 @@ export const columns: ColumnDef<Organization>[] = [
 		),
 	},
 	{
-		accessorKey: 'city',
-		header: 'City',
-		cell: ({ row }) => <div>{row.getValue('city')}</div>,
+		accessorKey: 'area',
+		header: 'Area',
+		cell: ({ row }) => <div>{row.getValue('area')}</div>,
 	},
 	{
-		accessorKey: 'state',
-		header: 'State',
-		cell: ({ row }) => <div>{row.getValue('state')}</div>,
+		accessorKey: 'gov',
+		header: 'Gov',
+		cell: ({ row }) => <div>{row.getValue('gov')}</div>,
 	},
 	{
 		accessorKey: 'contactPhone',
 		header: 'Contact Phone',
 		cell: ({ row }) => <div>{row.getValue('contactPhone')}</div>,
 	},
-	
 	{
-		
-			accessorKey: 'actions',
-			header: 'Actions',
-			cell: ({ row }) => {
-				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}`;
-				const url = `https://www.google.com/maps/place/?q=${encodeURIComponent(address)}`;
-	
-				return (
-					<a href={url} target="_blank" rel="noopener noreferrer">
-						<Button>
-							View Location
-						</Button>
-					</a>
-				);
-			},
+		id: 'actions',
+		enableHiding: false,
+		cell: ({ row }) => {
+			const navigate = useNavigate();
+			const handleClick = (category: string) => {
+				navigate(`/admin/${category}`);
+			};
+			return (
+			   <Button onClick={() => {
+				handleClick('RegisteredOrganizationsDetails');
+			}}>View More Details</Button>
+			)
 		},
-
-
+	},
+	
 	{
 		id: 'actions',
 		enableHiding: false,
