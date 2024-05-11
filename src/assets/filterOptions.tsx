@@ -71,14 +71,93 @@ export const toysFilterOptions = [
 
 export const clothesFilterOptions = [
 	{
-		id: '',
-		label: '',
-		type: '',
+		id: 'ageGroup',
+		label: 'Age Group',
+		type: 'options',
+		options: [
+			{
+				value: 'All',
+				label: 'All',
+			},
+			{
+				value: '+3',
+				label: '+3',
+			},
+			{
+				value: '+5',
+				label: '+5',
+			},
+			{ value: '+7', label: '+7' },
+			{ value: '+9', label: '+9' },
+			{ value: '+12', label: '+12' },
+		],
+	},
+	{
+		id: 'gender',
+		label: 'Gender',
+		type: 'options',
+		options: [
+			{
+				value: 'all',
+				label: 'All',
+			},
+			{
+				value: 'male',
+				label: 'Male',
+			},
+			{
+				value: 'female',
+				label: 'Female',
+			},
+		],
+	},
+	{
+		id: 'season',
+		label: 'Season',
+		type: 'options',
+		options: [
+			{
+				value: 'All',
+				label: 'All',
+			},
+			{
+				value: 'Summer',
+				label: 'Summer',
+			},
+			{
+				value: 'Winter',
+				label: 'Winter',
+			},
+			{
+				value: 'Spring',
+				label: 'Spring',
+			},
+			{
+				value: 'Fall',
+				label: 'Fall',
+			},
+		],
 	},
 ];
 export const medicalSuppliesFilterOptions = [{}];
 export const medicalCasesFilterOptions = [{}];
-export const schoolSuppliesFilterOptions = [{}];
+export const schoolSuppliesFilterOptions = [
+	{
+		id: 'itemType',
+		label: 'Item Type',
+		type: 'options',
+		options: [
+			{
+				value: 'Stationary' || 'stationary',
+				label: 'Stationary',
+			},
+			{
+				value: 'Book' || 'book',
+				label: 'Book',
+			},
+		],
+	},
+];
 export const foodsFilterOptions = [{}];
 export const bloodFilterOptions = [{}];
 

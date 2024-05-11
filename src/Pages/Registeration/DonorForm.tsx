@@ -23,7 +23,7 @@ export default function DonorForm() {
 	const donorFormMap = {
 		regular: <div className="h-[200px]" />,
 		teacher: (
-			<div className="flex gap-5">
+			<div className="flex gap-5 h-[200px]">
 				<FormField
 					control={control}
 					name="subjects"
@@ -53,7 +53,7 @@ export default function DonorForm() {
 			</div>
 		),
 		doctor: (
-			<div className="flex gap-5">
+			<div className="flex gap-5 h-[200px]">
 				<FormField
 					control={control}
 					name="classes"
