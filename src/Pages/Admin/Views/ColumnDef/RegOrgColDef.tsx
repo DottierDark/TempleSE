@@ -46,11 +46,17 @@ export const columns: ColumnDef<Organization>[] = [
 		cell: ({ row }) => <div>{row.getValue('state')}</div>,
 	},
 	{
+		accessorKey: 'contactPhone',
+		header: 'Contact Phone',
+		cell: ({ row }) => <div>{row.getValue('contactPhone')}</div>,
+	},
+	
+	{
 		
 			accessorKey: 'actions',
 			header: 'Actions',
 			cell: ({ row }) => {
-				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}, ${row.original.zip}`;
+				const address = `${row.original.street}, ${row.original.city}, ${row.original.state}`;
 				const url = `https://www.google.com/maps/place/?q=${encodeURIComponent(address)}`;
 	
 				return (

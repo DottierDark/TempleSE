@@ -37,6 +37,11 @@ export const columns: ColumnDef<Donor>[] = [
 		cell: ({ row }) => <div>{row.getValue('address')}</div>,
 	},
 	{
+		accessorKey: 'contactPhone',
+		header: 'Contact Phone',
+		cell: ({ row }) => <div>{row.getValue('contactPhone')}</div>,
+	},
+	{
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {

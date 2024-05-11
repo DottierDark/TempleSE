@@ -11,8 +11,8 @@ export type Organization = {
 	street: string;
 	city: string;
 	state: string;
-	zip: string;
 	contactEmail: string;
+	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';
 };
 
@@ -21,6 +21,7 @@ export type Donor = {
 	secondname: string;
 	address: string;
 	email: string;
+	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';
 };
 
