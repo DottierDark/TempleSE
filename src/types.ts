@@ -2,6 +2,7 @@ export type User = {
 	username: string;
 	password: string;
 	type: 'organisation' | 'donor' | 'admin';
+	donorType?: 'regular' | 'doctor' | 'teacher';
 };
 export type Organization = {
 	id: number;
@@ -101,8 +102,11 @@ export type TBookItem = {
 } & TDonationItem;
 
 export type TClothesItem = {
-	size: string;
 	type: string;
+	ageGroup: string;
+	season: string;
+	material: string;
+	gender: string;
 } & TDonationItem;
 
 export type TToyItem = {
@@ -119,7 +123,7 @@ export type TToyItem = {
 } & TDonationItem;
 
 export type TFoodItem = {
-	type: string;
+	type: 'fresh' | 'canned' | 'baked' | 'fruits and vegetables';
 } & TDonationItem;
 
 export type TMedicineSupplies = {

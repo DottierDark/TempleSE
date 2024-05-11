@@ -21,6 +21,7 @@ export default function TopBar() {
 	const location = window.location.pathname;
 
 	const [type, setType] = useState<string | null>(null);
+	const user = JSON.parse(localStorage.getItem('user') || '{}');
 
 	const onLogout = () => {
 		setType('');
@@ -89,17 +90,17 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Medical Cases',
-					key: '',
+					key: 'doctor',
 					href: '/donor/medical-cases',
 				},
 				{
 					name: 'Teaching Posts',
-					key: '',
+					key: 'teacher',
 					href: '/donor/teaching',
 				},
 				{
 					name: 'Organizations',
-					key: '',
+					key: 'all',
 					href: '/donor/organizations',
 				},
 			],
@@ -192,15 +193,29 @@ export default function TopBar() {
 										<NavigationMenuTrigger>{tab.name}</NavigationMenuTrigger>
 										<NavigationMenuContent>
 											<ul className="grid w-96 p-2 md:grid-cols-2 lg:w-[600px]">
-												{tab.links.map((link) => (
-													<ListItem
-														key={link.key}
-														href={link.href}
-														title={link.name}
-													>
-														{link.name}
-													</ListItem>
-												))}
+												{tab.links.map((link) =>
+													['regular', 'doctor', 'teacher'].includes(
+														link.key
+													) ? (
+														user.type === link.key ? (
+															<ListItem
+																key={link.key}
+																title={link.name}
+																href={link.href}
+															>
+																{link.name}
+															</ListItem>
+														) : null
+													) : (
+														<ListItem
+															key={link.key}
+															title={link.name}
+															href={link.href}
+														>
+															{link.name}
+														</ListItem>
+													)
+												)}
 											</ul>
 										</NavigationMenuContent>
 									</>
