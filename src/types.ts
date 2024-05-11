@@ -12,7 +12,6 @@ export type Organization = {
 	street: string;
 	area: string;
 	gov: string;
-	zip: string;
 	contactEmail: string;
 	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';
