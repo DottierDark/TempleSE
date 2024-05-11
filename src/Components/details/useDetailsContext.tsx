@@ -16,7 +16,7 @@ export const useDetailsContext = () => useContext(DetailsContext);
 
 export const DetailsContextProvider = ({
 	children,
-	canEdit,
+	canEdit = true,
 	title,
 	id,
 }: React.PropsWithChildren<{
