@@ -5,10 +5,10 @@ export default function Toys() {
 	function Cardbody(item: TToyItem) {
 		return (
 			<>
-				<div className="w-64 h-40">
+				<div className="w-60 h-40">
 					<img
 						src={item.img}
-						className="w-64 h-40 border-[#171A21] border border-solid rounded-lg"
+						className="w-60 h-40 border-[#171A21] border border-solid rounded-lg object-contain bg-white "
 					/>
 				</div>
 				<div className="flex flex-col py-2 justify-around w-full px-3">

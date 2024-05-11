@@ -139,7 +139,54 @@ export const clothesFilterOptions = [
 		],
 	},
 ];
-export const medicalSuppliesFilterOptions = [{}];
+export const medicalSuppliesFilterOptions = [
+	{
+		id: 'itemType',
+		label: 'Item Type',
+		type: 'options',
+		options: [
+			{
+				value: 'Medicine' || 'medicine',
+				label: 'Medicines',
+			},
+			{
+				value: 'Equipment' || 'equipment',
+				label: 'Equipments',
+			},
+			{
+				value: 'Device' || 'device',
+				label: 'Devices',
+			},
+		],
+	},
+	{
+		id: 'use',
+		label: 'Medication Use',
+		type: 'options',
+		options: [
+			{
+				value: 'Pain',
+				label: 'Pain',
+			},
+			{
+				value: 'Cold',
+				label: 'Cold',
+			},
+			{
+				value: 'Flu',
+				label: 'Flu',
+			},
+			{
+				value: 'Allergy',
+				label: 'Allergy',
+			},
+			{
+				value: 'Other',
+				label: 'Other',
+			},
+		],
+	},
+];
 export const medicalCasesFilterOptions = [{}];
 export const schoolSuppliesFilterOptions = [
 	{
@@ -159,7 +206,23 @@ export const schoolSuppliesFilterOptions = [
 	},
 ];
 export const foodsFilterOptions = [{}];
-export const bloodFilterOptions = [{}];
+export const bloodFilterOptions = [
+	{
+		id: 'hospital',
+		label: 'Hospital',
+		type: 'string',
+	},
+	{
+		id: 'area',
+		label: 'Area',
+		type: 'string',
+	},
+	{
+		id: 'gov',
+		label: 'Governorate',
+		type: 'string',
+	},
+];
 
 export const donationsCategories = [
 	{
@@ -231,39 +294,13 @@ export const RegisteredOrganizationsOptions = [
 		id: 'city',
 		label: 'City',
 		type: 'options',
-		options: [
-			{
-				value: 'Anytown',
-				label: 'Anytown',
-			},
-			{
-				value: 'Othertown',
-				label: 'Othertown',
-			},
-			{
-				value: 'Another town',
-				label: 'Another town',
-			},
-		],
+		options: 'string',
 	},
 	{
 		id: 'state',
 		label: 'State',
 		type: 'options',
-		options: [
-			{
-				value: 'CA',
-				label: 'CA',
-			},
-			{
-				value: 'NY',
-				label: 'NY',
-			},
-			{
-				value: 'TX',
-				label: 'TX',
-			},
-		],
+		options: 'string',
 	},
 ];
 
@@ -308,27 +345,13 @@ export const TeachingPostsOptions = [
 		],
 	},
 	{
-		id: 'students',
-		label: 'Students',
-		type: 'number',
+		id: 'area',
+		label: 'Area',
+		type: 'string',
 	},
 	{
-		id: 'address',
-		label: 'Address',
-		type: 'options',
-		options: [
-			{
-				value: 'Any town',
-				label: 'Any town',
-			},
-			{
-				value: 'Other town',
-				label: 'Other town',
-			},
-			{
-				value: 'Another town',
-				label: 'Another town',
-			},
-		],
+		id: 'gov',
+		label: 'Governorate',
+		type: 'string',
 	},
 ];

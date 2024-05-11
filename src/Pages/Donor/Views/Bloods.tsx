@@ -1,28 +1,33 @@
 import ViewList from '../../../Components/ViewList';
+import { TBloodDonation } from '../../../types';
 
 export default function Bloods() {
-	function Cardbody(item: any) {
+	function Cardbody(item: TBloodDonation) {
 		return (
 			<>
-				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Name</div>
-					<div className="text-lg">{item.name}</div>
+				<div className="w-60 h-40">
+					<img
+						src={item.img}
+						className="w-60 h-40 border-[#171A21] border border-solid rounded-lg object-contain bg-white "
+					/>
 				</div>
-				<div className="flex w-full justify-between">
-					<img src={item.img}></img>
-				</div>
-				<div className="flex w-full justify-between">
-					<div
-						className="text-xl text-medium
-					"
-					>
-						Quantity:{' '}
+				<div className="flex flex-col py-2 justify-around w-full px-3">
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-bold">Name:</div>
+						<div className="text-md">{item.name}</div>
 					</div>
-					<div className="text-lg">{item.quantity}</div>
-				</div>
-				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Type: </div>
-					<div className="text-lg">{item.itemType}</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Hospital:</div>
+						<div className="text-md">{item.hospital}</div>
+					</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Area:</div>
+						<div className="text-md">{item.area}</div>
+					</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Governorate:</div>
+						<div className="text-md">{item.gov}</div>
+					</div>
 				</div>
 			</>
 		);

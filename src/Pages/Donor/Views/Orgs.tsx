@@ -18,21 +18,29 @@ export default function Orgs() {
 	function Cardbody(item: Organization) {
 		return (
 			<>
-				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Name</div>
-					<div className="text-lg">{item.name}</div>
+				<div className="w-64 h-40">
+					<img
+						src={item.img}
+						className="w-64 h-40 border-[#171A21] border border-solid rounded-lg object-contain bg-white "
+					/>
 				</div>
-				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Location: </div>
-					<div className="text-lg">
-						<p>{item.street}</p>
-						<p className="text-lg">{item.city}</p>
-						<p className="text-lg">{item.state}</p>
+				<div className="flex flex-col py-2 justify-around w-full px-3">
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-bold">Name:</div>
+						<div className="text-md">{item.name}</div>
 					</div>
-				</div>
-				<div className="flex w-full justify-between">
-					<div className="text-xl text-medium">Contact: </div>
-					<div className="text-lg">{item.contactEmail}</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Organization Type:</div>
+						<div className="text-md">{item.type}</div>
+					</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Area:</div>
+						<div className="text-md">{item.area}</div>
+					</div>
+					<div className="flex justify-between items-center">
+						<div className="text-lg text-medium">Governorate:</div>
+						<div className="text-md">{item.gov}</div>
+					</div>
 				</div>
 			</>
 		);

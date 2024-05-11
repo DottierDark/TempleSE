@@ -1,13 +1,14 @@
 import ViewList from '../../../Components/ViewList';
+import { TFoodItem } from '../../../types';
 
 export default function Foods() {
-	function Cardbody(item: any) {
+	function Cardbody(item: TFoodItem) {
 		return (
 			<>
 				<div className="w-64 h-40">
 					<img
 						src={item.img}
-						className="w-64 h-40 border-[#171A21] border border-solid rounded-lg"
+						className="w-64 h-40 border-[#171A21] border border-solid rounded-lg object-contain bg-white "
 					/>
 				</div>
 				<div className="flex flex-col py-2 justify-around w-full px-3">

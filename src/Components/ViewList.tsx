@@ -121,13 +121,45 @@ export default function ViewList({
 				searchColumn="name"
 			/>
 			<div className="flex flex-col">
-				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row">
+				<div className="flex flex-row justify-between">
+					<div className="p-2">
+						<h1 className="text-3xl font-bold text-center">{category}</h1>
+					</div>
+					<div className="p-2">
+						<Pagination>
+							<PaginationContent>
+								<PaginationItem className="flex self-start">
+									<PaginationPrevious
+										onClick={() => {
+											if (page > 0) {
+												onPageChange(page - 1);
+											}
+										}}
+										aria-disabled={page === 0}
+										className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
+									/>
+								</PaginationItem>
+								<PaginationItem className="flex self-end">
+									<PaginationNext
+										onClick={() => {
+											if (data.slice((page + 1) * pageSize).length !== 0) {
+												onPageChange(page + 1);
+											}
+										}}
+										className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
+									/>
+								</PaginationItem>
+							</PaginationContent>
+						</Pagination>
+					</div>
+				</div>
+				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row w-[80vw] h-[80vh] grid-flow-dense">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex flex-row h-40 w-[20.5rem] text-nowrap cursor-pointer bg-[#92BCEA]"
+								className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
 								onClick={() => {
 									handleCardClick(item);
 								}}
@@ -136,31 +168,6 @@ export default function ViewList({
 							</Card>
 						))}
 				</div>
-				<Pagination>
-					<PaginationContent>
-						<PaginationItem className="flex self-start">
-							<PaginationPrevious
-								onClick={() => {
-									if (page > 0) {
-										onPageChange(page - 1);
-									}
-								}}
-								aria-disabled={page === 0}
-								className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
-							/>
-						</PaginationItem>
-						<PaginationItem className="flex self-end">
-							<PaginationNext
-								onClick={() => {
-									if (data.slice((page + 1) * pageSize).length !== 0) {
-										onPageChange(page + 1);
-									}
-								}}
-								className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
-							/>
-						</PaginationItem>
-					</PaginationContent>
-				</Pagination>
 			</div>
 		</div>
 	);

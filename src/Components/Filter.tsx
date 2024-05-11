@@ -117,7 +117,7 @@ export default function Filter({
 	}, [dummyData, filters]);
 
 	return (
-		<div className="flex sticky h-[96vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
+		<div className="flex sticky h-[93vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
 			{!hidesearchbar && (
 				<Searchbar
 					data={dummyData ?? []}

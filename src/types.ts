@@ -7,10 +7,11 @@ export type User = {
 export type Organization = {
 	id: number;
 	name: string;
+	img: string;
 	type: string;
 	street: string;
-	city: string;
-	state: string;
+	area: string;
+	gov: string;
 	zip: string;
 	contactEmail: string;
 	status: 'approved' | 'pending' | 'rejected';
@@ -126,7 +127,7 @@ export type TFoodItem = {
 	type: 'fresh' | 'canned' | 'baked' | 'fruits and vegetables';
 } & TDonationItem;
 
-export type TMedicineSupplies = {
+export type TMedicalSupply = {
 	type: string;
 	use: string;
 } & TDonationItem;
@@ -143,7 +144,8 @@ export type TBloodDonation = {
 export type TTeachingPost = {
 	students: number;
 	subject: string;
-	address: string;
+	area: string;
+	gov: string;
 } & TDonationItem;
 
 export type TMedicalCase = {
@@ -152,7 +154,9 @@ export type TMedicalCase = {
 	gender: string;
 	weight: number;
 	location: string;
-	address: string;
+	street: string;
+	area: string;
+	gov: string;
 	specialty: string;
 	description: string;
 	orgName: string;
