@@ -55,7 +55,7 @@ export const columns: ColumnDef<Organization>[] = [
 	
 				return (
 					<a href={url} target="_blank" rel="noopener noreferrer">
-						<Button variant="ghost" className="h-8 w-8 p-0">
+						<Button>
 							View Location
 						</Button>
 					</a>
@@ -86,7 +86,7 @@ export const columns: ColumnDef<Organization>[] = [
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>Actions</DropdownMenuLabel>
+						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
 						<DropdownMenuItem onClick={handleDelete}>
 							Delete Organization Account
 						</DropdownMenuItem>
