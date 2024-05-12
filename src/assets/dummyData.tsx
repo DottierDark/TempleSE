@@ -225,6 +225,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Amr',
 		secondname: 'Hossam',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'amr@gmail.com',
@@ -234,6 +235,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Nada',
 		secondname: 'Saleh',
+	    type: 'teacher',
 		area: 'Another Town',
 		gov: 'TX',
 		email: 'nada@gmail.com',
@@ -243,6 +245,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Salma',
 		secondname: 'Ahmed',
+		type: 'doctor',
 		area: 'Othertown',
 		gov: 'NY',
 		email: 'salama@gmail.com',
@@ -252,6 +255,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Dalia',
 		secondname: 'Habib',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'dalia@gmail.com',
@@ -261,6 +265,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Tia',
 		secondname: 'Abdelrahman',
+		type: 'regular',
 		area: 'Another Town',
 		gov: 'TX',
 		email: 'tia@gmail.com',
@@ -270,6 +275,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Hala',
 		secondname: 'Ashraf',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'hala@gmail.com',
@@ -279,6 +285,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Noor',
 		secondname: 'Ismail',
+		type: 'regular',
 		area: 'Othertown',
 		gov: 'NY',
 		email: 'noor@gmail.com',
@@ -288,6 +295,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Jannah',
 		secondname: 'Omar',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'jannah@gmail.com',
@@ -297,6 +305,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ahmed',
 		secondname: 'Mostafa',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'ahmed@gmail.com',
@@ -306,6 +315,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ali',
 		secondname: 'Basha',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'ali@gmail.com',
@@ -315,6 +325,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Hossam',
 		secondname: 'Hassan',
+		type: 'regular',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'hosssam@gmail.com',
@@ -324,6 +335,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ibrahim',
 		secondname: 'Ali',
+		type: 'teacher',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'ibrahim@gmail.com',
@@ -333,6 +345,7 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ahmed',
 		secondname: 'Ibrahim',
+		type: 'doctor',
 		area: 'Anytown',
 		gov: 'CA',
 		email: 'ahmed@gmail.com',
@@ -351,7 +364,7 @@ export const foods: TFoodItem[] = [
 	{
 		id: 2,
 		name: 'Apple',
-		type: 'fruits and vegetables',
+		type: 'fruits & vegetables',
 		quantity: 30,
 		img: Fresh,
 	},
@@ -400,7 +413,7 @@ export const foods: TFoodItem[] = [
 	{
 		id: 9,
 		name: 'Banana',
-		type: 'fruits and vegetables',
+		type: 'fruits & vegetables',
 		quantity: 20,
 		img: Frozen,
 	},
@@ -883,7 +896,7 @@ export const medicalCases: TMedicalCase[] = [
 		street: '500 Mercy Lane Willowbrook, CA 90210',
 		area: 'Willowbrook',
 		gov: 'USA',
-		specialty: 'General',
+		specialty: 'Surgery',
 		description: 'Chief Complaint: Severe abdominal pain, nausea, vomiting',
 		orgName: 'Hope Shelter',
 	},
@@ -900,7 +913,7 @@ export const medicalCases: TMedicalCase[] = [
 		street: '39200 Hooker Hwy Belle Glade, FL 33430',
 		area: 'Belle Glade',
 		gov: 'USA',
-		specialty: 'throat',
+		specialty: 'Medication',
 		description: 'Chief Complaint: Chest pain, shortness of breath',
 		orgName: 'Future Shelter',
 	},
@@ -917,7 +930,7 @@ export const medicalCases: TMedicalCase[] = [
 		street: '16 Alexandra Parade Glasgow G31 2ER, UK',
 		area: 'Glasgow',
 		gov: 'UK',
-		specialty: 'lungs',
+		specialty: 'Medication',
 		description:
 			'Chief Complaint: Persistent cough, fever, difficulty breathing',
 		orgName: 'X Shelter',
@@ -935,7 +948,7 @@ export const medicalCases: TMedicalCase[] = [
 		street: 'Central General Hospital, 123 Main St, Anytown, CA 12345',
 		area: 'Anytown',
 		gov: 'USA',
-		specialty: 'General',
+		specialty: 'Surgery',
 		description: 'Chief Complaint: Severe pain and swelling in the right leg',
 		orgName: 'Dope Shelter',
 	},

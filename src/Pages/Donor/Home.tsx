@@ -6,7 +6,7 @@ import Food from '../../assets/Images/Donor/Home/Home-Foods.jpeg';
 import MedicalSupplies from '../../assets/Images/Donor/Home/Home-Medical-Supplies.jpeg';
 import SchoolSupplies from '../../assets/Images/Donor/Home/Home-School-Supplies.jpeg';
 import Blood from '../../assets/Images/Donor/Home/Home-Blood.jpeg';
-import Org from '../../assets/Images/Donor/Home/Home-Organization.jpeg';
+import Org from '../../assets/Images/Admin/org.webp';
 import teaching from '../../assets/Images/Donor/Home/Home-Teaching-Posts.jpeg';
 import medicalpost from '../../assets/Images/Donor/medicalpost/medicalcase.jpeg';
 import { donationsCategories } from '../../assets/filterOptions';

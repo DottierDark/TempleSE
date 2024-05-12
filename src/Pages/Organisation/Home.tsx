@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../../Components/shadcn/ui/card';
-import fullfilled from '../../assets/Images/Admin/fullfiled.jpeg';
-import unfullfilled from '../../assets/Images/Admin/unfullfilled.png';
-import notifications from '../../assets/Images/Admin/notifications.jpeg';
-import create from '../../assets/Images/Admin/create.webp';
+import fullfilled from '../../assets/Images/Admin/fullfillreq.webp';
+import unfullfilled from '../../assets/Images/Admin/unfullfill.jpeg';
+import notifications from '../../assets/Images/Admin/notif.jpeg';
+import create from '../../assets/Images/Admin/create.jpeg';
 //import fullfilled from '../../assets/Images/Organisation/Home';
 //import all from '../../assets/Images/Organisation/Home';
 export default function OrganisationHome() {

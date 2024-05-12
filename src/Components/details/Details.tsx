@@ -69,9 +69,13 @@ export default function Details({
 		}
 	};
 
+	const isTeacher = title === 'Teaching post';
+	const isDoctor = title === 'Medical case';
+	const isTeacherOrDoctor = isTeacher || isDoctor;
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<div className="h-12 w-full flex justify-between pl-6 pr-12 items-center">
+			<div className="h-16 w-full flex justify-between pl-6 pr-12  items-center bg-white rounded-b-lg">
 				<h1 className="text-3xl font-bold text-black">
 					{isAddMode && !replacementTitle
 						? `Add ${title}`
@@ -113,39 +117,48 @@ export default function Details({
 							<SheetHeader>
 								<SheetTitle>Accept Request</SheetTitle>
 								<SheetDescription>
-									Please select the type of vehicle you want to pick up the
-									donation as well as the date and time.
+									Please fill the below fields then click accept.
 								</SheetDescription>
 							</SheetHeader>
 							<div className="flex flex-col gap-6 py-6">
+								{!isTeacherOrDoctor && (
+									<>
+										<div className="flex flex-col gap-2">
+											<Label>Quantity</Label>
+											<Input
+												type="number"
+												onChange={(e) =>
+													setQuantity(Math.abs(parseInt(e.target.value)))
+												}
+												value={quantity}
+											/>
+										</div>
+										<div className="flex flex-col gap-2">
+											<Label>Type of vehicle</Label>
+											<Select
+												onValueChange={(value) => setVehicleType(value)}
+												value={vehicleType}
+											>
+												<SelectTrigger>
+													<SelectValue placeholder="Select the type of vehicle to pick up your donation" />
+												</SelectTrigger>
+												<SelectContent>
+													<SelectItem value="truck">Truck</SelectItem>
+													<SelectItem value="car">Car</SelectItem>
+													<SelectItem value="motorcycle">Motorcyle</SelectItem>
+												</SelectContent>
+											</Select>
+										</div>
+									</>
+								)}
 								<div className="flex flex-col gap-2">
-									<Label>Quantity</Label>
-									<Input
-										type="number"
-										onChange={(e) =>
-											setQuantity(Math.abs(parseInt(e.target.value)))
-										}
-										value={quantity}
-									/>
-								</div>
-								<div className="flex flex-col gap-2">
-									<Label>Type of vehicle</Label>
-									<Select
-										onValueChange={(value) => setVehicleType(value)}
-										value={vehicleType}
-									>
-										<SelectTrigger>
-											<SelectValue placeholder="Select the type of vehicle to pick up your donation" />
-										</SelectTrigger>
-										<SelectContent>
-											<SelectItem value="truck">Truck</SelectItem>
-											<SelectItem value="car">Car</SelectItem>
-											<SelectItem value="motorcycle">Motorcyle</SelectItem>
-										</SelectContent>
-									</Select>
-								</div>
-								<div className="flex flex-col gap-2">
-									<Label>Donation Pickup Date</Label>
+									<Label>
+										{isTeacherOrDoctor
+											? isTeacher
+												? 'Class Date'
+												: 'Appointment Date'
+											: 'Donation Pickup Date'}
+									</Label>
 									<Popover>
 										<PopoverTrigger asChild>
 											<Button
@@ -170,7 +183,13 @@ export default function Details({
 									</Popover>
 								</div>
 								<div className="flex flex-col gap-2">
-									<Label>Donation Pickup Date</Label>
+									<Label>
+										{isTeacherOrDoctor
+											? isTeacher
+												? 'Class Time'
+												: 'Appointment Time'
+											: 'Donation Pickup Time'}
+									</Label>
 									<Input
 										type="time"
 										className="w-full h-10 border border-gray-300 rounded-md px-4"
@@ -210,7 +229,11 @@ export default function Details({
 					</Sheet>
 				)}
 			</div>
-			{children}
+			<div className="flex flex-col w-full h-full items-center justify-center p-5">
+				<div className="flex flex-col bg-white w-full rounded-lg">
+					{children}
+				</div>
+			</div>
 		</form>
 	);
 }

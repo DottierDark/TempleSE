@@ -44,12 +44,12 @@ export default function NumberField({
 									placeholder={placeholder}
 									{...field}
 									type="number"
-									className={inputClassName}
+									className={inputClassName + 'bg-slate-300'}
 								/>
 							</FormControl>
 						</>
 					) : (
-						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
 							{value}
 						</span>
 					)}
