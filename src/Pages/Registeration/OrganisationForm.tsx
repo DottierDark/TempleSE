@@ -98,6 +98,46 @@ export default function OrganisationForm() {
 					</FormItem>
 				)}
 			/>
+			<div className="flex gap-5">
+				<FormField
+					control={control}
+					name="proof"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>Proof of Organization</FormLabel>
+							<FormControl>
+								<Input
+									className="flex rounded-full border space-x-2"
+									id="file"
+									type="file"
+									multiple={true}
+									{...field}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={control}
+					name="proof"
+					render={({ field }) => (
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>Proof being part of Organization</FormLabel>
+							<FormControl>
+								<Input
+									className="flex rounded-full border space-x-2"
+									id="file"
+									type="file"
+									multiple={true}
+									{...field}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+			</div>
 		</>
 	);
 }
