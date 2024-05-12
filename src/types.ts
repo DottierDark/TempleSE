@@ -226,3 +226,11 @@ export type TOrgPost = {
 	| TMedicalCase
 	| TTeachingPost
 );
+
+
+export type notification = {
+	id: number;
+	name: string;
+	title: string;
+	description: string;
+};

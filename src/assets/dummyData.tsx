@@ -12,6 +12,7 @@ import {
 	Donor,
 	TSchoolSuppliesItem,
 	TOrgPost,
+	notification
 } from '../types';
 
 {
@@ -80,7 +81,20 @@ import org from '../assets/Images/Admin/organization.jpeg';
 
 import medical from '../assets/Images/Donor/medicalpost/medicalcases.jpeg';
 
-
+export const notifications: notification[] = [
+	{
+		id: 1,
+		name:'Notification 1',
+		title: 'You request has been fulfilled',
+		description: 'Sunday , January 23, 2024 10:00 AM',
+	},
+	{
+		id: 1,
+		name:'Notification 2',
+		title: 'You request has been fulfilled',
+		description: 'Sunday , April 23, 2024 11:30 AM',
+	},
+];
 
 export const credentials: User[] = [
 	{

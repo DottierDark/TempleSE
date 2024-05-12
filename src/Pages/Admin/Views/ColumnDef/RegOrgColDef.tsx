@@ -80,13 +80,17 @@ export const columns: ColumnDef<Organization>[] = [
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Open menu</span>
-							<DotsHorizontalIcon className="h-4 w-4" />
+							<DotsHorizontalIcon className="h-4 w-4 " />
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
-						<DropdownMenuItem onClick={handleDelete}>
+						<DropdownMenuLabel className="text-base font-heading">
+							More Actions
+						</DropdownMenuLabel>
+						<DropdownMenuItem
+							onClick={handleDelete}
+							className="text-base font-body"
+						>
 							Delete Organization Account
 						</DropdownMenuItem>
 
