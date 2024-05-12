@@ -77,8 +77,8 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 			>
 				<GoogleMap
 					mapContainerStyle={{ height: '400px', width: '600px' }}
-					zoom={3}
-					center={{ lat: 37.7749, lng: -122.4194 }} // Initial center coordinates
+					zoom={7}
+					center={{ lat: 26.8206, lng: 30.8025 }} // Initial center coordinates
 					onClick={handleMarkerAdd}
 					onLoad={(mapInstance: google.maps.Map) => setMap(mapInstance)}
 				>
