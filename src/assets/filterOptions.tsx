@@ -354,6 +354,46 @@ export const OrgOptions = [
 		key: 'natifications',
 	},
 ];
+export const UnRegisteredDonorsOptions = [
+	{  
+	id: 'area',
+	label: 'Area',
+	type: 'options',
+	options: [
+		{
+			value: 'Anytown',
+			label: 'Anytown',
+		},
+		{
+			value: 'Othertown',
+			label: 'Othertown',
+		},
+		{
+			value: 'Another town',
+			label: 'Another town',
+		},
+	],
+   },
+   {
+	id: 'gov',
+	label: 'Gov',
+	type: 'options',
+	options: [
+		{
+			value: 'CA',
+			label: 'CA',
+		},
+		{
+			value: 'NY',
+			label: 'NY',
+		},
+		{
+			value: 'TX',
+			label: 'TX',
+		},
+	],
+   },
+];
 
 export const RegisteredOrganizationsOptions = [
 	{
@@ -376,16 +416,42 @@ export const RegisteredOrganizationsOptions = [
 		],
 	},
 	{
-		id: 'city',
-		label: 'City',
+		id: 'area',
+		label: 'Area',
 		type: 'options',
-		options: 'string',
+		options: [
+			{
+				value: 'Anytown',
+				label: 'Anytown',
+			},
+			{
+				value: 'Othertown',
+				label: 'Othertown',
+			},
+			{
+				value: 'Another town',
+				label: 'Another town',
+			},
+		],
 	},
 	{
-		id: 'state',
-		label: 'State',
+		id: 'gov',
+		label: 'Gov',
 		type: 'options',
-		options: 'string',
+		options: [
+			{
+				value: 'CA',
+				label: 'CA',
+			},
+			{
+				value: 'NY',
+				label: 'NY',
+			},
+			{
+				value: 'TX',
+				label: 'TX',
+			},
+		],
 	},
 ];
 

@@ -1,6 +1,6 @@
 import { columns } from './ColumnDef/UnRegDonColDef';
 import { donor } from '../../../assets/dummyData';
-import { RegisteredOrganizationsOptions } from '../../../assets/filterOptions';
+import {  UnRegisteredDonorsOptions } from '../../../assets/filterOptions';
 import Filter from '../../../Components/Filter';
 import { DataTable } from '../../../Components/shadcn/ui/data-table';
 import { useState} from 'react';
@@ -8,7 +8,7 @@ import { Donor } from '../../../types'
 
 export default function DonorRequests() {
 	const items: any[] = donor.filter((org) => org.status === 'pending');
-    const filterOptions: any[] = RegisteredOrganizationsOptions;
+    const filterOptions: any[] = UnRegisteredDonorsOptions;
 	const [data, setData] = useState<Donor[]>(items);
 	
 	return (

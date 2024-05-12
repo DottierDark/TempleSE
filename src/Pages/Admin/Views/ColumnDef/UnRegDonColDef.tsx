@@ -32,14 +32,14 @@ export const columns: ColumnDef<Donor>[] = [
 		cell: ({ row }) => <div className="lowercase">{row.getValue('email')}</div>,
 	},
 	{
-		accessorKey: 'address',
-		header: 'Address',
-		cell: ({ row }) => <div>{row.getValue('address')}</div>,
+		accessorKey: 'area',
+		header: 'Area',
+		cell: ({ row }) => <div>{row.getValue('area')}</div>,
 	},
 	{
-		accessorKey: 'contactPhone',
-		header: 'Contact Phone',
-		cell: ({ row }) => <div>{row.getValue('contactPhone')}</div>,
+		accessorKey: 'gov',
+		header: 'Gov',
+		cell: ({ row }) => <div>{row.getValue('gov')}</div>,
 	},
 	{
 		id: 'actions',
