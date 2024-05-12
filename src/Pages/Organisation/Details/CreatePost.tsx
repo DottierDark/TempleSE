@@ -25,6 +25,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '../../../Components/shadcn/ui/use-toast';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import { Label } from '../../../Components/shadcn/ui/label';
 
 export default function CreatePost() {
 	const [type, setType] = useState<string>('');
@@ -449,22 +450,30 @@ export default function CreatePost() {
 					/>
 				</div>
 				<div className="flex gap-2">
-					<APIProvider apiKey={'AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk'}>
-						<Map
-							zoom={12}
-							center={{ lat: 29.987031, lng: 31.440164 }}
-							style={{
-								height: '400px',
-								width: '600px',
-							}}
-							onClick={(event) => {
-								// @ts-ignore
-								setMarker(event.detail.latLng);
-							}}
-						>
-							<Marker position={marker} />
-						</Map>
-					</APIProvider>
+					<div className="flex flex-col gap-2">
+						<Label className="flex gap-2 items-center">
+							Location
+							<span className="text-xs text-gray-500">
+								Click on the map to set the location
+							</span>
+						</Label>
+						<APIProvider apiKey={'AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk'}>
+							<Map
+								zoom={12}
+								center={{ lat: 29.987031, lng: 31.440164 }}
+								style={{
+									height: '200px',
+									width: '400px',
+								}}
+								onClick={(event) => {
+									// @ts-ignore
+									setMarker(event.detail.latLng);
+								}}
+							>
+								<Marker position={marker} />
+							</Map>
+						</APIProvider>
+					</div>
 					<FormField
 						control={control}
 						name="description"
@@ -969,7 +978,7 @@ export default function CreatePost() {
 
 	return (
 		<div className="absolute flex h-full w-full flex-col items-center justify-center">
-			<Card className="bg-white px-12 py-6 flex flex-col rounded-2xl mt-5 h-[90vh] w-[140vh] text-black">
+			<Card className="bg-white px-12 py-6 flex flex-col rounded-2xl mt-5 h-[120vh] w-[140vh] text-black border border-gray-700">
 				<Form {...form}>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
@@ -1071,14 +1080,14 @@ export default function CreatePost() {
 									</FormItem>
 								)}
 							/>
-							<div className="flex flex-col items-center justify-start h-[410px]">
+							<div className="flex flex-col items-center justify-start h-[540px]">
 								{formBody[form.watch('postCategory') as keyof typeof formBody]}
 							</div>
 						</div>
 						<Button
 							variant="outline"
 							size="lg"
-							className="text-white bg-black p-4"
+							className="text-white bg-black p-6"
 							type="submit"
 						>
 							Submit
