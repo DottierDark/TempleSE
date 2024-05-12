@@ -6,6 +6,7 @@ import { Form } from '../../../Components/shadcn/ui/form';
 import { DetailsContextProvider } from '../../../Components/details/useDetailsContext';
 import Details from '../../../Components/details/Details';
 import TextField from '../../../Components/details/fields/TextField';
+import { useEffect } from 'react';
 
 const admin = {
 	first_name: 'farida',
