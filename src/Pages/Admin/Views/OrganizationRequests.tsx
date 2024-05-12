@@ -1,79 +1,27 @@
 import { columns } from './ColumnDef/UnRegOrgColDef';
 import { organizations } from '../../../assets/dummyData';
-import {
-	flexRender,
-	getCoreRowModel,
-	useReactTable,
-} from '@tanstack/react-table';
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from '../../../Components/shadcn/ui/table';
-import { useState, useEffect } from 'react';
+import { RegisteredOrganizationsOptions } from '../../../assets/filterOptions';
+import Filter from '../../../Components/Filter';
+import { useState} from 'react';
 import { Organization } from '../../../types';
-
+import { DataTable } from '../../../Components/shadcn/ui/data-table';
 export default function OrganizationRequests() {
-	const data: any[] = organizations.filter((org) => org.status === 'pending');
-	
-
-	const table = useReactTable({
-		data,
-		columns,
-		getCoreRowModel: getCoreRowModel(),
-	});
+	const items: any[] = organizations.filter((org) => org.status === 'pending');
+	const filterOptions: any[] = RegisteredOrganizationsOptions;
+	const [data, setData] = useState<Organization[]>(items);
 
 	return (
-		<div className="w-full">
-			<div className="flex items-center py-4">
-				<h1 className="text-2xl font-bold ml-4">Requests From Organizations</h1>
-			</div>
-			<div className="rounded-md border">
-				<Table>
-					<TableHeader>
-						{table.getHeaderGroups().map((headerGroup) => (
-							<TableRow key={headerGroup.id}>
-								{headerGroup.headers.map((header) => {
-									return (
-										<TableHead key={header.id}>
-											{header.isPlaceholder
-												? null
-												: flexRender(
-														header.column.columnDef.header,
-														header.getContext()
-													)}
-										</TableHead>
-									);
-								})}
-							</TableRow>
-						))}
-					</TableHeader>
-					<TableBody>
-						{table.getRowModel().rows?.length ? (
-							table.getRowModel().rows.map((row) => (
-								<TableRow
-									key={row.id}
-									data-state={row.getIsSelected() && 'selected'}
-								>
-									{row.getVisibleCells().map((cell) => (
-										<TableCell key={cell.id}>
-											{flexRender(
-												cell.column.columnDef.cell,
-												cell.getContext()
-											)}
-										</TableCell>
-									))}
-								</TableRow>
-							))
-						) : (
-							<TableRow></TableRow>
-						)}
-					</TableBody>
-				</Table>
-			</div>
+		<div className="flex h-full w-full">
+
+            <Filter
+				setData={setData}
+				dummyData={items}
+				columnFilters={filterOptions}
+				searchColumn={''}
+				hidesearchbar={true}
+			/>
+			
+			<DataTable columns={columns} data={data} />
 		</div>
 	);
 }
