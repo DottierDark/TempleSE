@@ -20,97 +20,61 @@ export default function DonorForm() {
 
 	const selectedDonorType = watch('donor_type');
 
-	const fileSchema: ZodType<File, any> = z.instanceof(File);
-
-	const [uploadedFiles, setUploadedFiles] = useState<
-		{ name: any; content: string | ArrayBuffer | null }[]
-	>([]);
-	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const files = event.target.files;
-		if (files) {
-			// Check if files is not null
-			const reader = new FileReader();
-			for (const file of files) {
-				reader.readAsText(file); // Adjust for different file types
-				reader.onload = (e) => {
-					if (e.target !== null) {
-						setUploadedFiles((prevFiles) => [
-							...prevFiles,
-							{ name: file.name, content: e.target!.result },
-						]);
-					}
-				};
-			}
-		}
-	};
-
 	const donorFormMap = {
-		regular: <div className="h-[200px]" />,
+		regular: <></>,
 		teacher: (
-			<div className="flex gap-5 h-[200px]">
-				<FormField
-					control={control}
-					name="subjects"
-					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Subjects</FormLabel>
-							<FormControl>
-								<Input placeholder="Subjects" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={control}
-					name="teach"
-					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>How many classes can you teach?</FormLabel>
-							<FormControl>
-								<Input placeholder="5" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+			<>
+				<div className="flex gap-5">
+					<FormField
+						control={control}
+						name="subjects"
+						render={({ field }) => (
+							<FormItem className="flex flex-col h-[100px] w-72">
+								<FormLabel>Subjects</FormLabel>
+								<FormControl>
+									<Input placeholder="Subjects" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={control}
+						name="teach"
+						render={({ field }) => (
+							<FormItem className="flex flex-col h-[100px] w-72">
+								<FormLabel>How many classes can you teach?</FormLabel>
+								<FormControl>
+									<Input placeholder="5" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
 				<FormField
 					control={control}
 					name="proof"
 					render={({ field }) => (
-						<FormItem>
+						<FormItem className="flex flex-col h-[100px]">
 							<FormLabel>Proof of Work</FormLabel>
 							<FormControl>
-								<div>
-									<Input
-										className="flex rounded-full border space-x-2"
-										id="file"
-										type="file"
-										onChange={handleFileChange}
-										ref={null}
-										multiple={true}
-									/>
-									<ul className="flex gap-2 text-center">
-										{uploadedFiles.map((file) => {
-											console.log('file:', file);
-											if (!file.name) {
-												return null;
-											}
-											return <li key={file.name}>{file.name}</li>;
-										})}
-									</ul>
-								</div>
+								<Input
+									className="flex rounded-full border space-x-2"
+									id="file"
+									type="file"
+									multiple={true}
+									{...field}
+								/>
 							</FormControl>
-							<FormMessage>
-								{formDonor.formState.errors.proof?.message}
-							</FormMessage>
+							<FormMessage />
 						</FormItem>
 					)}
 				/>
-			</div>
+			</>
 		),
 		doctor: (
-			<div className="flex gap-5 h-[200px]">
+			<>
 				<FormField
 					control={control}
 					name="classes"
@@ -137,7 +101,7 @@ export default function DonorForm() {
 						</FormItem>
 					)}
 				/>
-			</div>
+			</>
 		),
 	};
 
@@ -206,11 +170,13 @@ export default function DonorForm() {
 					</FormItem>
 				)}
 			/>
-			{
-				donorFormMap[
-					(selectedDonorType ?? 'regular') as keyof typeof donorFormMap
-				]
-			}
+			<div className="flex flex-col h-[200px]">
+				{
+					donorFormMap[
+						(selectedDonorType ?? 'regular') as keyof typeof donorFormMap
+					]
+				}
+			</div>
 		</>
 	);
 }
