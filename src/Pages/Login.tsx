@@ -99,6 +99,7 @@ export default function Login() {
 									<FormControl>
 										<Input
 											className="shadow-inner"
+											type="password"
 											placeholder="password123"
 											{...field}
 										/>
