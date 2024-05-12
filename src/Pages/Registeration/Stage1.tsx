@@ -42,7 +42,11 @@ export default function Stage1({
 								First Name
 							</FormLabel>
 							<FormControl>
-								<Input placeholder="ahmed" {...field} />
+								<Input
+									className="shadow-inner"
+									placeholder="ahmed"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>

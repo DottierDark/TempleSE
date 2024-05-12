@@ -272,7 +272,7 @@ export default function Register() {
 								disabled={stage === 3}
 								variant="outline"
 								size="icon"
-								className="text-black"
+								className="text-black bg-accent-500"
 								onClick={() => setStage((prev) => (prev + 1) as 1 | 2 | 3)}
 							>
 								<ChevronRightIcon className="h-4 w-4" />
