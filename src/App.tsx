@@ -98,7 +98,6 @@ function App() {
 					element={<RegisteredOrganizationDetails />}
 				/>
 
-				
 				<Route path="/admin/settings" element={<AdminSettings />} />
 				{/* Donor Pages*/}
 				<Route path="/donor" element={<DonorHome />} />
