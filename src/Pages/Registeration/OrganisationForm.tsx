@@ -101,7 +101,7 @@ export default function OrganisationForm() {
 			<div className="flex gap-5">
 				<FormField
 					control={control}
-					name="proof"
+					name="proof_work"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
 							<FormLabel>Proof of Organization</FormLabel>

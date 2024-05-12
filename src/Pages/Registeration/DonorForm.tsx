@@ -54,7 +54,7 @@ export default function DonorForm() {
 				</div>
 				<FormField
 					control={control}
-					name="proof"
+					name="proofteacher"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
 							<FormLabel>Proof of Work</FormLabel>
@@ -105,7 +105,7 @@ export default function DonorForm() {
 				</div>
 				<FormField
 					control={control}
-					name="proof"
+					name="proofdonor"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
 							<FormLabel>Proof of Work</FormLabel>
