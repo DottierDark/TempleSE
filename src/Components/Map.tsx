@@ -1,66 +1,38 @@
-import React, { useState, useCallback } from 'react';
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
-const mapStyle = {
-	height: '300px',
-	width: '100%',
+const libraries = ['places'];
+const mapContainerStyle = {
+	width: '100vw',
+	height: '100vh',
+};
+const center = {
+	lat: 7.2905715, // default latitude
+	lng: 80.6337262, // default longitude
 };
 
 const Map = () => {
-	const DEFAULT_ZOOM = 5;
-	const { isLoaded } = useJsApiLoader({
-		id: 'google-map-script',
-		googleMapsApiKey: 'your-api-key',
+	const { isLoaded, loadError } = useLoadScript({
+		googleMapsApiKey: 'YOUR_API_KEY',
+		libraries,
 	});
 
-	const [map, setMap] = React.useState(null);
-	const [markerPosition, setMarkerPosition] = useState({
-		lat: 28.0289837,
-		lng: 1.6666663,
-	});
-	const selectedLocation = place.geometry.location;
+	if (loadError) {
+		return <div>Error loading maps</div>;
+	}
 
-	const marker = (
-		<Marker
-			position={selectedLocation} // Set the marker's position using latitude and longitude
-		/>
-	);
+	if (!isLoaded) {
+		return <div>Loading maps</div>;
+	}
 
-	const [defaultLocation, setDefaultLocation] = useState({
-		lat: 28.0289837,
-		lng: 1.6666663,
-	});
-
-	const onLoad = useCallback((map) => {
-		const bounds = new window.google.maps.LatLngBounds({
-			lat: 28.0289837,
-			lng: 1.6666663,
-		});
-		map.fitBounds(bounds);
-		setMap(map);
-	}, []);
-
-	const onUnmount = useCallback(() => {
-		setMap(null);
-	}, []);
-
-	const handelClickOnMap = () => {};
 	return (
 		<div>
-			{isLoaded ? (
-				<GoogleMap
-					onLoad={onLoad}
-					center={defaultLocation}
-					zoom={DEFAULT_ZOOM}
-					mapContainerStyle={mapStyle}
-					onClick={handelClickOnMap}
-					onUnmount={onUnmount}
-				>
-					<Marker position={markerPosition} />
-				</GoogleMap>
-			) : (
-				<></>
-			)}
+			<GoogleMap
+				mapContainerStyle={mapContainerStyle}
+				zoom={10}
+				center={center}
+			>
+				<Marker position={center} />
+			</GoogleMap>
 		</div>
 	);
 };

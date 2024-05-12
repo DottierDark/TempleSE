@@ -105,7 +105,7 @@ export default function DonorForm() {
 				</div>
 				<FormField
 					control={control}
-					name="proofdonor"
+					name="proofdoctor"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
 							<FormLabel>Proof of Work</FormLabel>
