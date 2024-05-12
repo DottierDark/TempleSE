@@ -72,7 +72,7 @@ export default function AdminSettings() {
 		<Form {...form}>
 			<DetailsContextProvider title="Settings" id="1">
 				<Details replacementTitle="Settings">
-					<div className="grid grid-cols-2 p-6 gap-x-12">
+					<div className="grid grid-cols-2 p-6 gap-x-12 text-body ">
 						<TextField
 							name="first_name"
 							label="First Name"
