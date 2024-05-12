@@ -70,8 +70,6 @@ export default function Details({
 	};
 
 	const isTeacher = title === 'Teaching post';
-	const isDoctor = title === 'Medical supply';
-	const isTeacherOrDoctor = isTeacher || isDoctor;
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -121,7 +119,7 @@ export default function Details({
 								</SheetDescription>
 							</SheetHeader>
 							<div className="flex flex-col gap-6 py-6">
-								{!isTeacherOrDoctor && (
+								{!isTeacher && (
 									<>
 										<div className="flex flex-col gap-2">
 											<Label>Quantity</Label>
@@ -153,11 +151,7 @@ export default function Details({
 								)}
 								<div className="flex flex-col gap-2">
 									<Label>
-										{isTeacherOrDoctor
-											? isTeacher
-												? 'Class Date'
-												: 'Appointment Date'
-											: 'Donation Pickup Date'}
+										{isTeacher ? 'Class Date' : 'Donation Pickup Date'}
 									</Label>
 									<Popover>
 										<PopoverTrigger asChild>
@@ -184,11 +178,7 @@ export default function Details({
 								</div>
 								<div className="flex flex-col gap-2">
 									<Label>
-										{isTeacherOrDoctor
-											? isTeacher
-												? 'Class Time'
-												: 'Appointment Time'
-											: 'Donation Pickup Time'}
+										{isTeacher ? 'Class Time' : 'Donation Pickup Time'}
 									</Label>
 									<Input
 										type="time"

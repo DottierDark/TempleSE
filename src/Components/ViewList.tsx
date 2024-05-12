@@ -186,13 +186,13 @@ export default function ViewList({
 						</Pagination>
 					</div>
 				</div>
-				<div className="grid grid-cols-3 gap-5 p-4 w-[80vw] h-[80vh] grid-flow-dense">
+				<div className="grid grid-cols-3 gap-2 p-2 py-4 w-[80vw] h-[80vh] grid-flow-dense">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
+								className="flex flex-row object-contain w-100 h-52 text-nowrap cursor-pointer bg-[#92BCEA]"
 								onClick={() => {
 									if (user === 'organisation') CardClickOrg(item);
 									else CardClickDonor(item);

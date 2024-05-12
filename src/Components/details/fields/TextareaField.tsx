@@ -43,7 +43,9 @@ export default function TextareaField({
 								<Textarea
 									placeholder={placeholder}
 									{...field}
-									className={inputClassName + 'resize-none'}
+									className={
+										inputClassName + 'resize-none bg-slate-300 border-black'
+									}
 								/>
 							</FormControl>
 						</>
