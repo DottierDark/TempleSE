@@ -79,7 +79,8 @@ export const columns: ColumnDef<Donor>[] = [
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			const { toast } = useToast();
+			const { toast } = useToast()
+			
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>

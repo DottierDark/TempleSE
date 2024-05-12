@@ -40,7 +40,7 @@ export default function MedicalSupply({
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Medical supply" id={id} canEdit={false}>
-				<Details acceptRequest={!children}>
+				<Details acceptRequest={!children} canDelete={!!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						{children}
 						<TextField
