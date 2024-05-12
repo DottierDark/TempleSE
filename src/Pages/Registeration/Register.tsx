@@ -65,7 +65,7 @@ export default function Register() {
 						message: 'Please enter a valid password',
 					})
 					.min(6, {
-						message: 'Password must be at least 8 characters',
+						message: 'Password must be at least 6 characters',
 					}),
 				confirmPassword: z.string({
 					message: 'Please confirm your password',
