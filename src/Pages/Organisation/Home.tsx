@@ -35,6 +35,19 @@ export default function OrganisationHome() {
 					/>
 					<h1>All Posts</h1>
 				</div>
+				<div
+					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
+					onClick={() => {
+						handleClick('notifications');
+					}}
+				>
+					<img
+						src={''} //all}
+						alt="all"
+						style={{ width: '100%', height: 'auto' }}
+					/>
+					<h1>Notifications</h1>
+				</div>
 			</div>
 		</div>
 	);

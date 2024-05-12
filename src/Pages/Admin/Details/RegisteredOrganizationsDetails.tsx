@@ -123,25 +123,25 @@ export default function RegisteredOrganizationDetails() {
 							placeholder=""
 						/>
 						<TextField
-							name="city"
-							label="City"
-							description="City of the organization"
+							name="area"
+							label="Area"
+							description="Area of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
 						/>
 						<TextField
-							name="state"
-							label="State"
-							description="State of the organization"
+							name="gov"
+							label="Governorate"
+							description="Governorate of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
 						/>
 						<TextField
-							name="zip"
-							label="Zip"
-							description="Zip of the organization"
+							name="contactPhone"
+							label="Contact Phone"
+							description="Contact Phone of the organization"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""

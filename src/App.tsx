@@ -47,6 +47,7 @@ import Toy from './Pages/Donor/Details/Toy';
 }
 import Fulfilled from './Pages/Organisation/Views/Fulfilled';
 import UnFulfilled from './Pages/Organisation/Views/UnFulfilled';
+import Notifications from './Pages/Organisation/Views/Notifications';
 
 {
 	/* Organisation Details Pages*/
@@ -131,6 +132,8 @@ function App() {
 				<Route path="/organisation/fulfilled/:id" element={<Fulfilled />} />
 				<Route path="/organisation/unfulfilled" element={<UnFulfilled />} />
 				<Route path="/organisation/unfulfilled/:id" element={<UnFulfilled />} />
+
+				<Route path="/organisation/notifications" element={<Notifications />} />
 			</Routes>
 		</BrowserRouter>
 	);
