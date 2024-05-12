@@ -1,40 +1,71 @@
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import React, { useState } from 'react';
 
-const libraries = ['places'];
-const mapContainerStyle = {
-	width: '100vw',
-	height: '100vh',
-};
-const center = {
-	lat: 7.2905715, // default latitude
-	lng: 80.6337262, // default longitude
-};
+import { LoadScript, GoogleMap } from '@react-google-maps/api';
+import { Marker } from '@react-google-maps/api';
 
-const Map = () => {
-	const { isLoaded, loadError } = useLoadScript({
-		googleMapsApiKey: 'AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk',
-		libraries,
-	});
+import { MarkerProps } from '@google/react-maps/types';
 
-	if (loadError) {
-		return <div>Error loading maps</div>;
-	}
+// Define interface for Marker data
+interface Marker {
+	lat: number;
+	lng: number;
+	content: string;
+}
 
-	if (!isLoaded) {
-		return <div>Loading maps</div>;
-	}
+
+
+const EditableMap: React.FC = () => {
+	const [map, setMap] = useState<google.maps.Map | null>(null);
+	const [markers, setMarkers] = useState<Marker[]>([]);
+
+	const handleMarkerAdd = (event: any) => {
+		const newMarker: Marker = {
+			lat: event.latLng.lat(),
+			lng: event.latLng.lng(),
+			content: '',
+		};
+		setMarkers([...markers, newMarker]);
+	};
+
+	const handleMarkerEdit = (index: number, newContent: string) => {
+		const updatedMarkers = [...markers];
+		updatedMarkers[index].content = newContent;
+		setMarkers(updatedMarkers);
+	};
+	
+	const handleMarkerDelete = (index: number) => {
+		const updatedMarkers = [...markers];
+		updatedMarkers.splice(index, 1);
+		setMarkers(updatedMarkers);
+	};
 
 	return (
-		<div>
+		<LoadScript
+			googleMapsApiKey="AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk" 
+			libraries={['places']}
+		>
 			<GoogleMap
-				mapContainerStyle={mapContainerStyle}
-				zoom={10}
-				center={center}
+				mapContainerStyle={{ height: '400px', width: '600px' }}
+				zoom={3}
+				center={{ lat: 37.7749, lng: -122.4194 }} // Initial center coordinates
+				onClick={handleMarkerAdd}
+				onLoad={(mapInstance: google.maps.Map) => setMap(mapInstance)}
 			>
-				<Marker position={center} />
+				{markers.map((marker, index) => (
+					<Marker
+						key={index}
+						position={{ lat: marker.lat, lng: marker.lng }}
+						onClick={() =>
+							handleMarkerEdit(index, prompt('Edit marker content:'))
+						}
+						// Add custom marker content here (optional)
+					>
+						{/* Add custom marker content here (optional) */}
+					</Marker>
+				))}
 			</GoogleMap>
-		</div>
+		</LoadScript>
 	);
 };
 
-export default Map;
+export default EditableMap;
