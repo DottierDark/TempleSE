@@ -29,10 +29,11 @@ export default function MapField({
 	const { watch } = form;
 	const value = watch(name);
 	const { addEditMode } = useDetailsContext();
-
+	const latitude = 40.9660006;
+	const longitude = 28.7953517;
 	const map = (
 		<iframe
-			src={`https://www.google.com/maps/embed?pb=${value}`}
+			src={`https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13835.270888790787!2d${longitude}!3d${latitude}!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac655d269c4e7%3A0x6cd24ca540cbe444!2sCentral%20Hospital!5e0!3m2!1sen!2str!4v1621405900164!5m2!1sen!2str`}
 			width="600"
 			height="450"
 			allowFullScreen
