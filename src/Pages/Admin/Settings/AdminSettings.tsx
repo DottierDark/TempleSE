@@ -7,6 +7,19 @@ import { DetailsContextProvider } from '../../../Components/details/useDetailsCo
 import Details from '../../../Components/details/Details';
 import TextField from '../../../Components/details/fields/TextField';
 
+const admin = {
+	first_name: 'farida',
+	last_name: 'ahmed',
+	phone_number: '01134777803',
+	email: 'farida.mohamed@yahoo.com',
+	address: 'nasr city building 6',
+	city: 'cairo',
+	area: 'nasr city',
+	current_password: '',
+	new_password: '',
+	confirm_new_password: '',
+};
+
 export default function AdminSettings() {
 	const formSchema = z
 		.object({
@@ -47,19 +60,13 @@ export default function AdminSettings() {
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
-		defaultValues: {
-			first_name: 'farida',
-			last_name: 'ahmed',
-			phone_number: '01134777803',
-			email: 'farida.mohamed@yahoo.com',
-			address: 'nasr city building 6',
-			city: 'cairo',
-			area: 'nasr city',
-			current_password: '',
-			new_password: '',
-			confirm_new_password: '',
-		},
 	});
+
+	useEffect(() => {
+		setTimeout(() => {
+			form.reset(admin);
+		}, 0);
+	}, []);
 
 	return (
 		<Form {...form}>
