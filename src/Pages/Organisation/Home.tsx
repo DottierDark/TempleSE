@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../../Components/shadcn/ui/card';
-
+import fullfilled from '../../assets/Images/Admin/fullfiled.jpeg';
+import unfullfilled from '../../assets/Images/Admin/unfullfilled.png';
+import notifications from '../../assets/Images/Admin/notifications.jpeg';
 //import fullfilled from '../../assets/Images/Organisation/Home';
 //import all from '../../assets/Images/Organisation/Home';
 export default function OrganisationHome() {
@@ -17,7 +19,7 @@ export default function OrganisationHome() {
 			>
 				<img
 					className="h-[70%] w-[70%] object-contain"
-					src={''}
+					src={fullfilled}
 					alt={'Fulfilled Posts'}
 				/>
 				<h1 className="text-2xl font-bold">FulFilled Posts</h1>
@@ -29,7 +31,7 @@ export default function OrganisationHome() {
 			>
 				<img
 					className="h-[70%] w-[70%] object-contain"
-					src={''}
+					src={unfullfilled}
 					alt={'UnFulfilled Posts'}
 				/>
 				<h1 className="text-2xl font-bold"> UnFulFilled Posts</h1>
@@ -41,7 +43,7 @@ export default function OrganisationHome() {
 			>
 				<img
 					className="h-[70%] w-[70%] object-contain"
-					src={''}
+					src={notifications}
 					alt={'Notifications'}
 				/>
 				<h1 className="text-2xl font-bold">Notifications</h1>

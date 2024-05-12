@@ -75,27 +75,48 @@ export default function DonorForm() {
 		),
 		doctor: (
 			<>
+				<div className="flex gap-5">
+					<FormField
+						control={control}
+						name="classes"
+						render={({ field }) => (
+							<FormItem className="flex flex-col h-[100px] w-72">
+								<FormLabel>Classes</FormLabel>
+								<FormControl>
+									<Input placeholder="Classe" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={control}
+						name="cases"
+						render={({ field }) => (
+							<FormItem className="flex flex-col h-[100px] w-72">
+								<FormLabel>How many cases can you take?</FormLabel>
+								<FormControl>
+									<Input placeholder="6" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
 				<FormField
 					control={control}
-					name="classes"
+					name="proof"
 					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Classes</FormLabel>
+						<FormItem className="flex flex-col h-[100px]">
+							<FormLabel>Proof of Work</FormLabel>
 							<FormControl>
-								<Input placeholder="Classe" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={control}
-					name="cases"
-					render={({ field }) => (
-						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>How many cases can you take?</FormLabel>
-							<FormControl>
-								<Input placeholder="6" {...field} />
+								<Input
+									className="flex rounded-full border space-x-2"
+									id="file"
+									type="file"
+									multiple={true}
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
