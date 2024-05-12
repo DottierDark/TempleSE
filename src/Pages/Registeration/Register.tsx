@@ -10,15 +10,17 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import DonorForm from './DonorForm';
 import OrganisationForm from './OrganisationForm';
+import Stage3 from './Stage3';
 
 export default function Register() {
 	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2>(1);
+	const [stage, setStage] = useState<1 | 2 | 3>(1);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
 		2: formType === 'donor' ? <DonorForm /> : <OrganisationForm />,
+		3: <Stage3 setFormType={setFormType} />,
 	};
 
 	const schema = {
@@ -63,7 +65,7 @@ export default function Register() {
 						message: 'Please enter a valid password',
 					})
 					.min(6, {
-						message: 'Password must be at least 6 characters',
+						message: 'Password must be at least 8 characters',
 					}),
 				confirmPassword: z.string({
 					message: 'Please confirm your password',
@@ -125,19 +127,31 @@ export default function Register() {
 								message: 'Proof is required',
 							}),
 						teach: z
-							.number({
+							.string({
 								message: 'Please enter a valid number',
 							})
-							.refine((value) => value > 0, {
-								message: 'Must be greater than 0',
-							}),
+							.refine(
+								(value) => {
+									const numberValue = Number(value); 
+									return numberValue > 0;
+								},
+								{
+									message: 'Must be a number greater than 0',
+								}
+							),
 						cases: z
-							.number({
+							.string({
 								message: 'Please enter a valid number',
 							})
-							.refine((value) => value > 0, {
-								message: 'Must be greater than 0',
-							}),
+							.refine(
+								(value) => {
+									const numberValue = Number(value); 
+									return numberValue > 0;
+								},
+								{
+									message: 'Must be a number greater than 0',
+								}
+							),
 					})
 				: z.object({
 						address: z
@@ -176,6 +190,16 @@ export default function Register() {
 								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
+		3: z
+			.object({
+				firstName: z
+					.string({
+						message: 'Please enter a valid first name',
+					})
+					.min(2, {
+						message: 'First Name must be at least 2 characters.',
+					}),
+			})
 	};
 
 	const form = useForm({
@@ -187,8 +211,8 @@ export default function Register() {
 			lastName: '',
 			userName: '',
 			contactNumber: '',
-			donor_type: 'regular',
-			type: 'donor',
+			donor_type: '',
+			type: 'regular',
 		},
 	});
 
@@ -198,7 +222,7 @@ export default function Register() {
 		const isStepValid = await trigger();
 		if (isStepValid) {
 			if (stage == 1) {
-				setStage((prev) => (prev + 1) as 1 | 2);
+				setStage((prev) => (prev + 1) as 1 | 2 | 3);
 			} else {
 				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
 			}
@@ -233,24 +257,24 @@ export default function Register() {
 								disabled={stage === 1}
 								variant="outline"
 								size="icon"
-								onClick={() => setStage((prev) => (prev - 1) as 1 | 2)}
+								onClick={() => setStage((prev) => (prev - 1) as 1 | 2 | 3)}
 								className="text-black"
 							>
 								<ChevronLeftIcon className="h-4 w-4" />
 							</Button>
 							<Button
 								type="submit"
-								disabled={stage !== 2}
+								disabled={stage !== 3}
 								className="bg-gray-700 h-10 w-40 "
 							>
 								Register
 							</Button>
 							<Button
-								disabled={stage === 2}
+								disabled={stage === 3}
 								variant="outline"
 								size="icon"
 								className="text-black"
-								onClick={() => setStage((prev) => (prev + 1) as 1 | 2)}
+								onClick={() => setStage((prev) => (prev + 1) as 1 | 2 | 3)}
 							>
 								<ChevronRightIcon className="h-4 w-4" />
 							</Button>

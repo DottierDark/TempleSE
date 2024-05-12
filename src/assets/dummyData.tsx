@@ -78,6 +78,10 @@ import B from '../assets/Images/Donor/Lists/MedicalSupplies/B.jpeg';
 
 import org from '../assets/Images/Admin/organization.jpeg';
 
+import medical from '../assets/Images/Donor/medicalpost/medicalcases.jpeg';
+
+
+
 export const credentials: User[] = [
 	{
 		type: 'admin',
@@ -868,9 +872,9 @@ export const teachingPosts: TTeachingPost[] = [
 export const medicalCases: TMedicalCase[] = [
 	{
 		id: 1,
-		name: 'Covid-19',
+		name: 'John Doe',
 		quantity: 100,
-		img: 'image1.jpg',
+		img: medical,
 		patientName: 'John Doe',
 		age: 30,
 		gender: 'male',
@@ -885,10 +889,10 @@ export const medicalCases: TMedicalCase[] = [
 	},
 	{
 		id: 2,
-		name: 'Covid-19',
+		name: 'Jane Doe',
 		quantity: 200,
-		img: '',
-		patientName: 'John Doe',
+		img: medical,
+		patientName: 'Jane Doe',
 		age: 50,
 		gender: 'male',
 		weight: 90,
@@ -902,12 +906,12 @@ export const medicalCases: TMedicalCase[] = [
 	},
 	{
 		id: 3,
-		name: 'Covid-19',
+		name: 'Khaled Doe',
 		quantity: 100,
-		img: 'image1.jpg',
-		patientName: 'John Doe',
+		img: medical,
+		patientName: 'Khaled Doe',
 		age: 50,
-		gender: 'female',
+		gender: 'male',
 		weight: 300,
 		location: 'Royal Infirmary Hospital',
 		street: '16 Alexandra Parade Glasgow G31 2ER, UK',
@@ -920,10 +924,10 @@ export const medicalCases: TMedicalCase[] = [
 	},
 	{
 		id: 4,
-		name: 'Covid-19',
+		name: 'Hassan Doe',
 		quantity: 100,
-		img: 'image1.jpg',
-		patientName: 'John Doe',
+		img: medical,
+		patientName: 'Hassan Doe',
 		age: 50,
 		gender: 'male',
 		weight: 300,

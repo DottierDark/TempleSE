@@ -1,6 +1,7 @@
 import ViewList from '../../../Components/ViewList';
 import { TMedicalCase } from '../../../types';
 
+
 export default function MedicalCases() {
 	function Cardbody(item: TMedicalCase) {
 		return (
