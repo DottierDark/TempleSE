@@ -220,7 +220,7 @@ export default function Register() {
 	const onSubmit = async () => {
 		const isStepValid = await trigger();
 		if (isStepValid) {
-			if (stage == 1) {
+			if (stage !== 3) {
 				setStage((prev) => (prev + 1) as 1 | 2 | 3);
 			} else {
 				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
@@ -273,7 +273,7 @@ export default function Register() {
 								variant="outline"
 								size="icon"
 								className="text-black bg-accent-500"
-								onClick={() => setStage((prev) => (prev + 1) as 1 | 2 | 3)}
+								type="submit"
 							>
 								<ChevronRightIcon className="h-4 w-4" />
 							</Button>
