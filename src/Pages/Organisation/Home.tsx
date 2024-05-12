@@ -47,7 +47,7 @@ export default function OrganisationHome() {
 					src={notifications}
 					alt={'Notifications'}
 				/>
-				<h1 className="text-2xl font-bold">Notifications</h1>
+				<h1 className="text-2xl font-bold">Past Notifications</h1>
 			</Card>
 			<Card
 				key="createPost"

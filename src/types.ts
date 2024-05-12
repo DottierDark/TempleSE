@@ -224,3 +224,11 @@ export type TOrgPost = {
 	| TClothesItem
 	| TSchoolSuppliesItem
 );
+
+
+export type notification = {
+	id: number;
+	name: string;
+	title: string;
+	description: string;
+};
