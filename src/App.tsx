@@ -63,8 +63,7 @@ import OrganizationRequests from './Pages/Admin/Views/OrganizationRequests';
 {
 	/* Admin Details Pages*/
 }
-import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
-import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
+
 import RegisteredOrganizationDetails from './Pages/Admin/Details/RegisteredOrganizationsDetails';
 
 import { Toaster } from './Components/shadcn/ui/toaster';
@@ -99,14 +98,6 @@ function App() {
 					element={<RegisteredOrganizationDetails />}
 				/>
 
-				<Route
-					path="/admin/DonorRequestsDetails"
-					element={<DonorRequestsDetails />}
-				/>
-				<Route
-					path="/admin/OrganizationRequestsDetails"
-					element={<OrganizationRequestsDetails />}
-				/>
 				<Route path="/admin/settings" element={<AdminSettings />} />
 				{/* Donor Pages*/}
 				<Route path="/donor" element={<DonorHome />} />
@@ -136,10 +127,19 @@ function App() {
 					path="/organisation/AccountSettings"
 					element={<DonorSettings />}
 				/>
-				<Route path="/organisation/fulfilled" element={<Fulfilled />} />
-				<Route path="/organisation/fulfilled/:id" element={<Fulfilled />} />
-				<Route path="/organisation/unfulfilled" element={<UnFulfilled />} />
-				<Route path="/organisation/unfulfilled/:id" element={<UnFulfilled />} />
+				<Route path="/organisation/fulfilled-posts" element={<Fulfilled />} />
+				<Route
+					path="/organisation/fulfilled-posts/:id"
+					element={<Fulfilled />}
+				/>
+				<Route
+					path="/organisation/unfulfilled-posts"
+					element={<UnFulfilled />}
+				/>
+				<Route
+					path="/organisation/unfulfilled-posts/:id"
+					element={<UnFulfilled />}
+				/>
 
 				<Route path="/organisation/notifications" element={<Notifications />} />
 			</Routes>

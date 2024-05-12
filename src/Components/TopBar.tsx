@@ -27,31 +27,105 @@ export default function TopBar() {
 		setType('');
 		navigate('/');
 		localStorage.removeItem('user');
+		// Clear the toastShown flag when logging out
+		sessionStorage.removeItem('toastShown');
 	};
+	// useEffect(() => {
+	// 	setType(location.split('/')[1]);
+	// 	if (type && type === 'donor' && location.includes('/donor')) {
+	// 		const timer = setTimeout(() => {
+	// 			const now = new Date();
+	// 			const dateStr = now.toLocaleString('en-US', {
+	// 				weekday: 'long',
+	// 				year: 'numeric',
+	// 				month: 'long',
+	// 				day: 'numeric',
+	// 				hour: '2-digit',
+	// 				minute: '2-digit',
+	// 				second: '2-digit',
+	// 			});
+	// 			toast({
+	// 				title: 'Your Driver Has Arrived',
+	// 				description: ` ${dateStr}`,
+	// 				action: (
+	// 					<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
+	// 				),
+	// 			});
+	// 		}, 5000); // 5 seconds timeout
+	// 		return () => clearTimeout(timer);
+	// 	} else if (
+	// 		type &&
+	// 		type === 'organisation' &&
+	// 		location.includes('/organisation')
+	// 	) {
+	// 		const timer = setTimeout(() => {
+	// 			const now = new Date();
+	// 			const dateStr = now.toLocaleString('en-US', {
+	// 				weekday: 'long',
+	// 				year: 'numeric',
+	// 				month: 'long',
+	// 				day: 'numeric',
+	// 				hour: '2-digit',
+	// 				minute: '2-digit',
+	// 				second: '2-digit',
+	// 			});
+	// 			toast({
+	// 				title: 'Your Request Has Been Fulfilled',
+	// 				description: ` ${dateStr}`,
+	// 				action: (
+	// 					<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
+	// 				),
+	// 			});
+	// 		}, 5000); // 5 seconds timeout
+	// 		return () => clearTimeout(timer);
+	// 	}
+	// }, [type, location]);
 
 	useEffect(() => {
 		setType(location.split('/')[1]);
-		const timer = setTimeout(() => {
-			const now = new Date();
-			const dateStr = now.toLocaleString('en-US', {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric',
-				hour: '2-digit',
-				minute: '2-digit',
-				second: '2-digit',
-			});
-			toast({
-				title: 'Your Driver Has Arrived',
-				description: ` ${dateStr}`,
-				action: (
-					<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
-				),
-			});
-		}, 3000); // 30 seconds timeout
-		return () => clearTimeout(timer);
-	}, [location]);
+
+		// Check if the toast has already been shown in this session
+		const toastShown = sessionStorage.getItem('toastShown');
+
+		if (!toastShown) {
+			if (
+				(type === 'donor' && location.includes('/donor')) ||
+				(type === 'organisation' && location.includes('/organisation'))
+			) {
+				const timer = setTimeout(() => {
+					const now = new Date();
+					const dateStr = now.toLocaleString('en-US', {
+						weekday: 'long',
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+						hour: '2-digit',
+						minute: '2-digit',
+						second: '2-digit',
+					});
+
+					let toastTitle;
+					if (type === 'donor') {
+						toastTitle = 'Your Driver Has Arrived';
+					} else {
+						toastTitle = 'Your Request Has Been Fulfilled';
+					}
+					toast({
+						title: toastTitle,
+						description: ` ${dateStr}`,
+						action: (
+							<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
+						),
+					});
+
+					// Set the toastShown flag to true for this session
+					sessionStorage.setItem('toastShown', 'true');
+				}, 5000); // 5 seconds timeout
+
+				return () => clearTimeout(timer);
+			}
+		}
+	}, [type, location]);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
@@ -147,14 +221,19 @@ export default function TopBar() {
 			key: 'organisation',
 			links: [
 				{
-					name: 'Requests',
-					key: 'requests',
-					href: '/organisation/requests',
+					name: 'Fulfilled Posts',
+					key: 'fulfilled',
+					href: '/organisation/fulfilled-posts',
 				},
 				{
-					name: 'Donations',
-					key: 'donations',
-					href: '/organisation/donations',
+					name: 'Unfulfilled Posts',
+					key: 'unfulfilled',
+					href: '/organisation/unfulfilled-posts',
+				},
+				{
+					name: 'Notifications',
+					key: 'notifications',
+					href: '/organisation/notifications',
 				},
 			],
 		},

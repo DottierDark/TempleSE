@@ -9,6 +9,7 @@ import Blood from '../../assets/Images/Donor/Home/Home-Blood.jpeg';
 import Org from '../../assets/Images/Donor/Home/Home-Organization.jpeg';
 import teaching from '../../assets/Images/Donor/Home/Home-Teaching-Posts.jpeg';
 import { donationsCategories } from '../../assets/filterOptions';
+import { useState } from 'react';
 
 export default function DonorHome() {
 	const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function DonorHome() {
 		navigate(`/donor/${category}`);
 	};
 	const donorType = JSON.parse(localStorage.getItem('user') || '{}').donorType;
+	const [category, setCategory] = useState('' as string);
 
 	const imgsrc = (key: string) => {
 		switch (key) {
