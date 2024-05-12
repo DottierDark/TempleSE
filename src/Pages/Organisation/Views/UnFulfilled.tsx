@@ -10,16 +10,18 @@ export default function Fulfilled() {
 				</div>
 				<div className="flex flex-col py-2 justify-around w-full px-2">
 					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
-						<div className="text-xl text-bold text-header">Id:</div>
-						<div className="text-md text-bold text-header">{item.id}</div>
+						<div className="text-2xl text-bold text-header">Id:</div>
+						<div className="text-2xl text-bold text-header">{item.id}</div>
 					</div>
 					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
-						<div className="text-lg text-bold text-header">Name:</div>
-						<div className="text-md">{item.name}</div>
+						<div className="text-2xl text-bold text-header">Name:</div>
+						<div className="text-2xl text-bold text-header">{item.name}</div>
 					</div>
 					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
-						<div className="text-lg text-bold text-header">Category:</div>
-						<div className="text-md">{item.postCategory}</div>
+						<div className="text-2xl text-bold text-header">Category:</div>
+						<div className="text-2xl text-bold text-header">
+							{item.postCategory}
+						</div>
 					</div>
 				</div>
 			</>
