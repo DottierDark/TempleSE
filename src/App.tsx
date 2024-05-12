@@ -94,9 +94,10 @@ function App() {
 					element={<OrganizationRequests />}
 				/>
 				<Route
-					path="/admin/RegisteredOrganizationsDetails"
+					path="/admin/RegisteredOrganizations/:id"
 					element={<RegisteredOrganizationDetails />}
 				/>
+
 				<Route
 					path="/admin/DonorRequestsDetails"
 					element={<DonorRequestsDetails />}

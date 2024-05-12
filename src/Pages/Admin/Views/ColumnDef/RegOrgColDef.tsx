@@ -10,12 +10,7 @@ import {
 	DropdownMenuTrigger,
 } from '../../../../Components/shadcn/ui/dropdown-menu';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { LoadScript } from '@react-google-maps/api';
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 export const columns: ColumnDef<Organization>[] = [
 	{
@@ -56,16 +51,20 @@ export const columns: ColumnDef<Organization>[] = [
 		cell: ({ row }) => {
 			const navigate = useNavigate();
 			const handleClick = (category: string) => {
-				navigate(`/admin/${category}`);
+				navigate(`/admin/${category}/${row.original.id}`);
 			};
 			return (
-			   <Button onClick={() => {
-				handleClick('RegisteredOrganizationsDetails');
-			}}>View More Details</Button>
-			)
+				<Button
+					onClick={() => {
+						handleClick('RegisteredOrganizations');
+					}}
+				>
+					View More Details
+				</Button>
+			);
 		},
 	},
-	
+
 	{
 		id: 'actions',
 		enableHiding: false,
@@ -76,8 +75,6 @@ export const columns: ColumnDef<Organization>[] = [
 				organization.status = 'rejected';
 				// Perform any other necessary actions
 			};
-			
-			  
 
 			return (
 				<DropdownMenu>
@@ -92,7 +89,7 @@ export const columns: ColumnDef<Organization>[] = [
 						<DropdownMenuItem onClick={handleDelete}>
 							Delete Organization Account
 						</DropdownMenuItem>
-						
+
 						<DropdownMenuSeparator />
 					</DropdownMenuContent>
 				</DropdownMenu>
