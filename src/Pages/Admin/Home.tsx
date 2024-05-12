@@ -18,9 +18,9 @@ export default function AdminHome() {
 	};
 
 	return (
-		<div className="flex h-full w-full items-center justify-center p-10 gap-20 mt-40 ">
+		<div className="flex h-full w-full items-center justify-center p-5 gap-6 mt-44 ">
 			<Card
-				className="flex flex-col h-[45vh] w-[45vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+				className="flex h-[35vh] w-[35vh] cursor-pointer flex-col items-center justify-center  hover:shadow-2xl"
 				onClick={() => {
 					handleClick('RegisteredOrganizations');
 				}}
@@ -28,12 +28,12 @@ export default function AdminHome() {
 				<img
 					src={imgsrc.RegistredOrganizations}
 					alt="RegistredOrganizations"
-					className="object-contain w-[300px] h-[300px]"
+					className="h-[70%] w-[70%] object-contain"
 				/>
-				<h1 className="font-bold text-3xl mt-5">Registered Organizations</h1>
+				<h1 className="text-2xl font-bold whitespace-nowrap">Registered Organizations</h1>
 			</Card>
 			<Card
-				className="flex flex-col h-[45vh] w-[45vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+				className="flex h-[35vh] w-[35vh] cursor-pointer flex-col items-center justify-center  hover:shadow-2xl"
 				onClick={() => {
 					handleClick('OrganizationsRequests');
 				}}
@@ -41,12 +41,12 @@ export default function AdminHome() {
 				<img
 					src={imgsrc.OrganizationRequestsList}
 					alt="OrganizationRequestsList"
-					className="object-contain w-[300px] h-[300px]"
+					className="h-[70%] w-[70%] object-contain"
 				/>
-				<h1 className="font-bold text-3xl mt-5">Organizations Requests</h1>
+				<h1 className="text-2xl font-bold">Organizations Requests</h1>
 			</Card>
 			<Card
-				className="flex flex-col h-[45vh] w-[45vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+				className="flex h-[35vh] w-[35vh] cursor-pointer flex-col items-center justify-center  hover:shadow-2xl"
 				onClick={() => {
 					handleClick('DonorRequests');
 				}}
@@ -54,9 +54,22 @@ export default function AdminHome() {
 				<img
 					src={imgsrc.DonorRequestsList}
 					alt="DonorRequestsLists"
-					className="object-contain w-[300px] h-[300px]"
+					className="h-[70%] w-[70%] object-contain"
 				/>
-				<h1 className="font-bold text-3xl mt-5">Donor Requests</h1>
+				<h1 className="text-2xl font-bold">Donor Requests</h1>
+			</Card>
+			<Card
+				className="flex h-[35vh] w-[35vh] cursor-pointer flex-col items-center justify-center  hover:shadow-2xl"
+				onClick={() => {
+					handleClick('donors');
+				}}
+			>
+				<img
+					src={imgsrc.DonorRequestsList}
+					alt="DonorRequestsLists"
+					className="h-[70%] w-[70%] object-contain"
+				/>
+				<h1 className="text-2xl font-bold">Donor Requests</h1>
 			</Card>
 		</div>
 	);

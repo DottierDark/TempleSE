@@ -65,7 +65,7 @@ export default function DonorHome() {
 							<Card
 								key={category.key}
 								onClick={() => handleClick(category.key)}
-								className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+								className="flex h-[35vh] w-[35vh] cursor-pointer flex-col items-center justify-center  hover:shadow-2xl"
 							>
 								<img
 									className="h-[70%] w-[70%] object-contain"
@@ -80,7 +80,7 @@ export default function DonorHome() {
 								<Card
 									key={category.key}
 									onClick={() => handleClick(category.key)}
-									className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+									className="flex h-[35vh] w-[35vh] cursor-pointer flex-col  items-center justify-center  hover:shadow-2xl"
 								>
 									<img
 										className="h-[70%] w-[70%] object-contain"
@@ -97,7 +97,7 @@ export default function DonorHome() {
 							<Card
 								key={category.key}
 								onClick={() => handleClick(category.key)}
-								className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
+								className="flex h-[35vh] w-[35vh] cursor-pointer  flex-col items-center justify-center  hover:shadow-2xl"
 							>
 								<img
 									className="h-[70%] w-[70%] object-contain"

@@ -70,6 +70,7 @@ import { Toaster } from './Components/shadcn/ui/toaster';
 import AdminSettings from './Pages/Admin/Settings/AdminSettings';
 import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
 import OrganisationSettings from './Pages/Organisation/Settings/OrganisationSettings';
+import Donors from './Pages/Admin/Views/Donors';
 
 function App() {
 	return (
@@ -98,6 +99,7 @@ function App() {
 					path="/admin/RegisteredOrganizations/:id"
 					element={<RegisteredOrganizationDetails />}
 				/>
+				<Route path="/admin/donors/" element={<Donors />} />
 
 				<Route path="/admin/settings" element={<AdminSettings />} />
 				{/* Donor Pages*/}
