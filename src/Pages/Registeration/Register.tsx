@@ -15,7 +15,7 @@ import Stage3 from './Stage3';
 export default function Register() {
 	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2 | 3>(3);
+	const [stage, setStage] = useState<1 | 2 | 3>(1);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,

@@ -444,23 +444,22 @@ export default function CreatePost() {
 					/>
 				</div>
 				<div className="flex gap-2">
-					<FormField
-						control={control}
-						name="location"
-						render={({ field }) => (
-							<FormItem className="flex flex-col h-[200px] w-[30rem]">
-								<FormLabel>Case Location</FormLabel>
-								<FormControl>
-									<Input
-										placeholder="Enter case location"
-										type="text"
-										{...field}
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+					<APIProvider apiKey={'AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk'}>
+						<Map
+							zoom={12}
+							center={{ lat: 29.987031, lng: 31.440164 }}
+							style={{
+								height: '400px',
+								width: '600px',
+							}}
+							onClick={(event) => {
+								// @ts-ignore
+								setMarker(event.detail.latLng);
+							}}
+						>
+							<Marker position={marker} />
+						</Map>
+					</APIProvider>
 					<FormField
 						control={control}
 						name="description"
