@@ -201,13 +201,13 @@ export type TOrganizationSettings = {
 };
 
 export type TOrgPost = {
-	category: string;
+	postCategory: string;
 	condition: boolean;
-	post:
-		| TFoodItem
-		| TBloodDonation
-		| TMedicalSupply
-		| TToyItem
-		| TClothesItem
-		| TSchoolSuppliesItem;
-};
+} & (
+	| TFoodItem
+	| TBloodDonation
+	| TMedicalSupply
+	| TToyItem
+	| TClothesItem
+	| TSchoolSuppliesItem
+);

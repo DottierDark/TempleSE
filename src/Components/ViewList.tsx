@@ -189,29 +189,17 @@ export default function ViewList({
 				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row w-[80vw] h-[80vh] grid-flow-dense">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
-						.map((item, index) =>
-							user === 'donor' ? (
-								<Card
-									key={`${item.id}-${index}`}
-									className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
-									onClick={() => {
-										CardClickDonor(item);
-									}}
-								>
-									<Cardbody {...item} />
-								</Card>
-							) : (
-								<Card
-									key={`${item.post.id}-${index}`}
-									className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
-									onClick={() => {
-										CardClickOrg(item.post);
-									}}
-								>
-									<Cardbody {...item} />
-								</Card>
-							)
-						)}
+						.map((item, index) => (
+							<Card
+								key={`${item.id}-${index}`}
+								className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
+								onClick={() => {
+									CardClickDonor(item);
+								}}
+							>
+								<Cardbody {...item} />
+							</Card>
+						))}
 				</div>
 			</div>
 		</div>
