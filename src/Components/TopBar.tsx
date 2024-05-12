@@ -28,30 +28,56 @@ export default function TopBar() {
 		navigate('/');
 		localStorage.removeItem('user');
 	};
-
 	useEffect(() => {
 		setType(location.split('/')[1]);
-		const timer = setTimeout(() => {
-			const now = new Date();
-			const dateStr = now.toLocaleString('en-US', {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric',
-				hour: '2-digit',
-				minute: '2-digit',
-				second: '2-digit',
-			});
-			toast({
-				title: 'Your Driver Has Arrived',
-				description: ` ${dateStr}`,
-				action: (
-					<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
-				),
-			});
-		}, 3000); // 30 seconds timeout
-		return () => clearTimeout(timer);
-	}, [location]);
+		if (type && type === 'donor' && location.includes('/donor')) {
+			const timer = setTimeout(() => {
+				const now = new Date();
+				const dateStr = now.toLocaleString('en-US', {
+					weekday: 'long',
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+					hour: '2-digit',
+					minute: '2-digit',
+					second: '2-digit',
+				});
+				toast({
+					title: 'Your Driver Has Arrived',
+					description: ` ${dateStr}`,
+					action: (
+						<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
+					),
+				});
+			}, 5000); // 5 seconds timeout
+			return () => clearTimeout(timer);
+		} else if (
+			type &&
+			type === 'organisation' &&
+			location.includes('/organisation')
+		) {
+			const timer = setTimeout(() => {
+				const now = new Date();
+				const dateStr = now.toLocaleString('en-US', {
+					weekday: 'long',
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+					hour: '2-digit',
+					minute: '2-digit',
+					second: '2-digit',
+				});
+				toast({
+					title: 'Your Request Has Been Fulfilled',
+					description: ` ${dateStr}`,
+					action: (
+						<ToastAction altText="Goto schedule to undo">Dismiss</ToastAction>
+					),
+				});
+			}, 5000); // 5 seconds timeout
+			return () => clearTimeout(timer);
+		}
+	}, [type, location]);
 
 	const navigationMenu: TNavigationMenuTab[] = [
 		{
@@ -147,14 +173,19 @@ export default function TopBar() {
 			key: 'organisation',
 			links: [
 				{
-					name: 'Requests',
-					key: 'requests',
-					href: '/organisation/requests',
+					name: 'Fulfilled Posts',
+					key: 'fulfilled',
+					href: '/organisation/fulfilled-posts',
 				},
 				{
-					name: 'Donations',
-					key: 'donations',
-					href: '/organisation/donations',
+					name: 'Unfulfilled Posts',
+					key: 'unfulfilled',
+					href: '/organisation/unfulfilled-posts',
+				},
+				{
+					name: 'Notifications',
+					key: 'notifications',
+					href: '/organisation/notifications',
 				},
 			],
 		},

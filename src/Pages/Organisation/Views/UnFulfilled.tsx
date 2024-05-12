@@ -28,5 +28,5 @@ export default function Fulfilled() {
 			</>
 		);
 	}
-	return <ViewList category="Unfulfilled" Cardbody={Cardbody} />;
+	return <ViewList category="UnFulfilled-Posts" Cardbody={Cardbody} />;
 }
