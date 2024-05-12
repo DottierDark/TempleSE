@@ -44,7 +44,7 @@ export default function DonorHome() {
 		}
 	};
 	return (
-		<div className="grid h-full w-full grid-cols-4 items-center justify-center gap-10 mt-10">
+		<div className="grid h-full w-full grid-cols-4 items-center justify-center p-5 gap-10 mt-10">
 			{donationsCategories.map((category: { name: string; key: string }) =>
 				donorType !== 'regular' ? (
 					donorType === 'doctor' && category.key === 'medical-Cases' ? (
