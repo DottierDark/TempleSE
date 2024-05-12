@@ -1,77 +1,140 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
-  prefix: "",
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
-  },
-  plugins: [require("tailwindcss-animate")],
-}
+	darkMode: ['class'],
+	content: [
+		'./pages/**/*.{ts,tsx}',
+		'./components/**/*.{ts,tsx}',
+		'./app/**/*.{ts,tsx}',
+		'./src/**/*.{ts,tsx}',
+	],
+	prefix: '',
+	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+			screens: {
+				'2xl': '1400px',
+			},
+		},
+		extend: {
+			colors: {
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				background: '#f8fcfd',
+				foreground: 'hsl(var(--foreground))',
+				primary: {
+					DEFAULT: '#389dd4',
+					foreground: 'hsl(var(--primary-foreground))',
+					50: '#050f15',
+					100: '#091e2a',
+					200: '#123d54',
+					300: '#1c5b7d',
+					400: '#257aa7',
+					500: '#2e98d1',
+					600: '#58adda',
+					700: '#82c1e3',
+					800: '#abd6ed',
+					900: '#d5eaf6',
+					950: '#eaf5fa',
+				},
+				secondary: {
+					DEFAULT: '#9f91e7',
+					foreground: 'hsl(var(--secondary-foreground))',
+					50: '#070515',
+					100: '#0f092a',
+					200: '#1d1254',
+					300: '#2c1c7d',
+					400: '#3a25a7',
+					500: '#492ed1',
+					600: '#6d58da',
+					700: '#9282e3',
+					800: '#b6abed',
+					900: '#dbd5f6',
+					950: '#edeafa',
+				},
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))',
+				},
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					foreground: 'hsl(var(--muted-foreground))',
+				},
+				accent: {
+					DEFAULT: '#9269df',
+					foreground: 'hsl(var(--accent-foreground))',
+					50: '#0a0415',
+					100: '#15092a',
+					200: '#291254',
+					300: '#3e1b7e',
+					400: '#5224a8',
+					500: '#672dd2',
+					600: '#8557db',
+					700: '#a481e4',
+					800: '#c2abed',
+					900: '#e1d5f6',
+					950: '#f0eafb',
+				},
+				popover: {
+					DEFAULT: 'hsl(var(--popover))',
+					foreground: 'hsl(var(--popover-foreground))',
+				},
+				card: {
+					DEFAULT: 'hsl(var(--card))',
+					foreground: 'hsl(var(--card-foreground))',
+				},
+				text: {
+					50: '#051015',
+					100: '#09202a',
+					200: '#134053',
+					300: '#1c607d',
+					400: '#2680a6',
+					500: '#2fa0d0',
+					600: '#59b3d9',
+					700: '#82c6e3',
+					800: '#acd9ec',
+					900: '#d5ecf6',
+					950: '#eaf5fa',
+				},
+			},
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
+			},
+			keyframes: {
+				'accordion-down': {
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
+				},
+				'accordion-up': {
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+			},
+			fontSize: {
+				sm: '0.750rem',
+				base: '1rem',
+				xl: '1.333rem',
+				'2xl': '1.777rem',
+				'3xl': '2.369rem',
+				'4xl': '3.158rem',
+				'5xl': '4.210rem',
+			},
+			fontFamily: {
+				heading: 'IM Fell Great Primer',
+				body: 'IM Fell Great Primer',
+			},
+			fontWeight: {
+				normal: '400',
+				bold: '700',
+			},
+		},
+	},
+	plugins: [require('tailwindcss-animate')],
+};
