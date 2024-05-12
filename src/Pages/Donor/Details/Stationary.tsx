@@ -63,7 +63,7 @@ export default function Stationary() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Stationary" id={id} canEdit={false}>
-				<Details>
+				<Details acceptRequest>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						<TextField
 							name="name"

@@ -60,7 +60,7 @@ export default function Toy() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Toy" id={id} canEdit={false}>
-				<Details>
+				<Details acceptRequest>
 					<div className="grid grid-cols-2 p-6 gap-x-12">
 						<TextField
 							name="name"
