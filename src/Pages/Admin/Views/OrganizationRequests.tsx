@@ -12,6 +12,14 @@ export default function OrganizationRequests() {
 
 	return (
 		<div className="flex h-full w-full">
+
+            <Filter
+				setData={setData}
+				dummyData={items}
+				columnFilters={filterOptions}
+				searchColumn={''}
+				hidesearchbar={true}
+			/>
 			<DataTable columns={columns} data={data} />
 		</div>
 	);

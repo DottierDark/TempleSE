@@ -20,7 +20,8 @@ export type Organization = {
 export type Donor = {
 	firstname: string;
 	secondname: string;
-	address: string;
+	area: string;
+	gov: string;
 	email: string;
 	contactPhone: string;
 	status: 'approved' | 'pending' | 'rejected';

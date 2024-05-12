@@ -204,7 +204,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Amr',
 		secondname: 'Hossam',
-		address: '123 Elm St, Anytown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'amr@gmail.com',
 		contactPhone: '123-456-7810',
 		status: 'pending',
@@ -212,7 +213,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Nada',
 		secondname: 'Saleh',
-		address: '143 Pine St, Anytown, CA 12345',
+		area: "Another Town",
+	    gov: "TX",
 		email: 'nada@gmail.com',
 		contactPhone: '123-456-7830',
 		status: 'pending',
@@ -220,7 +222,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Salma',
 		secondname: 'Ahmed',
-		address: '154 Sec St, Wheretown, CA 12345',
+		area: "Othertown",
+	    gov: "NY",
 		email: 'salama@gmail.com',
 		contactPhone: '124-456-7850',
 		status: 'pending',
@@ -228,7 +231,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Dalia',
 		secondname: 'Habib',
-		address: '167 Cosec St, Howtown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'dalia@gmail.com',
 		contactPhone: '123-456-7170',
 		status: 'pending',
@@ -236,7 +240,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Tia',
 		secondname: 'Abdelrahman',
-		address: '148 Pint St, Whytown, CA 12345',
+		area: "Another Town",
+	    gov: "TX",
 		email: 'tia@gmail.com',
 		contactPhone: '123-456-7891',
 		status: 'pending',
@@ -244,7 +249,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Hala',
 		secondname: 'Ashraf',
-		address: '196 Live St, Whentown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'hala@gmail.com',
 		contactPhone: '123-456-7892',
 		status: 'pending',
@@ -252,7 +258,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Noor',
 		secondname: 'Ismail',
-		address: '134 Hello St, Thentown, CA 12345',
+		area: "Othertown",
+	    gov: "NY",
 		email: 'noor@gmail.com',
 		contactPhone: '123-456-7893',
 		status: 'pending',
@@ -260,7 +267,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Jannah',
 		secondname: 'Omar',
-		address: '189 Bye St, Theirtown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'jannah@gmail.com',
 		contactPhone: '123-456-7894',
 		status: 'pending',
@@ -268,7 +276,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ahmed',
 		secondname: 'Mostafa',
-		address: '33 Why St, Nevertown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'ahmed@gmail.com',
 		contactPhone: '123-456-7895',
 		status: 'pending',
@@ -276,7 +285,8 @@ export const donor: Donor[] = [
 	{
 		firstname: 'Ali',
 		secondname: 'Basha',
-		address: '69 Okay St, Yestown, CA 12345',
+		area: "Anytown",
+	    gov: "CA",
 		email: 'ali@gmail.com',
 		contactPhone: '123-456-7896',
 		status: 'pending',
