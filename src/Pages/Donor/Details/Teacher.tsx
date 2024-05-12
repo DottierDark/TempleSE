@@ -35,7 +35,7 @@ export default function Teacher({ children }: { children?: React.ReactNode }) {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Teaching post" id={id} canEdit={false}>
-				<Details>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						{children}
 						<TextField
