@@ -230,7 +230,7 @@ export default function Details({
 				)}
 			</div>
 			<div className="flex flex-col w-full h-full items-center justify-center p-5">
-				<div className="flex flex-col bg-white w-full h-full rounded-lg">
+				<div className="flex flex-col bg-white w-full rounded-lg">
 					{children}
 				</div>
 			</div>

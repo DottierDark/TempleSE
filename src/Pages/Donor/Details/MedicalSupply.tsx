@@ -43,10 +43,18 @@ export default function MedicalSupply({
 				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						{children}
+						<TextField
+							name="name"
+							label="Name"
+							description="Name of the medical supply"
+							detailsClassName=""
+							inputClassName=""
+							placeholder=""
+						/>
 						<NumberField
 							name="quantity"
 							label="Quantity"
-							description="Quantity of the medical supplies"
+							description="Quantity of the medical supply"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
@@ -54,7 +62,7 @@ export default function MedicalSupply({
 						<TextField
 							name="type"
 							label="Type"
-							description="Type of the medical supplies"
+							description="Type of the medical supply"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
@@ -62,7 +70,7 @@ export default function MedicalSupply({
 						<TextField
 							name="use"
 							label="Use"
-							description="Use of the medical supplies"
+							description="Use of the medical supply"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""
@@ -70,7 +78,7 @@ export default function MedicalSupply({
 						<ImageField
 							name="img"
 							label="Image"
-							description="Image of the medical case"
+							description="Image of the medical supply"
 							detailsClassName=""
 							inputClassName=""
 							placeholder=""

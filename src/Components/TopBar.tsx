@@ -263,7 +263,7 @@ export default function TopBar() {
 
 	const currentLocation =
 		window.location.pathname.split('/')[
-			window.location.pathname.split('/').length - 1
+			window.location.pathname?.split('/').length - 1
 		];
 	const previousLocation =
 		breadCrumb[0]?.split('/')[breadCrumb[0]?.split('/').length - 1];
