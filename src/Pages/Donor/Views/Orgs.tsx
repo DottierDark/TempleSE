@@ -1,17 +1,4 @@
-import { useState } from 'react';
-import {
-	Pagination,
-	PaginationContent,
-	PaginationItem,
-	PaginationNext,
-	PaginationPrevious,
-} from '../../../Components/shadcn/ui/pagination';
-import { Card } from '../../../Components/shadcn/ui/card';
-import Filter from '../../../Components/Filter';
-import { RegisteredOrganizationsOptions } from '../../../assets/filterOptions';
-import { organizations } from '../../../assets/dummyData';
 import { Organization } from '../../../types';
-import { useNavigate } from 'react-router-dom';
 import ViewList from '../../../Components/ViewList';
 
 export default function Orgs() {
@@ -27,7 +14,7 @@ export default function Orgs() {
 						<div className="text-md">{item.name}</div>
 					</div>
 					<div className="flex justify-between items-center bg-[#81b4eb] px-2 py-1 rounded-md">
-						<div className="text-lg text-medium">Organization Type:</div>
+						<div className="text-lg text-medium">Type:</div>
 						<div className="text-md">{item.type}</div>
 					</div>
 					<div className="flex justify-between items-center bg-[#81b4eb] px-2 py-1 rounded-md">
