@@ -24,9 +24,14 @@ import { Textarea } from '../../../Components/shadcn/ui/textarea';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '../../../Components/shadcn/ui/use-toast';
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
 export default function CreatePost() {
 	const [type, setType] = useState<string>('');
+	const [marker, setMarker] = useState({
+		lat: 29.987031,
+		lng: 31.440164,
+	});
 	const navigate = useNavigate();
 	const schema = {
 		stationary: z.object({

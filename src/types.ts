@@ -216,6 +216,7 @@ export type TOrganizationSettings = {
 export type TOrgPost = {
 	postCategory: string;
 	condition: boolean;
+	donor: Donor;
 } & (
 	| TFoodItem
 	| TBloodDonation
