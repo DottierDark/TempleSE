@@ -9,15 +9,15 @@ export default function Fulfilled() {
 					<img src={item.img} className="w-60 h-40 rounded-lg object-contain" />
 				</div>
 				<div className="flex flex-col py-2 justify-around w-full px-2">
-					<div className="flex justify-between items-center bg-[#81b4eb] px-2 py-1 rounded-md">
+					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
 						<div className="text-lg text-bold">Id:</div>
 						<div className="text-md">{item.id}</div>
 					</div>
-					<div className="flex justify-between items-center bg-[#81b4eb] px-2 py-1 rounded-md">
+					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
 						<div className="text-lg text-bold">Name:</div>
 						<div className="text-md">{item.name}</div>
 					</div>
-					<div className="flex justify-between items-center bg-[#81b4eb] px-2 py-1 rounded-md">
+					<div className="flex justify-between items-center  px-2 py-1 rounded-md">
 						<div className="text-lg text-medium">Category:</div>
 						<div className="text-md">{item.postCategory}</div>
 					</div>

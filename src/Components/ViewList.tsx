@@ -169,7 +169,7 @@ export default function ViewList({
 											}
 										}}
 										aria-disabled={page === 0}
-										className={`select-none ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
+										className={`select-none bg-accent-700 ${page === 0 ? 'pointer-events- opacity-50' : ''}`}
 									/>
 								</PaginationItem>
 								<PaginationItem className="flex self-end">
@@ -179,7 +179,7 @@ export default function ViewList({
 												onPageChange(page + 1);
 											}
 										}}
-										className={`select-none ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
+										className={`select-none bg-accent-700 ${data.slice((page + 1) * pageSize).length === 0 ? 'pointer-events- opacity-50' : ''}`}
 									/>
 								</PaginationItem>
 							</PaginationContent>
@@ -192,7 +192,7 @@ export default function ViewList({
 						.map((item, index) => (
 							<Card
 								key={`${item.id}-${index}`}
-								className="flex flex-row object-contain w-100 h-52 text-nowrap cursor-pointer bg-[#92BCEA]"
+								className="flex flex-row object-contain w-100 h-52 text-nowrap cursor-pointer bg-primary-800"
 								onClick={() => {
 									if (user === 'organisation') CardClickOrg(item);
 									else CardClickDonor(item);
