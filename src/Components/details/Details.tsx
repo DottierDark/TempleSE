@@ -55,7 +55,7 @@ export default function Details({
 	const onSubmit = (_: any) => {
 		if (isAddMode) {
 			setIsAddMode(false);
-			navigate(`..`);
+			navigate(-1);
 		} else if (isEditMode) {
 			setIsEditMode(false);
 		} else {
@@ -172,7 +172,7 @@ export default function Details({
 													</ToastAction>
 												),
 											});
-											navigate(`..`);
+											navigate(-1);
 										}}
 										className="text-white w-44 h-10 text-lg"
 									>
