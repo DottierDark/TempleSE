@@ -40,7 +40,7 @@ export default function ViewList({
 	category: string;
 	Cardbody: (props: any) => JSX.Element;
 }) {
-	const pageSize = 12; // Number of items per page
+	const pageSize = 9; // Number of items per page
 	const [data, setData] = useState<any[]>([]);
 	const [page, setPage] = useState(0);
 
