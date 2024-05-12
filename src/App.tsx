@@ -62,8 +62,7 @@ import OrganizationRequests from './Pages/Admin/Views/OrganizationRequests';
 {
 	/* Admin Details Pages*/
 }
-import DonorRequestsDetails from './Pages/Admin/Details/DonorRequestsDetails';
-import OrganizationRequestsDetails from './Pages/Admin/Details/OrganizationRequestsDetails';
+
 import RegisteredOrganizationDetails from './Pages/Admin/Details/RegisteredOrganizationsDetails';
 
 import { Toaster } from './Components/shadcn/ui/toaster';
@@ -98,14 +97,7 @@ function App() {
 					element={<RegisteredOrganizationDetails />}
 				/>
 
-				<Route
-					path="/admin/DonorRequestsDetails"
-					element={<DonorRequestsDetails />}
-				/>
-				<Route
-					path="/admin/OrganizationRequestsDetails"
-					element={<OrganizationRequestsDetails />}
-				/>
+				
 				<Route path="/admin/settings" element={<AdminSettings />} />
 				{/* Donor Pages*/}
 				<Route path="/donor" element={<DonorHome />} />
