@@ -311,6 +311,33 @@ export const donor: Donor[] = [
 		contactPhone: '123-456-7896',
 		status: 'pending',
 	},
+	{
+		firstname: 'Hossam',
+		secondname: 'Hassan',
+		area: 'Anytown',
+		gov: 'CA',
+		email: 'hosssam@gmail.com',
+		contactPhone: '123-456-7896',
+		status: 'approved',
+	},
+	{
+		firstname: 'Ibrahim',
+		secondname: 'Ali',
+		area: 'Anytown',
+		gov: 'CA',
+		email: 'ibrahim@gmail.com',
+		contactPhone: '123-456-7896',
+		status: 'approved',
+	},
+	{
+		firstname: 'Ahmed',
+		secondname: 'Ibrahim',
+		area: 'Anytown',
+		gov: 'CA',
+		email: 'ahmed@gmail.com',
+		contactPhone: '123-456-7896',
+		status: 'approved',
+	},
 ];
 export const foods: TFoodItem[] = [
 	{

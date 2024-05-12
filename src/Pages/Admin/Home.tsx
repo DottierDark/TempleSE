@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import RequestsDonor from '../../assets/Images/Admin/DonorsRequestsLists.jpeg';
 import RequestsOrg from '../../assets/Images/Admin/OrganizationsRequestsLists.jpeg';
 import RegisteredOrg from '../../assets/Images/Admin/RegistredOrganizations.jpeg';
+import Donor from '../../assets/Images/Admin/donor.png';
 import { Card } from '../../Components/shadcn/ui/card';
 
 export default function AdminHome() {
@@ -15,6 +16,7 @@ export default function AdminHome() {
 		DonorRequestsList: RequestsDonor,
 		OrganizationRequestsList: RequestsOrg,
 		RegistredOrganizations: RegisteredOrg,
+		Donor: Donor,
 	};
 
 	return (
@@ -65,11 +67,11 @@ export default function AdminHome() {
 				}}
 			>
 				<img
-					src={imgsrc.DonorRequestsList}
+					src={imgsrc.Donor}
 					alt="DonorRequestsLists"
 					className="h-[70%] w-[70%] object-contain"
 				/>
-				<h1 className="text-2xl font-bold">Donor Requests</h1>
+				<h1 className="text-2xl font-bold">Registered Donors</h1>
 			</Card>
 		</div>
 	);
