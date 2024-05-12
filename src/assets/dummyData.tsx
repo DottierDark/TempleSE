@@ -85,14 +85,14 @@ export const notifications: notification[] = [
 	{
 		id: 1,
 		name:'Notification 1',
-		title: 'Your Driver Has Arrived',
-		description: 'Sunday , May 23, 2021 10:00 AM',
+		title: 'You request has been fulfilled',
+		description: 'Sunday , January 23, 2024 10:00 AM',
 	},
 	{
 		id: 1,
 		name:'Notification 2',
-		title: 'Your Driver Has Arrived',
-		description: 'Sunday , April 23, 2022 10:00 AM',
+		title: 'You request has been fulfilled',
+		description: 'Sunday , April 23, 2024 11:30 AM',
 	},
 ];
 
