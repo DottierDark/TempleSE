@@ -20,6 +20,30 @@ export default function DonorForm() {
 
 	const selectedDonorType = watch('donor_type');
 
+	const fileSchema: ZodType<File, any> = z.instanceof(File);
+
+	const [uploadedFiles, setUploadedFiles] = useState<
+		{ name: any; content: string | ArrayBuffer | null }[]
+	>([]);
+	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const files = event.target.files;
+		if (files) {
+			// Check if files is not null
+			const reader = new FileReader();
+			for (const file of files) {
+				reader.readAsText(file); // Adjust for different file types
+				reader.onload = (e) => {
+					if (e.target !== null) {
+						setUploadedFiles((prevFiles) => [
+							...prevFiles,
+							{ name: file.name, content: e.target!.result },
+						]);
+					}
+				};
+			}
+		}
+	};
+
 	const donorFormMap = {
 		regular: <div className="h-[200px]" />,
 		teacher: (
@@ -47,6 +71,39 @@ export default function DonorForm() {
 								<Input placeholder="5" {...field} />
 							</FormControl>
 							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={control}
+					name="proof"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Proof of Work</FormLabel>
+							<FormControl>
+								<div>
+									<Input
+										className="flex rounded-full border space-x-2"
+										id="file"
+										type="file"
+										onChange={handleFileChange}
+										ref={null}
+										multiple={true}
+									/>
+									<ul className="flex gap-2 text-center">
+										{uploadedFiles.map((file) => {
+											console.log('file:', file);
+											if (!file.name) {
+												return null;
+											}
+											return <li key={file.name}>{file.name}</li>;
+										})}
+									</ul>
+								</div>
+							</FormControl>
+							<FormMessage>
+								{formDonor.formState.errors.proof?.message}
+							</FormMessage>
 						</FormItem>
 					)}
 				/>

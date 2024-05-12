@@ -5,7 +5,7 @@ import { Button } from '../../Components/shadcn/ui/button';
 import Stage1 from './Stage1';
 import { Card } from '../../Components/shadcn/ui/card';
 import { Form } from '../../Components/shadcn/ui/form';
-import { z } from 'zod';
+import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import DonorForm from './DonorForm';
