@@ -69,7 +69,7 @@ export const columns: ColumnDef<Donor>[] = [
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
 						<DropdownMenuItem onClick={handleDelete}>
-							Delete Organization Account
+							Delete Donor Account
 						</DropdownMenuItem>
 
 						<DropdownMenuSeparator />
