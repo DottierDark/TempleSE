@@ -188,7 +188,7 @@ export default function Register() {
 			userName: '',
 			contactNumber: '',
 			donor_type: '',
-			type: 'donor',
+			type: 'regular',
 		},
 	});
 
