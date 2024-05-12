@@ -5,7 +5,7 @@ import { Button } from '../../Components/shadcn/ui/button';
 import Stage1 from './Stage1';
 import { Card } from '../../Components/shadcn/ui/card';
 import { Form } from '../../Components/shadcn/ui/form';
-import { z, ZodType } from 'zod';
+import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import DonorForm from './DonorForm';
@@ -14,12 +14,11 @@ import OrganisationForm from './OrganisationForm';
 export default function Register() {
 	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2 >(1);
+	const [stage, setStage] = useState<1 | 2>(1);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
 		2: formType === 'donor' ? <DonorForm /> : <OrganisationForm />,
-		// 3: <Stage3 />,
 	};
 
 	const schema = {
@@ -249,8 +248,8 @@ export default function Register() {
 								disabled={stage === 2}
 								variant="outline"
 								size="icon"
-								type="submit"
 								className="text-black"
+								onClick={() => setStage((prev) => (prev + 1) as 1 | 2)}
 							>
 								<ChevronRightIcon className="h-4 w-4" />
 							</Button>

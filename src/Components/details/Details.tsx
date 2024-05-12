@@ -63,7 +63,9 @@ export default function Details({
 		}
 	};
 
-	const isDonorPage = location.pathname.includes('donor') && !location.pathname.includes('settings');
+	const isDonorPage =
+		location.pathname.includes('donor') &&
+		!location.pathname.includes('settings');
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
