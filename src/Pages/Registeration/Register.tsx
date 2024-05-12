@@ -12,9 +12,11 @@ import DonorForm from './DonorForm';
 import OrganisationForm from './OrganisationForm';
 
 export default function Register() {
-	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
+	const [formType, setFormType] = useState<'donor' | 'organisation'>(
+		'organisation'
+	);
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2>(1);
+	const [stage, setStage] = useState<1 | 2>(2);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
@@ -63,7 +65,7 @@ export default function Register() {
 						message: 'Please enter a valid password',
 					})
 					.min(6, {
-						message: 'Password must be at least 8 characters',
+						message: 'Password must be at least 6 characters',
 					}),
 				confirmPassword: z.string({
 					message: 'Please confirm your password',
