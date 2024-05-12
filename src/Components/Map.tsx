@@ -1,47 +1,48 @@
 import React, { useState } from 'react';
 
-import { LoadScript, GoogleMap } from '@react-google-maps/api';
-import { Marker } from '@react-google-maps/api';
-
-import { MarkerProps } from '@google/react-maps/types';
+import { LoadScript, GoogleMap, Marker } from '@react-google-maps/api';
 
 // Define interface for Marker data
-interface Marker {
+interface MarkerData {
 	lat: number;
 	lng: number;
 	content: string;
+	color: string;
 }
 
-
-
-const EditableMap: React.FC = () => {
+const EditableMap: React.FC<{ markers: MarkerData[] }> = ({ markers }) => {
 	const [map, setMap] = useState<google.maps.Map | null>(null);
-	const [markers, setMarkers] = useState<Marker[]>([]);
+	const [editableMarkers, setEditableMarkers] = useState<MarkerData[]>(markers);
 
-	const handleMarkerAdd = (event: any) => {
-		const newMarker: Marker = {
-			lat: event.latLng.lat(),
-			lng: event.latLng.lng(),
-			content: '',
-		};
-		setMarkers([...markers, newMarker]);
+	const handleMarkerAdd = (event: google.maps.MapMouseEvent) => {
+		if (event.latLng) {
+			const newMarker: MarkerData = {
+				lat: event.latLng.lat(),
+				lng: event.latLng.lng(),
+				content: '',
+				color: 'red',
+			};
+			setEditableMarkers([...markers, newMarker]);
+		}
 	};
 
-	const handleMarkerEdit = (index: number, newContent: string) => {
-		const updatedMarkers = [...markers];
-		updatedMarkers[index].content = newContent;
-		setMarkers(updatedMarkers);
+	const handleMarkerEdit = (index: number, newContent: string | null) => {
+		if (newContent !== null) {
+			const updatedMarkers = [...markers];
+			updatedMarkers[index].content = newContent;
+			setEditableMarkers(updatedMarkers);
+		}
 	};
-	
+
 	const handleMarkerDelete = (index: number) => {
 		const updatedMarkers = [...markers];
 		updatedMarkers.splice(index, 1);
-		setMarkers(updatedMarkers);
+		setEditableMarkers(updatedMarkers);
 	};
 
 	return (
 		<LoadScript
-			googleMapsApiKey="AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk" 
+			googleMapsApiKey="AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk"
 			libraries={['places']}
 		>
 			<GoogleMap
@@ -51,16 +52,23 @@ const EditableMap: React.FC = () => {
 				onClick={handleMarkerAdd}
 				onLoad={(mapInstance: google.maps.Map) => setMap(mapInstance)}
 			>
-				{markers.map((marker, index) => (
+				{markers.map((marker: MarkerData, index) => (
 					<Marker
 						key={index}
 						position={{ lat: marker.lat, lng: marker.lng }}
+						icon={{
+							path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
+							fillColor: marker.color,
+							fillOpacity: 1,
+							strokeColor: '#000',
+							strokeWeight: 2,
+							scale: 1,
+						}}
 						onClick={() =>
 							handleMarkerEdit(index, prompt('Edit marker content:'))
 						}
-						// Add custom marker content here (optional)
 					>
-						{/* Add custom marker content here (optional) */}
+						<div className="marker-content">{marker.content}</div>
 					</Marker>
 				))}
 			</GoogleMap>
