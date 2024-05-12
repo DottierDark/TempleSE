@@ -132,7 +132,7 @@ export default function Register() {
 							})
 							.refine(
 								(value) => {
-									const numberValue = Number(value); 
+									const numberValue = Number(value);
 									return numberValue > 0;
 								},
 								{
@@ -145,7 +145,7 @@ export default function Register() {
 							})
 							.refine(
 								(value) => {
-									const numberValue = Number(value); 
+									const numberValue = Number(value);
 									return numberValue > 0;
 								},
 								{
@@ -190,16 +190,15 @@ export default function Register() {
 								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
-		3: z
-			.object({
-				firstName: z
-					.string({
-						message: 'Please enter a valid first name',
-					})
-					.min(2, {
-						message: 'First Name must be at least 2 characters.',
-					}),
-			})
+		3: z.object({
+			firstName: z
+				.string({
+					message: 'Please enter a valid first name',
+				})
+				.min(2, {
+					message: 'First Name must be at least 2 characters.',
+				}),
+		}),
 	};
 
 	const form = useForm({
