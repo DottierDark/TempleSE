@@ -249,11 +249,11 @@ export const schoolSuppliesFilterOptions = [
 		type: 'options',
 		options: [
 			{
-				value: 'Stationary' || 'stationary',
+				value: 'stationary',
 				label: 'Stationary',
 			},
 			{
-				value: 'Book' || 'book',
+				value: 'book',
 				label: 'Book',
 			},
 		],
