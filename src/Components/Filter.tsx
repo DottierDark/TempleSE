@@ -117,7 +117,8 @@ export default function Filter({
 	}, [dummyData, filters]);
 
 	return (
-		<div className="flex sticky h-[93vh] w-[20%] flex-col gap-5 bg-gray-800 p-4">
+		<div className="flex sticky h-[93vh] w-[20%] flex-col gap-5" 
+		style={{ backgroundColor: 'rgb(250, 254, 253)'}}>
 			{!hidesearchbar && (
 				<Searchbar
 					data={dummyData ?? []}
@@ -126,7 +127,8 @@ export default function Filter({
 				/>
 			)}
 			<DropdownMenu.Root modal={false}>
-				<DropdownMenu.Trigger className="flex w-fit items-center gap-2 rounded-2xl bg-blue-400 p-2 text-sm sm:text-base">
+				<DropdownMenu.Trigger className="flex w-fit items-center gap-2 rounded-2xl bg-blue-400 p-2 text-sm sm:text-base"
+				style={{ backgroundColor: 'rgb(123 201 214)'}}>
 					<PlusCircle size={20} />
 					Add Filter
 				</DropdownMenu.Trigger>

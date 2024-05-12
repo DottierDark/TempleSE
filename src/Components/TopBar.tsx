@@ -253,8 +253,7 @@ export default function TopBar() {
 		<div
 			className="sticky left-0 top-0 z-20 grid h-16 w-full grid-cols-3 grid-rows-1 p-3 transition-shadow"
 			style={{
-				background:
-					'linear-gradient(270deg,rgba(17, 39, 103, 1) 0%,rgba(52, 99, 234, 1) 100%)',
+				background:'rgb(115 203 218)',
 			}}
 		>
 			<div className="flex items-center gap-4">
