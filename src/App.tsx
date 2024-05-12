@@ -136,10 +136,19 @@ function App() {
 					path="/organisation/AccountSettings"
 					element={<DonorSettings />}
 				/>
-				<Route path="/organisation/fulfilled" element={<Fulfilled />} />
-				<Route path="/organisation/fulfilled/:id" element={<Fulfilled />} />
-				<Route path="/organisation/unfulfilled" element={<UnFulfilled />} />
-				<Route path="/organisation/unfulfilled/:id" element={<UnFulfilled />} />
+				<Route path="/organisation/fulfilled-posts" element={<Fulfilled />} />
+				<Route
+					path="/organisation/fulfilled-posts/:id"
+					element={<Fulfilled />}
+				/>
+				<Route
+					path="/organisation/unfulfilled-posts"
+					element={<UnFulfilled />}
+				/>
+				<Route
+					path="/organisation/unfulfilled-posts/:id"
+					element={<UnFulfilled />}
+				/>
 
 				<Route path="/organisation/notifications" element={<Notifications />} />
 			</Routes>

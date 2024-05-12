@@ -147,14 +147,19 @@ export default function TopBar() {
 			key: 'organisation',
 			links: [
 				{
-					name: 'Requests',
-					key: 'requests',
-					href: '/organisation/requests',
+					name: 'Fulfilled Posts',
+					key: 'fulfilled',
+					href: '/organisation/fulfilled-posts',
 				},
 				{
-					name: 'Donations',
-					key: 'donations',
-					href: '/organisation/donations',
+					name: 'Unfulfilled Posts',
+					key: 'unfulfilled',
+					href: '/organisation/unfulfilled-posts',
+				},
+				{
+					name: 'Notifications',
+					key: 'notifications',
+					href: '/organisation/notifications',
 				},
 			],
 		},

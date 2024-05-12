@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { Card } from '../../Components/shadcn/ui/card';
+
 //import fullfilled from '../../assets/Images/Organisation/Home';
 //import all from '../../assets/Images/Organisation/Home';
 export default function OrganisationHome() {
@@ -8,46 +10,45 @@ export default function OrganisationHome() {
 	};
 	return (
 		<div className="flex h-full w-full items-center justify-center">
-			<div className="grid h-[50%] w-[50%] grid-cols-3 grid-rows-2 items-center justify-center gap-20">
-				<div
-					className="flex h-full w-full flex-col items-center justify-center transition-all hover:scale-[125%]"
-					onClick={() => {
-						handleClick('fulfilled');
-					}}
+			<div className="grid h-[50%] w-[50%] grid-cols-3 grid-rows-2 items-center justify-center gap-20 pt-20">
+				<Card
+					key="Fulfilled"
+					onClick={() => handleClick('fulfilled-posts')}
+					className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
 				>
 					<img
-						src={''} //fullfilled}
-						alt="fulfilled"
-						style={{ width: '100%', height: 'auto' }}
+						className="h-[70%] w-[70%] object-contain"
+						src={''}
+						alt={'Fulfilled Posts'}
 					/>
-					<h1>FullFilled Posts</h1>
-				</div>
-				<div
-					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
-					onClick={() => {
-						handleClick('unfulfilled');
-					}}
+					<h1 className="text-2xl font-bold">FulFilled Posts</h1>
+				</Card>
+
+				<Card
+					key="unfulfilled"
+					onClick={() => handleClick('unfulfilled-posts')}
+					className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
 				>
 					<img
-						src={''} //all}
-						alt="all"
-						style={{ width: '100%', height: 'auto' }}
+						className="h-[70%] w-[70%] object-contain"
+						src={''}
+						alt={'UnFulfilled Posts'}
 					/>
-					<h1>All Posts</h1>
-				</div>
-				<div
-					className="flex h-full w-full flex-col items-center justify-center  transition-all hover:scale-[125%]"
-					onClick={() => {
-						handleClick('notifications');
-					}}
+					<h1 className="text-2xl font-bold"> UnFulFilled Posts</h1>
+				</Card>
+
+				<Card
+					key="notifications"
+					onClick={() => handleClick('notifications')}
+					className="flex h-[35vh] w-[35vh] cursor-pointer flex-col flex-col items-center justify-center  hover:shadow-2xl"
 				>
 					<img
-						src={''} //all}
-						alt="all"
-						style={{ width: '100%', height: 'auto' }}
+						className="h-[70%] w-[70%] object-contain"
+						src={''}
+						alt={'Notifications'}
 					/>
-					<h1>Notifications</h1>
-				</div>
+					<h1 className="text-2xl font-bold">Notifications</h1>
+				</Card>
 			</div>
 		</div>
 	);

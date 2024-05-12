@@ -99,7 +99,7 @@ export default function ViewList({
 			items = organizations.filter((org) => org.status === 'approved');
 			filterOptions = RegisteredOrganizationsOptions;
 			break;
-		case 'Fulfilled':
+		case 'Fulfilled-Posts':
 			items = orgPosts.filter((org) => org.condition === true);
 			filterOptions = [
 				...bloodFilterOptions,
@@ -110,7 +110,7 @@ export default function ViewList({
 				...toysFilterOptions,
 			];
 			break;
-		case 'Unfulfilled':
+		case 'UnFulfilled-Posts':
 			items = orgPosts.filter((org) => org.condition === false);
 			filterOptions = [
 				...bloodFilterOptions,
@@ -194,7 +194,8 @@ export default function ViewList({
 								key={`${item.id}-${index}`}
 								className="flex flex-row object-contain w-100 h-40 text-nowrap cursor-pointer bg-[#92BCEA]"
 								onClick={() => {
-									CardClickDonor(item);
+									if (user === 'organisation') CardClickOrg(item);
+									else CardClickDonor(item);
 								}}
 							>
 								<Cardbody {...item} />
