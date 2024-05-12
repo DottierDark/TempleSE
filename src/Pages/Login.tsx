@@ -22,7 +22,7 @@ export default function Login() {
 		username: z.string().min(3, {
 			message: 'Wrong Username.',
 		}),
-		password: z.string().min(7, {
+		password: z.string().min(6, {
 			message: 'Wrong Password.',
 		}),
 	});
