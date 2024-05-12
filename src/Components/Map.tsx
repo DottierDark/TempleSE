@@ -60,34 +60,6 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 	return (
 		<div>
 			<form>
-				<input
-					type="number"
-					name="lat"
-					value={newMarker.lat}
-					onChange={handleInputChange}
-					placeholder="Latitude"
-				/>
-				<input
-					type="number"
-					name="lng"
-					value={newMarker.lng}
-					onChange={handleInputChange}
-					placeholder="Longitude"
-				/>
-				<input
-					type="text"
-					name="content"
-					value={newMarker.content}
-					onChange={handleInputChange}
-					placeholder="Marker Content"
-				/>
-				<input
-					type="text"
-					name="color"
-					value={newMarker.color}
-					onChange={handleInputChange}
-					placeholder="Marker Color"
-				/>
 				<button
 					type="button"
 					onClick={() => {
