@@ -29,12 +29,15 @@ import { cn } from '../shadcn/lib/utils';
 import { Input } from '../shadcn/ui/input';
 import { toast } from '../shadcn/ui/use-toast';
 import { ToastAction } from '../shadcn/ui/toast';
+import { FormMessage } from '../shadcn/ui/form';
 export default function Details({
 	replacementTitle,
 	acceptRequest,
+	canDelete,
 	children,
 }: React.PropsWithChildren<{
 	replacementTitle?: string;
+	canDelete?: boolean;
 	acceptRequest?: boolean;
 }>) {
 	const {
@@ -50,6 +53,7 @@ export default function Details({
 	const { handleSubmit } = useFormContext();
 	const navigate = useNavigate();
 
+	const [quantity, setQuantity] = useState<number>(1);
 	const [vehicleType, setVehicleType] = useState<string>();
 	const [date, setDate] = useState<string>();
 	const [time, setTime] = useState<string>();
@@ -76,15 +80,27 @@ export default function Details({
 							: replacementTitle ?? `${title} - ${id}` + ` Details`}
 				</h1>
 				{canEdit && (
-					<div className="flex items-center gap-4">
-						<Button className="text-white w-32 h-10 text-lg" type="submit">
-							{isAddMode && !replacementTitle
-								? 'Add'
-								: isEditMode
-									? 'Save'
-									: 'Edit'}
-						</Button>
-					</div>
+					<Button className="text-white w-32 h-10 text-lg" type="submit">
+						{isAddMode && !replacementTitle
+							? 'Add'
+							: isEditMode
+								? 'Save'
+								: 'Edit'}
+					</Button>
+				)}
+				{canDelete && (
+					<Button
+						className="text-white w-32 h-10 text-lg"
+						onClick={() => {
+							toast({
+								title: 'Deleted!',
+								description: `The ${title} has been deleted.`,
+							});
+							navigate(-1);
+						}}
+					>
+						Delete
+					</Button>
 				)}
 				{acceptRequest && (
 					<Sheet>
@@ -102,6 +118,16 @@ export default function Details({
 								</SheetDescription>
 							</SheetHeader>
 							<div className="flex flex-col gap-6 py-6">
+								<div className="flex flex-col gap-2">
+									<Label>Quantity</Label>
+									<Input
+										type="number"
+										onChange={(e) =>
+											setQuantity(Math.abs(parseInt(e.target.value)))
+										}
+										value={quantity}
+									/>
+								</div>
 								<div className="flex flex-col gap-2">
 									<Label>Type of vehicle</Label>
 									<Select
@@ -156,7 +182,7 @@ export default function Details({
 								<SheetClose asChild>
 									<Button
 										type="submit"
-										disabled={!vehicleType || !date || !time}
+										disabled={!vehicleType || !date || !time || !quantity}
 										onClick={() => {
 											toast({
 												title: 'Donation request accepted!',

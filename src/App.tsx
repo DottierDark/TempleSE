@@ -71,6 +71,10 @@ import AdminSettings from './Pages/Admin/Settings/AdminSettings';
 import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
 import OrganisationSettings from './Pages/Organisation/Settings/OrganisationSettings';
 import Donors from './Pages/Admin/Views/Donors';
+import OrganisationHome from './Pages/Organisation/Home';
+import UnfulfilledPost from './Pages/Organisation/Details/UnfulfilledPost';
+import FulfilledPost from './Pages/Organisation/Details/FulfilledPost';
+import Post from './Pages/Organisation/Details/Post';
 
 function App() {
 	return (
@@ -125,7 +129,7 @@ function App() {
 				<Route path="/donor/medical-cases/:id" element={<MedicalCase />} />
 
 				{/* Organisation Pages*/}
-				<Route path="/organisation" element={<OrgHome />} />
+				<Route path="/organisation" element={<OrganisationHome />} />
 				<Route
 					path="/organisation/settings"
 					element={<OrganisationSettings />}
@@ -133,7 +137,7 @@ function App() {
 				<Route path="/organisation/fulfilled-posts" element={<Fulfilled />} />
 				<Route
 					path="/organisation/fulfilled-posts/:id"
-					element={<Fulfilled />}
+					element={<FulfilledPost />}
 				/>
 				<Route
 					path="/organisation/unfulfilled-posts"
@@ -141,10 +145,10 @@ function App() {
 				/>
 				<Route
 					path="/organisation/unfulfilled-posts/:id"
-					element={<UnFulfilled />}
+					element={<UnfulfilledPost />}
 				/>
-
 				<Route path="/organisation/notifications" element={<Notifications />} />
+				<Route path="/organisation/create-post" element={<Post />} />
 			</Routes>
 		</BrowserRouter>
 	);
