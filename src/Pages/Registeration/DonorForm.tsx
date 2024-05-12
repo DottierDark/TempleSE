@@ -88,16 +88,16 @@ export default function DonorForm() {
 				<div className="flex gap-5">
 					<FormField
 						control={control}
-						name="classes"
+						name="specialty"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
 								<FormLabel className="text-base font-heading ml-1">
-									Classes
+									Specialty
 								</FormLabel>
 								<FormControl>
 									<Input
 										className="shadow-inner"
-										placeholder="Classe"
+										placeholder="Insert Specialty"
 										{...field}
 									/>
 								</FormControl>
