@@ -378,7 +378,7 @@ export const foods: TFoodItem[] = [
 	{
 		id: 2,
 		name: 'Apple',
-		type: 'fruits & vegetables',
+		type: 'fruits and vegetables',
 		quantity: 30,
 		img: Fresh,
 	},
@@ -427,7 +427,7 @@ export const foods: TFoodItem[] = [
 	{
 		id: 9,
 		name: 'Banana',
-		type: 'fruits & vegetables',
+		type: 'fruits and vegetables',
 		quantity: 20,
 		img: Frozen,
 	},

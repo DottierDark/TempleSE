@@ -29,7 +29,6 @@ export default function Stage1({
 	useEffect(() => {
 		setFormType(selectedType);
 	}, [selectedType]);
-	const navigate = useNavigate();
 	return (
 		<>
 			<div className="flex gap-5">

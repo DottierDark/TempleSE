@@ -223,6 +223,8 @@ export type TOrgPost = {
 	| TToyItem
 	| TClothesItem
 	| TSchoolSuppliesItem
+	| TMedicalCase
+	| TTeachingPost
 );
 
 
