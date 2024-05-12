@@ -12,11 +12,9 @@ import DonorForm from './DonorForm';
 import OrganisationForm from './OrganisationForm';
 
 export default function Register() {
-	const [formType, setFormType] = useState<'donor' | 'organisation'>(
-		'organisation'
-	);
+	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2>(2);
+	const [stage, setStage] = useState<1 | 2>(1);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
@@ -189,8 +187,8 @@ export default function Register() {
 			lastName: '',
 			userName: '',
 			contactNumber: '',
-			donor_type: '',
-			type: 'regular',
+			donor_type: 'regular',
+			type: 'donor',
 		},
 	});
 
