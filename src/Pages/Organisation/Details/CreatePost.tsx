@@ -261,7 +261,7 @@ export default function CreatePost() {
 		setType(watch('type'));
 	}, [watch('type')]);
 
-	const { control, handleSubmit, trigger } = form;
+	const { control, handleSubmit } = form;
 	const onSubmit = (data: TOrgPost) => {
 		toast({
 			title: 'Post created!',

@@ -67,7 +67,7 @@ export default function Stationary({
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Stationary" id={id} canEdit={false}>
-				<Details acceptRequest={!children}>
+				<Details acceptRequest={!children} canDelete={!!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						{children}
 						<TextField
