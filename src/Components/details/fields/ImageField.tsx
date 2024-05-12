@@ -33,11 +33,11 @@ export default function ImageField({
 	const preview = watch(name);
 
 	const image = (
-		<div className="w-64 h-40">
+		<div className="h-40 bg-slate-300 flex w-full items-center justify-center rounded-lg">
 			<img
 				src={preview}
 				alt={label}
-				className="w-64 h-40 border-[#171A21] border border-solid rounded-lg"
+				className="w-64 h-40 border-[#171A21] border border-solid rounded-lg "
 			/>
 		</div>
 	);
@@ -67,7 +67,7 @@ export default function ImageField({
 					) : value ? (
 						image
 					) : (
-						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
 							No image yet!
 						</span>
 					)}

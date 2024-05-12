@@ -48,7 +48,7 @@ export default function TextareaField({
 							</FormControl>
 						</>
 					) : (
-						<span className="flex min-h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+						<span className="flex min-h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
 							{value}
 						</span>
 					)}

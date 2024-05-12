@@ -71,7 +71,7 @@ export default function Details({
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-			<div className="h-12 w-full flex justify-between pl-6 pr-12 items-center">
+			<div className="h-16 w-full flex justify-between pl-6 pr-12  items-center bg-white rounded-b-lg">
 				<h1 className="text-3xl font-bold text-black">
 					{isAddMode && !replacementTitle
 						? `Add ${title}`
@@ -210,7 +210,9 @@ export default function Details({
 					</Sheet>
 				)}
 			</div>
-			{children}
+			<div className="flex flex-col w-full h-full items-center justify-center p-5">
+				<div className="flex flex-col bg-white w-full h-full rounded-lg">{children}</div>
+			</div>
 		</form>
 	);
 }
