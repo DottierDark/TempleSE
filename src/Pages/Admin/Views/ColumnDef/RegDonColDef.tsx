@@ -27,6 +27,11 @@ export const columns: ColumnDef<Donor>[] = [
 		),
 	},
 	{
+		accessorKey: 'type',
+		header: 'Type',
+		cell: ({ row }) => <div>{row.getValue('type')}</div>,
+	},
+	{
 		accessorKey: 'email',
 		header: 'Email',
 		cell: ({ row }) => <div className="lowercase">{row.getValue('email')}</div>,

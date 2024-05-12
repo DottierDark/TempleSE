@@ -20,6 +20,7 @@ export type Organization = {
 export type Donor = {
 	firstname: string;
 	secondname: string;
+	type: 'regular' | 'doctor' | 'teacher';
 	area: string;
 	gov: string;
 	email: string;
