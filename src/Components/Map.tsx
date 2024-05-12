@@ -34,7 +34,6 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 			setEditableMarkers([...editableMarkers, newMarker]);
 		}
 	};
-	
 
 	const handleMarkerEdit = (index: number, newContent: string | null) => {
 		if (newContent !== null) {
@@ -89,7 +88,13 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 					onChange={handleInputChange}
 					placeholder="Marker Color"
 				/>
-				<button type="button" onClick={handleMarkerAdd}>
+				<button
+					type="button"
+					onClick={() => {
+						setEditableMarkers([...editableMarkers, newMarker]);
+						setNewMarker({ lat: 0, lng: 0, content: '', color: 'red' });
+					}}
+				>
 					Add Marker
 				</button>
 			</form>
