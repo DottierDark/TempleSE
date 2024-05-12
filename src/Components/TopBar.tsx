@@ -15,12 +15,22 @@ import { cn } from './shadcn/lib/utils';
 // import { toast } from "react-toastify"; // Import if using react-toastify
 import { ToastAction } from './shadcn/ui/toast';
 import { toast } from './shadcn/ui/use-toast';
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
+} from './shadcn/ui/breadcrumb';
+import { Slash } from 'lucide-react';
 
 export default function TopBar() {
 	const navigate = useNavigate();
 	const location = window.location.pathname;
 
 	const [type, setType] = useState<string | null>(null);
+	const [breadCrumb, setBreadCrumb] = useState<string[]>([]);
 	const user = JSON.parse(localStorage.getItem('user') || '{}');
 
 	const onLogout = () => {
@@ -83,6 +93,8 @@ export default function TopBar() {
 
 	useEffect(() => {
 		setType(location.split('/')[1]);
+
+		setBreadCrumb([breadCrumb[1], window.location.pathname]);
 
 		// Check if the toast has already been shown in this session
 		const toastShown = sessionStorage.getItem('toastShown');
@@ -249,9 +261,22 @@ export default function TopBar() {
 		},
 	];
 
+	const currentLocation =
+		window.location.pathname.split('/')[
+			window.location.pathname.split('/').length - 1
+		];
+	const previousLocation =
+		breadCrumb[0]?.split('/')[breadCrumb[0]?.split('/').length - 1];
+
+	const currentLocationCapitalized =
+		currentLocation.charAt(0)?.toUpperCase() + currentLocation.slice(1);
+	const previousLocationCapitalized =
+		previousLocation?.charAt(0)?.toUpperCase() + previousLocation?.slice(1);
+	const isSameLocation = currentLocation === previousLocation;
+
 	return type != 'register' && type != '' ? (
 		<div
-			className="sticky left-0 top-0 z-20 grid h-16 w-full grid-cols-3 grid-rows-1 p-3 transition-shadow"
+			className="sticky left-0 top-0 z-20 h-16 w-full flex items-center justify-between px-4  p-3 transition-shadow"
 			style={{
 				background:
 					'linear-gradient(270deg,rgba(17, 39, 103, 1) 0%,rgba(52, 99, 234, 1) 100%)',
@@ -341,7 +366,25 @@ export default function TopBar() {
 					)}
 				</NavigationMenuList>
 			</NavigationMenu>
-			<div></div>
+			<Breadcrumb>
+				{!isSameLocation ? (
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink href={breadCrumb[0]}>
+								{previousLocationCapitalized}
+							</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator>
+							<Slash />
+						</BreadcrumbSeparator>
+						<BreadcrumbItem>
+							<BreadcrumbPage>{currentLocationCapitalized}</BreadcrumbPage>
+						</BreadcrumbItem>
+					</BreadcrumbList>
+				) : (
+					<div className="w-36" />
+				)}
+			</Breadcrumb>
 		</div>
 	) : null;
 }
