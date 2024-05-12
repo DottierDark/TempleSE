@@ -36,7 +36,7 @@ export default function TextareaField({
 			name={name}
 			render={({ field }) => (
 				<FormItem className="flex flex-col min-h-9">
-					<FormLabel>{label}</FormLabel>
+					<FormLabel className="text-base font-heading ml-1">{label}</FormLabel>
 					{addEditMode ? (
 						<>
 							<FormControl>
