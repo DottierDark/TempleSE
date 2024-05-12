@@ -19,16 +19,16 @@ export default function Post() {
 
 	const children = (
 		<>
-			<div className="flex flex-col h-[100px] ">
+			<div className="flex flex-col h-[100px] space-y-2">
 				<Label>Post category</Label>
-				<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+				<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
 					{post.postCategory}
 				</span>
 				<FormDescription>Category of the post</FormDescription>
 			</div>
-			<div className="flex flex-col h-[100px] ">
+			<div className="flex flex-col h-[100px] space-y-2">
 				<Label>Fulfilled</Label>
-				<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px">
+				<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
 					{post.condition ? 'Yes' : 'No'}
 				</span>
 				<FormDescription>Fulfilled or not</FormDescription>
