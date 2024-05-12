@@ -30,9 +30,15 @@ export default function DonorForm() {
 						name="subjects"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>Subjects</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									Subjects
+								</FormLabel>
 								<FormControl>
-									<Input placeholder="Subjects" {...field} />
+									<Input
+										className="shadow-inner"
+										placeholder="Subjects"
+										{...field}
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -43,9 +49,11 @@ export default function DonorForm() {
 						name="teach"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>How many classes can you teach?</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									How many classes can you teach?
+								</FormLabel>
 								<FormControl>
-									<Input placeholder="5" {...field} />
+									<Input className="shadow-inner" placeholder="5" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -57,10 +65,12 @@ export default function DonorForm() {
 					name="proofteacher"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
-							<FormLabel>Proof of Work</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Proof of Work
+							</FormLabel>
 							<FormControl>
 								<Input
-									className="flex rounded-full border space-x-2"
+									className="flex rounded-full border space-x-2 shadow-inner"
 									id="file"
 									type="file"
 									multiple={true}
@@ -81,9 +91,15 @@ export default function DonorForm() {
 						name="classes"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>Classes</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									Classes
+								</FormLabel>
 								<FormControl>
-									<Input placeholder="Classe" {...field} />
+									<Input
+										className="shadow-inner"
+										placeholder="Classe"
+										{...field}
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -94,9 +110,11 @@ export default function DonorForm() {
 						name="cases"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>How many cases can you take?</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									How many cases can you take?
+								</FormLabel>
 								<FormControl>
-									<Input placeholder="6" {...field} />
+									<Input className="shadow-inner" placeholder="6" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -108,10 +126,12 @@ export default function DonorForm() {
 					name="proofdoctor"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
-							<FormLabel>Proof of Work</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Proof of Work
+							</FormLabel>
 							<FormControl>
 								<Input
-									className="flex rounded-full border space-x-2"
+									className="flex rounded-full border space-x-2 shadow-inner"
 									id="file"
 									type="file"
 									multiple={true}
@@ -133,9 +153,15 @@ export default function DonorForm() {
 				name="address"
 				render={({ field }) => (
 					<FormItem className="flex flex-col h-[100px] w-full">
-						<FormLabel>Address</FormLabel>
+						<FormLabel className="text-base font-heading ml-1">
+							Address
+						</FormLabel>
 						<FormControl>
-							<Input placeholder="123 Main St." {...field} />
+							<Input
+								className="shadow-inner"
+								placeholder="123 Main St."
+								{...field}
+							/>
 						</FormControl>
 						<FormMessage />
 					</FormItem>
@@ -147,9 +173,11 @@ export default function DonorForm() {
 					name="area"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Area</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Area
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="Area" {...field} />
+								<Input className="shadow-inner" placeholder="Area" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -160,9 +188,11 @@ export default function DonorForm() {
 					name="city"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>City</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								City
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="City" {...field} />
+								<Input className="shadow-inner" placeholder="City" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -174,10 +204,12 @@ export default function DonorForm() {
 				name="donor_type"
 				render={({ field }) => (
 					<FormItem className="flex flex-col h-[100px]">
-						<FormLabel>Type of donation</FormLabel>
+						<FormLabel className="text-base font-heading ml-1">
+							Type of donation
+						</FormLabel>
 						<Select onValueChange={field.onChange} defaultValue={field.value}>
 							<FormControl>
-								<SelectTrigger>
+								<SelectTrigger className="shadow-inner">
 									<SelectValue placeholder="Select the type of donation you can offer" />
 								</SelectTrigger>
 							</FormControl>

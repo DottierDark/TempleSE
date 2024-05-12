@@ -37,9 +37,15 @@ export default function Stage1({
 					name="firstName"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>First Name</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								First Name
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="ahmed" {...field} />
+								<Input
+									className="shadow-inner"
+									placeholder="ahmed"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -50,9 +56,15 @@ export default function Stage1({
 					name="lastName"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Last Name</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Last Name
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="mohamed" {...field} />
+								<Input
+									className="shadow-inner"
+									placeholder="mohamed"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -65,9 +77,15 @@ export default function Stage1({
 					name="userName"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Email</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Email
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="ahmed123@gmail.com" {...field} />
+								<Input
+									className="shadow-inner"
+									placeholder="ahmed123@gmail.com"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -78,9 +96,15 @@ export default function Stage1({
 					name="contactNumber"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Contact Number</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Contact Number
+							</FormLabel>
 							<FormControl>
-								<Input placeholder="01000100022" {...field} />
+								<Input
+									className="shadow-inner"
+									placeholder="01000100022"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -93,10 +117,12 @@ export default function Stage1({
 					name="gender"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>Gender</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Gender
+							</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
-									<SelectTrigger>
+									<SelectTrigger className="shadow-inner">
 										<SelectValue placeholder="Select your gender" />
 									</SelectTrigger>
 								</FormControl>
@@ -114,10 +140,12 @@ export default function Stage1({
 					name="type"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px] w-72">
-							<FormLabel>I am a</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								I am a
+							</FormLabel>
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
-									<SelectTrigger>
+									<SelectTrigger className="shadow-inner">
 										<SelectValue placeholder="Select which type of user you are" />
 									</SelectTrigger>
 								</FormControl>
@@ -138,9 +166,16 @@ export default function Stage1({
 				name="password"
 				render={({ field }) => (
 					<FormItem className="flex flex-col h-[100px] w-72">
-						<FormLabel>Password</FormLabel>
+						<FormLabel className="text-base font-heading ml-1">
+							Password
+						</FormLabel>
 						<FormControl>
-							<Input placeholder="password123" type="password" {...field} />
+							<Input
+								className="shadow-inner"
+								placeholder="password123"
+								type="password"
+								{...field}
+							/>
 						</FormControl>
 						<FormMessage />
 					</FormItem>
@@ -151,9 +186,16 @@ export default function Stage1({
 				name="confirmPassword"
 				render={({ field }) => (
 					<FormItem className="flex flex-col h-[100px] w-72">
-						<FormLabel>Confirm Password</FormLabel>
+						<FormLabel className="text-base font-heading ml-1">
+							Confirm Password
+						</FormLabel>
 						<FormControl>
-							<Input placeholder="password123" type="password" {...field} />
+							<Input
+								className="shadow-inner"
+								placeholder="password123"
+								type="password"
+								{...field}
+							/>
 						</FormControl>
 						<FormMessage />
 					</FormItem>

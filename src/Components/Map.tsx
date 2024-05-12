@@ -60,40 +60,13 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 	return (
 		<div>
 			<form>
-				<input
-					type="number"
-					name="lat"
-					value={newMarker.lat}
-					onChange={handleInputChange}
-					placeholder="Latitude"
-				/>
-				<input
-					type="number"
-					name="lng"
-					value={newMarker.lng}
-					onChange={handleInputChange}
-					placeholder="Longitude"
-				/>
-				<input
-					type="text"
-					name="content"
-					value={newMarker.content}
-					onChange={handleInputChange}
-					placeholder="Marker Content"
-				/>
-				<input
-					type="text"
-					name="color"
-					value={newMarker.color}
-					onChange={handleInputChange}
-					placeholder="Marker Color"
-				/>
 				<button
 					type="button"
 					onClick={() => {
 						setEditableMarkers([...editableMarkers, newMarker]);
 						setNewMarker({ lat: 0, lng: 0, content: '', color: 'red' });
 					}}
+					className="text-3xl  font-heading ml-1"
 				>
 					Add Marker
 				</button>
@@ -105,8 +78,8 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 			>
 				<GoogleMap
 					mapContainerStyle={{ height: '400px', width: '600px' }}
-					zoom={3}
-					center={{ lat: 37.7749, lng: -122.4194 }} // Initial center coordinates
+					zoom={7}
+					center={{ lat: 26.8206, lng: 30.8025 }} // Initial center coordinates
 					onClick={handleMarkerAdd}
 					onLoad={(mapInstance: google.maps.Map) => setMap(mapInstance)}
 				>

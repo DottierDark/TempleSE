@@ -10,6 +10,8 @@ import {
 	DropdownMenuTrigger,
 } from '../../../../Components/shadcn/ui/dropdown-menu';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
+import { ToastAction } from "../../../../Components/shadcn/ui/toast"
+import { useToast } from "../../../../Components/shadcn/ui/use-toast"
 
 export const columns: ColumnDef<Donor>[] = [
 	{
@@ -77,6 +79,8 @@ export const columns: ColumnDef<Donor>[] = [
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
+			const { toast } = useToast()
+			
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -87,9 +91,19 @@ export const columns: ColumnDef<Donor>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
-
+                        
 						<DropdownMenuItem
-						//onClick={() =>
+						   onClick={() => {
+							toast({
+							  title: "File Downloaded Successfuly ",
+							  description: "",
+							  action: (
+								<ToastAction altText="Go to see">Undo</ToastAction>
+							  ),
+							})
+						  }}
+						   
+							
 						>
 							Download Submited Documents
 						</DropdownMenuItem>
