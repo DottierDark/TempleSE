@@ -66,6 +66,7 @@ const EditableMap: React.FC<EditableMapProps> = ({ markers }) => {
 						setEditableMarkers([...editableMarkers, newMarker]);
 						setNewMarker({ lat: 0, lng: 0, content: '', color: 'red' });
 					}}
+					className="text-3xl  font-heading ml-1"
 				>
 					Add Marker
 				</button>
