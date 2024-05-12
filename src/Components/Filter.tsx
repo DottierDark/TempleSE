@@ -165,7 +165,12 @@ export default function Filter({
 					key={i}
 					className="mr-2 flex items-center justify-between rounded-md bg-blue-400 px-2 py-1"
 				>
-					{Object.keys(filter)[0]} {filter[Object.keys(filter)[0]].operand}{' '}
+					{
+						columnFilters.find(
+							(columnFilter) => columnFilter.id === Object.keys(filter)[0]
+						)?.label
+					}{' '}
+					{filter[Object.keys(filter)[0]].operand}{' '}
 					{filter[Object.keys(filter)[0]].value}
 					<button
 						type="button"

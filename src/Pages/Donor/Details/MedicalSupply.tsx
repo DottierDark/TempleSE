@@ -36,7 +36,7 @@ export default function MedicalSupply() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Medical supply" id={id} canEdit={false}>
-				<Details>
+				<Details acceptRequest>
 					<div className="grid grid-cols-2 gap-5 p-6">
 						<NumberField
 							name="quantity"

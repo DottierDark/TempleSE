@@ -186,7 +186,7 @@ export default function ViewList({
 						</Pagination>
 					</div>
 				</div>
-				<div className="grid grid-cols-3 gap-5 p-4 grid-flow-row w-[80vw] h-[80vh] grid-flow-dense">
+				<div className="grid grid-cols-3 gap-5 p-4 w-[80vw] h-[80vh] grid-flow-dense">
 					{data
 						.slice(page * pageSize, (page + 1) * pageSize)
 						.map((item, index) => (

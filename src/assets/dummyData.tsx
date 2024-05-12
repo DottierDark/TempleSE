@@ -563,45 +563,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 			'Set in a distant future where noble houses vie for control of the desert planet Arrakis',
 		itemType: 'book',
 	},
-	{
-		id: 10,
-		name: 'Roar',
-		img: books,
-		quantity: 30,
-		bookName: 'Roar',
-		author: 'Emma White',
-		language: 'English',
-		edition: '3rd',
-		summary:
-			'Join a lion cubs journey through the savannah.',
-		itemType: 'book',
-	},
-	{
-		id: 11,
-		name: 'Wish',
-		img: books,
-		quantity: 40,
-		bookName: 'Wish',
-		author: 'Grace Park',
-		language: 'English',
-		edition: '4th',
-		summary:
-			' A magical story of wishes coming true.',
-		itemType: 'book',
-	},
-	{
-		id: 12,
-		name: 'Zoom',
-		img: books,
-		quantity: 50,
-		bookName: 'Zoom',
-		author: 'Max Gray',
-		language: 'English',
-		edition: '5th',
-		summary:
-			'Follow a race car zooming around the track.',
-		itemType: 'book',
-	},
+	
 	{
 		id: 13,
 		name: 'Glow',

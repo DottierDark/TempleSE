@@ -62,7 +62,7 @@ export default function Register() {
 					.string({
 						message: 'Please enter a valid password',
 					})
-					.min(8, {
+					.min(6, {
 						message: 'Password must be at least 8 characters',
 					}),
 				confirmPassword: z.string({
@@ -188,6 +188,7 @@ export default function Register() {
 			userName: '',
 			contactNumber: '',
 			donor_type: '',
+			type: 'regular',
 		},
 	});
 

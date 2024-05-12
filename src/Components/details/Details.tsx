@@ -31,9 +31,11 @@ import { toast } from '../shadcn/ui/use-toast';
 import { ToastAction } from '../shadcn/ui/toast';
 export default function Details({
 	replacementTitle,
+	acceptRequest,
 	children,
 }: React.PropsWithChildren<{
 	replacementTitle?: string;
+	acceptRequest?: boolean;
 }>) {
 	const {
 		isAddMode,
@@ -63,10 +65,6 @@ export default function Details({
 		}
 	};
 
-	const isDonorPage =
-		location.pathname.includes('donor') &&
-		!location.pathname.includes('settings');
-
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className="h-12 w-full flex justify-between pl-6 pr-12 items-center">
@@ -88,7 +86,7 @@ export default function Details({
 						</Button>
 					</div>
 				)}
-				{isDonorPage && (
+				{acceptRequest && (
 					<Sheet>
 						<SheetTrigger asChild>
 							<Button className="text-white w-44 h-10 text-lg">

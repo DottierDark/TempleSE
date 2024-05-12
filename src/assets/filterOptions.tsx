@@ -249,11 +249,11 @@ export const schoolSuppliesFilterOptions = [
 		type: 'options',
 		options: [
 			{
-				value: 'Stationary' || 'stationary',
+				value: 'stationary',
 				label: 'Stationary',
 			},
 			{
-				value: 'Book' || 'book',
+				value: 'book',
 				label: 'Book',
 			},
 		],
@@ -355,44 +355,44 @@ export const OrgOptions = [
 	},
 ];
 export const UnRegisteredDonorsOptions = [
-	{  
-	id: 'area',
-	label: 'Area',
-	type: 'options',
-	options: [
-		{
-			value: 'Anytown',
-			label: 'Anytown',
-		},
-		{
-			value: 'Othertown',
-			label: 'Othertown',
-		},
-		{
-			value: 'Another town',
-			label: 'Another town',
-		},
-	],
-   },
-   {
-	id: 'gov',
-	label: 'Gov',
-	type: 'options',
-	options: [
-		{
-			value: 'CA',
-			label: 'CA',
-		},
-		{
-			value: 'NY',
-			label: 'NY',
-		},
-		{
-			value: 'TX',
-			label: 'TX',
-		},
-	],
-   },
+	{
+		id: 'area',
+		label: 'Area',
+		type: 'options',
+		options: [
+			{
+				value: 'Anytown',
+				label: 'Anytown',
+			},
+			{
+				value: 'Othertown',
+				label: 'Othertown',
+			},
+			{
+				value: 'Another town',
+				label: 'Another town',
+			},
+		],
+	},
+	{
+		id: 'gov',
+		label: 'Gov',
+		type: 'options',
+		options: [
+			{
+				value: 'CA',
+				label: 'CA',
+			},
+			{
+				value: 'NY',
+				label: 'NY',
+			},
+			{
+				value: 'TX',
+				label: 'TX',
+			},
+		],
+	},
 ];
 
 export const RegisteredOrganizationsOptions = [
@@ -504,5 +504,57 @@ export const TeachingPostsOptions = [
 		id: 'gov',
 		label: 'Governorate',
 		type: 'string',
+	},
+];
+
+export const donorOptions = [
+	{
+		id: 'firstname',
+		label: 'First Name',
+		type: 'string',
+	},
+	{
+		id: 'secondname',
+		label: 'Second Name',
+		type: 'string',
+	},
+	{
+		id: 'area',
+		label: 'Area',
+		type: 'string',
+	},
+	{
+		id: 'gov',
+		label: 'Governorate',
+		type: 'string',
+	},
+	{
+		id: 'email',
+		label: 'Email',
+		type: 'string',
+	},
+	{
+		id: 'contactPhone',
+		label: 'Contact Phone',
+		type: 'string',
+	},
+	{
+		id: 'status',
+		label: 'Status',
+		type: 'options',
+		options: [
+			{
+				value: 'approved',
+				label: 'Approved',
+			},
+			{
+				value: 'pending',
+				label: 'Pending',
+			},
+			{
+				value: 'rejected',
+				label: 'Rejected',
+			},
+		],
 	},
 ];
