@@ -19,11 +19,11 @@ import { User } from '../types';
 export default function Login() {
 	const navigate = useNavigate();
 	const formSchema = z.object({
-		username: z.string().min(2, {
-			message: 'Username must be at least 3 characters.',
+		username: z.string().min(3, {
+			message: 'Wrong Username.',
 		}),
-		password: z.string().min(5, {
-			message: 'Password must be at least 6 characters.',
+		password: z.string().min(7, {
+			message: 'Wrong Password.',
 		}),
 	});
 
