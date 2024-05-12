@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
 	ColumnDef,
@@ -8,7 +8,7 @@ import {
 	getPaginationRowModel,
 	getFilteredRowModel,
 	ColumnFiltersState,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table';
 
 import {
 	Table,
@@ -17,10 +17,10 @@ import {
 	TableHead,
 	TableHeader,
 	TableRow,
-} from "./table";
-import { Button } from "./button";
-import { Input } from "./input";
-import React from "react";
+} from './table';
+import { Button } from './button';
+import { Input } from './input';
+import React from 'react';
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -31,8 +31,10 @@ export function DataTable<TData, TValue>({
 	columns,
 	data,
 }: DataTableProps<TData, TValue>) {
-	const [columnFilters, setColumnFilters] =
-		React.useState<ColumnFiltersState>([]);
+	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+		[]
+	);
+	const location = window.location.pathname.split('/')[2];
 	const table = useReactTable({
 		data,
 		columns,
@@ -51,16 +53,16 @@ export function DataTable<TData, TValue>({
 				<Input
 					placeholder="Search Organizations..."
 					value={
-						(table.getColumn("name")?.getFilterValue() as string) ??
-						""
+						(table.getColumn('name')?.getFilterValue() as string) ||
+						(table.getColumn('firstname')?.getFilterValue() as string) ||
+						''
 					}
 					onChange={(event) =>
-						table
-							.getColumn("name")
-							?.setFilterValue(event.target.value)
+						table.getColumn('name')?.setFilterValue(event.target.value) ||
+						table.getColumn('firstname')?.setFilterValue(event.target.value)
 					}
 					className="max-w-sm"
-				/>{" "}
+				/>{' '}
 			</div>
 			<Table>
 				<TableHeader>
@@ -72,9 +74,8 @@ export function DataTable<TData, TValue>({
 										{header.isPlaceholder
 											? null
 											: flexRender(
-													header.column.columnDef
-														.header,
-													header.getContext(),
+													header.column.columnDef.header,
+													header.getContext()
 												)}
 									</TableHead>
 								);
@@ -87,24 +88,18 @@ export function DataTable<TData, TValue>({
 						table.getRowModel().rows.map((row) => (
 							<TableRow
 								key={row.id}
-								data-state={row.getIsSelected() && "selected"}
+								data-state={row.getIsSelected() && 'selected'}
 							>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell key={cell.id}>
-										{flexRender(
-											cell.column.columnDef.cell,
-											cell.getContext(),
-										)}
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
 									</TableCell>
 								))}
 							</TableRow>
 						))
 					) : (
 						<TableRow>
-							<TableCell
-								colSpan={columns.length}
-								className="h-24 text-center"
-							>
+							<TableCell colSpan={columns.length} className="h-24 text-center">
 								No results.
 							</TableCell>
 						</TableRow>

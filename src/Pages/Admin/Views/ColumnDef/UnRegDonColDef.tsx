@@ -51,9 +51,7 @@ export const columns: ColumnDef<Donor>[] = [
 				donor.status = 'approved';
 				// Perform any other necessary actions
 			};
-			return (
-			   <Button onClick={handleAccept}>Accept Request</Button>
-			)
+			return <Button onClick={handleAccept}>Accept Request</Button>;
 		},
 	},
 	{
@@ -66,9 +64,7 @@ export const columns: ColumnDef<Donor>[] = [
 				donor.status = 'rejected';
 				// Perform any other necessary actions
 			};
-			return (
-			   <Button onClick={handleReject}>Reject Request</Button>
-			)
+			return <Button onClick={handleReject}>Reject Request</Button>;
 		},
 	},
 
@@ -76,8 +72,6 @@ export const columns: ColumnDef<Donor>[] = [
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			
-
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -88,7 +82,7 @@ export const columns: ColumnDef<Donor>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
-								
+
 						<DropdownMenuItem
 						//onClick={() =>
 						>

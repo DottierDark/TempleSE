@@ -41,7 +41,7 @@ export const columns: ColumnDef<Organization>[] = [
 	},
 	{
 		id: 'actions',
-		enableHiding: false,
+		enableHiding: true,
 		cell: ({ row }) => {
 			const handleAccept = () => {
 				// Change the status of the organization to rejected
@@ -49,16 +49,13 @@ export const columns: ColumnDef<Organization>[] = [
 				organization.status = 'approved';
 				// Perform any other necessary actions
 			};
-			return (
-			   <Button onClick={handleAccept}>Accept Request</Button>
-			)
+			return <Button onClick={handleAccept}>Accept Request</Button>;
 		},
 	},
 	{
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			
 			const handleReject = () => {
 				// Change the status of the organization to rejected
 				const organization = row.original;
@@ -66,9 +63,7 @@ export const columns: ColumnDef<Organization>[] = [
 				// Perform any other necessary actions
 			};
 
-			return (
-			   <Button onClick={handleReject}>Reject Request</Button>
-			)
+			return <Button onClick={handleReject}>Reject Request</Button>;
 		},
 	},
 
@@ -76,9 +71,6 @@ export const columns: ColumnDef<Organization>[] = [
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			
-		
-
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
@@ -89,7 +81,7 @@ export const columns: ColumnDef<Organization>[] = [
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
-				
+
 						<DropdownMenuItem
 						//onClick={() =>
 						>
