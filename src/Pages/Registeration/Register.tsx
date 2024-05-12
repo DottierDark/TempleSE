@@ -15,7 +15,7 @@ import Stage3 from './Stage3';
 export default function Register() {
 	const [formType, setFormType] = useState<'donor' | 'organisation'>('donor');
 	const navigate = useNavigate();
-	const [stage, setStage] = useState<1 | 2 | 3>(3);
+	const [stage, setStage] = useState<1 | 2 | 3>(1);
 
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
@@ -65,7 +65,7 @@ export default function Register() {
 						message: 'Please enter a valid password',
 					})
 					.min(6, {
-						message: 'Password must be at least 8 characters',
+						message: 'Password must be at least 6 characters',
 					}),
 				confirmPassword: z.string({
 					message: 'Please confirm your password',
@@ -220,7 +220,7 @@ export default function Register() {
 	const onSubmit = async () => {
 		const isStepValid = await trigger();
 		if (isStepValid) {
-			if (stage == 1) {
+			if (stage !== 3) {
 				setStage((prev) => (prev + 1) as 1 | 2 | 3);
 			} else {
 				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
@@ -273,7 +273,7 @@ export default function Register() {
 								variant="outline"
 								size="icon"
 								className="text-black bg-accent-500"
-								onClick={() => setStage((prev) => (prev + 1) as 1 | 2 | 3)}
+								type="submit"
 							>
 								<ChevronRightIcon className="h-4 w-4" />
 							</Button>

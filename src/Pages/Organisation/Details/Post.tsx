@@ -33,6 +33,33 @@ export default function Post() {
 				</span>
 				<FormDescription>Fulfilled or not</FormDescription>
 			</div>
+			{post.condition && (
+				<>
+					<div className="flex flex-col h-[100px] space-y-2">
+						<Label>Donor name</Label>
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
+							{post.donor.firstname} {post.donor.secondname}
+						</span>
+						<FormDescription>
+							Name of donor who fulfilled donation
+						</FormDescription>
+					</div>
+					<div className="flex flex-col h-[100px] space-y-2">
+						<Label>Contanct Number</Label>
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
+							{post.donor.contactPhone}
+						</span>
+						<FormDescription>Contact number of donor</FormDescription>
+					</div>
+					<div className="flex flex-col h-[100px] space-y-2">
+						<Label>Contact email</Label>
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
+							{post.donor.email}
+						</span>
+						<FormDescription>Contact email of donor</FormDescription>
+					</div>
+				</>
+			)}
 		</>
 	);
 

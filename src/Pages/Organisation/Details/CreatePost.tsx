@@ -24,9 +24,14 @@ import { Textarea } from '../../../Components/shadcn/ui/textarea';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '../../../Components/shadcn/ui/use-toast';
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 
 export default function CreatePost() {
 	const [type, setType] = useState<string>('');
+	const [marker, setMarker] = useState({
+		lat: 29.987031,
+		lng: 31.440164,
+	});
 	const navigate = useNavigate();
 	const schema = {
 		stationary: z.object({
@@ -444,23 +449,22 @@ export default function CreatePost() {
 					/>
 				</div>
 				<div className="flex gap-2">
-					<FormField
-						control={control}
-						name="location"
-						render={({ field }) => (
-							<FormItem className="flex flex-col h-[200px] w-[30rem]">
-								<FormLabel>Case Location</FormLabel>
-								<FormControl>
-									<Input
-										placeholder="Enter case location"
-										type="text"
-										{...field}
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
+					<APIProvider apiKey={'AIzaSyCYG5qJiDS6VEhVTucACoUiSsV2IuNGykk'}>
+						<Map
+							zoom={12}
+							center={{ lat: 29.987031, lng: 31.440164 }}
+							style={{
+								height: '400px',
+								width: '600px',
+							}}
+							onClick={(event) => {
+								// @ts-ignore
+								setMarker(event.detail.latLng);
+							}}
+						>
+							<Marker position={marker} />
+						</Map>
+					</APIProvider>
 					<FormField
 						control={control}
 						name="description"
