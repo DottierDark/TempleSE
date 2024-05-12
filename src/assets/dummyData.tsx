@@ -76,6 +76,9 @@ import art from '../assets/Images/Donor/Lists/TeachingPosts/art.jpeg';
 import  AB   from '../assets/Images/Donor/Lists/MedicalSupplies/AB.jpeg';
 import B from '../assets/Images/Donor/Lists/MedicalSupplies/B.jpeg';
 
+import org from '../assets/Images/Admin/organization.jpeg';
+
+
 
 
 export const credentials: User[] = [
@@ -121,7 +124,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'hope@shelter.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 
 	{
@@ -135,7 +138,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'sal@gmail.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 3,
@@ -148,7 +151,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'GOOd@gmail.com',
 		status: 'pending',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 4,
@@ -161,7 +164,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'red@gmail.com',
 		status: 'pending',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 5,
@@ -174,7 +177,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'dope@shelter.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 6,
@@ -187,7 +190,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'x@gmail.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 7,
@@ -200,7 +203,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'fut@gmail.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 	{
 		id: 8,
@@ -213,7 +216,7 @@ export const organizations: Organization[] = [
 		contactEmail: 'wa@gmail.com',
 		status: 'approved',
 
-		img: 'https://via.placeholder.com/150',
+		img: org,
 	},
 ];
 
@@ -461,14 +464,7 @@ export const medicalSupplies: TMedicalSupply[] = [
 		img: panadol,
 		use: 'Pain',
 	},
-	{
-		id: 9,
-		name: 'Comtrex',
-		type: 'medicine',
-		quantity: 50,
-		img: comtrex,
-		use: 'Flu',
-	},
+
 	{
 		id: 10,
 		name: 'Strepsils',
@@ -477,14 +473,7 @@ export const medicalSupplies: TMedicalSupply[] = [
 		img: strepsils,
 		use: 'Cold',
 	},
-	{
-		id: 11,
-		name: 'Dettol',
-		type: 'medicine',
-		quantity: 70,
-		img: detol,
-		use: 'Other',
-	},
+	
 ];
 export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
@@ -537,28 +526,28 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	},
 	{
 		id: 7,
-		name: 'My little Pony',
+		name: 'Splash',
 		quantity: 100,
-		img: Pencils,
+		img: books,
 		itemType: 'book',
-		author: 'Bonnie Zacherle',
-		bookName: 'My little Pony',
+		author: 'Lisa Green',
+		bookName: 'Splash',
 		language: 'English',
 		edition: '1st',
 		summary:
-			'the plot revolves around the adventures of Twilight Sparkle and her friends in the land of Equestria',
+			'A story about a little fish exploring the ocean.',
 	},
 	{
 		id: 8,
-		name: 'Game of Thrones',
+		name: 'Moon',
 		img: books,
 		quantity: 10,
-		bookName: 'Game of Thrones',
-		author: 'George R. R. Martin',
+		bookName: 'Moon',
+		author: 'Sam lee',
 		language: 'English',
 		edition: '1st',
 		summary:
-			'It follows the power struggles among noble families as they vie for control of the Iron Throne',
+			'A tale of adventure under the moonlight',
 		itemType: 'book',
 	},
 	{
@@ -576,54 +565,54 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 	},
 	{
 		id: 10,
-		name: 'The Name of the Wind',
+		name: 'Roar',
 		img: books,
 		quantity: 30,
-		bookName: 'The Name of the Wind',
-		author: 'Patrick Rothfuss',
+		bookName: 'Roar',
+		author: 'Emma White',
 		language: 'English',
 		edition: '3rd',
 		summary:
-			'The story follows Kvothe, a gifted young man with a mysterious past',
+			'Join a lion cubs journey through the savannah.',
 		itemType: 'book',
 	},
 	{
 		id: 11,
-		name: 'The Girl with the Dragon Tattoo',
+		name: 'Wish',
 		img: books,
 		quantity: 40,
-		bookName: 'The Girl with the Dragon Tattoo',
-		author: 'Stieg Larsson',
+		bookName: 'Wish',
+		author: 'Grace Park',
 		language: 'English',
 		edition: '4th',
 		summary:
-			'Journalist Mikael Blomkvist is hired by wealthy industrialist Henrik Vanger to investigate the disappearance of his niece Harriet',
+			' A magical story of wishes coming true.',
 		itemType: 'book',
 	},
 	{
 		id: 12,
-		name: 'The Pillars of the Earth',
+		name: 'Zoom',
 		img: books,
 		quantity: 50,
-		bookName: 'The Pillars of the Earth',
-		author: 'Ken Follett',
+		bookName: 'Zoom',
+		author: 'Max Gray',
 		language: 'English',
 		edition: '5th',
 		summary:
-			'Set in 12th-century England, the novel follows the construction of a cathedral in the fictional town of Kingsbridge.',
+			'Follow a race car zooming around the track.',
 		itemType: 'book',
 	},
 	{
 		id: 13,
-		name: 'Pride and Prejudice',
+		name: 'Glow',
 		img: books,
 		quantity: 60,
-		bookName: 'Pride and Prejudice',
-		author: 'Jane Austen',
+		bookName: 'Glow',
+		author: 'Ava Brown',
 		language: 'English',
 		edition: '6th',
 		summary:
-			'In Regency-era England, the headstrong Elizabeth Bennet meets the aloof Mr. Darcy',
+			'Discover the magic of fireflies on a summer night.',
 		itemType: 'book',
 	},
 ];

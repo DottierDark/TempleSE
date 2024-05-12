@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import RequestsDonor from '../../assets/Images/Admin/Home/DonorsRequestsLists.jpeg';
-import RequestsOrg from '../../assets/Images/Admin/Home/OrganizationsRequestsLists.jpeg';
-import RegisteredOrg from '../../assets/Images/Admin/Home/RegistredOrganizations.jpeg';
+import RequestsDonor from '../../assets/Images/Admin/DonorsRequestsLists.jpeg';
+import RequestsOrg from '../../assets/Images/Admin/OrganizationsRequestsLists.jpeg';
+import RegisteredOrg from '../../assets/Images/Admin/RegistredOrganizations.jpeg';
 import { Card } from '../../Components/shadcn/ui/card';
 
 export default function AdminHome() {
