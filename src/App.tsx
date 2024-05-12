@@ -72,8 +72,7 @@ import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
 import OrganisationSettings from './Pages/Organisation/Settings/OrganisationSettings';
 import Donors from './Pages/Admin/Views/Donors';
 import OrganisationHome from './Pages/Organisation/Home';
-import UnfulfilledPost from './Pages/Organisation/Details/UnfulfilledPost';
-import FulfilledPost from './Pages/Organisation/Details/FulfilledPost';
+import CreatePost from './Pages/Organisation/Details/CreatePost';
 import Post from './Pages/Organisation/Details/Post';
 
 function App() {
@@ -135,20 +134,14 @@ function App() {
 					element={<OrganisationSettings />}
 				/>
 				<Route path="/organisation/fulfilled-posts" element={<Fulfilled />} />
-				<Route
-					path="/organisation/fulfilled-posts/:id"
-					element={<FulfilledPost />}
-				/>
+				<Route path="/organisation/fulfilled-posts/:id" element={<Post />} />
 				<Route
 					path="/organisation/unfulfilled-posts"
 					element={<UnFulfilled />}
 				/>
-				<Route
-					path="/organisation/unfulfilled-posts/:id"
-					element={<UnfulfilledPost />}
-				/>
+				<Route path="/organisation/unfulfilled-posts/:id" element={<Post />} />
 				<Route path="/organisation/notifications" element={<Notifications />} />
-				<Route path="/organisation/create-post" element={<Post />} />
+				<Route path="/organisation/create-post" element={<CreatePost />} />
 			</Routes>
 		</BrowserRouter>
 	);

@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 import ImageField from '../../../Components/details/fields/ImageField';
 import Details from '../../../Components/details/Details';
 
-export default function Toy() {
+export default function Toy({ children }: { children?: React.ReactNode }) {
 	const { id } = useParams<{ id: string }>();
 	const toy = toys.find((item) => item.id.toString() === id);
 
@@ -60,8 +60,9 @@ export default function Toy() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Toy" id={id} canEdit={false}>
-				<Details acceptRequest>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 p-6 gap-x-12">
+						{children}
 						<TextField
 							name="name"
 							label="Name"

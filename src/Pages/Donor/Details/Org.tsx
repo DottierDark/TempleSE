@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import Details from '../../../Components/details/Details';
 import MapField from '../../../Components/details/fields/MapField';
 
-export default function Org() {
+export default function Org({ children }: { children?: React.ReactNode }) {
 	const { id } = useParams<{ id: string }>();
 	const organization = organizations.find((item) => item.id.toString() === id);
 
@@ -38,6 +38,7 @@ export default function Org() {
 			<DetailsContextProvider title="Organisation" id={id} canEdit={false}>
 				<Details>
 					<div className="grid grid-cols-2 gap-5 p-6">
+						{children}
 						<TextField
 							name="name"
 							label="Name"

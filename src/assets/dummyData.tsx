@@ -73,13 +73,10 @@ import art from '../assets/Images/Donor/Lists/TeachingPosts/art.jpeg';
 {
 	/* Blood list Images*/
 }
-import  AB   from '../assets/Images/Donor/Lists/MedicalSupplies/AB.jpeg';
+import AB from '../assets/Images/Donor/Lists/MedicalSupplies/AB.jpeg';
 import B from '../assets/Images/Donor/Lists/MedicalSupplies/B.jpeg';
 
 import org from '../assets/Images/Admin/organization.jpeg';
-
-
-
 
 export const credentials: User[] = [
 	{
@@ -464,7 +461,7 @@ export const medicalSupplies: TMedicalSupply[] = [
 		name: 'X-Ray Machine',
 		type: 'device',
 		quantity: 10,
-		img: xray ,
+		img: xray,
 		use: 'General',
 	},
 	{
@@ -500,7 +497,6 @@ export const medicalSupplies: TMedicalSupply[] = [
 		img: strepsils,
 		use: 'Cold',
 	},
-	
 ];
 export const schoolSupplies: TSchoolSuppliesItem[] = [
 	{
@@ -561,8 +557,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 		bookName: 'Splash',
 		language: 'English',
 		edition: '1st',
-		summary:
-			'A story about a little fish exploring the ocean.',
+		summary: 'A story about a little fish exploring the ocean.',
 	},
 	{
 		id: 8,
@@ -573,8 +568,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 		author: 'Sam lee',
 		language: 'English',
 		edition: '1st',
-		summary:
-			'A tale of adventure under the moonlight',
+		summary: 'A tale of adventure under the moonlight',
 		itemType: 'book',
 	},
 	{
@@ -590,7 +584,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 			'Set in a distant future where noble houses vie for control of the desert planet Arrakis',
 		itemType: 'book',
 	},
-	
+
 	{
 		id: 13,
 		name: 'Glow',
@@ -600,8 +594,7 @@ export const schoolSupplies: TSchoolSuppliesItem[] = [
 		author: 'Ava Brown',
 		language: 'English',
 		edition: '6th',
-		summary:
-			'Discover the magic of fireflies on a summer night.',
+		summary: 'Discover the magic of fireflies on a summer night.',
 		itemType: 'book',
 	},
 ];
@@ -707,11 +700,6 @@ export const bloodCases: TBloodDonation[] = [
 		gov: 'USA',
 		address: '789 Main Street, Sunrise City, FL 33000, United States',
 	},
-	
-	
-
-	
-	
 ];
 
 export const teachingPosts: TTeachingPost[] = [
@@ -1208,82 +1196,118 @@ export const clothes: TClothesItem[] = [
 
 export const orgPosts: TOrgPost[] = [
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: true,
 		...clothes[0],
 		id: 1,
 	},
 	{
-		postCategory: 'Clothes',
-		condition: true,
+		postCategory: 'clothes',
+		condition: false,
 
 		...clothes[1],
 		id: 2,
 	},
 	{
-		postCategory: 'Clothes',
-		condition: true,
+		postCategory: 'clothes',
+		condition: false,
 		...clothes[2],
 		id: 3,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: true,
 		...clothes[3],
 		id: 4,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: true,
 		...clothes[4],
 		id: 5,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: true,
 		...clothes[5],
 		id: 6,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[6],
 		id: 7,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[7],
 		id: 8,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[8],
 		id: 9,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[9],
 		id: 10,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[10],
 		id: 11,
 	},
 	{
-		postCategory: 'Clothes',
+		postCategory: 'clothes',
 		condition: false,
 		...clothes[11],
 		id: 12,
 	},
 	{
-		postCategory: 'Toys',
+		postCategory: 'toys',
 		condition: true,
 		...toys[0],
 		id: 13,
+	},
+	{
+		postCategory: 'toys',
+		condition: true,
+		...toys[1],
+		id: 14,
+	},
+	{
+		postCategory: 'toys',
+		condition: true,
+		...toys[2],
+		id: 15,
+	},
+	{
+		postCategory: 'toys',
+		condition: false,
+		...toys[3],
+		id: 16,
+	},
+	{
+		postCategory: 'toys',
+		condition: true,
+		...toys[4],
+		id: 17,
+	},
+	{
+		postCategory: 'toys',
+		condition: false,
+		...toys[5],
+		id: 18,
+	},
+	{
+		postCategory: 'toys',
+		condition: true,
+		...toys[6],
+		id: 19,
 	},
 ];

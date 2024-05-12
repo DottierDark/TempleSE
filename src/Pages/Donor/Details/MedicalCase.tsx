@@ -12,7 +12,11 @@ import TextareaField from '../../../Components/details/fields/TextareaField';
 import Details from '../../../Components/details/Details';
 import MapField from '../../../Components/details/fields/MapField';
 
-export default function MedicalCase() {
+export default function MedicalCase({
+	children,
+}: {
+	children?: React.ReactNode;
+}) {
 	const { id } = useParams<{ id: string }>();
 	const medicalCase = medicalCases.find((item) => item.id.toString() === id);
 
@@ -45,8 +49,9 @@ export default function MedicalCase() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Medical case" id={id} canEdit={false}>
-				<Details acceptRequest>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
+						{children}
 						<TextField
 							name="patientName"
 							label="Patient Name"
