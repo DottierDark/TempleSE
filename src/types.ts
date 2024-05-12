@@ -187,6 +187,17 @@ export type TDonorSettings = {
 	governorate: string;
 };
 
+export type TAdminSettings = {
+	firstName: string;
+	lastName: string;
+	phoneNumber: string;
+	email: string;
+	address: string;
+	city: string;
+	area: string;
+	password: string;
+};
+
 export type TOrganizationSettings = {
 	firstName: string;
 	lastName: string;

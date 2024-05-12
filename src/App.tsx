@@ -69,6 +69,7 @@ import RegisteredOrganizationDetails from './Pages/Admin/Details/RegisteredOrgan
 import { Toaster } from './Components/shadcn/ui/toaster';
 import AdminSettings from './Pages/Admin/Settings/AdminSettings';
 import SchoolSupply from './Pages/Donor/Details/SchoolSupply';
+import OrganisationSettings from './Pages/Organisation/Settings/OrganisationSettings';
 
 function App() {
 	return (
@@ -124,8 +125,8 @@ function App() {
 				{/* Organisation Pages*/}
 				<Route path="/organisation" element={<OrgHome />} />
 				<Route
-					path="/organisation/AccountSettings"
-					element={<DonorSettings />}
+					path="/organisation/settings"
+					element={<OrganisationSettings />}
 				/>
 				<Route path="/organisation/fulfilled-posts" element={<Fulfilled />} />
 				<Route
