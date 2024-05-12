@@ -275,12 +275,7 @@ export default function TopBar() {
 	const isSameLocation = currentLocation === previousLocation;
 
 	return type != 'register' && type != '' ? (
-		<div
-			className="sticky left-0 top-0 z-20 h-16 w-full flex items-center justify-between px-4  p-3 transition-shadow"
-			style={{
-				background:'rgb(115 203 218)',
-			}}
-		>
+		<div className="sticky left-0 top-0 z-20 h-16 w-full flex items-center justify-between px-4  p-3 transition-shadow bg-primary shadow-md">
 			<div className="flex items-center gap-4">
 				<h1 className="text-3xl font-bold text-white">{type} Portal</h1>
 			</div>

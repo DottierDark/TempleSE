@@ -46,7 +46,7 @@ export const columns: ColumnDef<Donor>[] = [
 		header: 'Gov',
 		cell: ({ row }) => <div>{row.getValue('gov')}</div>,
 	},
-	
+
 	{
 		id: 'actions',
 		enableHiding: false,
@@ -62,7 +62,6 @@ export const columns: ColumnDef<Donor>[] = [
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Open menu</span>
 							<DotsHorizontalIcon className="h-4 w-4" />
 						</Button>
 					</DropdownMenuTrigger>

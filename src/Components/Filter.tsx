@@ -117,8 +117,7 @@ export default function Filter({
 	}, [dummyData, filters]);
 
 	return (
-		<div className="flex sticky h-[93vh] w-[20%] flex-col gap-5" 
-		style={{ backgroundColor: 'rgb(250, 254, 253)'}}>
+		<div className="flex sticky h-[93vh] w-[20%] flex-col gap-5 bg-secondary-900">
 			{!hidesearchbar && (
 				<Searchbar
 					data={dummyData ?? []}
@@ -127,8 +126,10 @@ export default function Filter({
 				/>
 			)}
 			<DropdownMenu.Root modal={false}>
-				<DropdownMenu.Trigger className="flex w-fit items-center gap-2 rounded-2xl bg-blue-400 p-2 text-sm sm:text-base"
-				style={{ backgroundColor: 'rgb(123 201 214)'}}>
+				<DropdownMenu.Trigger
+					className="flex w-fit items-center gap-2 rounded-2xl bg-primary-700  p-2 mt-4 text-sm sm:text-base"
+					style={{ backgroundColor: 'rgb(123 201 214)' }}
+				>
 					<PlusCircle size={20} />
 					Add Filter
 				</DropdownMenu.Trigger>
@@ -140,7 +141,7 @@ export default function Filter({
 						{columnFilters?.map((filter, i) => (
 							<DropdownMenu.DropdownMenuSub key={i}>
 								<DropdownMenu.SubTrigger
-									className="cursor-pointer rounded-md px-2 py-1 outline-none hover:bg-gray-100"
+									className="cursor-pointer rounded-md px-2 py-1 outline-none hover:bg-accent hover:text-white"
 									key={i}
 								>
 									{filter.label}
@@ -165,7 +166,7 @@ export default function Filter({
 			{filters.map((filter, i) => (
 				<div
 					key={i}
-					className="mr-2 flex items-center justify-between rounded-md bg-blue-400 px-2 py-1"
+					className="mr-2 flex items-center justify-between rounded-md bg-primary-700 px-2 py-1"
 				>
 					{
 						columnFilters.find(

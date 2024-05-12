@@ -10,8 +10,8 @@ import {
 	DropdownMenuTrigger,
 } from '../../../../Components/shadcn/ui/dropdown-menu';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
-import { ToastAction } from "../../../../Components/shadcn/ui/toast"
-import { useToast } from "../../../../Components/shadcn/ui/use-toast"
+import { ToastAction } from '../../../../Components/shadcn/ui/toast';
+import { useToast } from '../../../../Components/shadcn/ui/use-toast';
 
 export const columns: ColumnDef<Donor>[] = [
 	{
@@ -79,28 +79,25 @@ export const columns: ColumnDef<Donor>[] = [
 		id: 'actions',
 		enableHiding: false,
 		cell: ({ row }) => {
-			const { toast } = useToast()
+			const { toast } = useToast();
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button variant="ghost" className="h-8 w-8 p-0">
-							<span className="sr-only">Open menu</span>
-							<DotsHorizontalIcon className="h-4 w-4" />
+							<DotsHorizontalIcon className="h-4 w-4 " />
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuLabel>More Actions</DropdownMenuLabel>
-                        
+
 						<DropdownMenuItem
-						   onClick={() => {
-							toast({
-							  title: "File Downloaded Successfuly ",
-							  description: "",
-							  action: (
-								<ToastAction altText="Go to see">Undo</ToastAction>
-							  ),
-							})
-						  }}
+							onClick={() => {
+								toast({
+									title: 'File Downloaded Successfuly ',
+									description: '',
+									action: <ToastAction altText="Go to see">Undo</ToastAction>,
+								});
+							}}
 						>
 							Download Submited Documents
 						</DropdownMenuItem>
