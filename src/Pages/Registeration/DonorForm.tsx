@@ -30,7 +30,9 @@ export default function DonorForm() {
 						name="subjects"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>Subjects</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									Subjects
+								</FormLabel>
 								<FormControl>
 									<Input placeholder="Subjects" {...field} />
 								</FormControl>
@@ -43,7 +45,9 @@ export default function DonorForm() {
 						name="teach"
 						render={({ field }) => (
 							<FormItem className="flex flex-col h-[100px] w-72">
-								<FormLabel>How many classes can you teach?</FormLabel>
+								<FormLabel className="text-base font-heading ml-1">
+									How many classes can you teach?
+								</FormLabel>
 								<FormControl>
 									<Input placeholder="5" {...field} />
 								</FormControl>
@@ -57,7 +61,9 @@ export default function DonorForm() {
 					name="proofteacher"
 					render={({ field }) => (
 						<FormItem className="flex flex-col h-[100px]">
-							<FormLabel>Proof of Work</FormLabel>
+							<FormLabel className="text-base font-heading ml-1">
+								Proof of Work
+							</FormLabel>
 							<FormControl>
 								<Input
 									className="flex rounded-full border space-x-2"

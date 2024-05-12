@@ -20,7 +20,7 @@ export default function Register() {
 	const formBody = {
 		1: <Stage1 setFormType={setFormType} />,
 		2: formType === 'donor' ? <DonorForm /> : <OrganisationForm />,
-		3: <Stage3 setFormType={setFormType} />,
+		3: <Stage3 />,
 	};
 
 	const schema = {
@@ -132,7 +132,7 @@ export default function Register() {
 							})
 							.refine(
 								(value) => {
-									const numberValue = Number(value); 
+									const numberValue = Number(value);
 									return numberValue > 0;
 								},
 								{
@@ -145,7 +145,7 @@ export default function Register() {
 							})
 							.refine(
 								(value) => {
-									const numberValue = Number(value); 
+									const numberValue = Number(value);
 									return numberValue > 0;
 								},
 								{
@@ -190,16 +190,15 @@ export default function Register() {
 								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
-		3: z
-			.object({
-				firstName: z
-					.string({
-						message: 'Please enter a valid first name',
-					})
-					.min(2, {
-						message: 'First Name must be at least 2 characters.',
-					}),
-			})
+		3: z.object({
+			firstName: z
+				.string({
+					message: 'Please enter a valid first name',
+				})
+				.min(2, {
+					message: 'First Name must be at least 2 characters.',
+				}),
+		}),
 	};
 
 	const form = useForm({
@@ -230,19 +229,19 @@ export default function Register() {
 	};
 
 	return (
-		<div className="absolute flex h-full w-full flex-col items-center justify-center bg-gray-900">
-			<Card className="border border-gray-700 bg-gray-800 px-12 py-6 flex flex-col rounded-2xl h-[85vh] w-[75vh] text-white">
+		<div className="absolute flex h-full w-full flex-col items-center justify-center">
+			<Card className="border border-gray-700  px-12 py-6 flex flex-col rounded-2xl h-[85vh] w-[75vh] text-2xl shadow-2xl">
 				<Form {...form}>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						className="flex flex-col items-center justify-between h-full gap-2"
 					>
 						<div className="flex flex-col items-center gap-3">
-							<div className="text-3xl font-bold">Register</div>
-							<div className="flex w-full text-white items-center justify-center gap-1 text-lg">
+							<div className="text-3xl font-bold font-heading">Register</div>
+							<div className="flex w-full items-center justify-center gap-1 text-lg font-body">
 								<div className="">Already Have an Account?</div>
 								<a
-									className=" text-primary-500 cursor-pointer font-medium text-white hover:underline"
+									className="text-primary-500 hover:text-primary-300 cursor-pointer font-medium underline"
 									onClick={() => navigate('/')}
 								>
 									Sign in
@@ -258,7 +257,7 @@ export default function Register() {
 								variant="outline"
 								size="icon"
 								onClick={() => setStage((prev) => (prev - 1) as 1 | 2 | 3)}
-								className="text-black"
+								className="text-black bg-accent-500"
 							>
 								<ChevronLeftIcon className="h-4 w-4" />
 							</Button>
