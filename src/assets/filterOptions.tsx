@@ -187,7 +187,61 @@ export const medicalSuppliesFilterOptions = [
 		],
 	},
 ];
-export const medicalCasesFilterOptions = [{}];
+export const medicalCasesFilterOptions = [
+	{
+		id: 'specialty',
+		label: 'Specialty',
+		type: 'options',
+		options: [
+			{
+				value: 'Surgery',
+				label: 'Surgery',
+			},
+			{
+				value: 'Medication',
+				label: 'Medication',
+			},
+			{
+				value: 'Therapy',
+				label: 'Therapy',
+			},
+			{
+				value: 'Other',
+				label: 'Other',
+			},
+		],
+	},
+	{
+		id: 'urgency',
+		label: 'Urgency',
+		type: 'options',
+		options: [
+			{
+				value: 'Urgent',
+				label: 'Urgent',
+			},
+			{
+				value: 'Not Urgent',
+				label: 'Not Urgent',
+			},
+		],
+	},
+	{
+		id: 'gov',
+		label: 'Governorate',
+		type: 'string',
+	},
+	{
+		id: 'area',
+		label: 'Area',
+		type: 'string',
+	},
+	{
+		id: 'orgName',
+		label: 'Organization Name',
+		type: 'string',
+	},
+];
 export const schoolSuppliesFilterOptions = [
 	{
 		id: 'itemType',
@@ -205,7 +259,31 @@ export const schoolSuppliesFilterOptions = [
 		],
 	},
 ];
-export const foodsFilterOptions = [{}];
+export const foodsFilterOptions = [
+	{
+		id: 'type',
+		label: 'Type',
+		type: 'options',
+		options: [
+			{
+				value: 'fruits and vegetables',
+				label: 'Fruits and Vegetables',
+			},
+			{
+				value: 'canned',
+				label: 'Canned',
+			},
+			{
+				value: 'fresh',
+				label: 'Fresh',
+			},
+			{
+				value: 'baked',
+				label: 'Baked',
+			},
+		],
+	},
+];
 export const bloodFilterOptions = [
 	{
 		id: 'hospital',
@@ -267,7 +345,14 @@ export const OrgOptions = [
 		name: ' Fulfilled',
 		key: 'fulfilled',
 	},
-	{},
+	{
+		name: 'Unfulfilled',
+		key: 'unfulfilled',
+	},
+	{
+		name: 'Natifications',
+		key: 'natifications',
+	},
 ];
 
 export const RegisteredOrganizationsOptions = [
