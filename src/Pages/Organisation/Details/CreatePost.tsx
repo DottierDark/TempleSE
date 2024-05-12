@@ -12,11 +12,30 @@ import { useEffect } from 'react';
 import ImageField from '../../../Components/details/fields/ImageField';
 import Details from '../../../Components/details/Details';
 
-export default function FulfilledPost() {
-	const { id } = useParams<{ id: string }>();
-	const toy = ful.find((item) => item.id.toString() === id);
+export default function CreatePost() {
+	const formSchema = z.object({
+		name: z.string().min(2, {
+			message: 'Name must be at least 2 characters.',
+		}),
+		type: z.string().min(2, {
+			message: 'Type must be at least 2 characters.',
+		}),
+		ageGroup: z.string().min(2, {
+			message: 'Age group must be at least 2 characters.',
+		}),
+		quantity: z.number().min(0, {
+			message: 'Quantity must be at least 0.',
+		}),
+		gender: z.string().min(2, {
+			message: 'h',
+		}),
+		category: z.string().min(2, {
+			message: 'h',
+		}),
+	});
 
 	const form = useForm<TToyItem>({
+		resolver: zodResolver(formSchema),
 		defaultValues: {
 			id: undefined,
 			name: undefined,
@@ -29,16 +48,10 @@ export default function FulfilledPost() {
 		},
 	});
 
-	useEffect(() => {
-		if (toy) {
-			form.reset(toy);
-		}
-	}, [toy]);
-
 	return (
 		<Form {...form}>
-			<DetailsContextProvider title="Fulfilled post" id={id} canEdit={false}>
-				<Details acceptRequest>
+			<DetailsContextProvider title="Create" id={undefined} canEdit>
+				<Details>
 					<div className="grid grid-cols-2 p-6 gap-x-12">
 						<TextField
 							name="name"

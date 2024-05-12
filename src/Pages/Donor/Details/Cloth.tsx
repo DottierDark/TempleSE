@@ -12,7 +12,7 @@ import TextField from '../../../Components/details/fields/TextField';
 import NumberField from '../../../Components/details/fields/NumberField';
 import ImageField from '../../../Components/details/fields/ImageField';
 
-export default function Cloth() {
+export default function Cloth({ children }: { children?: React.ReactNode }) {
 	const { id } = useParams<{ id: string }>();
 	const cloth = clothes.find(
 		(item) => item.id.toString() === id
@@ -100,8 +100,9 @@ export default function Cloth() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Clothes item" id={id} canEdit={false}>
-				<Details acceptRequest>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
+						{children}
 						<TextField
 							name="name"
 							label="Name"

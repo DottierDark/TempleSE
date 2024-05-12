@@ -13,7 +13,7 @@ import ImageField from '../../../Components/details/fields/ImageField';
 import Details from '../../../Components/details/Details';
 import TextareaField from '../../../Components/details/fields/TextareaField';
 
-export default function Book() {
+export default function Book({ children }: { children?: React.ReactNode }) {
 	const { id } = useParams<{ id: string }>();
 	const book = schoolSupplies.find(
 		(item) => item.id.toString() === id
@@ -95,8 +95,9 @@ export default function Book() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Book" id={id} canEdit={false}>
-				<Details acceptRequest>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
+						{children}
 						<TextField
 							name="bookName"
 							label="Book Name"

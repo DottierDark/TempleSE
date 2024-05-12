@@ -12,7 +12,11 @@ import { useEffect } from 'react';
 import ImageField from '../../../Components/details/fields/ImageField';
 import Details from '../../../Components/details/Details';
 
-export default function Stationary() {
+export default function Stationary({
+	children,
+}: {
+	children?: React.ReactNode;
+}) {
 	const { id } = useParams<{ id: string }>();
 	const stationary = schoolSupplies.find(
 		(item) => item.id.toString() === id
@@ -63,8 +67,9 @@ export default function Stationary() {
 	return (
 		<Form {...form}>
 			<DetailsContextProvider title="Stationary" id={id} canEdit={false}>
-				<Details acceptRequest>
+				<Details acceptRequest={!children}>
 					<div className="grid grid-cols-2 gap-5 p-6">
+						{children}
 						<TextField
 							name="name"
 							label="Item Name"
