@@ -171,6 +171,7 @@ export type TNavigationMenuTab = {
 	key: string;
 	links?: {
 		name: string;
+		description: string;
 		key: string;
 		href: string;
 	}[];

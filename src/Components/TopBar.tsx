@@ -151,21 +151,25 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Registered Organizations',
+					description: 'View a list of all registered organizations',
 					key: 'admin',
 					href: '/admin/RegisteredOrganizations',
 				},
 				{
 					name: 'Donor Requests',
+					description: 'View a list of all donor requests',
 					key: 'admin',
 					href: '/admin/DonorRequests',
 				},
 				{
-					name: 'Organization Requests',
+					name: 'Organisation Requests',
+					description: 'View a list of all organisation requests',
 					key: 'admin',
 					href: '/admin/OrganizationsRequests',
 				},
 				{
 					name: 'Account Settings',
+					description: 'View your account settings',
 					key: 'admin',
 					href: '/admin/AccountSettings',
 				},
@@ -177,16 +181,19 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Medical Cases',
+					description: 'View a list of all medical cases',
 					key: 'doctor',
 					href: '/donor/medical-cases',
 				},
 				{
 					name: 'Teaching Posts',
+					description: 'View a list of all teaching posts',
 					key: 'teacher',
 					href: '/donor/teaching',
 				},
 				{
 					name: 'Organizations',
+					description: 'View a list of all organisations',
 					key: 'all',
 					href: '/donor/organizations',
 				},
@@ -198,31 +205,37 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Toys',
+					description: 'View a list of all toy donation requests',
 					key: 'all',
 					href: '/donor/toys',
 				},
 				{
 					name: 'Clothes',
+					description: 'View a list of all clothes donation requests',
 					key: 'all',
 					href: '/donor/clothes',
 				},
 				{
 					name: 'Food',
+					description: 'View a list of all toy donation requests',
 					key: 'all',
 					href: '/donor/food',
 				},
 				{
 					name: 'Medicines Supplies',
+					description: 'View a list of all medical supplies donation requests',
 					key: 'all',
 					href: '/donor/medical-supplies',
 				},
 				{
 					name: 'School Supplies',
+					description: 'View a list of all school supplies donation requests',
 					key: 'all',
 					href: '/donor/school-supplies',
 				},
 				{
 					name: 'Blood',
+					description: 'View a list of all blood donation requests',
 					key: 'all',
 					href: '/donor/blood-donation',
 				},
@@ -234,16 +247,19 @@ export default function TopBar() {
 			links: [
 				{
 					name: 'Fulfilled Posts',
+					description: 'View a list of all fulfilled posts',
 					key: 'fulfilled',
 					href: '/organisation/fulfilled-posts',
 				},
 				{
 					name: 'Unfulfilled Posts',
+					description: 'View a list of all unfulfilled posts',
 					key: 'unfulfilled',
 					href: '/organisation/unfulfilled-posts',
 				},
 				{
 					name: 'Notifications',
+					description: 'View a list of all notifications',
 					key: 'notifications',
 					href: '/organisation/notifications',
 				},
@@ -302,7 +318,7 @@ export default function TopBar() {
 																title={link.name}
 																href={link.href}
 															>
-																{link.name}
+																{link.description}
 															</ListItem>
 														) : link.key === user.donorType ? (
 															<ListItem
@@ -310,7 +326,7 @@ export default function TopBar() {
 																title={link.name}
 																href={link.href}
 															>
-																{link.name}
+																{link.description}
 															</ListItem>
 														) : null
 													) : (
@@ -319,7 +335,7 @@ export default function TopBar() {
 															title={link.name}
 															href={link.href}
 														>
-															{link.name}
+															{link.description}
 														</ListItem>
 													)
 												)}
@@ -393,7 +409,7 @@ const ListItem = React.forwardRef<
 				<a
 					ref={ref}
 					className={cn(
-						'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+						'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100',
 						className
 					)}
 					{...props}

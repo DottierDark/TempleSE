@@ -44,13 +44,13 @@ export default function TextareaField({
 									placeholder={placeholder}
 									{...field}
 									className={
-										inputClassName + 'resize-none bg-slate-300 border-black'
+										inputClassName + 'resize-none bg-slate-100 border-black'
 									}
 								/>
 							</FormControl>
 						</>
 					) : (
-						<span className="flex min-h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
+						<span className="flex min-h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-200">
 							{value}
 						</span>
 					)}

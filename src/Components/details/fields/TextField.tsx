@@ -44,12 +44,12 @@ export default function TextField({
 									placeholder={placeholder}
 									{...field}
 									type="text"
-									className={inputClassName + 'bg-slate-300 border-black'}
+									className={inputClassName + 'bg-slate-100 border-black'}
 								/>
 							</FormControl>
 						</>
 					) : (
-						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-300">
+						<span className="flex h-9 w-full rounded-md px-3 py-2 text-sm indent-px bg-slate-200">
 							{value}
 						</span>
 					)}

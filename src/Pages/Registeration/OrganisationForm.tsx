@@ -65,7 +65,7 @@ export default function OrganisationForm() {
 				control={control}
 				name="organizationName"
 				render={({ field }) => (
-					<FormItem className="flex flex-col h-[100px]">
+					<FormItem className="flex flex-col h-[100px] w-72">
 						<FormLabel>Organization Name</FormLabel>
 						<FormControl>
 							<Input placeholder="resala" {...field} />
@@ -78,7 +78,7 @@ export default function OrganisationForm() {
 				control={control}
 				name="organizationType"
 				render={({ field }) => (
-					<FormItem className="flex flex-col h-[100px]">
+					<FormItem className="flex flex-col h-[100px] w-72">
 						<FormLabel>Organisation Type</FormLabel>
 						<Select onValueChange={field.onChange} defaultValue={field.value}>
 							<FormControl>

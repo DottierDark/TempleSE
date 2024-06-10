@@ -8,6 +8,7 @@ import Details from '../../../Components/details/Details';
 import TextField from '../../../Components/details/fields/TextField';
 import { TDonorSettings } from '../../../types';
 import { useEffect } from 'react';
+import NumberField from '../../../Components/details/fields/NumberField';
 
 const donor = {
 	firstName: 'farida',
@@ -19,9 +20,15 @@ const donor = {
 	city: 'cairo',
 	area: 'nasr city',
 	governorate: 'cairo',
+	classes: 5,
+	subjects: 'Math, arabic',
+	specialty: 'eyes',
+	cases: 5,
 };
 
 export default function DonorSettings() {
+	const user = JSON.parse(localStorage.getItem('user') || '{}');
+
 	const formSchema = z.object({
 		firstName: z.string().min(2, {
 			message: 'First name must be at least 3 characters.',
@@ -72,6 +79,50 @@ export default function DonorSettings() {
 			form.reset(donor);
 		}, 0);
 	}, []);
+
+	const extraFields = {
+		regular: <></>,
+		teacher: (
+			<>
+				<NumberField
+					name="classes"
+					label="Number of classes"
+					description="How many classes you can teach"
+					detailsClassName=""
+					inputClassName=""
+					placeholder=""
+				/>
+				<TextField
+					name="subjects"
+					label="Subjects"
+					description="Your offered subjects"
+					detailsClassName=""
+					inputClassName=""
+					placeholder=""
+				/>
+			</>
+		),
+		doctor: (
+			<>
+				<TextField
+					name="specialty"
+					label="Specialty"
+					description="Your specialty"
+					detailsClassName=""
+					inputClassName=""
+					placeholder=""
+				/>
+				<NumberField
+					name="cases"
+					label="Cases"
+					description="How many cases can you take?"
+					detailsClassName=""
+					inputClassName=""
+					placeholder=""
+				/>
+			</>
+		),
+	};
 
 	return (
 		<Form {...form}>
@@ -150,6 +201,8 @@ export default function DonorSettings() {
 							inputClassName=""
 							placeholder="Enter governorate..."
 						/>
+						{user?.donorType &&
+							extraFields[user.donorType as keyof typeof extraFields]}
 					</div>
 				</Details>
 			</DetailsContextProvider>

@@ -104,54 +104,6 @@ export default function Register() {
 								message: 'Please select a donor type',
 							})
 							.optional(),
-						subjects: z
-							.string({
-								message: 'Please enter a valid subject',
-							})
-							.optional(),
-						classes: z
-							.string({
-								message: 'Please enter a valid class',
-							})
-							.optional(),
-						credentials: z
-							.instanceof(File, {
-								message: 'Please upload a valid credentials',
-							})
-							.optional(),
-						proof: z
-							.instanceof(File, {
-								message: 'Please upload a valid proof',
-							})
-							.refine((_value: any) => null, {
-								message: 'Proof is required',
-							}),
-						teach: z
-							.string({
-								message: 'Please enter a valid number',
-							})
-							.refine(
-								(value) => {
-									const numberValue = Number(value);
-									return numberValue > 0;
-								},
-								{
-									message: 'Must be a number greater than 0',
-								}
-							),
-						cases: z
-							.string({
-								message: 'Please enter a valid number',
-							})
-							.refine(
-								(value) => {
-									const numberValue = Number(value);
-									return numberValue > 0;
-								},
-								{
-									message: 'Must be a number greater than 0',
-								}
-							),
 					})
 				: z.object({
 						address: z
@@ -190,15 +142,7 @@ export default function Register() {
 								message: 'Organisation Type must be at least 2 characters.',
 							}),
 					}),
-		3: z.object({
-			firstName: z
-				.string({
-					message: 'Please enter a valid first name',
-				})
-				.min(2, {
-					message: 'First Name must be at least 2 characters.',
-				}),
-		}),
+		3: z.object({}),
 	};
 
 	const form = useForm({
@@ -211,7 +155,6 @@ export default function Register() {
 			userName: '',
 			contactNumber: '',
 			donor_type: '',
-			type: 'regular',
 		},
 	});
 
@@ -220,7 +163,7 @@ export default function Register() {
 	const onSubmit = async () => {
 		const isStepValid = await trigger();
 		if (isStepValid) {
-			if (stage !== 3) {
+			if (stage !== 3 && !(form.watch('type') === 'donor' && stage == 2)) {
 				setStage((prev) => (prev + 1) as 1 | 2 | 3);
 			} else {
 				formType === 'donor' ? navigate('/donor') : navigate('/organisation');
@@ -263,13 +206,17 @@ export default function Register() {
 							</Button>
 							<Button
 								type="submit"
-								disabled={stage !== 3}
+								disabled={
+									stage !== 3 && !(form.watch('type') === 'donor' && stage == 2)
+								}
 								className="bg-gray-700 h-10 w-40 "
 							>
 								Register
 							</Button>
 							<Button
-								disabled={stage === 3}
+								disabled={
+									stage === 3 || (form.watch('type') === 'donor' && stage == 2)
+								}
 								variant="outline"
 								size="icon"
 								className="text-black bg-accent-500"
